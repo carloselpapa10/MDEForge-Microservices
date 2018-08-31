@@ -30,7 +30,7 @@ public class ProjectServiceImpl implements ProjectService{
 	public Project createProject(Project project) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("createProject(Project project) - ProjectServiceImpl - MdeforgeviewService");
-		return project;
+		return projectRepository.save(project);
 	}
 				
 	@Override
@@ -43,7 +43,7 @@ public class ProjectServiceImpl implements ProjectService{
 	public Project findProject(String id) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("findProject(String id) - ProjectServiceImpl - MdeforgeviewService");
-		return null;
+		return projectRepository.findOne(id);
 	}
 			
 	@Override
@@ -71,9 +71,15 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 			
 	@Override
-	public void shareProjectToUser(Project project) throws BusinessException{
+	public Project shareProjectToUser(Project project, User user) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("shareProjectToUser(Project project) - ProjectServiceImpl - MdeforgeviewService");
+
+		List<User> userList = project.getUserlist() == null ? new ArrayList<>() : project.getUserlist();
+		userList.add(user);
+		project.setUserlist(userList);
+
+		return projectRepository.save(project);
 	}
 			
 	@Override

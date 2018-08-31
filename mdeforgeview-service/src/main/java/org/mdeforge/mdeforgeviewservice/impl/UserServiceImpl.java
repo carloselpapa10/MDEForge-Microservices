@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService{
 	public User createUser(User user) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("createUser(User user) - UserServiceImpl - MdeforgeviewService");
-		return user;
+		return userRepository.save(user);
 	}
 				
 	@Override
@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService{
 	public User findUser(String id) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("findUser(String id) - UserServiceImpl - MdeforgeviewService");
-		return null;
+		return userRepository.findOne(id);
 	}
 			
 	@Override

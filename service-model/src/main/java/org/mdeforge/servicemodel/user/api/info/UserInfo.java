@@ -19,89 +19,107 @@ public class UserInfo {
     private String workspacelist;									
 
 	public UserInfo(){}
-	
-	public void setId(String id){
-		this.id = id;
-	}	
+
+	public UserInfo(String firstname, String lastname, String email, String username) {
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
+		this.username = username;
+	}
 
 	public String getId() {
 		return id;
 	}
-	public void setFirstname(String firstname){
-		this.firstname = firstname;
-	}	
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getFirstname() {
 		return firstname;
 	}
-	public void setLastname(String lastname){
-		this.lastname = lastname;
-	}	
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
 
 	public String getLastname() {
 		return lastname;
 	}
-	public void setEmail(String email){
-		this.email = email;
-	}	
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
 
 	public String getEmail() {
 		return email;
 	}
-	public void setUsername(String username){
-		this.username = username;
-	}	
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public String getUsername() {
 		return username;
 	}
-	public void setImage(String image){
-		this.image = image;
-	}	
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 	public String getImage() {
 		return image;
 	}
-	public void setPassword(String password){
-		this.password = password;
-	}	
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 
 	public String getPassword() {
 		return password;
 	}
-	public void setEnabled(boolean enabled){
-		this.enabled = enabled;
-	}	
 
-	public boolean getEnabled() {
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public boolean isEnabled() {
 		return enabled;
 	}
-	public void setRolesInfo(List<RoleInfo> rolesInfo){
-		this.rolesInfo = rolesInfo;
-	}	
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
 
 	public List<RoleInfo> getRolesInfo() {
 		return rolesInfo;
 	}
-	public void setOwnerArtifactList(List<String> ownerartifactlist){
-		this.ownerartifactlist = ownerartifactlist;
-	}	
 
-	public List<String> getOwnerArtifactList() {
+	public void setRolesInfo(List<RoleInfo> rolesInfo) {
+		this.rolesInfo = rolesInfo;
+	}
+
+	public List<String> getOwnerartifactlist() {
 		return ownerartifactlist;
 	}
-	public void setSharedArtifactList(List<String> sharedartifactlist){
-		this.sharedartifactlist = sharedartifactlist;
-	}	
 
-	public List<String> getSharedArtifactList() {
+	public void setOwnerartifactlist(List<String> ownerartifactlist) {
+		this.ownerartifactlist = ownerartifactlist;
+	}
+
+	public List<String> getSharedartifactlist() {
 		return sharedartifactlist;
 	}
-	public void setWorkspaceList(String workspacelist){
-		this.workspacelist = workspacelist;
-	}	
 
-	public String getWorkspaceList() {
+	public void setSharedartifactlist(List<String> sharedartifactlist) {
+		this.sharedartifactlist = sharedartifactlist;
+	}
+
+	public String getWorkspacelist() {
 		return workspacelist;
 	}
-}			
+
+	public void setWorkspacelist(String workspacelist) {
+		this.workspacelist = workspacelist;
+	}
+}

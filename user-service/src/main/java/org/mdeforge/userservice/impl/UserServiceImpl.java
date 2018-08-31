@@ -32,8 +32,10 @@ public class UserServiceImpl implements UserService{
 	public User createUser(User user) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("createUser(User user) - UserServiceImpl - UserService");
-		
-		List<UserDomainEvent> events = singletonList(new UserCreatedEvent());
+
+		UserInfo userInfo = new UserInfo(user.getFirstname(), user.getLastname(), user.getEmail(), user.getUsername());
+
+		List<UserDomainEvent> events = singletonList(new UserCreatedEvent(userInfo));
 		ResultWithDomainEvents<User, UserDomainEvent> userAndEvents = new ResultWithDomainEvents<>(user, events);		
 		
 		user = userRepository.save(user);
@@ -57,7 +59,7 @@ public class UserServiceImpl implements UserService{
 	public User findUser(String id) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("findUser(String id) - UserServiceImpl - UserService");
-		return null;
+		return userRepository.findOne(id);
 	}
 			
 	@Override

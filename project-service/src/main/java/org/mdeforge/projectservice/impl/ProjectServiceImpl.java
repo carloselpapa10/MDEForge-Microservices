@@ -41,8 +41,10 @@ public class ProjectServiceImpl implements ProjectService{
 	public Project createProject(Project project) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("createProject(Project project) - ProjectServiceImpl - ProjectService");
-		
-		List<ProjectDomainEvent> events = singletonList(new ProjectCreatedEvent());
+
+		ProjectInfo projectInfo = new ProjectInfo(project.getName(), project.getDescription(), project.getOwner());
+
+		List<ProjectDomainEvent> events = singletonList(new ProjectCreatedEvent(projectInfo));
 		ResultWithDomainEvents<Project, ProjectDomainEvent> projectAndEvents = new ResultWithDomainEvents<>(project, events);		
 		
 		project = projectRepository.save(project);
@@ -66,7 +68,7 @@ public class ProjectServiceImpl implements ProjectService{
 	public Project findProject(String id) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("findProject(String id) - ProjectServiceImpl - ProjectService");
-		return null;
+		return projectRepository.findOne(id);
 	}
 			
 	@Override
@@ -115,14 +117,30 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 			
 	@Override
-	public void shareProjectToUser(Project project) throws BusinessException{
+	public Project shareProjectToUser(String projectId, String userId) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("shareProjectToUser(Project project) - ProjectServiceImpl - ProjectService");
 
-		List<ProjectDomainEvent> events = singletonList(new SharedProjectWithUserEvent());
-		ResultWithDomainEvents<Project, ProjectDomainEvent> projectAndEvents = new ResultWithDomainEvents<>(project, events);		
+		Project project = findProject(projectId);
+
+		if(project==null) return null; /*project does not exist*/
+
+		List<String> userList = project.getArtifactlist() == null ? new ArrayList<>() : project.getArtifactlist();
+
+		if(userList.contains(userId)){
+			return project; /*usedId already exists*/
+		}
+
+		userList.add(userId);
+		project.setUserlist(userList);
+
+		List<ProjectDomainEvent> events = singletonList(new SharedProjectWithUserEvent(new ProjectInfo(project.getId(), userId)));
+		ResultWithDomainEvents<Project, ProjectDomainEvent> projectAndEvents = new ResultWithDomainEvents<>(project, events);
+
+		project = projectRepository.save(project);
 		projectAggregateEventPublisher.publish(project, projectAndEvents.events);
 
+		return project;
 	}
 			
 	@Override

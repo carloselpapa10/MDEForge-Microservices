@@ -11,81 +11,102 @@ public class ProjectInfo {
     private boolean open;									
     private String createddate;									
     private String modifieddate;									
-	private List<String> workspacelist;							
-	private List<String> artifactlist;							
-	private List<String> userlist;							
+	private List<String> workspacelist;
+	private List<String> artifactlist;
+	private List<String> userlist;
     private String owner;									
 
 	public ProjectInfo(){}
-	
-	public void setId(String id){
+
+	public ProjectInfo(String name, String description, String owner) {
+		this.name = name;
+		this.description = description;
+		this.owner = owner;
+	}
+
+	public ProjectInfo(String id, String userId) {
 		this.id = id;
-	}	
+		this.userlist = new ArrayList<>();
+		this.userlist.add(userId);
+	}
 
 	public String getId() {
 		return id;
 	}
-	public void setName(String name){
-		this.name = name;
-	}	
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
 	}
-	public void setDescription(String description){
-		this.description = description;
-	}	
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public String getDescription() {
 		return description;
 	}
-	public void setOpen(boolean open){
-		this.open = open;
-	}	
 
-	public boolean getOpen() {
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public boolean isOpen() {
 		return open;
 	}
-	public void setCreatedDate(String createddate){
-		this.createddate = createddate;
-	}	
 
-	public String getCreatedDate() {
+	public void setOpen(boolean open) {
+		this.open = open;
+	}
+
+	public String getCreateddate() {
 		return createddate;
 	}
-	public void setModifiedDate(String modifieddate){
-		this.modifieddate = modifieddate;
-	}	
 
-	public String getModifiedDate() {
+	public void setCreateddate(String createddate) {
+		this.createddate = createddate;
+	}
+
+	public String getModifieddate() {
 		return modifieddate;
 	}
-	public void setWorkspaceList(List<String> workspacelist){
-		this.workspacelist = workspacelist;
-	}	
 
-	public List<String> getWorkspaceList() {
+	public void setModifieddate(String modifieddate) {
+		this.modifieddate = modifieddate;
+	}
+
+	public List<String> getWorkspacelist() {
 		return workspacelist;
 	}
-	public void setArtifactList(List<String> artifactlist){
-		this.artifactlist = artifactlist;
-	}	
 
-	public List<String> getArtifactList() {
+	public void setWorkspacelist(List<String> workspacelist) {
+		this.workspacelist = workspacelist;
+	}
+
+	public List<String> getArtifactlist() {
 		return artifactlist;
 	}
-	public void setUserList(List<String> userlist){
-		this.userlist = userlist;
-	}	
 
-	public List<String> getUserList() {
+	public void setArtifactlist(List<String> artifactlist) {
+		this.artifactlist = artifactlist;
+	}
+
+	public List<String> getUserlist() {
 		return userlist;
 	}
-	public void setOwner(String owner){
-		this.owner = owner;
-	}	
+
+	public void setUserlist(List<String> userlist) {
+		this.userlist = userlist;
+	}
 
 	public String getOwner() {
 		return owner;
 	}
-}			
+
+	public void setOwner(String owner) {
+		this.owner = owner;
+	}
+}

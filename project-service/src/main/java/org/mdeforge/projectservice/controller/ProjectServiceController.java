@@ -1,9 +1,10 @@
 package org.mdeforge.projectservice.controller;
 
-import org.mdeforge.projectservice.impl.*;
+import org.mdeforge.projectservice.dao.ProjectService;
 import org.mdeforge.projectservice.model.*;
 import org.mdeforge.projectservice.webapi.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -16,14 +17,14 @@ public class ProjectServiceController {
 	private static final Logger log = LoggerFactory.getLogger(ProjectServiceController.class);
 
 	@Autowired
-	private ProjectServiceImpl projectServiceImpl;
+	private ProjectService projectService;
 
 	@PostMapping("createProject/project")
-	public CreateProjectResponse createProject(@RequestBody CreateProjectRequest createProjectRequest){
+	public CreateProjectResponse createProject(@RequestBody CreateProjectRequest request){
 		log.info("createProject(@RequestBody CreateProjectRequest createProjectRequest) - ProjectServiceController - ProjectService");
-		
-		/*TODO*/
-		return new CreateProjectResponse();
+
+		Project project = projectService.createProject(new Project(request.getName(), request.getDescription(), request.getOwner()));
+		return new CreateProjectResponse(project.getId());
 	}
 			
 	@PutMapping("/updateProject/project")
@@ -37,9 +38,8 @@ public class ProjectServiceController {
 	@GetMapping("/findProject/{projectId}")
 	public Project findProject(@RequestParam String id){
 		log.info("findProject(String id) - ProjectServiceController - ProjectService");
-		
-		/*TODO*/
-		return null;
+
+		return projectService.findProject(id);
 	} 			
 
 	@DeleteMapping("/deleteProject/{projectId}")
@@ -67,11 +67,11 @@ public class ProjectServiceController {
 	}
  			
 	@PutMapping("/shareProjectToUser/project")
-	public ResponseEntity<Project> shareProjectToUser(@RequestBody Project project){
+	public ResponseEntity<Project> shareProjectToUser(@RequestBody ShareProjectToUserRequest request){
 		log.info("shareProjectToUser(@RequestBody Project project) - ProjectServiceController - ProjectService");
 
-		/*TODO*/
-		return null;
+		Project project = projectService.shareProjectToUser(request.getProjectId(), request.getUserId());
+		return project != null ? ResponseEntity.ok(project) : ResponseEntity.status(HttpStatus.BAD_REQUEST).body(project);
 	}
  			
 	@PutMapping("/addUserInProject/project")
@@ -94,7 +94,7 @@ public class ProjectServiceController {
 	public List<Project> findAllProjects(){
 		/*Auto-Generated*/
 		log.info("findAll() - ProjectServiceController - ProjectService");
-		return projectServiceImpl.findAll();
+		return projectService.findAll();
 	}
 
 }

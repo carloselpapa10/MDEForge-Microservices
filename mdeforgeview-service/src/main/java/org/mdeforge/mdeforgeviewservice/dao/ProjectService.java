@@ -13,7 +13,7 @@ public interface ProjectService {
 	public void addArtifactToProject(Project project) throws BusinessException;			
 	public void completeAddArtifactToProject(Project project) throws BusinessException;			
 	public void removeArtifactFromProject(Project project) throws BusinessException;			
-	public void shareProjectToUser(Project project) throws BusinessException;			
+	public Project shareProjectToUser(Project project, User user) throws BusinessException;
 	public void addUserInProject(Project project) throws BusinessException;			
 	public void completeAddUserInProject(Project project) throws BusinessException;			
 	public void removeUserFromProject(Project project) throws BusinessException;			

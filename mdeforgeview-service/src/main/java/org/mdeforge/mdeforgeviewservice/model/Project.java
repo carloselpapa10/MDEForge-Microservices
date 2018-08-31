@@ -20,75 +20,94 @@ public class Project{
 
 	public Project() {}
 
-	public void setId(String id) {
+	public Project(String id, String name, String description, User owner) {
 		this.id = id;
-	}	
+		this.name = name;
+		this.description = description;
+		this.owner = owner;
+	}
+
+	public Project(String id) {
+		this.id = id;
+	}
 
 	public String getId() {
 		return id;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}	
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
 	}
-	public void setDescription(String description) {
-		this.description = description;
-	}	
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public String getDescription() {
 		return description;
 	}
-	public void setOpen(boolean open) {
-		this.open = open;
-	}	
 
-	public boolean getOpen() {
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public boolean isOpen() {
 		return open;
 	}
-	public void setCreatedDate(String createddate) {
-		this.createddate = createddate;
-	}	
 
-	public String getCreatedDate() {
+	public void setOpen(boolean open) {
+		this.open = open;
+	}
+
+	public String getCreateddate() {
 		return createddate;
 	}
-	public void setModifiedDate(String modifieddate) {
-		this.modifieddate = modifieddate;
-	}	
 
-	public String getModifiedDate() {
+	public void setCreateddate(String createddate) {
+		this.createddate = createddate;
+	}
+
+	public String getModifieddate() {
 		return modifieddate;
 	}
-	public void setWorkspaceList(List<Workspace> workspacelist) {
-		this.workspacelist = workspacelist;
-	}	
 
-	public List<Workspace> getWorkspaceList() {
+	public void setModifieddate(String modifieddate) {
+		this.modifieddate = modifieddate;
+	}
+
+	public List<Workspace> getWorkspacelist() {
 		return workspacelist;
 	}
-	public void setArtifactList(List<Artifact> artifactlist) {
-		this.artifactlist = artifactlist;
-	}	
 
-	public List<Artifact> getArtifactList() {
+	public void setWorkspacelist(List<Workspace> workspacelist) {
+		this.workspacelist = workspacelist;
+	}
+
+	public List<Artifact> getArtifactlist() {
 		return artifactlist;
 	}
-	public void setUserList(List<User> userlist) {
-		this.userlist = userlist;
-	}	
 
-	public List<User> getUserList() {
+	public void setArtifactlist(List<Artifact> artifactlist) {
+		this.artifactlist = artifactlist;
+	}
+
+	public List<User> getUserlist() {
 		return userlist;
 	}
-	public void setOwner(User owner) {
-		this.owner = owner;
-	}	
+
+	public void setUserlist(List<User> userlist) {
+		this.userlist = userlist;
+	}
 
 	public User getOwner() {
 		return owner;
 	}
 
+	public void setOwner(User owner) {
+		this.owner = owner;
+	}
 }

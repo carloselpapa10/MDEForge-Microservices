@@ -1,6 +1,6 @@
 package org.mdeforge.mdeforgeviewservice.controller;
 
-import org.mdeforge.mdeforgeviewservice.impl.*;
+import org.mdeforge.mdeforgeviewservice.dao.*;
 import org.mdeforge.mdeforgeviewservice.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,16 +15,16 @@ public class MdeforgeviewServiceController {
 	private static final Logger log = LoggerFactory.getLogger(MdeforgeviewServiceController.class);
 
 	@Autowired
-	private ArtifactServiceImpl artifactServiceImpl;
+	private ArtifactService artifactService;
 				
 	@Autowired
-	private UserServiceImpl userServiceImpl;
+	private UserService userService;
 				
 	@Autowired
-	private WorkspaceServiceImpl workspaceServiceImpl;
+	private WorkspaceService workspaceService;
 				
 	@Autowired
-	private ProjectServiceImpl projectServiceImpl;
+	private ProjectService projectService;
 				
 	@GetMapping("/findArtifact/{artifactId}")
 	public Artifact findArtifact(@RequestParam String id){
@@ -36,7 +36,7 @@ public class MdeforgeviewServiceController {
 	public List<Artifact> findAllArtifacts(){
 		/*Auto-Generated*/
 		log.info("findAllArtifacts() - MdeforgeviewServiceController - MdeforgeviewService");
-		return artifactServiceImpl.findAll();
+		return artifactService.findAll();
 	}
 
 	@GetMapping("/findUser/{userId}")
@@ -49,7 +49,7 @@ public class MdeforgeviewServiceController {
 	public List<User> findAllUsers(){
 		/*Auto-Generated*/
 		log.info("findAllUsers() - MdeforgeviewServiceController - MdeforgeviewService");
-		return userServiceImpl.findAll();
+		return userService.findAll();
 	}
 
 	@GetMapping("/findWorkspace/{workspaceId}")
@@ -62,20 +62,20 @@ public class MdeforgeviewServiceController {
 	public List<Workspace> findAllWorkspaces(){
 		/*Auto-Generated*/
 		log.info("findAllWorkspaces() - MdeforgeviewServiceController - MdeforgeviewService");
-		return workspaceServiceImpl.findAll();
+		return workspaceService.findAll();
 	}
 
 	@GetMapping("/findProject/{projectId}")
 	public Project findProject(@RequestParam String id){
 		log.info("findProject(String id) - MdeforgeviewServiceController - MdeforgeviewService");
-		return null;
+		return projectService.findProject(id);
 	}
 
 	@GetMapping("/retrieve/Projects")
 	public List<Project> findAllProjects(){
 		/*Auto-Generated*/
 		log.info("findAllProjects() - MdeforgeviewServiceController - MdeforgeviewService");
-		return projectServiceImpl.findAll();
+		return projectService.findAll();
 	}
 
 }

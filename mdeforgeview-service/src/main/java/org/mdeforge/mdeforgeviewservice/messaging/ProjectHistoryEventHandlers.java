@@ -1,5 +1,8 @@
 package org.mdeforge.mdeforgeviewservice.messaging;
 
+import org.mdeforge.mdeforgeviewservice.dao.ProjectService;
+import org.mdeforge.mdeforgeviewservice.dao.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.mdeforge.servicemodel.project.api.events.*;
 import org.mdeforge.mdeforgeviewservice.impl.*;
@@ -14,6 +17,12 @@ import io.eventuate.tram.events.subscriber.DomainEventHandlersBuilder;
 public class ProjectHistoryEventHandlers {
 	
 	private static final Logger log = LoggerFactory.getLogger(ProjectHistoryEventHandlers.class);
+
+	@Autowired
+	private ProjectService projectService;
+
+	@Autowired
+	private UserService userService;
 
 	public DomainEventHandlers domainEventHandlers() {
 		return DomainEventHandlersBuilder
@@ -35,6 +44,13 @@ public class ProjectHistoryEventHandlers {
 
 	private void handleProjectCreatedEvent(DomainEventEnvelope<ProjectCreatedEvent> dee) {
 		log.info("handleProjectCreatedEvent() - ProjectHistoryEventHandlers - ProjectService");
+
+		Project project = new Project(dee.getAggregateId(),
+										dee.getEvent().getProjectInfo().getName(),
+											dee.getEvent().getProjectInfo().getDescription(),
+												userService.findUser(dee.getEvent().getProjectInfo().getOwner()));
+
+		projectService.createProject(project);
 	}
 
 	private void handleProjectUpdatedEvent(DomainEventEnvelope<ProjectUpdatedEvent> dee) {
@@ -67,6 +83,17 @@ public class ProjectHistoryEventHandlers {
 
 	private void handleSharedProjectWithUserEvent(DomainEventEnvelope<SharedProjectWithUserEvent> dee) {
 		log.info("handleSharedProjectWithUserEvent() - ProjectHistoryEventHandlers - ProjectService");
+
+		Project project = projectService.findProject(dee.getAggregateId());
+		User user = userService.findUser(dee.getEvent().getProjectInfo().getUserlist().get(0));
+
+		if(user!= null && project != null){
+			projectService.shareProjectToUser(project, user);
+		}else{
+			/* user or project do not exist - report it by log*/
+			System.out.println("user or project do not exist!!!");
+		}
+
 	}
 
 	private void handleRemovedArtifactFromProjectEvent(DomainEventEnvelope<RemovedArtifactFromProjectEvent> dee) {
