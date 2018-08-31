@@ -1,0 +1,127 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.mdeforge</groupId>
+	<artifactId>service-model</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>service-model</name>
+
+	<repositories>
+		<repository>
+			<id>jcenter</id>
+			<url>http://jcenter.bintray.com</url>
+		</repository>
+	</repositories>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+
+		<eventuateTramSagasVersion>0.5.0.RELEASE</eventuateTramSagasVersion>
+		<eventuateTramVersion>0.6.0.RELEASE</eventuateTramVersion>
+		<eventuateClientVersion>0.20.1.RELEASE</eventuateClientVersion>
+		<eventuateLocalVersion>0.17.0.RELEASE</eventuateLocalVersion>
+
+	</properties>
+
+	<dependencies>
+		<!-- used by everyone -->
+		<dependency>
+			<groupId>org.mdeforge</groupId>
+			<artifactId>eventuate-tram-aggregate-domain-events</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>io.eventuate.tram.core</groupId>
+			<artifactId>eventuate-tram-commands</artifactId>
+			<version>${eventuateTramVersion}</version>
+		</dependency>
+
+		<dependency>
+		  <groupId>io.eventuate.tram.sagas</groupId>
+		  <artifactId>eventuate-jpa-sagas-framework</artifactId>
+		  <version>${eventuateTramSagasVersion}</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>io.eventuate.tram.sagas</groupId>
+		  <artifactId>eventuate-tram-sagas-simple-dsl</artifactId>
+		  <version>${eventuateTramSagasVersion}</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>io.eventuate.tram.core</groupId>
+		  <artifactId>eventuate-tram-jdbc-kafka</artifactId>
+		  <version>${eventuateTramVersion}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>io.eventuate.client.java</groupId>
+		    <artifactId>eventuate-client-java-spring</artifactId>
+		    <version>${eventuateClientVersion}</version>
+		</dependency>
+
+		<!-- swagger -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.36</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>service-model</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.16</version>
+				<configuration>
+					<reuseForks>false</reuseForks>
+					<forkCount>1</forkCount>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.4.13</version>
+				<configuration>
+					<skipDockerBuild>true</skipDockerBuild>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

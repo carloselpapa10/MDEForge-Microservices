@@ -1,0 +1,13 @@
+org/mdeforge/userservice/model/User.class
+org/mdeforge/userservice/dao/UserServiceConfiguration.class
+org/mdeforge/userservice/commandhandlers/UserServiceCommandHandlers.class
+org/mdeforge/userservice/impl/UserServiceImpl.class
+org/mdeforge/userservice/dao/UserService.class
+org/mdeforge/userservice/model/Role.class
+org/mdeforge/userservice/model/UserRepository.class
+org/mdeforge/userservice/webapi/CreateUserRequest.class
+org/mdeforge/userservice/UserServiceApplication.class
+org/mdeforge/userservice/webapi/CreateUserResponse.class
+org/mdeforge/userservice/commandhandlers/UserServiceCommandHandlersConfiguration.class
+org/mdeforge/userservice/controller/UserServiceController.class
+org/mdeforge/userservice/model/UserDomainEventPublisher.class

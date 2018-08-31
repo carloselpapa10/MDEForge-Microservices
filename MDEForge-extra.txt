@@ -1,0 +1,188 @@
+Jenkins Blueocean
+docker run -u root -v /var/run/docker.sock:/var/run/docker.sock -p 8080:8080 -p 2375:2375 --name jenkins_blueocean jenkinsci/blueocean:latest
+
+mvn clean package -s settings.xml docker:build
+
+mvn -f user-service/pom.xml -s settings.xml docker:build
+mvn -f workspace-service/pom.xml -s settings.xml docker:build
+mvn -f project-service/pom.xml -s settings.xml docker:build
+mvn -f artifact-service/pom.xml -s settings.xml docker:build
+mvn -f mdeforgeview-service/pom.xml -s settings.xml docker:build
+
+docker-compose build
+docker-compose up
+
+docker network create mdeforge-net
+
+docker run -d \
+    --name mongodb \
+    --network=mdeforge-net \
+    -p 27017:27017 \
+    -e MONGO_DATA_DIR=/data/db \
+    -e MONGO_LOG_DIR=/dev/null \
+    -v /data/db:/data/db \
+    mongo:3.0.15
+
+docker run -d \
+    --name mysql \
+    --network=mdeforge-net \
+    -p 3306:3306 \
+    -e MYSQL_ROOT_PASSWORD=rootpassword \
+    -e MYSQL_USER=mysqluser \
+    -e MYSQL_PASSWORD=mysqlpw \
+    eventuateio/eventuate-tram-sagas-mysql:0.3.0.RELEASE
+
+docker run -d \
+    --name zookeeper \
+    --network=mdeforge-net \
+    -p 2181:2181 \
+    -p 2888:2888 \
+    -p 3888:3888 \
+    eventuateio/eventuateio-local-zookeeper:0.14.0
+
+docker run -d \
+	--name kafka \
+        --network=mdeforge-net \
+	-p 9092:9092 \
+	--link zookeeper \
+	-e ADVERTISED_HOST_NAME=${DOCKER_HOST_IP} \
+	-e "KAFKA_HEAP_OPTS=-Xmx320m -Xms320m" \
+	-e ZOOKEEPER_SERVERS=zookeeper:2181 \
+	eventuateio/eventuateio-local-kafka:0.14.0
+
+docker run -d \
+	--name cdcservice \
+        --network=mdeforge-net \
+	-p 8099:8080 \
+	--link mysql \
+	--link kafka \
+	--link zookeeper \
+	-e SPRING_DATASOURCE_URL=jdbc:mysql://mysql/eventuate \
+	-e SPRING_DATASOURCE_USERNAME=mysqluser \
+	-e SPRING_DATASOURCE_PASSWORD=mysqlpw \
+	-e SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.jdbc.Driver \
+	-e EVENTUATELOCAL_KAFKA_BOOTSTRAP_SERVERS=kafka:9092 \
+	-e EVENTUATELOCAL_ZOOKEEPER_CONNECTION_STRING=zookeeper:2181 \
+	-e EVENTUATELOCAL_CDC_DB_USER_NAME=root \
+	-e EVENTUATELOCAL_CDC_DB_PASSWORD=rootpassword \
+	-e EVENTUATELOCAL_CDC_BINLOG_CLIENT_ID=1234567890 \
+	eventuateio/eventuate-tram-cdc-mysql-service:0.3.0.RELEASE
+
+docker build -t mdeforge-admin .
+
+docker run -d \
+    --name mdeforge-admin \
+    --network=mdeforge-net \
+    -p 5020:8080 \
+    mdeforge-admin
+
+docker run -d \
+	--name user-service \
+        --network=mdeforge-net \
+	-p 5000:8080 \
+	--link mysql \
+	--link kafka \
+	--link zookeeper \
+        --link cdcservice \
+        -e SPRING_DATASOURCE_URL=jdbc:mysql://mysql/eventuate \
+	-e SPRING_DATASOURCE_USERNAME=mysqluser \
+	-e SPRING_DATASOURCE_PASSWORD=mysqlpw \
+	-e SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.jdbc.Driver \
+        -e SPRING_DATASOURCE_TIMEOUT=10000 \
+	-e EVENTUATELOCAL_KAFKA_BOOTSTRAP_SERVERS=kafka:9092 \
+	-e EVENTUATELOCAL_ZOOKEEPER_CONNECTION_STRING=zookeeper:2181 \
+	-e MONGODB=mongodb:27017/userservicedb \
+    -e SPRING_BOOT_ADMIN_URL=http://mdeforge-admin:8080 \
+        -e SPRING_BOOT_ADMIN_USERNAME=admin \
+        -e SPRING_BOOT_ADMIN_PASSWORD=admin \
+	-e SPRING_BOOT_ADMIN_CLIENT_NAME=user-service \
+	mdeforge/user-service
+
+docker run -d \
+	--name workspace-service \
+        --network=mdeforge-net \
+	-p 5001:8080 \
+	--link mysql \
+	--link kafka \
+	--link zookeeper \
+        --link cdcservice \
+        -e SPRING_DATASOURCE_URL=jdbc:mysql://mysql/eventuate \
+	-e SPRING_DATASOURCE_USERNAME=mysqluser \
+	-e SPRING_DATASOURCE_PASSWORD=mysqlpw \
+	-e SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.jdbc.Driver \
+        -e SPRING_DATASOURCE_TIMEOUT=10000 \
+	-e EVENTUATELOCAL_KAFKA_BOOTSTRAP_SERVERS=kafka:9092 \
+	-e EVENTUATELOCAL_ZOOKEEPER_CONNECTION_STRING=zookeeper:2181 \
+	-e MONGODB=mongodb:27017/workspaceservicedb \
+    -e SPRING_BOOT_ADMIN_URL=http://mdeforge-admin:8080 \
+        -e SPRING_BOOT_ADMIN_USERNAME=admin \
+        -e SPRING_BOOT_ADMIN_PASSWORD=admin \
+	-e SPRING_BOOT_ADMIN_CLIENT_NAME=workspace-service \
+	mdeforge/workspace-service
+
+docker run -d \
+	--name project-service \
+        --network=mdeforge-net \
+	-p 5002:8080 \
+	--link mysql \
+	--link kafka \
+	--link zookeeper \
+        --link cdcservice \
+        -e SPRING_DATASOURCE_URL=jdbc:mysql://mysql/eventuate \
+	-e SPRING_DATASOURCE_USERNAME=mysqluser \
+	-e SPRING_DATASOURCE_PASSWORD=mysqlpw \
+	-e SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.jdbc.Driver \
+        -e SPRING_DATASOURCE_TIMEOUT=10000 \
+	-e EVENTUATELOCAL_KAFKA_BOOTSTRAP_SERVERS=kafka:9092 \
+	-e EVENTUATELOCAL_ZOOKEEPER_CONNECTION_STRING=zookeeper:2181 \
+	-e MONGODB=mongodb:27017/projectservicedb \
+    -e SPRING_BOOT_ADMIN_URL=http://mdeforge-admin:8080 \
+        -e SPRING_BOOT_ADMIN_USERNAME=admin \
+        -e SPRING_BOOT_ADMIN_PASSWORD=admin \
+	-e SPRING_BOOT_ADMIN_CLIENT_NAME=project-service \
+	mdeforge/project-service
+
+docker run -d \
+	--name artifact-service \
+        --network=mdeforge-net \
+	-p 5003:8080 \
+	--link mysql \
+	--link kafka \
+	--link zookeeper \
+        --link cdcservice \
+        -e SPRING_DATASOURCE_URL=jdbc:mysql://mysql/eventuate \
+	-e SPRING_DATASOURCE_USERNAME=mysqluser \
+	-e SPRING_DATASOURCE_PASSWORD=mysqlpw \
+	-e SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.jdbc.Driver \
+        -e SPRING_DATASOURCE_TIMEOUT=10000 \
+	-e EVENTUATELOCAL_KAFKA_BOOTSTRAP_SERVERS=kafka:9092 \
+	-e EVENTUATELOCAL_ZOOKEEPER_CONNECTION_STRING=zookeeper:2181 \
+	-e MONGODB=mongodb:27017/artifactservicedb \
+    -e SPRING_BOOT_ADMIN_URL=http://mdeforge-admin:8080 \
+        -e SPRING_BOOT_ADMIN_USERNAME=admin \
+        -e SPRING_BOOT_ADMIN_PASSWORD=admin \
+	-e SPRING_BOOT_ADMIN_CLIENT_NAME=artifact-service \
+	mdeforge/artifact-service
+
+docker run -d \
+	--name mdeforgeview-service \
+        --network=mdeforge-net \
+	-p 5004:8080 \
+	--link mysql \
+	--link kafka \
+	--link zookeeper \
+        --link cdcservice \
+        -e SPRING_DATASOURCE_URL=jdbc:mysql://mysql/eventuate \
+	-e SPRING_DATASOURCE_USERNAME=mysqluser \
+	-e SPRING_DATASOURCE_PASSWORD=mysqlpw \
+	-e SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.jdbc.Driver \
+        -e SPRING_DATASOURCE_TIMEOUT=10000 \
+	-e EVENTUATELOCAL_KAFKA_BOOTSTRAP_SERVERS=kafka:9092 \
+	-e EVENTUATELOCAL_ZOOKEEPER_CONNECTION_STRING=zookeeper:2181 \
+	-e MONGODB=mongodb:27017/mdeforgeviewservicedb \
+    -e SPRING_BOOT_ADMIN_URL=http://mdeforge-admin:8080 \
+        -e SPRING_BOOT_ADMIN_USERNAME=admin \
+        -e SPRING_BOOT_ADMIN_PASSWORD=admin \
+	-e SPRING_BOOT_ADMIN_CLIENT_NAME=mdeforgeview-service \
+	mdeforge/mdeforgeview-service
+

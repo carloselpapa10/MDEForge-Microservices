@@ -1,0 +1,13 @@
+/media/charlis/Carlos Data/Microservices/MDEForge-generatedcode/user-service/src/main/java/org/mdeforge/userservice/model/UserDomainEventPublisher.java
+/media/charlis/Carlos Data/Microservices/MDEForge-generatedcode/user-service/src/main/java/org/mdeforge/userservice/controller/UserServiceController.java
+/media/charlis/Carlos Data/Microservices/MDEForge-generatedcode/user-service/src/main/java/org/mdeforge/userservice/model/UserRepository.java
+/media/charlis/Carlos Data/Microservices/MDEForge-generatedcode/user-service/src/main/java/org/mdeforge/userservice/impl/UserServiceImpl.java
+/media/charlis/Carlos Data/Microservices/MDEForge-generatedcode/user-service/src/main/java/org/mdeforge/userservice/dao/UserServiceConfiguration.java
+/media/charlis/Carlos Data/Microservices/MDEForge-generatedcode/user-service/src/main/java/org/mdeforge/userservice/commandhandlers/UserServiceCommandHandlersConfiguration.java
+/media/charlis/Carlos Data/Microservices/MDEForge-generatedcode/user-service/src/main/java/org/mdeforge/userservice/UserServiceApplication.java
+/media/charlis/Carlos Data/Microservices/MDEForge-generatedcode/user-service/src/main/java/org/mdeforge/userservice/webapi/CreateUserRequest.java
+/media/charlis/Carlos Data/Microservices/MDEForge-generatedcode/user-service/src/main/java/org/mdeforge/userservice/webapi/CreateUserResponse.java
+/media/charlis/Carlos Data/Microservices/MDEForge-generatedcode/user-service/src/main/java/org/mdeforge/userservice/model/User.java
+/media/charlis/Carlos Data/Microservices/MDEForge-generatedcode/user-service/src/main/java/org/mdeforge/userservice/dao/UserService.java
+/media/charlis/Carlos Data/Microservices/MDEForge-generatedcode/user-service/src/main/java/org/mdeforge/userservice/model/Role.java
+/media/charlis/Carlos Data/Microservices/MDEForge-generatedcode/user-service/src/main/java/org/mdeforge/userservice/commandhandlers/UserServiceCommandHandlers.java

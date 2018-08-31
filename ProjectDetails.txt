@@ -1,0 +1,361 @@
+Project Details
+
+Service
+
+	name: user-service
+	description: User Service - MDEForge platform. 
+	short-name: User
+	full-name: UserService
+	port-number: 5000
+	type: AggregateService
+
+	Model(s)
+		name: User
+		name: Role
+
+	HandleModelEvents
+
+	Operation(s)
+	
+		name: createUser
+		isMethodController: Yes
+		type: create
+		publish: UserCreatedEvent
+
+		name: updateUser
+		isMethodController: Yes
+		type: update
+		publish: UserUpdatedEvent
+
+		name: findUser
+		isMethodController: Yes
+		type: retrieve
+
+		name: deleteUser
+		isMethodController: No
+		type: delete
+		publish: UserDeletedEvent
+
+	API
+	
+		Event(s)
+			name: UserCreatedEvent
+			name: UserUpdatedEvent
+			name: UserDeletedEvent
+
+		Command(s)
+			name: ValidateUserCommand
+			name: ValidateUserListCommand
+
+		Info(s)
+			name: UserInfo
+			name: RoleInfo
+
+############################
+
+Service
+
+	name: workspace-service
+	description: Workspace Service - MDEForge platform. 
+	short-name: Workspace
+	full-name: WorkspaceService
+	port-number: 5001
+	type: AggregateService
+
+	Model(s)
+		name: Workspace
+
+	HandleModelEvents
+		name: projectModelEvent (Model: Project)
+
+	Operation(s)
+	
+		name: createWorkspace
+		isMethodController: Yes
+		type: create
+		publish: WorkspaceCreatedEvent
+		CreateWorkspaceSaga (Orchestration)
+			steps:
+				rejectCreateWorkspaceCMD
+						RejectCreateWorkspaceCommand - workspace-service - compensate 
+				validateUserCMD
+						ValidateUserCommand - user-service - invoke 
+				addProjectsToWorkspaceCMD
+						AddProjectsToWorkspaceCommand - project-service - reply 
+						RejectAddProjectsToWorkspaceCommand - project-service - compensate 
+				completeCreateWorkspaceCMD
+						CompleteCreateWorkspaceCommand - workspace-service - invoke 
+
+		name: updateWorkspace
+		isMethodController: Yes
+		type: update
+		UpdateWorkspaceSaga (Orchestration)
+			steps:
+				validateUserCMD
+						ValidateUserCommand - user-service - invoke 
+				editProjectsToWorkspaceCMD
+						EditProjectsToWorkspaceCommand - project-service - reply 
+						RejectEditProjectsToWorkspaceCommand - project-service - compensate 
+				updateWorkspaceCMD
+						UpdateWorkspaceCommand - workspace-service - invoke 
+
+		name: completeUpdateWorkspace
+		isMethodController: No
+		type: update
+		publish: WorkspaceUpdatedEvent
+
+		name: findWorkspace
+		isMethodController: Yes
+		type: retrieve
+
+		name: deleteWorkspace
+		isMethodController: Yes
+		type: delete
+		publish: WorkspaceDeletedEvent
+
+		name: addProjectToWorkspace
+		isMethodController: Yes
+		type: update
+		AddProjectToWorkspaceSaga (Orchestration)
+			steps:
+				validateUserCMD
+						ValidateUserCommand - user-service - invoke 
+				validateProjectCMD
+						ValidateProjectCommand - project-service - invoke 
+				addProjectToWorkspaceCMD
+						AddProjectToWorkspaceCommand - workspace-service - invoke 
+
+		name: completeAddProjectToWorkspace
+		isMethodController: No
+		type: update
+		publish: AddedProjectToWorkspaceEvent
+
+		name: removeProjectInWorkspace
+		isMethodController: Yes
+		type: update
+		publish: RemovedProjectInWorkspace
+
+	API
+	
+		Event(s)
+			name: WorkspaceCreatedEvent
+			name: WorkspaceUpdatedEvent
+			name: WorkspaceDeletedEvent
+			name: AddedProjectToWorkspaceEvent
+			name: RemovedProjectInWorkspace
+
+		Command(s)
+			name: RejectCreateWorkspaceCommand
+			name: CompleteCreateWorkspaceCommand
+			name: UpdateWorkspaceCommand
+			name: AddProjectToWorkspaceCommand
+
+		Info(s)
+			name: WorkspaceInfo
+
+############################
+
+Service
+
+	name: project-service
+	description: Project Service - MDEForge platform. 
+	short-name: Project
+	full-name: ProjectService
+	port-number: 5002
+	type: AggregateService
+
+	Model(s)
+		name: Project
+
+	HandleModelEvents
+		name: workspaceModelEvent (Model: Workspace)
+		name: artifactModelEvent (Model: Artifact)
+		name: userModelEvent (Model: User)
+
+	Operation(s)
+	
+		name: createProject
+		isMethodController: Yes
+		type: create
+		publish: ProjectCreatedEvent
+
+		name: updateProject
+		isMethodController: Yes
+		type: update
+		publish: ProjectUpdatedEvent
+
+		name: findProject
+		isMethodController: Yes
+		type: retrieve
+
+		name: deleteProject
+		isMethodController: Yes
+		type: delete
+		publish: ProjectDeletedEvent
+
+		name: addArtifactToProject
+		isMethodController: Yes
+		type: update
+		AddArtifactToProjectSaga (Orchestration)
+			steps:
+				validateUserCMD
+						ValidateUserCommand - user-service - invoke 
+				validateArtifactCMD
+						ValidateArtifactCommand - artifact-service - invoke 
+				addArtifactToProjectCMD
+						AddArtifactToProjectCommand - project-service - invoke 
+
+		name: completeAddArtifactToProject
+		isMethodController: No
+		type: update
+		publish: AddedArtifactToProjectEvent
+
+		name: removeArtifactFromProject
+		isMethodController: Yes
+		type: update
+		publish: RemovedArtifactFromProjectEvent
+
+		name: shareProjectToUser
+		isMethodController: Yes
+		type: update
+		publish: SharedProjectWithUserEvent
+
+		name: addUserInProject
+		isMethodController: Yes
+		type: update
+		AddUserInProjectSaga (Orchestration)
+			steps:
+				validateUserCMD
+						ValidateUserCommand - user-service - invoke 
+				validateUserCMD
+						ValidateUserListCommand - user-service - invoke 
+				completeAddUserInProjectCMD
+						CompleteAddUserInProjectCommand - project-service - invoke 
+
+		name: completeAddUserInProject
+		isMethodController: No
+		type: update
+		publish: AddedUserInProjectEvent
+
+		name: removeUserFromProject
+		isMethodController: Yes
+		type: update
+		publish: RemovedUserFromProjectEvent
+
+	API
+	
+		Event(s)
+			name: ProjectCreatedEvent
+			name: ProjectUpdatedEvent
+			name: ProjectDeletedEvent
+			name: AddedProjectsToWorkspaceEvent
+			name: RejectedAddProjectToWorkspaceEvent
+			name: EditedProjectsToWorkspaceCommand
+			name: RejectedEditProjectsToWorkspaceCommand
+			name: AddedArtifactToProjectEvent
+			name: SharedProjectWithUserEvent
+			name: RemovedArtifactFromProjectEvent
+			name: AddedUserInProjectEvent
+			name: RemovedUserFromProjectEvent
+
+		Command(s)
+			name: AddProjectsToWorkspaceCommand
+			name: RejectAddProjectsToWorkspaceCommand
+			name: EditProjectsToWorkspaceCommand
+			name: RejectEditProjectsToWorkspaceCommand
+			name: ValidateProjectCommand
+			name: AddArtifactToProjectCommand
+			name: CompleteAddUserInProjectCommand
+
+		Info(s)
+			name: ProjectInfo
+
+############################
+
+Service
+
+	name: artifact-service
+	description: Artifact Service - MDEForge platform. 
+	short-name: Artifact
+	full-name: ArtifactService
+	port-number: 5003
+	type: AggregateService
+
+	Model(s)
+		name: Artifact
+		name: Comment
+		name: Metric
+		name: Relation
+		name: Property
+		name: GridFileMedia
+
+	HandleModelEvents
+		name: projectModelEvent (Model: Project)
+		name: userModelEvent (Model: User)
+
+	Operation(s)
+	
+		name: createArtifact
+		isMethodController: Yes
+		type: create
+		publish: ArtifactCreatedEvent
+
+		name: updateArtifact
+		isMethodController: Yes
+		type: update
+		publish: ArtifactUpdatedEvent
+
+		name: findArtifact
+		isMethodController: Yes
+		type: retrieve
+
+		name: deleteArtifact
+		isMethodController: Yes
+		type: delete
+		publish: ArtifactDeletedEvent
+
+		name: shareArtifactToUser
+		isMethodController: Yes
+		type: update
+		publish: SharedArtifactToUserEvent
+
+		name: changeArtifactOpen
+		isMethodController: Yes
+		type: update
+		publish: ChangedArtifactOpenEvent
+
+		name: addArtifactToProjectList
+		isMethodController: No
+		type: update
+		publish: AddedArtifactToProjectListEvent
+
+		name: removeArtifactToProjectList
+		isMethodController: No
+		type: update
+		publish: RemovedArtifactToProjectListEvent
+
+	API
+	
+		Event(s)
+			name: ArtifactCreatedEvent
+			name: ArtifactUpdatedEvent
+			name: ArtifactDeletedEvent
+			name: SharedArtifactToUserEvent
+			name: ChangedArtifactOpenEvent
+			name: AddedArtifactToProjectListEvent
+			name: RemovedArtifactToProjectListEvent
+
+		Command(s)
+			name: ValidateArtifactCommand
+
+		Info(s)
+			name: ArtifactInfo
+			name: CommentInfo
+			name: MetricInfo
+			name: RelationInfo
+			name: PropertyInfo
+			name: GridFileMediaInfo
+
+############################
+
+

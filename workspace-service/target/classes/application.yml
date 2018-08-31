@@ -1,0 +1,57 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://${DOCKER_HOST_IP}:3306/eventuate?autoReconnect=true&useSSL=false
+    username: mysqluser
+    password: mysqlpw
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      idle-timeout: 10000
+  jpa:
+    database: MYSQL
+    generate-ddl: true 
+  data:
+    mongodb:
+      uri: ${MONGO_URL:mongodb://localhost:27017/workspaceservicedb}
+ 
+eventuatelocal:
+  kafka:
+    bootstrap:
+      servers: ${DOCKER_HOST_IP}:9092
+  zookeeper:
+    connection:
+      string: ${DOCKER_HOST_IP}:2181
+  cdc:
+    dbUserName: root
+    dbPassword: rootpassword 
+
+    
+---  
+spring:
+  profiles: container
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER_CLASS_NAME}
+    hikari:
+      idle-timeout: ${SPRING_DATASOURCE_TIMEOUT}
+  jpa:
+    database: MYSQL
+    generate-ddl: true
+  data:
+    mongodb:
+      uri: ${MONGO_URL:mongodb://${MONGODB}}
+    
+eventuatelocal:
+  kafka: 
+    bootstrap:
+      servers: ${EVENTUATELOCAL_KAFKA_BOOTSTRAP_SERVERS}
+  zookeeper:
+    connection:
+      string: ${EVENTUATELOCAL_ZOOKEEPER_CONNECTION_STRING}
+  cdc:
+    dbUserName: root
+    dbPassword: rootpassword

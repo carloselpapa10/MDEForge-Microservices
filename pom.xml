@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.mdeforge</groupId>
+  <artifactId>base</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+	
+  <modules>
+      <module>eventuate-tram-aggregate-domain-events</module>
+	  <module>service-model</module>
+	  <module>mdeforge-admin</module>	  
+	  <module>user-service</module>
+	  <module>workspace-service</module>
+	  <module>project-service</module>
+	  <module>artifact-service</module>
+	  <module>mdeforgeview-service</module>
+  </modules>
+	
+<build>
+		<plugins>
+			<plugin>
+			    <groupId>com.spotify</groupId>
+			    <artifactId>docker-maven-plugin</artifactId>
+			    <version>0.4.13</version>
+			    <configuration>
+				    <skipDockerBuild>true</skipDockerBuild>		  
+		            </configuration>
+			</plugin>	        
+		</plugins>
+	</build>
+</project>
