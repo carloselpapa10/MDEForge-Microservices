@@ -20,6 +20,10 @@ public class UserInfo {
 
 	public UserInfo(){}
 
+	public UserInfo(String id) {
+		this.id = id;
+	}
+
 	public UserInfo(String firstname, String lastname, String email, String username) {
 		this.firstname = firstname;
 		this.lastname = lastname;

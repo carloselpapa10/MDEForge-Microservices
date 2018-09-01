@@ -1,9 +1,13 @@
 package org.mdeforge.workspaceservice.commandhandlers;
 
+import io.eventuate.tram.events.aggregates.ResultWithDomainEvents;
 import org.mdeforge.servicemodel.common.Channels;
 import org.mdeforge.servicemodel.workspace.api.commands.*;
+import org.mdeforge.servicemodel.workspace.api.events.WorkspaceCreationCompletedEvent;
+import org.mdeforge.servicemodel.workspace.api.events.WorkspaceCreationRejectedEvent;
+import org.mdeforge.servicemodel.workspace.api.events.WorkspaceDomainEvent;
 import org.mdeforge.servicemodel.workspace.api.info.*;
-import org.mdeforge.workspaceservice.impl.*;
+import org.mdeforge.workspaceservice.dao.*;
 import org.mdeforge.workspaceservice.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,13 +20,17 @@ import static io.eventuate.tram.commands.consumer.CommandHandlerReplyBuilder.wit
 import static io.eventuate.tram.commands.consumer.CommandHandlerReplyBuilder.withSuccess;
 import java.util.ArrayList;
 import java.util.List;
+import static java.util.Collections.singletonList;
 
 public class WorkspaceServiceCommandHandlers {
 
 	private static final Logger log = LoggerFactory.getLogger(WorkspaceServiceCommandHandlers.class);
 
 	@Autowired
-	private WorkspaceServiceImpl workspaceServiceImpl;
+	private WorkspaceService workspaceService;
+
+	@Autowired
+	private WorkspaceDomainEventPublisher workspaceDomainEventPublisher;
 
 	public CommandHandlers commandHandlers() {
 		return SagaCommandHandlersBuilder
@@ -38,7 +46,21 @@ public class WorkspaceServiceCommandHandlers {
 		log.info("handleRejectCreateWorkspaceCommand() - WorkspaceServiceCommandHandlers - WorkspaceService");
 		
 		RejectCreateWorkspaceCommand command = cm.getCommand();
-		/*TODO*/
+
+		Workspace workspace = workspaceService.findWorkspace(command.getWorkspaceInfo().getId());
+		workspace.setState(WorkspaceState.REJECTED);
+
+		log.info("workspace rejected successfully - workspaceId: "+workspace.getId());
+
+        WorkspaceInfo workspaceInfo = new WorkspaceInfo(workspace.getId());
+        workspaceInfo.setState(workspace.getState().toString());
+
+		List<WorkspaceDomainEvent> events = singletonList(new WorkspaceCreationRejectedEvent(workspaceInfo));
+		ResultWithDomainEvents<Workspace, WorkspaceDomainEvent> workspaceAndEvents = new ResultWithDomainEvents<>(workspace,events);
+
+		workspaceService.saveWorkspace(workspace);
+		workspaceDomainEventPublisher.publish(workspace, workspaceAndEvents.events);
+
 		return withSuccess();
 	}
 
@@ -46,7 +68,20 @@ public class WorkspaceServiceCommandHandlers {
 		log.info("handleCompleteCreateWorkspaceCommand() - WorkspaceServiceCommandHandlers - WorkspaceService");
 		
 		CompleteCreateWorkspaceCommand command = cm.getCommand();
-		/*TODO*/
+		Workspace workspace = workspaceService.findWorkspace(command.getWorkspaceInfo().getId());
+		workspace.setState(WorkspaceState.CREATED);
+
+		log.info("workspace completed successfully - workspaceId: "+workspace.getId());
+
+        WorkspaceInfo workspaceInfo = new WorkspaceInfo(workspace.getId());
+        workspaceInfo.setState(workspace.getState().toString());
+
+		List<WorkspaceDomainEvent> events = singletonList(new WorkspaceCreationCompletedEvent(workspaceInfo));
+		ResultWithDomainEvents<Workspace, WorkspaceDomainEvent> workspaceAndEvents = new ResultWithDomainEvents<>(workspace,events);
+
+		workspaceService.saveWorkspace(workspace);
+		workspaceDomainEventPublisher.publish(workspace, workspaceAndEvents.events);
+
 		return withSuccess();
 	}
 

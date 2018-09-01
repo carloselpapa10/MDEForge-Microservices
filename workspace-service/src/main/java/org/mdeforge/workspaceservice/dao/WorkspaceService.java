@@ -15,4 +15,6 @@ public interface WorkspaceService {
 	public void completeAddProjectToWorkspace(Workspace workspace) throws BusinessException;			
 	public void removeProjectInWorkspace(Workspace workspace) throws BusinessException;			
 	public List<Workspace> findAll() throws BusinessException;
+
+	public void saveWorkspace(Workspace workspace) throws BusinessException;
 }		   

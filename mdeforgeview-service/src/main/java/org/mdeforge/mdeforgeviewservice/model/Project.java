@@ -110,4 +110,8 @@ public class Project{
 	public void setOwner(User owner) {
 		this.owner = owner;
 	}
+
+	public void addWorkspacelist(Workspace workspace){
+	    this.workspacelist.add(workspace);
+    }
 }

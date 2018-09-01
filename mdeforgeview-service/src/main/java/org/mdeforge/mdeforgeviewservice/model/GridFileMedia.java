@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="GridFileMedias")
 public class GridFileMedia{
 
     private String id;									

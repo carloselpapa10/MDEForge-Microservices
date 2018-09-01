@@ -3,7 +3,7 @@ package org.mdeforge.userservice.commandhandlers;
 import org.mdeforge.servicemodel.common.Channels;
 import org.mdeforge.servicemodel.user.api.commands.*;
 import org.mdeforge.servicemodel.user.api.info.*;
-import org.mdeforge.userservice.impl.*;
+import org.mdeforge.userservice.dao.*;
 import org.mdeforge.userservice.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +22,7 @@ public class UserServiceCommandHandlers {
 	private static final Logger log = LoggerFactory.getLogger(UserServiceCommandHandlers.class);
 
 	@Autowired
-	private UserServiceImpl userServiceImpl;
+	private UserService userService;
 
 	public CommandHandlers commandHandlers() {
 		return SagaCommandHandlersBuilder
@@ -36,7 +36,13 @@ public class UserServiceCommandHandlers {
 		log.info("handleValidateUserCommand() - UserServiceCommandHandlers - UserService");
 		
 		ValidateUserCommand command = cm.getCommand();
-		/*TODO*/
+
+		User user = userService.findUser(command.getUserInfo().getId());
+
+		if(user==null){
+			return withFailure();
+		}
+
 		return withSuccess();
 	}
 

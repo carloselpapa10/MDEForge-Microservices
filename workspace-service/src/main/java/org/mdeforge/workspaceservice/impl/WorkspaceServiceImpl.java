@@ -45,15 +45,20 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 	public Workspace createWorkspace(Workspace workspace) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("createWorkspace(Workspace workspace) - WorkspaceServiceImpl - WorkspaceService");
-		
-		List<WorkspaceDomainEvent> events = singletonList(new WorkspaceCreatedEvent());
+
+		WorkspaceInfo workspaceInfo = new WorkspaceInfo(workspace.getName(), workspace.getDescription(), workspace.getOwner(), workspace.getProjects(), workspace.getState().toString());
+
+		List<WorkspaceDomainEvent> events = singletonList(new WorkspaceCreatedEvent(workspaceInfo));
 		ResultWithDomainEvents<Workspace, WorkspaceDomainEvent> workspaceAndEvents = new ResultWithDomainEvents<>(workspace, events);		
 		
 		workspace = workspaceRepository.save(workspace);
 		workspaceAggregateEventPublisher.publish(workspace, workspaceAndEvents.events);
 
-		CreateWorkspaceSagaData data = new CreateWorkspaceSagaData();
-		createWorkspaceSagaManager.create(data, Workspace.class, workspace.getId());
+		/*notice that if projectList is empty it's not necessary make a saga*/
+		if(workspace.getProjects() != null && workspace.getProjects().size() > 0){
+			CreateWorkspaceSagaData data = new CreateWorkspaceSagaData(workspace.getId(), workspace.getOwner(), workspace.getProjects());
+			createWorkspaceSagaManager.create(data, Workspace.class, workspace.getId());
+		}
 		
 		return workspace;
 	}
@@ -83,7 +88,7 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 	public Workspace findWorkspace(String id) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("findWorkspace(String id) - WorkspaceServiceImpl - WorkspaceService");
-		return null;
+		return workspaceRepository.findOne(id);
 	}
 			
 	@Override
@@ -136,5 +141,11 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 		log.info("findAll() - WorkspaceServiceImpl - WorkspaceService");
 		return workspaceRepository.findAll();
 	}
-	
+
+	@Override
+	public void saveWorkspace(Workspace workspace) throws BusinessException {
+		log.info("saveWorkspace() - WorkspaceServiceImpl - WorkspaceService");
+		workspaceRepository.save(workspace);
+	}
+
 }

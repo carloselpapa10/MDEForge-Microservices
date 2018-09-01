@@ -18,12 +18,16 @@ public class Project{
     private boolean open;									
     private String createddate;									
     private String modifieddate;									
-	private List<String> workspacelist;							
-	private List<String> artifactlist;							
-	private List<String> userlist;							
+	private List<String> workspacelist = new ArrayList<>();
+	private List<String> artifactlist = new ArrayList<>();
+	private List<String> userlist = new ArrayList<>();
     private String owner;									
 				
 	public Project() {}
+
+	public Project(String id) {
+		this.id = id;
+	}
 
 	public Project(String name, String description, String owner) {
 		this.name = name;
@@ -114,5 +118,9 @@ public class Project{
 
 	public void setOwner(String owner) {
 		this.owner = owner;
+	}
+
+	public void addWorkspacelist(String workspaceId){
+		this.workspacelist.add(workspaceId);
 	}
 }

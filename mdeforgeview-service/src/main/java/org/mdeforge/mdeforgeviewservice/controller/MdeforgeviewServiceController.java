@@ -29,7 +29,7 @@ public class MdeforgeviewServiceController {
 	@GetMapping("/findArtifact/{artifactId}")
 	public Artifact findArtifact(@RequestParam String id){
 		log.info("findArtifact(String id) - MdeforgeviewServiceController - MdeforgeviewService");
-		return null;
+		return artifactService.findArtifact(id);
 	}
 
 	@GetMapping("/retrieve/Artifacts")
@@ -42,7 +42,7 @@ public class MdeforgeviewServiceController {
 	@GetMapping("/findUser/{userId}")
 	public User findUser(@RequestParam String id){
 		log.info("findUser(String id) - MdeforgeviewServiceController - MdeforgeviewService");
-		return null;
+		return userService.findUser(id);
 	}
 
 	@GetMapping("/retrieve/Users")
@@ -55,7 +55,7 @@ public class MdeforgeviewServiceController {
 	@GetMapping("/findWorkspace/{workspaceId}")
 	public Workspace findWorkspace(@RequestParam String id){
 		log.info("findWorkspace(String id) - MdeforgeviewServiceController - MdeforgeviewService");
-		return null;
+		return workspaceService.findWorkspace(id);
 	}
 
 	@GetMapping("/retrieve/Workspaces")

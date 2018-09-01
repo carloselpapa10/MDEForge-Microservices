@@ -18,4 +18,6 @@ public interface ProjectService {
 	public void completeAddUserInProject(Project project) throws BusinessException;			
 	public void removeUserFromProject(Project project) throws BusinessException;			
 	public List<Project> findAll() throws BusinessException;
+
+	public void saveProject(Project project) throws BusinessException;
 }		   

@@ -7,6 +7,7 @@
 /media/charlis/Carlos Data/Microservices/MDEForge-Microservices/workspace-service/src/main/java/org/mdeforge/workspaceservice/commandhandlers/WorkspaceServiceCommandHandlersConfiguration.java
 /media/charlis/Carlos Data/Microservices/MDEForge-Microservices/workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/addprojecttoworkspace/AddProjectToWorkspaceSaga.java
 /media/charlis/Carlos Data/Microservices/MDEForge-Microservices/workspace-service/src/main/java/org/mdeforge/workspaceservice/model/WorkspaceRepository.java
+/media/charlis/Carlos Data/Microservices/MDEForge-Microservices/workspace-service/src/main/java/org/mdeforge/workspaceservice/model/WorkspaceState.java
 /media/charlis/Carlos Data/Microservices/MDEForge-Microservices/workspace-service/src/main/java/org/mdeforge/workspaceservice/model/Workspace.java
 /media/charlis/Carlos Data/Microservices/MDEForge-Microservices/workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/createworkspace/CreateWorkspaceSaga.java
 /media/charlis/Carlos Data/Microservices/MDEForge-Microservices/workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/updateworkspace/UpdateWorkspaceSagaData.java

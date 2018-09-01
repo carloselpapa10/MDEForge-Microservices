@@ -30,7 +30,7 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 	public Workspace createWorkspace(Workspace workspace) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("createWorkspace(Workspace workspace) - WorkspaceServiceImpl - MdeforgeviewService");
-		return workspace;
+		return workspaceRepository.save(workspace);
 	}
 				
 	@Override
@@ -49,7 +49,7 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 	public Workspace findWorkspace(String id) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("findWorkspace(String id) - WorkspaceServiceImpl - MdeforgeviewService");
-		return null;
+		return workspaceRepository.findOne(id);
 	}
 			
 	@Override
@@ -81,5 +81,10 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 		log.info("findAll() - WorkspaceServiceImpl - MdeforgeviewService");
 		return workspaceRepository.findAll();
 	}
+
+    @Override
+    public void save(Workspace workspace) throws BusinessException {
+        workspaceRepository.save(workspace);
+    }
 
 }

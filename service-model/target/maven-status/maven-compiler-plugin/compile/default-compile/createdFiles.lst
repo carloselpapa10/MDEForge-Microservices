@@ -7,6 +7,7 @@ org/mdeforge/servicemodel/artifact/api/events/ArtifactCreatedEvent.class
 org/mdeforge/servicemodel/artifact/api/events/ChangedArtifactOpenEvent.class
 org/mdeforge/servicemodel/project/api/events/RejectedAddProjectToWorkspaceEvent.class
 org/mdeforge/servicemodel/project/api/info/ProjectInfo.class
+org/mdeforge/servicemodel/workspace/api/events/WorkspaceCreationRejectedEvent.class
 org/mdeforge/servicemodel/artifact/api/info/GridFileMediaInfo.class
 org/mdeforge/servicemodel/workspace/api/events/WorkspaceCreatedEvent.class
 org/mdeforge/servicemodel/artifact/api/info/PropertyInfo.class
@@ -26,6 +27,7 @@ org/mdeforge/servicemodel/workspace/api/info/WorkspaceInfo.class
 org/mdeforge/servicemodel/common/BusinessException.class
 org/mdeforge/servicemodel/project/api/events/AddedProjectsToWorkspaceEvent.class
 org/mdeforge/servicemodel/project/api/events/ProjectDomainEvent.class
+org/mdeforge/servicemodel/workspace/api/events/WorkspaceCreationCompletedEvent.class
 org/mdeforge/servicemodel/user/api/info/UserInfo.class
 org/mdeforge/servicemodel/project/api/events/SharedProjectWithUserEvent.class
 org/mdeforge/servicemodel/user/api/events/UserUpdatedEvent.class

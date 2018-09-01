@@ -11,9 +11,19 @@ public class Workspace{
     private String name;									
     private String description;									
     private User owner;									
-	private List<Project> projects = new ArrayList<>();								
+	private List<Project> projects = new ArrayList<>();
+	private String state;
 
 	public Workspace() {}
+
+	public Workspace(String id, String name, String description, User owner, List<Project> projects, String state) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.owner = owner;
+		this.projects = projects;
+		this.state = state;
+	}
 
 	public void setId(String id) {
 		this.id = id;
@@ -51,4 +61,11 @@ public class Workspace{
 		return projects;
 	}
 
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
 }

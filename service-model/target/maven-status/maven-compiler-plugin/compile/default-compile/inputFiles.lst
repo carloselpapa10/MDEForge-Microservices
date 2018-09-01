@@ -17,6 +17,7 @@
 /media/charlis/Carlos Data/Microservices/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/project/api/events/AddedProjectsToWorkspaceEvent.java
 /media/charlis/Carlos Data/Microservices/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/commands/AddProjectToWorkspaceCommand.java
 /media/charlis/Carlos Data/Microservices/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/events/AddedProjectToWorkspaceEvent.java
+/media/charlis/Carlos Data/Microservices/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/events/WorkspaceCreationCompletedEvent.java
 /media/charlis/Carlos Data/Microservices/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/commands/RejectCreateWorkspaceCommand.java
 /media/charlis/Carlos Data/Microservices/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/ArtifactCreatedEvent.java
 /media/charlis/Carlos Data/Microservices/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/events/WorkspaceCreatedEvent.java
@@ -35,6 +36,7 @@
 /media/charlis/Carlos Data/Microservices/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/project/api/events/AddedUserInProjectEvent.java
 /media/charlis/Carlos Data/Microservices/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/user/api/events/UserCreatedEvent.java
 /media/charlis/Carlos Data/Microservices/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/user/api/info/RoleInfo.java
+/media/charlis/Carlos Data/Microservices/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/events/WorkspaceCreationRejectedEvent.java
 /media/charlis/Carlos Data/Microservices/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/project/api/commands/AddProjectsToWorkspaceCommand.java
 /media/charlis/Carlos Data/Microservices/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/project/api/commands/EditProjectsToWorkspaceCommand.java
 /media/charlis/Carlos Data/Microservices/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/project/api/events/ProjectDomainEvent.java

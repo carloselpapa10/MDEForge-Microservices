@@ -180,5 +180,11 @@ public class ProjectServiceImpl implements ProjectService{
 		log.info("findAll() - ProjectServiceImpl - ProjectService");
 		return projectRepository.findAll();
 	}
-	
+
+	@Override
+	public void saveProject(Project project) throws BusinessException {
+		log.info("saveProject() - ProjectServiceImpl - ProjectService");
+		projectRepository.save(project);
+	}
+
 }

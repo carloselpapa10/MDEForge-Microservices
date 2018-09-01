@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/../mdeforgeview-service/pom.xml" />
         <option value="$PROJECT_DIR$/../user-service/pom.xml" />
         <option value="$PROJECT_DIR$/../apigateway-service/pom.xml" />
+        <option value="$PROJECT_DIR$/../workspace-service/pom.xml" />
       </list>
     </option>
   </component>

@@ -9,10 +9,23 @@ public class WorkspaceInfo {
     private String name;									
     private String description;									
     private String owner;									
-	private List<String> projects;							
+	private List<String> projects;
+	private String state;
 
 	public WorkspaceInfo(){}
-	
+
+	public WorkspaceInfo(String id) {
+		this.id = id;
+	}
+
+	public WorkspaceInfo(String name, String description, String owner, List<String> projects, String state) {
+		this.name = name;
+		this.description = description;
+		this.owner = owner;
+		this.projects = projects;
+		this.state = state;
+	}
+
 	public void setId(String id){
 		this.id = id;
 	}	
@@ -48,4 +61,12 @@ public class WorkspaceInfo {
 	public List<String> getProjects() {
 		return projects;
 	}
-}			
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+}

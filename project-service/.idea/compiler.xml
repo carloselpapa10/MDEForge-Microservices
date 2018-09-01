@@ -12,6 +12,7 @@
         <module name="project-service" />
         <module name="service-model" />
         <module name="user-service" />
+        <module name="workspace-service" />
       </profile>
     </annotationProcessing>
   </component>

@@ -11,12 +11,16 @@ public class ProjectInfo {
     private boolean open;									
     private String createddate;									
     private String modifieddate;									
-	private List<String> workspacelist;
+	private List<String> workspacelist = new ArrayList<>();
 	private List<String> artifactlist;
 	private List<String> userlist;
     private String owner;									
 
 	public ProjectInfo(){}
+
+	public ProjectInfo(String id) {
+		this.id = id;
+	}
 
 	public ProjectInfo(String name, String description, String owner) {
 		this.name = name;
@@ -28,6 +32,11 @@ public class ProjectInfo {
 		this.id = id;
 		this.userlist = new ArrayList<>();
 		this.userlist.add(userId);
+	}
+
+	public ProjectInfo(String id, List<String> workspacelist) {
+		this.id = id;
+		this.workspacelist = workspacelist;
 	}
 
 	public String getId() {

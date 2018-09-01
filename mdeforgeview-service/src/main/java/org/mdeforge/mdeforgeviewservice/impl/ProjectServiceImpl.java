@@ -106,4 +106,9 @@ public class ProjectServiceImpl implements ProjectService{
 		return projectRepository.findAll();
 	}
 
+    @Override
+    public void save(Project project) throws BusinessException {
+        projectRepository.save(project);
+    }
+
 }

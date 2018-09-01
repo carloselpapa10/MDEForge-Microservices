@@ -14,6 +14,9 @@ import org.springframework.stereotype.Component;
 import io.eventuate.tram.sagas.orchestration.SagaDefinition;
 import io.eventuate.tram.sagas.simpledsl.SimpleSaga;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class CreateWorkspaceSaga implements SimpleSaga<CreateWorkspaceSagaData>{
 	
@@ -30,7 +33,7 @@ public class CreateWorkspaceSaga implements SimpleSaga<CreateWorkspaceSagaData>{
 					.invokeParticipant(userService.validateUserCommand, this::makeValidateUserCommand)
 				.step()
 					.invokeParticipant(projectService.addProjectsToWorkspaceCommand, this::makeAddProjectsToWorkspaceCommand)
-					.onReply(ProjectInfo.class, this::handleAddProjectsToWorkspaceCommand)				
+						.onReply(ProjectInfo.class, this::handleAddProjectsToWorkspaceCommand)
 					.withCompensation(projectService.rejectAddProjectsToWorkspaceCommand, this::makeRejectAddProjectsToWorkspaceCommand)			
 				.step()
 					.invokeParticipant(workspaceService.completeCreateWorkspaceCommand, this::makeCompleteCreateWorkspaceCommand)
@@ -44,31 +47,37 @@ public class CreateWorkspaceSaga implements SimpleSaga<CreateWorkspaceSagaData>{
 
 	private RejectCreateWorkspaceCommand makeRejectCreateWorkspaceCommand(CreateWorkspaceSagaData data) {
 		log.info("makeRejectCreateWorkspaceCommand() - CreateWorkspaceSaga - WorkspaceService"); 
-		return new RejectCreateWorkspaceCommand();
+		return new RejectCreateWorkspaceCommand(new WorkspaceInfo(data.getWorkspaceId()));
 	}
 
 	private ValidateUserCommand makeValidateUserCommand(CreateWorkspaceSagaData data) {
 		log.info("makeValidateUserCommand() - CreateWorkspaceSaga - WorkspaceService"); 
-		return new ValidateUserCommand();
+		return new ValidateUserCommand(new UserInfo(data.getOwner()));
 	}
 
 	private AddProjectsToWorkspaceCommand makeAddProjectsToWorkspaceCommand(CreateWorkspaceSagaData data) {
-		log.info("makeAddProjectsToWorkspaceCommand() - CreateWorkspaceSaga - WorkspaceService"); 
-		return new AddProjectsToWorkspaceCommand();
+		log.info("makeAddProjectsToWorkspaceCommand() - CreateWorkspaceSaga - WorkspaceService");
+
+		List<ProjectInfo>  projectInfoList = new ArrayList<>();
+		data.getProjects().forEach(projectId -> {
+			projectInfoList.add(new ProjectInfo(projectId));
+		});
+
+		return new AddProjectsToWorkspaceCommand(projectInfoList, data.getWorkspaceId());
 	}
 
-	private void handleAddProjectsToWorkspaceCommand(CreateWorkspaceSagaData data, ProjectInfo projectInfo) {
-		log.info("handleAddProjectsToWorkspaceCommand() - CreateWorkspaceSaga - WorkspaceService"); 
+	private void handleAddProjectsToWorkspaceCommand(CreateWorkspaceSagaData data, ProjectInfo projectInfoList) {
+		log.info("handleAddProjectsToWorkspaceCommand() - CreateWorkspaceSaga - WorkspaceService");
 	}
 
 	private RejectAddProjectsToWorkspaceCommand makeRejectAddProjectsToWorkspaceCommand(CreateWorkspaceSagaData data) {
-		log.info("makeRejectAddProjectsToWorkspaceCommand() - CreateWorkspaceSaga - WorkspaceService"); 
+		log.info("makeRejectAddProjectsToWorkspaceCommand() - CreateWorkspaceSaga - WorkspaceService");
 		return new RejectAddProjectsToWorkspaceCommand();
 	}
 
 	private CompleteCreateWorkspaceCommand makeCompleteCreateWorkspaceCommand(CreateWorkspaceSagaData data) {
 		log.info("makeCompleteCreateWorkspaceCommand() - CreateWorkspaceSaga - WorkspaceService"); 
-		return new CompleteCreateWorkspaceCommand();
+		return new CompleteCreateWorkspaceCommand(new WorkspaceInfo(data.getWorkspaceId()));
 	}
 
 }

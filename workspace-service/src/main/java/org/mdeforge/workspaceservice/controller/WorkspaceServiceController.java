@@ -1,6 +1,6 @@
 package org.mdeforge.workspaceservice.controller;
 
-import org.mdeforge.workspaceservice.impl.*;
+import org.mdeforge.workspaceservice.dao.*;
 import org.mdeforge.workspaceservice.model.*;
 import org.mdeforge.workspaceservice.webapi.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +16,15 @@ public class WorkspaceServiceController {
 	private static final Logger log = LoggerFactory.getLogger(WorkspaceServiceController.class);
 
 	@Autowired
-	private WorkspaceServiceImpl workspaceServiceImpl;
+	private WorkspaceService workspaceService;
 
 	@PostMapping("createWorkspace/workspace")
-	public CreateWorkspaceResponse createWorkspace(@RequestBody CreateWorkspaceRequest createWorkspaceRequest){
+	public CreateWorkspaceResponse createWorkspace(@RequestBody CreateWorkspaceRequest request){
 		log.info("createWorkspace(@RequestBody CreateWorkspaceRequest createWorkspaceRequest) - WorkspaceServiceController - WorkspaceService");
-		
-		/*TODO*/
-		return new CreateWorkspaceResponse();
+
+		Workspace workspace = workspaceService.createWorkspace(new Workspace(request.getName(), request.getDescription(), request.getOwner(), request.getProjects()));
+
+		return new CreateWorkspaceResponse(workspace.getId());
 	}
 			
 	@PutMapping("/updateWorkspace/workspace")
@@ -37,9 +38,8 @@ public class WorkspaceServiceController {
 	@GetMapping("/findWorkspace/{workspaceId}")
 	public Workspace findWorkspace(@RequestParam String id){
 		log.info("findWorkspace(String id) - WorkspaceServiceController - WorkspaceService");
-		
-		/*TODO*/
-		return null;
+
+		return workspaceService.findWorkspace(id);
 	} 			
 
 	@DeleteMapping("/deleteWorkspace/{workspaceId}")
@@ -70,7 +70,7 @@ public class WorkspaceServiceController {
 	public List<Workspace> findAllWorkspaces(){
 		/*Auto-Generated*/
 		log.info("findAll() - WorkspaceServiceController - WorkspaceService");
-		return workspaceServiceImpl.findAll();
+		return workspaceService.findAll();
 	}
 
 }

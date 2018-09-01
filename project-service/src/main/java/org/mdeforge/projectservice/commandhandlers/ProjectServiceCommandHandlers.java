@@ -1,9 +1,11 @@
 package org.mdeforge.projectservice.commandhandlers;
 
+import io.eventuate.tram.events.aggregates.ResultWithDomainEvents;
 import org.mdeforge.servicemodel.common.Channels;
 import org.mdeforge.servicemodel.project.api.commands.*;
 import org.mdeforge.servicemodel.project.api.info.*;
-import org.mdeforge.projectservice.impl.*;
+import org.mdeforge.servicemodel.project.api.events.*;
+import org.mdeforge.projectservice.dao.*;
 import org.mdeforge.projectservice.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,13 +18,17 @@ import static io.eventuate.tram.commands.consumer.CommandHandlerReplyBuilder.wit
 import static io.eventuate.tram.commands.consumer.CommandHandlerReplyBuilder.withSuccess;
 import java.util.ArrayList;
 import java.util.List;
+import static java.util.Collections.singletonList;
 
 public class ProjectServiceCommandHandlers {
 
 	private static final Logger log = LoggerFactory.getLogger(ProjectServiceCommandHandlers.class);
 
 	@Autowired
-	private ProjectServiceImpl projectServiceImpl;
+	private ProjectService projectService;
+
+	@Autowired
+	private ProjectDomainEventPublisher projectDomainEventPublisher;
 
 	public CommandHandlers commandHandlers() {
 		return SagaCommandHandlersBuilder
@@ -41,7 +47,41 @@ public class ProjectServiceCommandHandlers {
 		log.info("handleAddProjectsToWorkspaceCommand() - ProjectServiceCommandHandlers - ProjectService");
 		
 		AddProjectsToWorkspaceCommand command = cm.getCommand();
-		/*TODO*/
+
+		/*validate projectsId*/
+		List<Project> projectList = new ArrayList<>();
+
+		for (ProjectInfo projectInfo : command.getProjectInfoList()){
+			Project project = projectService.findProject(projectInfo.getId());
+			if(project!= null){
+				projectList.add(project);
+			}else {
+				return withFailure(); /* return withFailure if at least one projectId does not exist .*/
+			}
+		}
+
+		/*fill projectids to publish an event*/
+		List<ProjectInfo>  projectInfoList = new ArrayList<>();
+		projectList.forEach(projectId -> {
+			projectInfoList.add(new ProjectInfo(projectId.getId()));
+		});
+
+		/*because publishing an event - whatever id in this case*/
+		Project p = new Project(projectList.get(0).getId());
+
+		List<ProjectDomainEvent> events = singletonList(new AddedProjectsToWorkspaceEvent(projectInfoList, command.getWorkspaceId()));
+		ResultWithDomainEvents<Project, ProjectDomainEvent> projectAndEvents = new ResultWithDomainEvents<>(p, events);
+
+		/*add Workspace to projects*/
+		projectList.forEach(project -> {
+			if(!project.getWorkspacelist().contains(command.getWorkspaceId())){
+				project.addWorkspacelist(command.getWorkspaceId());
+				projectService.saveProject(project);
+			}
+		});
+
+		projectDomainEventPublisher.publish(p, projectAndEvents.events);
+
 		return withSuccess(new ProjectInfo());
 	}
 

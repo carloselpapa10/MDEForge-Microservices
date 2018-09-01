@@ -1,6 +1,6 @@
 server:
-  port: 8081
-
+  port: 8080
+#8081
 spring:
   datasource:
     url: jdbc:mysql://${DOCKER_HOST_IP}:3306/eventuate?autoReconnect=true&useSSL=false

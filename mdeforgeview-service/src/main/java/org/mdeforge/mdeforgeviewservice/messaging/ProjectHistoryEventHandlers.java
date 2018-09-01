@@ -2,6 +2,7 @@ package org.mdeforge.mdeforgeviewservice.messaging;
 
 import org.mdeforge.mdeforgeviewservice.dao.ProjectService;
 import org.mdeforge.mdeforgeviewservice.dao.UserService;
+import org.mdeforge.mdeforgeviewservice.dao.WorkspaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.mdeforge.servicemodel.project.api.events.*;
@@ -11,7 +12,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import io.eventuate.tram.events.subscriber.DomainEventEnvelope;
 import io.eventuate.tram.events.subscriber.DomainEventHandlers;
-import io.eventuate.tram.events.subscriber.DomainEventHandlersBuilder;	
+import io.eventuate.tram.events.subscriber.DomainEventHandlersBuilder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class ProjectHistoryEventHandlers {
@@ -23,6 +27,9 @@ public class ProjectHistoryEventHandlers {
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+    private WorkspaceService workspaceService;
 
 	public DomainEventHandlers domainEventHandlers() {
 		return DomainEventHandlersBuilder
@@ -63,6 +70,16 @@ public class ProjectHistoryEventHandlers {
 
 	private void handleAddedProjectsToWorkspaceEvent(DomainEventEnvelope<AddedProjectsToWorkspaceEvent> dee) {
 		log.info("handleAddedProjectsToWorkspaceEvent() - ProjectHistoryEventHandlers - ProjectService");
+
+        List<Project> projectList = new ArrayList<>();
+		dee.getEvent().getProjectInfoList().forEach(projectInfo -> {
+		    projectList.add(projectService.findProject(projectInfo.getId()));
+        });
+
+		projectList.forEach(project -> {
+            project.addWorkspacelist(workspaceService.findWorkspace(dee.getEvent().getWorkspaceId()));
+            projectService.save(project);
+        });
 	}
 
 	private void handleRejectedAddProjectToWorkspaceEvent(DomainEventEnvelope<RejectedAddProjectToWorkspaceEvent> dee) {
