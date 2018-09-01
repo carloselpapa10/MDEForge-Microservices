@@ -1,0 +1,9 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: apigateway-service
+  clould:
+    config:
+      enabled: false
