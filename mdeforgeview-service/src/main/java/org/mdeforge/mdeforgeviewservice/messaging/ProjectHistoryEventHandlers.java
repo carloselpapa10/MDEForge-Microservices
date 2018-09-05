@@ -76,10 +76,11 @@ public class ProjectHistoryEventHandlers {
 		    projectList.add(projectService.findProject(projectInfo.getId()));
         });
 
+		/*
 		projectList.forEach(project -> {
             project.addWorkspacelist(workspaceService.findWorkspace(dee.getEvent().getWorkspaceId()));
             projectService.save(project);
-        });
+        });*/
 	}
 
 	private void handleRejectedAddProjectToWorkspaceEvent(DomainEventEnvelope<RejectedAddProjectToWorkspaceEvent> dee) {

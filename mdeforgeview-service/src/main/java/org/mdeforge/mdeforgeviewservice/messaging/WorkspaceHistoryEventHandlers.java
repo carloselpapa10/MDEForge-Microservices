@@ -53,8 +53,10 @@ public class WorkspaceHistoryEventHandlers {
 			projectList.add(projectService.findProject(projectId));
 		});
 
+		User user = userService.findUser(dee.getEvent().getWorkspaceInfo().getOwner());
+
 		Workspace workspace = new Workspace(dee.getAggregateId(), dee.getEvent().getWorkspaceInfo().getName(),
-												dee.getEvent().getWorkspaceInfo().getDescription(), userService.findUser(dee.getEvent().getWorkspaceInfo().getOwner()) ,
+												dee.getEvent().getWorkspaceInfo().getDescription(),  user,
 															projectList, dee.getEvent().getWorkspaceInfo().getState());
 
 		workspaceService.createWorkspace(workspace);

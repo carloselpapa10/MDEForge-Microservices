@@ -13,7 +13,7 @@ public class Project{
     private boolean open;									
     private String createddate;									
     private String modifieddate;									
-	private List<Workspace> workspacelist = new ArrayList<>();								
+	//private List<Workspace> workspacelist = new ArrayList<>();
 	private List<Artifact> artifactlist = new ArrayList<>();								
 	private List<User> userlist = new ArrayList<>();								
     private User owner;									
@@ -79,14 +79,6 @@ public class Project{
 		this.modifieddate = modifieddate;
 	}
 
-	public List<Workspace> getWorkspacelist() {
-		return workspacelist;
-	}
-
-	public void setWorkspacelist(List<Workspace> workspacelist) {
-		this.workspacelist = workspacelist;
-	}
-
 	public List<Artifact> getArtifactlist() {
 		return artifactlist;
 	}
@@ -111,7 +103,7 @@ public class Project{
 		this.owner = owner;
 	}
 
-	public void addWorkspacelist(Workspace workspace){
+	/*public void addWorkspacelist(Workspace workspace){
 	    this.workspacelist.add(workspace);
-    }
+    }*/
 }

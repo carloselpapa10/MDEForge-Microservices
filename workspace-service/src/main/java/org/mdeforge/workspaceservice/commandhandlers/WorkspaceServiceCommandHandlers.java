@@ -69,7 +69,7 @@ public class WorkspaceServiceCommandHandlers {
 		
 		CompleteCreateWorkspaceCommand command = cm.getCommand();
 		Workspace workspace = workspaceService.findWorkspace(command.getWorkspaceInfo().getId());
-		workspace.setState(WorkspaceState.CREATED);
+		workspace.setState(WorkspaceState.CREATION_COMPLETED);
 
 		log.info("workspace completed successfully - workspaceId: "+workspace.getId());
 

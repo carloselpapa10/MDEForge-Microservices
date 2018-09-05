@@ -15,10 +15,13 @@ public class User{
     private String image;									
     private String password;									
     private boolean enabled;									
-	private List<Role> roles = new ArrayList<>();							
+	//private List<Role> roles = new ArrayList<>();
+
+	/*
 	private List<Artifact> ownerartifactlist = new ArrayList<>();								
 	private List<Artifact> sharedartifactlist = new ArrayList<>();								
     private Workspace workspacelist;									
+    */
 
 	public User() {}
 
@@ -94,35 +97,5 @@ public class User{
 		this.enabled = enabled;
 	}
 
-	public List<Role> getRoles() {
-		return roles;
-	}
 
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
-	}
-
-	public List<Artifact> getOwnerartifactlist() {
-		return ownerartifactlist;
-	}
-
-	public void setOwnerartifactlist(List<Artifact> ownerartifactlist) {
-		this.ownerartifactlist = ownerartifactlist;
-	}
-
-	public List<Artifact> getSharedartifactlist() {
-		return sharedartifactlist;
-	}
-
-	public void setSharedartifactlist(List<Artifact> sharedartifactlist) {
-		this.sharedartifactlist = sharedartifactlist;
-	}
-
-	public Workspace getWorkspacelist() {
-		return workspacelist;
-	}
-
-	public void setWorkspacelist(Workspace workspacelist) {
-		this.workspacelist = workspacelist;
-	}
 }
