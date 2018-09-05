@@ -1,0 +1,6 @@
+1. docker exec -it mongodb bash
+2. mongo
+3. query (SetUserdbMongoDB.js)
+4. query (SetUserdbMongoInMDEForgeViewDB.js)
+5. exit
+6. exit

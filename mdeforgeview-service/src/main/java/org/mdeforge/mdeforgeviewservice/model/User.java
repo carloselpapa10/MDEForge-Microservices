@@ -2,6 +2,8 @@ package org.mdeforge.mdeforgeviewservice.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="Users")
@@ -14,8 +16,9 @@ public class User{
     private String username;									
     private String image;									
     private String password;									
-    private boolean enabled;									
-	//private List<Role> roles = new ArrayList<>();
+    private boolean enabled;
+    @DBRef(lazy = true)
+	private List<Role> roles = new ArrayList<>();
 
 	/*
 	private List<Artifact> ownerartifactlist = new ArrayList<>();								
@@ -97,5 +100,11 @@ public class User{
 		this.enabled = enabled;
 	}
 
+	public List<Role> getRoles() {
+		return roles;
+	}
 
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
 }

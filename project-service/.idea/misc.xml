@@ -5,12 +5,12 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/../service-model/pom.xml" />
         <option value="$PROJECT_DIR$/../eventuate-tram-aggregate-domain-events/pom.xml" />
-        <option value="$PROJECT_DIR$/../mdeforgeview-service/pom.xml" />
+        <option value="$PROJECT_DIR$/../service-model/pom.xml" />
         <option value="$PROJECT_DIR$/../user-service/pom.xml" />
-        <option value="$PROJECT_DIR$/../apigateway-service/pom.xml" />
         <option value="$PROJECT_DIR$/../workspace-service/pom.xml" />
+        <option value="$PROJECT_DIR$/../mdeforgeview-service/pom.xml" />
+        <option value="$PROJECT_DIR$/../artifact-service/pom.xml" />
       </list>
     </option>
   </component>

@@ -3,6 +3,7 @@ package org.mdeforge.mdeforgeviewservice.messaging;
 import org.mdeforge.mdeforgeviewservice.dao.ProjectService;
 import org.mdeforge.mdeforgeviewservice.dao.UserService;
 import org.mdeforge.mdeforgeviewservice.dao.WorkspaceService;
+import org.mdeforge.servicemodel.project.api.commands.ValidateProjectListCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.mdeforge.servicemodel.project.api.events.*;
@@ -37,7 +38,7 @@ public class ProjectHistoryEventHandlers {
 				.onEvent(ProjectCreatedEvent.class, this::handleProjectCreatedEvent)
 				.onEvent(ProjectUpdatedEvent.class, this::handleProjectUpdatedEvent)
 				.onEvent(ProjectDeletedEvent.class, this::handleProjectDeletedEvent)
-				.onEvent(AddedProjectsToWorkspaceEvent.class, this::handleAddedProjectsToWorkspaceEvent)
+                //.onEvent(AddedProjectsToWorkspaceEvent.class, this::handleAddedProjectsToWorkspaceEvent)
 				.onEvent(RejectedAddProjectToWorkspaceEvent.class, this::handleRejectedAddProjectToWorkspaceEvent)
 				.onEvent(EditedProjectsToWorkspaceCommand.class, this::handleEditedProjectsToWorkspaceCommand)
 				.onEvent(RejectedEditProjectsToWorkspaceCommand.class, this::handleRejectedEditProjectsToWorkspaceCommand)
@@ -68,6 +69,7 @@ public class ProjectHistoryEventHandlers {
 		log.info("handleProjectDeletedEvent() - ProjectHistoryEventHandlers - ProjectService");
 	}
 
+    /*
 	private void handleAddedProjectsToWorkspaceEvent(DomainEventEnvelope<AddedProjectsToWorkspaceEvent> dee) {
 		log.info("handleAddedProjectsToWorkspaceEvent() - ProjectHistoryEventHandlers - ProjectService");
 
@@ -76,12 +78,12 @@ public class ProjectHistoryEventHandlers {
 		    projectList.add(projectService.findProject(projectInfo.getId()));
         });
 
-		/*
+
 		projectList.forEach(project -> {
             project.addWorkspacelist(workspaceService.findWorkspace(dee.getEvent().getWorkspaceId()));
             projectService.save(project);
-        });*/
-	}
+        });
+	}*/
 
 	private void handleRejectedAddProjectToWorkspaceEvent(DomainEventEnvelope<RejectedAddProjectToWorkspaceEvent> dee) {
 		log.info("handleRejectedAddProjectToWorkspaceEvent() - ProjectHistoryEventHandlers - ProjectService");

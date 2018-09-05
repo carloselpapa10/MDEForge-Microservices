@@ -11,11 +11,13 @@ import org.mdeforge.servicemodel.project.api.info.*;
 @Component
 public class ProjectServiceProxy {
 
+    /*
 	public final CommandEndpoint<RejectAddProjectsToWorkspaceCommand> rejectAddProjectsToWorkspaceCommand = CommandEndpointBuilder
 								.forCommand(RejectAddProjectsToWorkspaceCommand.class)
 								.withChannel(Channels.PROJECTSERVICE)
 								.withReply(Success.class)
 								.build();			
+    */
 
 	public final CommandEndpoint<RejectEditProjectsToWorkspaceCommand> rejectEditProjectsToWorkspaceCommand = CommandEndpointBuilder
 								.forCommand(RejectEditProjectsToWorkspaceCommand.class)
@@ -29,11 +31,20 @@ public class ProjectServiceProxy {
 								.withReply(ProjectInfo.class)
 								.build();								
 
+	/*
 	public final CommandEndpoint<AddProjectsToWorkspaceCommand> addProjectsToWorkspaceCommand = CommandEndpointBuilder
 								.forCommand(AddProjectsToWorkspaceCommand.class)
 								.withChannel(Channels.PROJECTSERVICE)
 								.withReply(ProjectInfo.class)
-								.build();								
+								.build();
+	*/
+
+
+    public final CommandEndpoint<ValidateProjectListCommand> validateProjectListCommand = CommandEndpointBuilder
+                                .forCommand(ValidateProjectListCommand.class)
+                                .withChannel(Channels.PROJECTSERVICE)
+                                .withReply(Success.class)
+                                .build();
 
 	public final CommandEndpoint<ValidateProjectCommand> validateProjectCommand = CommandEndpointBuilder
 								.forCommand(ValidateProjectCommand.class)

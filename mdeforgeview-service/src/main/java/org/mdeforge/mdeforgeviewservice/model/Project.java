@@ -2,6 +2,8 @@ package org.mdeforge.mdeforgeviewservice.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="Projects")
@@ -14,9 +16,15 @@ public class Project{
     private String createddate;									
     private String modifieddate;									
 	//private List<Workspace> workspacelist = new ArrayList<>();
-	private List<Artifact> artifactlist = new ArrayList<>();								
-	private List<User> userlist = new ArrayList<>();								
-    private User owner;									
+
+    @DBRef
+    private List<Artifact> artifactlist = new ArrayList<>();
+
+	@DBRef
+	private List<User> userlist = new ArrayList<>();
+
+	@DBRef
+	private User owner;
 
 	public Project() {}
 
