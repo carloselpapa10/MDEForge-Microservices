@@ -18,12 +18,12 @@ public class UserHistoryEventHandlers {
 	public DomainEventHandlers domainEventHandlers() {
 		return DomainEventHandlersBuilder
 				.forAggregateType("org.mdeforge.userservice.model.User")
-				.onEvent(UserCreatedEvent.class, this::handleUserCreatedEvent)
+				/*.onEvent(UserCreatedEvent.class, this::handleUserCreatedEvent)
 				.onEvent(UserUpdatedEvent.class, this::handleUserUpdatedEvent)
-				.onEvent(UserDeletedEvent.class, this::handleUserDeletedEvent)
+				.onEvent(UserDeletedEvent.class, this::handleUserDeletedEvent)*/
 				.build();
 	}
-
+    /*
 	private void handleUserCreatedEvent(DomainEventEnvelope<UserCreatedEvent> dee) {
 		log.info("handleUserCreatedEvent() - UserHistoryEventHandlers - UserService");
 	}
@@ -34,6 +34,6 @@ public class UserHistoryEventHandlers {
 
 	private void handleUserDeletedEvent(DomainEventEnvelope<UserDeletedEvent> dee) {
 		log.info("handleUserDeletedEvent() - UserHistoryEventHandlers - UserService");
-	}
+	}*/
 
 }

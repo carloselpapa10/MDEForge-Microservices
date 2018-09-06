@@ -6,6 +6,7 @@ import org.mdeforge.servicemodel.workspace.api.commands.*;
 import org.mdeforge.servicemodel.workspace.api.events.WorkspaceCreationCompletedEvent;
 import org.mdeforge.servicemodel.workspace.api.events.WorkspaceCreationRejectedEvent;
 import org.mdeforge.servicemodel.workspace.api.events.WorkspaceDomainEvent;
+import org.mdeforge.servicemodel.workspace.api.events.WorkspaceUpdatedEvent;
 import org.mdeforge.servicemodel.workspace.api.info.*;
 import org.mdeforge.workspaceservice.dao.*;
 import org.mdeforge.workspaceservice.model.*;
@@ -89,7 +90,14 @@ public class WorkspaceServiceCommandHandlers {
 		log.info("handleUpdateWorkspaceCommand() - WorkspaceServiceCommandHandlers - WorkspaceService");
 		
 		UpdateWorkspaceCommand command = cm.getCommand();
-		/*TODO*/
+		Workspace workspace = workspaceService.findWorkspace(command.getWorkspaceInfo().getId());
+		workspace.setState(WorkspaceState.UPDATING_COMPLETED);
+
+        log.info("workspace updated successfully - workspaceId: "+workspace.getId());
+
+        workspaceService.saveWorkspace(workspace);
+        workspaceService.completeUpdateWorkspace(workspace);
+
 		return withSuccess();
 	}
 

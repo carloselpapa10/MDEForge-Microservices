@@ -64,10 +64,30 @@ public class WorkspaceHistoryEventHandlers {
 
 	private void handleWorkspaceUpdatedEvent(DomainEventEnvelope<WorkspaceUpdatedEvent> dee) {
 		log.info("handleWorkspaceUpdatedEvent() - WorkspaceHistoryEventHandlers - WorkspaceService");
+
+        List<Project> projectList = new ArrayList<>();
+
+        dee.getEvent().getWorkspaceInfo().getProjects().forEach(projectId -> {
+            projectList.add(projectService.findProject(projectId));
+        });
+
+        User user = userService.findUser(dee.getEvent().getWorkspaceInfo().getOwner());
+
+        Workspace workspace = workspaceService.findWorkspace(dee.getAggregateId());
+        workspace.setName(dee.getEvent().getWorkspaceInfo().getName());
+        workspace.setDescription(dee.getEvent().getWorkspaceInfo().getDescription());
+        workspace.setOwner(user);
+        workspace.setProjects(projectList);
+        workspace.setState(dee.getEvent().getWorkspaceInfo().getState());
+
+        workspaceService.save(workspace);
 	}
 
 	private void handleWorkspaceDeletedEvent(DomainEventEnvelope<WorkspaceDeletedEvent> dee) {
 		log.info("handleWorkspaceDeletedEvent() - WorkspaceHistoryEventHandlers - WorkspaceService");
+
+		Workspace workspace = workspaceService.findWorkspace(dee.getAggregateId());
+		workspaceService.deleteWorkspace(workspace);
 	}
 
     private void handleWorkspaceCreationRejectedEvent(DomainEventEnvelope<WorkspaceCreationRejectedEvent> dee) {

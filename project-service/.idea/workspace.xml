@@ -2,19 +2,74 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e70c8bc0-218d-4137-8eb4-30405da0945f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/messaging/ProjectHistoryEventHandlers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/messaging/ProjectHistoryEventHandlers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/messaging/UserHistoryEventHandlers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/messaging/UserHistoryEventHandlers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../artifact-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../artifact-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../artifact-service/target/artifact-service.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/../artifact-service/target/artifact-service.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../artifact-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../artifact-service/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../artifact-service/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../artifact-service/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../artifact-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../artifact-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../artifact-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../artifact-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eventuate-tram-aggregate-domain-events/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../eventuate-tram-aggregate-domain-events/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eventuate-tram-aggregate-domain-events/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../eventuate-tram-aggregate-domain-events/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforge-admin/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-admin/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforge-admin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-admin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforge-admin/target/mdeforge-admin.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-admin/target/mdeforge-admin.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/WorkspaceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/WorkspaceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/impl/WorkspaceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/impl/WorkspaceServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/ProjectHistoryEventHandlers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/ProjectHistoryEventHandlers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/WorkspaceHistoryEventHandlers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/WorkspaceHistoryEventHandlers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/target/test-classes/image_info.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/target/docker/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/target/docker/wait-for-mysql.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/target/mdeforgeview-service.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/target/mdeforgeview-service.jar.original" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/commandhandlers/ProjectServiceCommandHandlers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/commandhandlers/ProjectServiceCommandHandlers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/messaging/ArtifactHistoryEventHandlers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/messaging/ArtifactHistoryEventHandlers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/messaging/UserHistoryEventHandlers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/messaging/UserHistoryEventHandlers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/messaging/WorkspaceHistoryEventHandlers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/messaging/WorkspaceHistoryEventHandlers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/docker/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/docker/wait-for-mysql.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-service.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-service.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/image_info.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/info/WorkspaceInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/info/WorkspaceInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../service-model/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../service-model/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../service-model/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/docker/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/docker/wait-for-mysql.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/test-classes/image_info.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/user-service.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/target/user-service.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/commandhandlers/WorkspaceServiceCommandHandlers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/commandhandlers/WorkspaceServiceCommandHandlers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/controller/WorkspaceServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/controller/WorkspaceServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/dao/WorkspaceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/dao/WorkspaceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/impl/WorkspaceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/impl/WorkspaceServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/messaging/ProjectHistoryEventHandlers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/messaging/ProjectHistoryEventHandlers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/model/WorkspaceState.java" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/model/WorkspaceState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/proxy/ProjectServiceProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/proxy/ProjectServiceProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/createworkspace/CreateWorkspaceSaga.java" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/createworkspace/CreateWorkspaceSaga.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/createworkspace/CreateWorkspaceSagaData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/createworkspace/CreateWorkspaceSagaData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/updateworkspace/UpdateWorkspaceSaga.java" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/updateworkspace/UpdateWorkspaceSaga.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/updateworkspace/UpdateWorkspaceSagaData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/updateworkspace/UpdateWorkspaceSagaData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/target/test-classes/image_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/target/test-classes/image_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/target/workspace-service.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/target/workspace-service.jar.original" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/../eventuate-tram-aggregate-domain-events/target/" />
@@ -35,38 +90,39 @@
         <counts>
           <entry key="project.closed" value="1" />
           <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="18" />
-          <entry key="yml" value="7" />
+          <entry key="java" value="63" />
+          <entry key="yml" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="18" />
-          <entry key="YAML" value="7" />
+          <entry key="JAVA" value="63" />
+          <entry key="YAML" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="176" />
-          <entry key="yml" value="2" />
+          <entry key="java" value="1431" />
+          <entry key="yml" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="176" />
-          <entry key="YAML" value="2" />
+          <entry key="JAVA" value="1431" />
+          <entry key="YAML" value="15" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -78,6 +134,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>rejectAddProjectsToWorkspaceCommand</find>
+      <find>UpdateWorkspaceCommand</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -87,13 +144,35 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/User.java" />
-        <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/Project.java" />
         <option value="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/project/api/commands/ValidateProjectListCommand.java" />
-        <option value="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/proxy/ProjectServiceProxy.java" />
         <option value="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/createworkspace/CreateWorkspaceSaga.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/commandhandlers/ProjectServiceCommandHandlers.java" />
         <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/ProjectHistoryEventHandlers.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/messaging/WorkspaceHistoryEventHandlers.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/messaging/UserHistoryEventHandlers.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/messaging/ArtifactHistoryEventHandlers.java" />
+        <option value="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/messaging/ProjectHistoryEventHandlers.java" />
+        <option value="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/messaging/UserHistoryEventHandlers.java" />
+        <option value="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/messaging/ProjectHistoryEventHandlers.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/../user-service/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/../workspace-service/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/../artifact-service/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/dao/WorkspaceService.java" />
+        <option value="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/createworkspace/CreateWorkspaceSagaData.java" />
+        <option value="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/updateworkspace/UpdateWorkspaceSagaData.java" />
+        <option value="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/proxy/ProjectServiceProxy.java" />
+        <option value="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/updateworkspace/UpdateWorkspaceSaga.java" />
+        <option value="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/model/WorkspaceState.java" />
+        <option value="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/commandhandlers/WorkspaceServiceCommandHandlers.java" />
+        <option value="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/info/WorkspaceInfo.java" />
+        <option value="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/controller/WorkspaceServiceController.java" />
+        <option value="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/impl/WorkspaceServiceImpl.java" />
+        <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/WorkspaceService.java" />
+        <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/impl/WorkspaceServiceImpl.java" />
+        <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/WorkspaceHistoryEventHandlers.java" />
       </list>
     </option>
   </component>
@@ -115,6 +194,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -155,98 +235,32 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mdeforgeviewservice" type="462c0819:PsiDirectoryNode" />
-              <item name="messaging" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="workspace-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="workspace-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="workspace-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="workspace-service" type="462c0819:PsiDirectoryNode" />
+              <item name="mdeforgeview-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="workspace-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="workspaceservice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="workspace-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="workspaceservice" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="workspace-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="workspaceservice" type="462c0819:PsiDirectoryNode" />
+              <item name="mdeforgeviewservice" type="462c0819:PsiDirectoryNode" />
               <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="workspace-service" type="462c0819:PsiDirectoryNode" />
+              <item name="mdeforgeview-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="workspaceservice" type="462c0819:PsiDirectoryNode" />
-              <item name="proxy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="workspace-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="workspaceservice" type="462c0819:PsiDirectoryNode" />
-              <item name="saga" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="workspace-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="workspaceservice" type="462c0819:PsiDirectoryNode" />
-              <item name="saga" type="462c0819:PsiDirectoryNode" />
-              <item name="createworkspace" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="workspace-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mdeforgeviewservice" type="462c0819:PsiDirectoryNode" />
+              <item name="messaging" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -266,6 +280,11 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
     <option name="ruleStates">
       <list>
         <RuleState>
@@ -333,16 +352,17 @@
       <updated>1536156827596</updated>
       <workItem from="1536156830227" duration="270000" />
       <workItem from="1536158983860" duration="4026000" />
+      <workItem from="1536222270359" duration="11177000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4296000" />
+    <option name="totallyTimeSpent" value="15473000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2722745" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27559492" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -350,20 +370,21 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="0" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.1827027" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" />
-      <window_info anchor="bottom" id="Spring" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Java Enterprise" order="11" />
-      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run Dashboard" order="0" visible="true" weight="0.3610811" />
+      <window_info anchor="bottom" id="Messages" order="1" weight="0.32972974" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" />
+      <window_info anchor="bottom" id="Run" order="4" weight="0.1827027" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="8" />
+      <window_info anchor="bottom" id="Spring" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" />
+      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="14" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -383,20 +404,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../user-service/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="62" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/controller/UserServiceController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -408,13 +415,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="33" column="45" lean-forward="true" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -484,9 +484,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/project/api/commands/ValidateProjectCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -516,45 +513,245 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/proxy/ProjectServiceProxy.java">
+    <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/webapi/CreateWorkspaceResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+        <state relative-caret-position="120">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <folding>
+            <element signature="e#207#208#0" expanded="true" />
+            <element signature="e#244#245#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/WorkspaceHistoryEventHandlers.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/commandhandlers/ProjectServiceCommandHandlers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        <state relative-caret-position="180">
+          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/ProjectHistoryEventHandlers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        <state relative-caret-position="210">
+          <caret line="39" column="84" selection-start-line="39" selection-start-column="84" selection-end-line="39" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/messaging/ProjectHistoryEventHandlers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1095">
+          <caret line="81" column="7" selection-start-line="81" selection-start-column="7" selection-end-line="81" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/messaging/UserHistoryEventHandlers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="37" column="7" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/messaging/WorkspaceHistoryEventHandlers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="47" column="7" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/messaging/ArtifactHistoryEventHandlers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/messaging/ProjectHistoryEventHandlers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="81" column="7" selection-start-line="81" selection-start-column="7" selection-end-line="81" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/messaging/UserHistoryEventHandlers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="49" column="4" lean-forward="true" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../user-service/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="50" column="2" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="49" column="2" selection-start-line="49" selection-start-column="2" selection-end-line="49" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../artifact-service/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="49" column="2" selection-start-line="49" selection-start-column="2" selection-end-line="49" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/model/Workspace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/createworkspace/CreateWorkspaceSagaData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="9" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/updateworkspace/UpdateWorkspaceSagaData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+          <folding>
+            <element signature="e#324#325#0" expanded="true" />
+            <element signature="e#358#359#0" expanded="true" />
+            <element signature="e#412#413#0" expanded="true" />
+            <element signature="e#458#459#0" expanded="true" />
+            <element signature="e#490#491#0" expanded="true" />
+            <element signature="e#518#519#0" expanded="true" />
+            <element signature="e#560#561#0" expanded="true" />
+            <element signature="e#594#595#0" expanded="true" />
+            <element signature="e#635#636#0" expanded="true" />
+            <element signature="e#666#667#0" expanded="true" />
+            <element signature="e#720#721#0" expanded="true" />
+            <element signature="e#760#761#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/proxy/UserServiceProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/proxy/ProjectServiceProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/user/api/commands/ValidateUserCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/commands/UpdateWorkspaceCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/createworkspace/CreateWorkspaceSaga.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="61" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/model/WorkspaceState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/dao/WorkspaceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/updateworkspace/UpdateWorkspaceSaga.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="60" column="34" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/info/WorkspaceInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
-          <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
+          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/commandhandlers/WorkspaceServiceCommandHandlers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="98" column="60" selection-start-line="98" selection-start-column="60" selection-end-line="98" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/impl/WorkspaceServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="61" column="8" lean-forward="true" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="8" />
+        <state relative-caret-position="201">
+          <caret line="116" column="83" selection-start-line="116" selection-start-column="62" selection-end-line="116" selection-end-column="83" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/controller/WorkspaceServiceController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="330">
+          <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/WorkspaceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="78" lean-forward="true" selection-start-line="12" selection-start-column="78" selection-end-line="12" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/impl/WorkspaceServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="58" column="46" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/WorkspaceHistoryEventHandlers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="85" column="43" lean-forward="true" selection-start-line="85" selection-start-column="43" selection-end-line="85" selection-end-column="43" />
         </state>
       </provider>
     </entry>

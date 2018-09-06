@@ -28,7 +28,7 @@ eventuatelocal:
     dbPassword: rootpassword 
 
     
----  
+---
 spring:
   profiles: container
   datasource:
@@ -44,7 +44,10 @@ spring:
   data:
     mongodb:
       uri: ${MONGO_URL:mongodb://${MONGODB}}
-    
+
+server:
+  port: 8080
+
 eventuatelocal:
   kafka: 
     bootstrap:

@@ -26,6 +26,15 @@ public class WorkspaceInfo {
 		this.state = state;
 	}
 
+    public WorkspaceInfo(String id, String name, String description, String owner, List<String> projects, String state) {
+        this.id = id;
+	    this.name = name;
+        this.description = description;
+        this.owner = owner;
+        this.projects = projects;
+        this.state = state;
+    }
+
 	public void setId(String id){
 		this.id = id;
 	}	

@@ -17,7 +17,7 @@ public class ProjectServiceProxy {
 								.withChannel(Channels.PROJECTSERVICE)
 								.withReply(Success.class)
 								.build();			
-    */
+
 
 	public final CommandEndpoint<RejectEditProjectsToWorkspaceCommand> rejectEditProjectsToWorkspaceCommand = CommandEndpointBuilder
 								.forCommand(RejectEditProjectsToWorkspaceCommand.class)
@@ -31,7 +31,7 @@ public class ProjectServiceProxy {
 								.withReply(ProjectInfo.class)
 								.build();								
 
-	/*
+
 	public final CommandEndpoint<AddProjectsToWorkspaceCommand> addProjectsToWorkspaceCommand = CommandEndpointBuilder
 								.forCommand(AddProjectsToWorkspaceCommand.class)
 								.withChannel(Channels.PROJECTSERVICE)

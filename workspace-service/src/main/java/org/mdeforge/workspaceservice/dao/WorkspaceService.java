@@ -7,7 +7,7 @@ import org.mdeforge.workspaceservice.model.*;
 public interface WorkspaceService {
 
 	public Workspace createWorkspace(Workspace workspace) throws BusinessException;				
-	public void updateWorkspace(Workspace workspace) throws BusinessException;			
+	public Workspace updateWorkspace(Workspace workspace) throws BusinessException;
 	public void completeUpdateWorkspace(Workspace workspace) throws BusinessException;			
 	public Workspace findWorkspace(String id) throws BusinessException;			
 	public void deleteWorkspace(Workspace workspace) throws BusinessException;			

@@ -64,13 +64,29 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 	}
 				
 	@Override
-	public void updateWorkspace(Workspace workspace) throws BusinessException{
+	public Workspace updateWorkspace(Workspace modifiedWorkspace) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("updateWorkspace(Workspace workspace) - WorkspaceServiceImpl - WorkspaceService");
 
-		UpdateWorkspaceSagaData data = new UpdateWorkspaceSagaData();
-		updateWorkspaceSagaManager.create(data);
-		
+		Workspace workspace = findWorkspace(modifiedWorkspace.getId());
+
+		if(workspace==null){
+		    return null;
+        }
+
+        modifiedWorkspace.setState(WorkspaceState.UPDATED);
+        workspace = workspaceRepository.save(modifiedWorkspace);
+
+        if(modifiedWorkspace.getProjects()!= null && modifiedWorkspace.getProjects().size() >0){
+
+            UpdateWorkspaceSagaData data = new UpdateWorkspaceSagaData(workspace.getId(), workspace.getOwner(), workspace.getProjects());
+            updateWorkspaceSagaManager.create(data);
+
+        }else {
+            completeUpdateWorkspace(workspace);
+        }
+
+		return workspace;
 	}
 			
 	@Override
@@ -78,7 +94,9 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 		// TODO Auto-generated method stub
 		log.info("completeUpdateWorkspace(Workspace workspace) - WorkspaceServiceImpl - WorkspaceService");
 
-		List<WorkspaceDomainEvent> events = singletonList(new WorkspaceUpdatedEvent());
+        WorkspaceInfo workspaceInfo = new WorkspaceInfo(workspace.getId(), workspace.getName(), workspace.getDescription(), workspace.getOwner(), workspace.getProjects(), workspace.getState().toString());
+
+		List<WorkspaceDomainEvent> events = singletonList(new WorkspaceUpdatedEvent(workspaceInfo));
 		ResultWithDomainEvents<Workspace, WorkspaceDomainEvent> workspaceAndEvents = new ResultWithDomainEvents<>(workspace, events);		
 		workspaceAggregateEventPublisher.publish(workspace, workspaceAndEvents.events);
 
@@ -96,12 +114,11 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 		// TODO Auto-generated method stub
 		log.info("deleteWorkspace(Workspace workspace) - WorkspaceServiceImpl - WorkspaceService");
 		
-		List<WorkspaceDomainEvent> events = singletonList(new WorkspaceDeletedEvent());
+		List<WorkspaceDomainEvent> events = singletonList(new WorkspaceDeletedEvent(new WorkspaceInfo(workspace.getId())));
 		ResultWithDomainEvents<Workspace, WorkspaceDomainEvent> workspaceAndEvents = new ResultWithDomainEvents<>(workspace, events);
 		
 		workspaceRepository.delete(workspace);
 		workspaceAggregateEventPublisher.publish(workspace, workspaceAndEvents.events);
-		
 	}
 			
 	@Override

@@ -18,14 +18,15 @@ public class WorkspaceHistoryEventHandlers {
 	public DomainEventHandlers domainEventHandlers() {
 		return DomainEventHandlersBuilder
 				.forAggregateType("org.mdeforge.workspaceservice.model.Workspace")
-				.onEvent(WorkspaceCreatedEvent.class, this::handleWorkspaceCreatedEvent)
+				/*.onEvent(WorkspaceCreatedEvent.class, this::handleWorkspaceCreatedEvent)
 				.onEvent(WorkspaceUpdatedEvent.class, this::handleWorkspaceUpdatedEvent)
 				.onEvent(WorkspaceDeletedEvent.class, this::handleWorkspaceDeletedEvent)
 				.onEvent(AddedProjectToWorkspaceEvent.class, this::handleAddedProjectToWorkspaceEvent)
-				.onEvent(RemovedProjectInWorkspace.class, this::handleRemovedProjectInWorkspace)
+				.onEvent(RemovedProjectInWorkspace.class, this::handleRemovedProjectInWorkspace)*/
 				.build();
 	}
 
+	/*
 	private void handleWorkspaceCreatedEvent(DomainEventEnvelope<WorkspaceCreatedEvent> dee) {
 		log.info("handleWorkspaceCreatedEvent() - WorkspaceHistoryEventHandlers - WorkspaceService");
 	}
@@ -44,6 +45,6 @@ public class WorkspaceHistoryEventHandlers {
 
 	private void handleRemovedProjectInWorkspace(DomainEventEnvelope<RemovedProjectInWorkspace> dee) {
 		log.info("handleRemovedProjectInWorkspace() - WorkspaceHistoryEventHandlers - WorkspaceService");
-	}
+	}*/
 
 }

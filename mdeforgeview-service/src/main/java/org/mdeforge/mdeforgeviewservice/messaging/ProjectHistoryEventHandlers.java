@@ -38,7 +38,6 @@ public class ProjectHistoryEventHandlers {
 				.onEvent(ProjectCreatedEvent.class, this::handleProjectCreatedEvent)
 				.onEvent(ProjectUpdatedEvent.class, this::handleProjectUpdatedEvent)
 				.onEvent(ProjectDeletedEvent.class, this::handleProjectDeletedEvent)
-                //.onEvent(AddedProjectsToWorkspaceEvent.class, this::handleAddedProjectsToWorkspaceEvent)
 				.onEvent(RejectedAddProjectToWorkspaceEvent.class, this::handleRejectedAddProjectToWorkspaceEvent)
 				.onEvent(EditedProjectsToWorkspaceCommand.class, this::handleEditedProjectsToWorkspaceCommand)
 				.onEvent(RejectedEditProjectsToWorkspaceCommand.class, this::handleRejectedEditProjectsToWorkspaceCommand)
@@ -68,22 +67,6 @@ public class ProjectHistoryEventHandlers {
 	private void handleProjectDeletedEvent(DomainEventEnvelope<ProjectDeletedEvent> dee) {
 		log.info("handleProjectDeletedEvent() - ProjectHistoryEventHandlers - ProjectService");
 	}
-
-    /*
-	private void handleAddedProjectsToWorkspaceEvent(DomainEventEnvelope<AddedProjectsToWorkspaceEvent> dee) {
-		log.info("handleAddedProjectsToWorkspaceEvent() - ProjectHistoryEventHandlers - ProjectService");
-
-        List<Project> projectList = new ArrayList<>();
-		dee.getEvent().getProjectInfoList().forEach(projectInfo -> {
-		    projectList.add(projectService.findProject(projectInfo.getId()));
-        });
-
-
-		projectList.forEach(project -> {
-            project.addWorkspacelist(workspaceService.findWorkspace(dee.getEvent().getWorkspaceId()));
-            projectService.save(project);
-        });
-	}*/
 
 	private void handleRejectedAddProjectToWorkspaceEvent(DomainEventEnvelope<RejectedAddProjectToWorkspaceEvent> dee) {
 		log.info("handleRejectedAddProjectToWorkspaceEvent() - ProjectHistoryEventHandlers - ProjectService");

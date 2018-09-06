@@ -16,5 +16,5 @@ org/mdeforge/artifactservice/webapi/CreateArtifactRequest.class
 org/mdeforge/artifactservice/commandhandlers/ArtifactServiceCommandHandlersConfiguration.class
 org/mdeforge/artifactservice/model/Artifact.class
 org/mdeforge/artifactservice/controller/ArtifactServiceController.class
-org/mdeforge/artifactservice/impl/ArtifactServiceImpl.class
 org/mdeforge/artifactservice/model/Property.class
+org/mdeforge/artifactservice/impl/ArtifactServiceImpl.class
