@@ -21,7 +21,8 @@ public class Project{
 	private List<String> workspacelist = new ArrayList<>();
 	private List<String> artifactlist = new ArrayList<>();
 	private List<String> userlist = new ArrayList<>();
-    private String owner;									
+    private String owner;
+    private ProjectState state;
 				
 	public Project() {}
 
@@ -123,4 +124,12 @@ public class Project{
 	public void addWorkspacelist(String workspaceId){
 		this.workspacelist.add(workspaceId);
 	}
+
+    public ProjectState getState() {
+        return state;
+    }
+
+    public void setState(ProjectState state) {
+        this.state = state;
+    }
 }

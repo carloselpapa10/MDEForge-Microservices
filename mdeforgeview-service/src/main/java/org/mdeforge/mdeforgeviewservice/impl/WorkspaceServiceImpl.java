@@ -37,6 +37,7 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 	public void updateWorkspace(Workspace workspace) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("updateWorkspace(Workspace workspace) - WorkspaceServiceImpl - MdeforgeviewService");
+        workspaceRepository.save(workspace);
 	}
 			
 	@Override

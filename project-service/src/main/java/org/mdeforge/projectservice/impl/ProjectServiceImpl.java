@@ -42,7 +42,8 @@ public class ProjectServiceImpl implements ProjectService{
 		// TODO Auto-generated method stub
 		log.info("createProject(Project project) - ProjectServiceImpl - ProjectService");
 
-		ProjectInfo projectInfo = new ProjectInfo(project.getName(), project.getDescription(), project.getOwner());
+		project.setState(ProjectState.CREATED);
+		ProjectInfo projectInfo = new ProjectInfo(project.getName(), project.getDescription(), project.getOwner(), project.getState().toString());
 
 		List<ProjectDomainEvent> events = singletonList(new ProjectCreatedEvent(projectInfo));
 		ResultWithDomainEvents<Project, ProjectDomainEvent> projectAndEvents = new ResultWithDomainEvents<>(project, events);		
@@ -54,14 +55,26 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 				
 	@Override
-	public void updateProject(Project project) throws BusinessException{
+	public Project updateProject(Project modifiedProject) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("updateProject(Project project) - ProjectServiceImpl - ProjectService");
 
-		List<ProjectDomainEvent> events = singletonList(new ProjectUpdatedEvent());
+		Project project = findProject(modifiedProject.getId());
+
+		if(project==null) {
+		    return null;
+        }
+
+        modifiedProject.setState(ProjectState.UPDATED);
+		project = projectRepository.save(modifiedProject);
+
+        ProjectInfo projectInfo = new ProjectInfo(project.getId(), project.getName(), project.getDescription(), project.getOwner(), project.getState().toString());
+
+		List<ProjectDomainEvent> events = singletonList(new ProjectUpdatedEvent(projectInfo));
 		ResultWithDomainEvents<Project, ProjectDomainEvent> projectAndEvents = new ResultWithDomainEvents<>(project, events);		
 		projectAggregateEventPublisher.publish(project, projectAndEvents.events);
 
+		return project;
 	}
 			
 	@Override
@@ -76,7 +89,7 @@ public class ProjectServiceImpl implements ProjectService{
 		// TODO Auto-generated method stub
 		log.info("deleteProject(Project project) - ProjectServiceImpl - ProjectService");
 		
-		List<ProjectDomainEvent> events = singletonList(new ProjectDeletedEvent());
+		List<ProjectDomainEvent> events = singletonList(new ProjectDeletedEvent(new ProjectInfo(project.getId())));
 		ResultWithDomainEvents<Project, ProjectDomainEvent> projectAndEvents = new ResultWithDomainEvents<>(project, events);
 		
 		projectRepository.delete(project);

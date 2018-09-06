@@ -7,7 +7,7 @@ import org.mdeforge.projectservice.model.*;
 public interface ProjectService {
 
 	public Project createProject(Project project) throws BusinessException;				
-	public void updateProject(Project project) throws BusinessException;			
+	public Project updateProject(Project project) throws BusinessException;
 	public Project findProject(String id) throws BusinessException;			
 	public void deleteProject(Project project) throws BusinessException;			
 	public void addArtifactToProject(Project project) throws BusinessException;			

@@ -9,7 +9,7 @@ public interface UserService {
 	public User createUser(User user) throws BusinessException;				
 	public void updateUser(User user) throws BusinessException;			
 	public User findUser(String id) throws BusinessException;			
-	public void deleteUser(String id) throws BusinessException;			
+	public void deleteUser(User user) throws BusinessException;
 	public List<User> findAll() throws BusinessException;
 
 }	

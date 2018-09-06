@@ -80,7 +80,7 @@ public class WorkspaceHistoryEventHandlers {
         workspace.setProjects(projectList);
         workspace.setState(dee.getEvent().getWorkspaceInfo().getState());
 
-        workspaceService.save(workspace);
+        workspaceService.updateWorkspace(workspace);
 	}
 
 	private void handleWorkspaceDeletedEvent(DomainEventEnvelope<WorkspaceDeletedEvent> dee) {

@@ -55,17 +55,29 @@ public class ProjectHistoryEventHandlers {
 		Project project = new Project(dee.getAggregateId(),
 										dee.getEvent().getProjectInfo().getName(),
 											dee.getEvent().getProjectInfo().getDescription(),
-												userService.findUser(dee.getEvent().getProjectInfo().getOwner()));
+												userService.findUser(dee.getEvent().getProjectInfo().getOwner()),
+                                                    dee.getEvent().getProjectInfo().getState());
 
 		projectService.createProject(project);
 	}
 
 	private void handleProjectUpdatedEvent(DomainEventEnvelope<ProjectUpdatedEvent> dee) {
 		log.info("handleProjectUpdatedEvent() - ProjectHistoryEventHandlers - ProjectService");
+
+		Project project = projectService.findProject(dee.getAggregateId());
+		project.setDescription(dee.getEvent().getProjectInfo().getDescription());
+		project.setName(dee.getEvent().getProjectInfo().getName());
+		project.setOwner(userService.findUser(dee.getEvent().getProjectInfo().getOwner()));
+		project.setState(dee.getEvent().getProjectInfo().getState());
+
+		projectService.updateProject(project);
 	}
 
 	private void handleProjectDeletedEvent(DomainEventEnvelope<ProjectDeletedEvent> dee) {
 		log.info("handleProjectDeletedEvent() - ProjectHistoryEventHandlers - ProjectService");
+
+		Project project = projectService.findProject(dee.getAggregateId());
+		projectService.deleteProject(project);
 	}
 
 	private void handleRejectedAddProjectToWorkspaceEvent(DomainEventEnvelope<RejectedAddProjectToWorkspaceEvent> dee) {

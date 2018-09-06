@@ -4,6 +4,7 @@ import org.mdeforge.userservice.dao.UserService;
 import org.mdeforge.userservice.model.*;
 import org.mdeforge.userservice.webapi.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -27,11 +28,11 @@ public class UserServiceController {
 	}
 			
 	@PutMapping("/updateUser/user")
-	public ResponseEntity<User> updateUser(@RequestBody User user){
+	public ResponseEntity<User> updateUser(@RequestBody User request){
 		log.info("updateUser(@RequestBody User user) - UserServiceController - UserService");
 
-		/*TODO*/
-		return null;
+		User user = userService.updateUser(request);
+		return user != null ? ResponseEntity.ok(user) : ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 	}
  			
 	@GetMapping("/findUser/{userId}")
@@ -39,7 +40,20 @@ public class UserServiceController {
 		log.info("findUser(String id) - UserServiceController - UserService");
 
 		return userService.findUser(id);
-	} 			
+	}
+
+	@DeleteMapping("/deleteUser/{userId}")
+    public String deleteUser(@RequestParam String id){
+        log.info("deleteUser(String id) - UserServiceController - UserService");
+
+        User user = userService.findUser(id);
+        if(user!=null){
+            userService.deleteUser(user);
+            return "User is being deleted";
+        }
+
+        return "User ID does not exist!";
+    }
 
 	@GetMapping("/retrieve/Users")
 	public List<User> findAllUsers(){

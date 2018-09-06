@@ -1,10 +1,9 @@
 package org.mdeforge.mdeforgeviewservice.messaging;
 
-import org.mdeforge.mdeforgeviewservice.repository.UserRepository;
+import org.mdeforge.mdeforgeviewservice.dao.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.mdeforge.servicemodel.user.api.events.*;
-import org.mdeforge.mdeforgeviewservice.impl.*;
 import org.mdeforge.mdeforgeviewservice.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +17,7 @@ public class UserHistoryEventHandlers {
 	private static final Logger log = LoggerFactory.getLogger(UserHistoryEventHandlers.class);
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserService userService;
 
 	public DomainEventHandlers domainEventHandlers() {
 		return DomainEventHandlersBuilder
@@ -36,17 +35,33 @@ public class UserHistoryEventHandlers {
 								dee.getEvent().getUserInfo().getFirstname(),
 									dee.getEvent().getUserInfo().getLastname(),
 										dee.getEvent().getUserInfo().getEmail(),
-											dee.getEvent().getUserInfo().getUsername());
+											dee.getEvent().getUserInfo().getUsername(),
+                                                dee.getEvent().getUserInfo().getState());
 
-		userRepository.save(user);
+		userService.createUser(user);
 	}
 
 	private void handleUserUpdatedEvent(DomainEventEnvelope<UserUpdatedEvent> dee) {
 		log.info("handleUserUpdatedEvent() - UserHistoryEventHandlers - UserService");
+
+		User user = userService.findUser(dee.getAggregateId());
+		user.setEmail(dee.getEvent().getUserInfo().getEmail());
+		user.setEnabled(dee.getEvent().getUserInfo().isEnabled());
+		user.setFirstname(dee.getEvent().getUserInfo().getFirstname());
+		user.setLastname(dee.getEvent().getUserInfo().getLastname());
+		user.setImage(dee.getEvent().getUserInfo().getImage());
+		user.setState(dee.getEvent().getUserInfo().getState());
+		user.setUsername(dee.getEvent().getUserInfo().getUsername());
+
+		userService.updateUser(user);
 	}
 
 	private void handleUserDeletedEvent(DomainEventEnvelope<UserDeletedEvent> dee) {
 		log.info("handleUserDeletedEvent() - UserHistoryEventHandlers - UserService");
+
+        User user = userService.findUser(dee.getAggregateId());
+
+        userService.deleteUser(user);
 	}
 
 }

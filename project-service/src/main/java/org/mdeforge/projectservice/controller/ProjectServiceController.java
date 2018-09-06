@@ -28,11 +28,11 @@ public class ProjectServiceController {
 	}
 			
 	@PutMapping("/updateProject/project")
-	public ResponseEntity<Project> updateProject(@RequestBody Project project){
+	public ResponseEntity<Project> updateProject(@RequestBody Project request){
 		log.info("updateProject(@RequestBody Project project) - ProjectServiceController - ProjectService");
 
-		/*TODO*/
-		return null;
+		Project project = projectService.updateProject(request);
+		return project != null ? ResponseEntity.ok(project) : ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 	}
  			
 	@GetMapping("/findProject/{projectId}")
@@ -46,8 +46,13 @@ public class ProjectServiceController {
 	public String deleteProject(@RequestParam String id){
 		log.info("deleteProject(String id) - ProjectServiceController - ProjectService");
 
-		/*TODO*/
-		return null;
+		Project project = projectService.findProject(id);
+
+		if(project!=null){
+		    projectService.deleteProject(project);
+		    return "Project is being deleted!";
+        }
+		return "Project ID does not exist!";
 	} 
 			
 	@PutMapping("/addArtifactToProject/project")

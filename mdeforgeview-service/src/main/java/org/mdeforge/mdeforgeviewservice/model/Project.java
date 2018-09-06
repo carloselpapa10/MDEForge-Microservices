@@ -14,7 +14,8 @@ public class Project{
     private String description;									
     private boolean open;									
     private String createddate;									
-    private String modifieddate;									
+    private String modifieddate;
+    private String state;
 	//private List<Workspace> workspacelist = new ArrayList<>();
 
     @DBRef
@@ -28,11 +29,12 @@ public class Project{
 
 	public Project() {}
 
-	public Project(String id, String name, String description, User owner) {
+	public Project(String id, String name, String description, User owner, String state) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.owner = owner;
+		this.state = state;
 	}
 
 	public Project(String id) {
@@ -114,4 +116,12 @@ public class Project{
 	/*public void addWorkspacelist(Workspace workspace){
 	    this.workspacelist.add(workspace);
     }*/
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 }

@@ -37,6 +37,7 @@ public class ProjectServiceImpl implements ProjectService{
 	public void updateProject(Project project) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("updateProject(Project project) - ProjectServiceImpl - MdeforgeviewService");
+        projectRepository.save(project);
 	}
 			
 	@Override
@@ -47,9 +48,10 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 			
 	@Override
-	public void deleteProject(String id) throws BusinessException{
+	public void deleteProject(Project project) throws BusinessException{
 		// TODO Auto-generated method stub
-		log.info("deleteProject(String id) - ProjectServiceImpl - MdeforgeviewService");
+		log.info("deleteProject(Project project) - ProjectServiceImpl - MdeforgeviewService");
+		projectRepository.delete(project);
 	}
 			
 	@Override
