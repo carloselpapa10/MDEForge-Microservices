@@ -4,6 +4,7 @@ org/mdeforge/userservice/commandhandlers/UserServiceCommandHandlers.class
 org/mdeforge/userservice/impl/UserServiceImpl.class
 org/mdeforge/userservice/dao/UserService.class
 org/mdeforge/userservice/model/Role.class
+org/mdeforge/userservice/model/UserState.class
 org/mdeforge/userservice/model/UserRepository.class
 org/mdeforge/userservice/webapi/CreateUserRequest.class
 org/mdeforge/userservice/UserServiceApplication.class

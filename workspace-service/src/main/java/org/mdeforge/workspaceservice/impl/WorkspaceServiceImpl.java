@@ -17,7 +17,6 @@ import java.util.NoSuchElementException;
 import io.eventuate.tram.events.aggregates.ResultWithDomainEvents;
 import org.mdeforge.workspaceservice.saga.createworkspace.CreateWorkspaceSagaData;
 import org.mdeforge.workspaceservice.saga.updateworkspace.UpdateWorkspaceSagaData;
-import org.mdeforge.workspaceservice.saga.addprojecttoworkspace.AddProjectToWorkspaceSagaData;
 import io.eventuate.tram.sagas.orchestration.SagaManager;
 
 @Component
@@ -37,9 +36,6 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 
 	@Autowired
 	private SagaManager<UpdateWorkspaceSagaData> updateWorkspaceSagaManager;
-
-	@Autowired
-	private SagaManager<AddProjectToWorkspaceSagaData> addProjectToWorkspaceSagaManager;
 
 	@Override
 	public Workspace createWorkspace(Workspace workspace) throws BusinessException{
@@ -99,7 +95,6 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 		List<WorkspaceDomainEvent> events = singletonList(new WorkspaceUpdatedEvent(workspaceInfo));
 		ResultWithDomainEvents<Workspace, WorkspaceDomainEvent> workspaceAndEvents = new ResultWithDomainEvents<>(workspace, events);		
 		workspaceAggregateEventPublisher.publish(workspace, workspaceAndEvents.events);
-
 	}
 			
 	@Override
@@ -122,35 +117,41 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 	}
 			
 	@Override
-	public void addProjectToWorkspace(Workspace workspace) throws BusinessException{
+	public Workspace addProjectToWorkspace(Workspace workspace, String projectId) throws BusinessException{
 		// TODO Auto-generated method stub
-		log.info("addProjectToWorkspace(Workspace workspace) - WorkspaceServiceImpl - WorkspaceService");
+		log.info("addProjectToWorkspace(Workspace workspace, String projectId) - WorkspaceServiceImpl - WorkspaceService");
 
-		AddProjectToWorkspaceSagaData data = new AddProjectToWorkspaceSagaData();
-		addProjectToWorkspaceSagaManager.create(data);
-		
+        if(!workspace.getProjects().contains(projectId)){
+
+            workspace.addProject(projectId);
+
+            List<WorkspaceDomainEvent> events = singletonList(new AddedProjectToWorkspaceEvent(new WorkspaceInfo(workspace.getId()), projectId));
+            ResultWithDomainEvents<Workspace, WorkspaceDomainEvent> workspaceAndEvents = new ResultWithDomainEvents<>(workspace, events);
+
+            workspace = workspaceRepository.save(workspace);
+            workspaceAggregateEventPublisher.publish(workspace, workspaceAndEvents.events);
+        }
+
+		return workspace;
 	}
-			
+
 	@Override
-	public void completeAddProjectToWorkspace(Workspace workspace) throws BusinessException{
+	public Workspace removeProjectInWorkspace(Workspace workspace, String projectId) throws BusinessException{
 		// TODO Auto-generated method stub
-		log.info("completeAddProjectToWorkspace(Workspace workspace) - WorkspaceServiceImpl - WorkspaceService");
+		log.info("removeProjectInWorkspace(Workspace workspace, String projectId) - WorkspaceServiceImpl - WorkspaceService");
 
-		List<WorkspaceDomainEvent> events = singletonList(new AddedProjectToWorkspaceEvent());
-		ResultWithDomainEvents<Workspace, WorkspaceDomainEvent> workspaceAndEvents = new ResultWithDomainEvents<>(workspace, events);		
-		workspaceAggregateEventPublisher.publish(workspace, workspaceAndEvents.events);
+        if(workspace.getProjects().contains(projectId)){
+            workspace.removeProject(projectId);
 
-	}
-			
-	@Override
-	public void removeProjectInWorkspace(Workspace workspace) throws BusinessException{
-		// TODO Auto-generated method stub
-		log.info("removeProjectInWorkspace(Workspace workspace) - WorkspaceServiceImpl - WorkspaceService");
+            List<WorkspaceDomainEvent> events = singletonList(new RemovedProjectInWorkspace(new WorkspaceInfo(workspace.getId()), projectId));
+            ResultWithDomainEvents<Workspace, WorkspaceDomainEvent> workspaceAndEvents = new ResultWithDomainEvents<>(workspace, events);
+            workspaceAggregateEventPublisher.publish(workspace, workspaceAndEvents.events);
 
-		List<WorkspaceDomainEvent> events = singletonList(new RemovedProjectInWorkspace());
-		ResultWithDomainEvents<Workspace, WorkspaceDomainEvent> workspaceAndEvents = new ResultWithDomainEvents<>(workspace, events);		
-		workspaceAggregateEventPublisher.publish(workspace, workspaceAndEvents.events);
+            workspace = workspaceRepository.save(workspace);
+            workspaceAggregateEventPublisher.publish(workspace, workspaceAndEvents.events);
+        }
 
+		return workspace;
 	}
 			
 	@Override

@@ -82,4 +82,12 @@ public class Workspace{
 	public void setState(WorkspaceState state) {
 		this.state = state;
 	}
+
+	public void addProject(String projectId){
+	    this.projects.add(projectId);
+    }
+
+    public void removeProject(String projectId){
+	    this.projects.remove(projectId);
+    }
 }

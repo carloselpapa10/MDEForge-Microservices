@@ -39,7 +39,6 @@ public class WorkspaceServiceCommandHandlers {
 				.onMessage(RejectCreateWorkspaceCommand.class, this::handleRejectCreateWorkspaceCommand)
 				.onMessage(CompleteCreateWorkspaceCommand.class, this::handleCompleteCreateWorkspaceCommand)
 				.onMessage(UpdateWorkspaceCommand.class, this::handleUpdateWorkspaceCommand)
-				.onMessage(AddProjectToWorkspaceCommand.class, this::handleAddProjectToWorkspaceCommand)
 				.build();
 	}		
 		
@@ -98,14 +97,6 @@ public class WorkspaceServiceCommandHandlers {
         workspaceService.saveWorkspace(workspace);
         workspaceService.completeUpdateWorkspace(workspace);
 
-		return withSuccess();
-	}
-
-	private Message handleAddProjectToWorkspaceCommand(CommandMessage<AddProjectToWorkspaceCommand> cm) {
-		log.info("handleAddProjectToWorkspaceCommand() - WorkspaceServiceCommandHandlers - WorkspaceService");
-		
-		AddProjectToWorkspaceCommand command = cm.getCommand();
-		/*TODO*/
 		return withSuccess();
 	}
 

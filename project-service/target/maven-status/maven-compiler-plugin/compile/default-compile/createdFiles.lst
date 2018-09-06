@@ -1,6 +1,7 @@
 org/mdeforge/projectservice/webapi/CreateProjectRequest.class
 org/mdeforge/projectservice/model/ProjectRepository.class
 org/mdeforge/projectservice/model/Project.class
+org/mdeforge/projectservice/model/ProjectState.class
 org/mdeforge/projectservice/messaging/UserHistoryEventHandlers.class
 org/mdeforge/projectservice/webapi/ShareProjectToUserRequest.class
 org/mdeforge/projectservice/proxy/ProjectServiceProxy.class

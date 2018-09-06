@@ -57,19 +57,29 @@ public class WorkspaceServiceController {
 	} 
 			
 	@PutMapping("/addProjectToWorkspace/workspace")
-	public ResponseEntity<Workspace> addProjectToWorkspace(@RequestBody Workspace workspace){
-		log.info("addProjectToWorkspace(@RequestBody Workspace workspace) - WorkspaceServiceController - WorkspaceService");
+	public ResponseEntity<Workspace> addProjectToWorkspace(@RequestParam String workspaceId, @RequestParam String projectId){
+		log.info("addProjectToWorkspace(@RequestParam String workspaceId, @RequestParam String projectId) - WorkspaceServiceController - WorkspaceService");
 
-		/*TODO*/
-		return null;
+		Workspace workspace = workspaceService.findWorkspace(workspaceId);
+
+		if(workspace!=null){
+            workspace = workspaceService.addProjectToWorkspace(workspace, projectId);
+            return ResponseEntity.ok(workspace);
+        }
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 	}
  			
 	@PutMapping("/removeProjectInWorkspace/workspace")
-	public ResponseEntity<Workspace> removeProjectInWorkspace(@RequestBody Workspace workspace){
-		log.info("removeProjectInWorkspace(@RequestBody Workspace workspace) - WorkspaceServiceController - WorkspaceService");
+	public ResponseEntity<Workspace> removeProjectInWorkspace(@RequestParam String workspaceId, @RequestParam String projectId){
+		log.info("removeProjectInWorkspace(@RequestParam String workspaceId, @RequestParam String projectId) - WorkspaceServiceController - WorkspaceService");
 
-		/*TODO*/
-		return null;
+		Workspace workspace = workspaceService.findWorkspace(workspaceId);
+
+        if(workspace!=null){
+            workspace = workspaceService.removeProjectInWorkspace(workspace, projectId);
+            return ResponseEntity.ok(workspace);
+        }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 	}
  			
 	@GetMapping("/retrieve/Workspaces")

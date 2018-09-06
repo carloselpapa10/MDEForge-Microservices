@@ -11,12 +11,6 @@ import org.mdeforge.servicemodel.workspace.api.info.*;
 @Component
 public class WorkspaceServiceProxy {
 
-	public final CommandEndpoint<AddProjectToWorkspaceCommand> addProjectToWorkspaceCommand = CommandEndpointBuilder
-								.forCommand(AddProjectToWorkspaceCommand.class)
-								.withChannel(Channels.WORKSPACESERVICE)
-								.withReply(Success.class)
-								.build();			
-
 	public final CommandEndpoint<RejectCreateWorkspaceCommand> rejectCreateWorkspaceCommand = CommandEndpointBuilder
 								.forCommand(RejectCreateWorkspaceCommand.class)
 								.withChannel(Channels.WORKSPACESERVICE)
