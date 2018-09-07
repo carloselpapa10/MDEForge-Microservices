@@ -83,6 +83,18 @@ public class ProjectServiceImpl implements ProjectService{
 
 		return projectRepository.save(project);
 	}
+
+	@Override
+	public Project removeUserFromProject(Project project, User user) throws BusinessException{
+		// TODO Auto-generated method stub
+		log.info("removeUserFromProject(Project project) - ProjectServiceImpl - MdeforgeviewService");
+
+		List<User> userList = project.getUserlist() == null ? new ArrayList<>() : project.getUserlist();
+		userList.remove(user);
+		project.setUserlist(userList);
+
+		return projectRepository.save(project);
+	}
 			
 	@Override
 	public void addUserInProject(Project project) throws BusinessException{
@@ -95,13 +107,7 @@ public class ProjectServiceImpl implements ProjectService{
 		// TODO Auto-generated method stub
 		log.info("completeAddUserInProject(Project project) - ProjectServiceImpl - MdeforgeviewService");
 	}
-			
-	@Override
-	public void removeUserFromProject(Project project) throws BusinessException{
-		// TODO Auto-generated method stub
-		log.info("removeUserFromProject(Project project) - ProjectServiceImpl - MdeforgeviewService");
-	}
-			
+
 	@Override
 	public List<Project> findAll() throws BusinessException{
 		log.info("findAll() - ProjectServiceImpl - MdeforgeviewService");

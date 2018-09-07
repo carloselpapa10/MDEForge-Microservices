@@ -34,12 +34,7 @@ public class ProjectServiceCommandHandlers {
 		return SagaCommandHandlersBuilder
 				.fromChannel(Channels.PROJECTSERVICE)
                 .onMessage(ValidateProjectListCommand.class, this::handleValidateProjectListCommand)
-				.onMessage(RejectAddProjectsToWorkspaceCommand.class, this::handleRejectAddProjectsToWorkspaceCommand)
-				.onMessage(EditProjectsToWorkspaceCommand.class, this::handleEditProjectsToWorkspaceCommand)
-				.onMessage(RejectEditProjectsToWorkspaceCommand.class, this::handleRejectEditProjectsToWorkspaceCommand)
 				.onMessage(ValidateProjectCommand.class, this::handleValidateProjectCommand)
-				.onMessage(AddArtifactToProjectCommand.class, this::handleAddArtifactToProjectCommand)
-				.onMessage(CompleteAddUserInProjectCommand.class, this::handleCompleteAddUserInProjectCommand)
 				.build();
 	}
 
@@ -57,30 +52,6 @@ public class ProjectServiceCommandHandlers {
         return withSuccess();
     }
 
-	private Message handleRejectAddProjectsToWorkspaceCommand(CommandMessage<RejectAddProjectsToWorkspaceCommand> cm) {
-		log.info("handleRejectAddProjectsToWorkspaceCommand() - ProjectServiceCommandHandlers - ProjectService");
-		
-		RejectAddProjectsToWorkspaceCommand command = cm.getCommand();
-		/*TODO*/
-		return withSuccess();
-	}
-
-	private Message handleEditProjectsToWorkspaceCommand(CommandMessage<EditProjectsToWorkspaceCommand> cm) {
-		log.info("handleEditProjectsToWorkspaceCommand() - ProjectServiceCommandHandlers - ProjectService");
-		
-		EditProjectsToWorkspaceCommand command = cm.getCommand();
-		/*TODO*/
-		return withSuccess(new ProjectInfo());
-	}
-
-	private Message handleRejectEditProjectsToWorkspaceCommand(CommandMessage<RejectEditProjectsToWorkspaceCommand> cm) {
-		log.info("handleRejectEditProjectsToWorkspaceCommand() - ProjectServiceCommandHandlers - ProjectService");
-		
-		RejectEditProjectsToWorkspaceCommand command = cm.getCommand();
-		/*TODO*/
-		return withSuccess();
-	}
-
 	private Message handleValidateProjectCommand(CommandMessage<ValidateProjectCommand> cm) {
 		log.info("handleValidateProjectCommand() - ProjectServiceCommandHandlers - ProjectService");
 		
@@ -88,21 +59,4 @@ public class ProjectServiceCommandHandlers {
 		/*TODO*/
 		return withSuccess();
 	}
-
-	private Message handleAddArtifactToProjectCommand(CommandMessage<AddArtifactToProjectCommand> cm) {
-		log.info("handleAddArtifactToProjectCommand() - ProjectServiceCommandHandlers - ProjectService");
-		
-		AddArtifactToProjectCommand command = cm.getCommand();
-		/*TODO*/
-		return withSuccess();
-	}
-
-	private Message handleCompleteAddUserInProjectCommand(CommandMessage<CompleteAddUserInProjectCommand> cm) {
-		log.info("handleCompleteAddUserInProjectCommand() - ProjectServiceCommandHandlers - ProjectService");
-		
-		CompleteAddUserInProjectCommand command = cm.getCommand();
-		/*TODO*/
-		return withSuccess();
-	}
-
 }

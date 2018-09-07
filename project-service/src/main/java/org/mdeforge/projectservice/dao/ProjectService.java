@@ -13,10 +13,10 @@ public interface ProjectService {
 	public void addArtifactToProject(Project project) throws BusinessException;			
 	public void completeAddArtifactToProject(Project project) throws BusinessException;			
 	public void removeArtifactFromProject(Project project) throws BusinessException;			
-	public Project shareProjectToUser(String projectId, String userId) throws BusinessException;
+	public Project shareProjectToUser(Project project, String userId) throws BusinessException;
 	public void addUserInProject(Project project) throws BusinessException;			
 	public void completeAddUserInProject(Project project) throws BusinessException;			
-	public void removeUserFromProject(Project project) throws BusinessException;			
+	public Project removeUserFromProject(Project project, String userId) throws BusinessException;
 	public List<Project> findAll() throws BusinessException;
 
 	public void saveProject(Project project) throws BusinessException;
