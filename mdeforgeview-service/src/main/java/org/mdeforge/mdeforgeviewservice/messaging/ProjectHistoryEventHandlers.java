@@ -3,6 +3,7 @@ package org.mdeforge.mdeforgeviewservice.messaging;
 import org.mdeforge.mdeforgeviewservice.dao.ProjectService;
 import org.mdeforge.mdeforgeviewservice.dao.UserService;
 import org.mdeforge.mdeforgeviewservice.dao.WorkspaceService;
+import org.mdeforge.servicemodel.project.api.commands.ValidateProjectListCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.mdeforge.servicemodel.project.api.events.*;
@@ -37,7 +38,6 @@ public class ProjectHistoryEventHandlers {
 				.onEvent(ProjectCreatedEvent.class, this::handleProjectCreatedEvent)
 				.onEvent(ProjectUpdatedEvent.class, this::handleProjectUpdatedEvent)
 				.onEvent(ProjectDeletedEvent.class, this::handleProjectDeletedEvent)
-				.onEvent(AddedProjectsToWorkspaceEvent.class, this::handleAddedProjectsToWorkspaceEvent)
 				.onEvent(RejectedAddProjectToWorkspaceEvent.class, this::handleRejectedAddProjectToWorkspaceEvent)
 				.onEvent(EditedProjectsToWorkspaceCommand.class, this::handleEditedProjectsToWorkspaceCommand)
 				.onEvent(RejectedEditProjectsToWorkspaceCommand.class, this::handleRejectedEditProjectsToWorkspaceCommand)
@@ -55,32 +55,29 @@ public class ProjectHistoryEventHandlers {
 		Project project = new Project(dee.getAggregateId(),
 										dee.getEvent().getProjectInfo().getName(),
 											dee.getEvent().getProjectInfo().getDescription(),
-												userService.findUser(dee.getEvent().getProjectInfo().getOwner()));
+												userService.findUser(dee.getEvent().getProjectInfo().getOwner()),
+                                                    dee.getEvent().getProjectInfo().getState());
 
 		projectService.createProject(project);
 	}
 
 	private void handleProjectUpdatedEvent(DomainEventEnvelope<ProjectUpdatedEvent> dee) {
 		log.info("handleProjectUpdatedEvent() - ProjectHistoryEventHandlers - ProjectService");
+
+		Project project = projectService.findProject(dee.getAggregateId());
+		project.setDescription(dee.getEvent().getProjectInfo().getDescription());
+		project.setName(dee.getEvent().getProjectInfo().getName());
+		project.setOwner(userService.findUser(dee.getEvent().getProjectInfo().getOwner()));
+		project.setState(dee.getEvent().getProjectInfo().getState());
+
+		projectService.updateProject(project);
 	}
 
 	private void handleProjectDeletedEvent(DomainEventEnvelope<ProjectDeletedEvent> dee) {
 		log.info("handleProjectDeletedEvent() - ProjectHistoryEventHandlers - ProjectService");
-	}
 
-	private void handleAddedProjectsToWorkspaceEvent(DomainEventEnvelope<AddedProjectsToWorkspaceEvent> dee) {
-		log.info("handleAddedProjectsToWorkspaceEvent() - ProjectHistoryEventHandlers - ProjectService");
-
-        List<Project> projectList = new ArrayList<>();
-		dee.getEvent().getProjectInfoList().forEach(projectInfo -> {
-		    projectList.add(projectService.findProject(projectInfo.getId()));
-        });
-
-		/*
-		projectList.forEach(project -> {
-            project.addWorkspacelist(workspaceService.findWorkspace(dee.getEvent().getWorkspaceId()));
-            projectService.save(project);
-        });*/
+		Project project = projectService.findProject(dee.getAggregateId());
+		projectService.deleteProject(project);
 	}
 
 	private void handleRejectedAddProjectToWorkspaceEvent(DomainEventEnvelope<RejectedAddProjectToWorkspaceEvent> dee) {
@@ -103,15 +100,29 @@ public class ProjectHistoryEventHandlers {
 		log.info("handleSharedProjectWithUserEvent() - ProjectHistoryEventHandlers - ProjectService");
 
 		Project project = projectService.findProject(dee.getAggregateId());
-		User user = userService.findUser(dee.getEvent().getProjectInfo().getUserlist().get(0));
+		User user = userService.findUser(dee.getEvent().getUserId());
 
 		if(user!= null && project != null){
 			projectService.shareProjectToUser(project, user);
 		}else{
 			/* user or project do not exist - report it by log*/
-			System.out.println("user or project do not exist!!!");
+			log.info("user or project do not exist!!!");
 		}
 
+	}
+
+	private void handleRemovedUserFromProjectEvent(DomainEventEnvelope<RemovedUserFromProjectEvent> dee) {
+		log.info("handleRemovedUserFromProjectEvent() - ProjectHistoryEventHandlers - ProjectService");
+
+		Project project = projectService.findProject(dee.getAggregateId());
+		User user = userService.findUser(dee.getEvent().getUserId());
+
+		if(user!= null && project != null){
+			projectService.removeUserFromProject(project, user);
+		}else{
+			/* user or project do not exist - report it by log*/
+			log.info("user or project do not exist!!!");
+		}
 	}
 
 	private void handleRemovedArtifactFromProjectEvent(DomainEventEnvelope<RemovedArtifactFromProjectEvent> dee) {
@@ -120,10 +131,6 @@ public class ProjectHistoryEventHandlers {
 
 	private void handleAddedUserInProjectEvent(DomainEventEnvelope<AddedUserInProjectEvent> dee) {
 		log.info("handleAddedUserInProjectEvent() - ProjectHistoryEventHandlers - ProjectService");
-	}
-
-	private void handleRemovedUserFromProjectEvent(DomainEventEnvelope<RemovedUserFromProjectEvent> dee) {
-		log.info("handleRemovedUserFromProjectEvent() - ProjectHistoryEventHandlers - ProjectService");
 	}
 
 }

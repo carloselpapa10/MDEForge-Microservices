@@ -16,7 +16,8 @@ public class UserInfo {
 	private List<RoleInfo> rolesInfo = new ArrayList<>();							
 	private List<String> ownerartifactlist;							
 	private List<String> sharedartifactlist;							
-    private String workspacelist;									
+    private String workspacelist;
+    private String state;
 
 	public UserInfo(){}
 
@@ -24,12 +25,22 @@ public class UserInfo {
 		this.id = id;
 	}
 
-	public UserInfo(String firstname, String lastname, String email, String username) {
+	public UserInfo(String firstname, String lastname, String email, String username, String state) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
 		this.username = username;
+		this.state = state;
 	}
+
+    public UserInfo(String id, String firstname, String lastname, String email, String username, String state) {
+	    this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.username = username;
+        this.state = state;
+    }
 
 	public String getId() {
 		return id;
@@ -126,4 +137,12 @@ public class UserInfo {
 	public void setWorkspacelist(String workspacelist) {
 		this.workspacelist = workspacelist;
 	}
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 }

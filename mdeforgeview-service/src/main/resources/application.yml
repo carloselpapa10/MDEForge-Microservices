@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8084
 #8084
 spring:
   datasource:
@@ -44,7 +44,10 @@ spring:
   data:
     mongodb:
       uri: ${MONGO_URL:mongodb://${MONGODB}}
-    
+
+server:
+  port: 8080
+
 eventuatelocal:
   kafka: 
     bootstrap:

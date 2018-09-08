@@ -14,7 +14,8 @@ public class ProjectInfo {
 	private List<String> workspacelist = new ArrayList<>();
 	private List<String> artifactlist;
 	private List<String> userlist;
-    private String owner;									
+    private String owner;
+    private String state;
 
 	public ProjectInfo(){}
 
@@ -22,17 +23,20 @@ public class ProjectInfo {
 		this.id = id;
 	}
 
-	public ProjectInfo(String name, String description, String owner) {
+	public ProjectInfo(String name, String description, String owner, String state) {
 		this.name = name;
 		this.description = description;
 		this.owner = owner;
+		this.state = state;
 	}
 
-	public ProjectInfo(String id, String userId) {
-		this.id = id;
-		this.userlist = new ArrayList<>();
-		this.userlist.add(userId);
-	}
+    public ProjectInfo(String id, String name, String description, String owner, String state) {
+        this.id = id;
+	    this.name = name;
+        this.description = description;
+        this.owner = owner;
+        this.state = state;
+    }
 
 	public ProjectInfo(String id, List<String> workspacelist) {
 		this.id = id;
@@ -118,4 +122,12 @@ public class ProjectInfo {
 	public void setOwner(String owner) {
 		this.owner = owner;
 	}
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 }

@@ -32,9 +32,7 @@ public class CreateWorkspaceSaga implements SimpleSaga<CreateWorkspaceSagaData>{
 				.step()
 					.invokeParticipant(userService.validateUserCommand, this::makeValidateUserCommand)
 				.step()
-					.invokeParticipant(projectService.addProjectsToWorkspaceCommand, this::makeAddProjectsToWorkspaceCommand)
-						.onReply(ProjectInfo.class, this::handleAddProjectsToWorkspaceCommand)
-					.withCompensation(projectService.rejectAddProjectsToWorkspaceCommand, this::makeRejectAddProjectsToWorkspaceCommand)			
+                        .invokeParticipant(projectService.validateProjectListCommand, this::makeValidateProjectListCommand)
 				.step()
 					.invokeParticipant(workspaceService.completeCreateWorkspaceCommand, this::makeCompleteCreateWorkspaceCommand)
 				.build();
@@ -55,15 +53,15 @@ public class CreateWorkspaceSaga implements SimpleSaga<CreateWorkspaceSagaData>{
 		return new ValidateUserCommand(new UserInfo(data.getOwner()));
 	}
 
-	private AddProjectsToWorkspaceCommand makeAddProjectsToWorkspaceCommand(CreateWorkspaceSagaData data) {
-		log.info("makeAddProjectsToWorkspaceCommand() - CreateWorkspaceSaga - WorkspaceService");
+	private ValidateProjectListCommand makeValidateProjectListCommand(CreateWorkspaceSagaData data) {
+		log.info("makeValidateProjectListCommand() - CreateWorkspaceSaga - WorkspaceService");
 
 		List<ProjectInfo>  projectInfoList = new ArrayList<>();
 		data.getProjects().forEach(projectId -> {
 			projectInfoList.add(new ProjectInfo(projectId));
 		});
 
-		return new AddProjectsToWorkspaceCommand(projectInfoList, data.getWorkspaceId());
+		return new ValidateProjectListCommand(projectInfoList);
 	}
 
 	private void handleAddProjectsToWorkspaceCommand(CreateWorkspaceSagaData data, ProjectInfo projectInfoList) {

@@ -33,7 +33,8 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		log.info("createUser(User user) - UserServiceImpl - UserService");
 
-		UserInfo userInfo = new UserInfo(user.getFirstname(), user.getLastname(), user.getEmail(), user.getUsername());
+        user.setState(UserState.CREATED);
+		UserInfo userInfo = new UserInfo(user.getFirstname(), user.getLastname(), user.getEmail(), user.getUsername(), user.getState().toString());
 
 		List<UserDomainEvent> events = singletonList(new UserCreatedEvent(userInfo));
 		ResultWithDomainEvents<User, UserDomainEvent> userAndEvents = new ResultWithDomainEvents<>(user, events);		
@@ -45,14 +46,26 @@ public class UserServiceImpl implements UserService{
 	}
 				
 	@Override
-	public void updateUser(User user) throws BusinessException{
+	public User updateUser(User modifiedUser) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("updateUser(User user) - UserServiceImpl - UserService");
 
-		List<UserDomainEvent> events = singletonList(new UserUpdatedEvent());
+		User user = findUser(modifiedUser.getId());
+
+		if(user == null) {
+		    return null;
+        }
+
+		modifiedUser.setState(UserState.UPDATED);
+		user = userRepository.save(modifiedUser);
+
+        UserInfo userInfo = new UserInfo(user.getId(), user.getFirstname(), user.getLastname(), user.getEmail(), user.getUsername(), user.getState().toString());
+
+		List<UserDomainEvent> events = singletonList(new UserUpdatedEvent(userInfo));
 		ResultWithDomainEvents<User, UserDomainEvent> userAndEvents = new ResultWithDomainEvents<>(user, events);		
 		userAggregateEventPublisher.publish(user, userAndEvents.events);
 
+		return user;
 	}
 			
 	@Override
@@ -66,13 +79,12 @@ public class UserServiceImpl implements UserService{
 	public void deleteUser(User user) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("deleteUser(User user) - UserServiceImpl - UserService");
-		
-		List<UserDomainEvent> events = singletonList(new UserDeletedEvent());
+
+		List<UserDomainEvent> events = singletonList(new UserDeletedEvent(new UserInfo(user.getId())));
 		ResultWithDomainEvents<User, UserDomainEvent> userAndEvents = new ResultWithDomainEvents<>(user, events);
 		
 		userRepository.delete(user);
 		userAggregateEventPublisher.publish(user, userAndEvents.events);
-		
 	}
 			
 	@Override

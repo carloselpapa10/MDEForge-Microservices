@@ -18,7 +18,7 @@ public class ProjectHistoryEventHandlers {
 	public DomainEventHandlers domainEventHandlers() {
 		return DomainEventHandlersBuilder
 				.forAggregateType("org.mdeforge.projectservice.model.Project")
-				.onEvent(ProjectCreatedEvent.class, this::handleProjectCreatedEvent)
+				/*.onEvent(ProjectCreatedEvent.class, this::handleProjectCreatedEvent)
 				.onEvent(ProjectUpdatedEvent.class, this::handleProjectUpdatedEvent)
 				.onEvent(ProjectDeletedEvent.class, this::handleProjectDeletedEvent)
 				.onEvent(AddedProjectsToWorkspaceEvent.class, this::handleAddedProjectsToWorkspaceEvent)
@@ -29,10 +29,10 @@ public class ProjectHistoryEventHandlers {
 				.onEvent(SharedProjectWithUserEvent.class, this::handleSharedProjectWithUserEvent)
 				.onEvent(RemovedArtifactFromProjectEvent.class, this::handleRemovedArtifactFromProjectEvent)
 				.onEvent(AddedUserInProjectEvent.class, this::handleAddedUserInProjectEvent)
-				.onEvent(RemovedUserFromProjectEvent.class, this::handleRemovedUserFromProjectEvent)
+				.onEvent(RemovedUserFromProjectEvent.class, this::handleRemovedUserFromProjectEvent)*/
 				.build();
 	}
-
+    /*
 	private void handleProjectCreatedEvent(DomainEventEnvelope<ProjectCreatedEvent> dee) {
 		log.info("handleProjectCreatedEvent() - ProjectHistoryEventHandlers - ProjectService");
 	}
@@ -79,6 +79,6 @@ public class ProjectHistoryEventHandlers {
 
 	private void handleRemovedUserFromProjectEvent(DomainEventEnvelope<RemovedUserFromProjectEvent> dee) {
 		log.info("handleRemovedUserFromProjectEvent() - ProjectHistoryEventHandlers - ProjectService");
-	}
+	}*/
 
 }

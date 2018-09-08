@@ -23,7 +23,8 @@ public class User{
 	private List<Role> roles = new ArrayList<>();							
 	private List<String> ownerartifactlist;							
 	private List<String> sharedartifactlist;							
-    private String workspacelist;									
+    private String workspacelist;
+    private UserState state;
 				
 	public User() {}
 
@@ -129,4 +130,12 @@ public class User{
 	public void setWorkspacelist(String workspacelist) {
 		this.workspacelist = workspacelist;
 	}
+
+    public UserState getState() {
+        return state;
+    }
+
+    public void setState(UserState state) {
+        this.state = state;
+    }
 }

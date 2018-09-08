@@ -37,6 +37,7 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 	public void updateWorkspace(Workspace workspace) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("updateWorkspace(Workspace workspace) - WorkspaceServiceImpl - MdeforgeviewService");
+        workspaceRepository.save(workspace);
 	}
 			
 	@Override
@@ -53,9 +54,10 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 	}
 			
 	@Override
-	public void deleteWorkspace(String id) throws BusinessException{
+	public void deleteWorkspace(Workspace workspace) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("deleteWorkspace(String id) - WorkspaceServiceImpl - MdeforgeviewService");
+		workspaceRepository.delete(workspace);
 	}
 			
 	@Override

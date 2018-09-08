@@ -37,6 +37,7 @@ public class UserServiceImpl implements UserService{
 	public void updateUser(User user) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("updateUser(User user) - UserServiceImpl - MdeforgeviewService");
+        userRepository.save(user);
 	}
 			
 	@Override
@@ -47,9 +48,10 @@ public class UserServiceImpl implements UserService{
 	}
 			
 	@Override
-	public void deleteUser(String id) throws BusinessException{
+	public void deleteUser(User user) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("deleteUser(String id) - UserServiceImpl - MdeforgeviewService");
+        userRepository.delete(user);
 	}
 			
 	@Override

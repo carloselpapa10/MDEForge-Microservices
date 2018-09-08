@@ -5,6 +5,7 @@ import org.mdeforge.servicemodel.workspace.api.info.*;
 public class RemovedProjectInWorkspace implements WorkspaceDomainEvent{
 	
 	private WorkspaceInfo workspaceInfo;
+    private String projectId;
 
 	public RemovedProjectInWorkspace() {}
 
@@ -13,8 +14,12 @@ public class RemovedProjectInWorkspace implements WorkspaceDomainEvent{
 		this.workspaceInfo = workspaceInfo;
 	}
 
-	
-	public WorkspaceInfo getWorkspaceInfo() {
+    public RemovedProjectInWorkspace(WorkspaceInfo workspaceInfo, String projectId) {
+        this.workspaceInfo = workspaceInfo;
+        this.projectId = projectId;
+    }
+
+    public WorkspaceInfo getWorkspaceInfo() {
 		return workspaceInfo;
 	}
 
@@ -22,4 +27,11 @@ public class RemovedProjectInWorkspace implements WorkspaceDomainEvent{
 		this.workspaceInfo = workspaceInfo;
 	}
 
+    public String getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(String projectId) {
+        this.projectId = projectId;
+    }
 }

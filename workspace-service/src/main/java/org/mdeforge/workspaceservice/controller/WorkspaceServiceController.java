@@ -4,6 +4,7 @@ import org.mdeforge.workspaceservice.dao.*;
 import org.mdeforge.workspaceservice.model.*;
 import org.mdeforge.workspaceservice.webapi.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -28,11 +29,11 @@ public class WorkspaceServiceController {
 	}
 			
 	@PutMapping("/updateWorkspace/workspace")
-	public ResponseEntity<Workspace> updateWorkspace(@RequestBody Workspace workspace){
+	public ResponseEntity<Workspace> updateWorkspace(@RequestBody Workspace request){
 		log.info("updateWorkspace(@RequestBody Workspace workspace) - WorkspaceServiceController - WorkspaceService");
 
-		/*TODO*/
-		return null;
+		Workspace workspace = workspaceService.updateWorkspace(request);
+		return workspace != null ? ResponseEntity.ok(workspace) : ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 	}
  			
 	@GetMapping("/findWorkspace/{workspaceId}")
@@ -46,24 +47,39 @@ public class WorkspaceServiceController {
 	public String deleteWorkspace(@RequestParam String id){
 		log.info("deleteWorkspace(String id) - WorkspaceServiceController - WorkspaceService");
 
-		/*TODO*/
-		return null;
+		Workspace workspace = workspaceService.findWorkspace(id);
+		if(workspace != null){
+		    workspaceService.deleteWorkspace(workspace);
+		    return "Workspace is being deleted.";
+        }
+
+        return "Workspace ID does not exist!";
 	} 
 			
 	@PutMapping("/addProjectToWorkspace/workspace")
-	public ResponseEntity<Workspace> addProjectToWorkspace(@RequestBody Workspace workspace){
-		log.info("addProjectToWorkspace(@RequestBody Workspace workspace) - WorkspaceServiceController - WorkspaceService");
+	public ResponseEntity<Workspace> addProjectToWorkspace(@RequestParam String workspaceId, @RequestParam String projectId){
+		log.info("addProjectToWorkspace(@RequestParam String workspaceId, @RequestParam String projectId) - WorkspaceServiceController - WorkspaceService");
 
-		/*TODO*/
-		return null;
+		Workspace workspace = workspaceService.findWorkspace(workspaceId);
+
+		if(workspace!=null){
+            workspace = workspaceService.addProjectToWorkspace(workspace, projectId);
+            return ResponseEntity.ok(workspace);
+        }
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 	}
  			
 	@PutMapping("/removeProjectInWorkspace/workspace")
-	public ResponseEntity<Workspace> removeProjectInWorkspace(@RequestBody Workspace workspace){
-		log.info("removeProjectInWorkspace(@RequestBody Workspace workspace) - WorkspaceServiceController - WorkspaceService");
+	public ResponseEntity<Workspace> removeProjectInWorkspace(@RequestParam String workspaceId, @RequestParam String projectId){
+		log.info("removeProjectInWorkspace(@RequestParam String workspaceId, @RequestParam String projectId) - WorkspaceServiceController - WorkspaceService");
 
-		/*TODO*/
-		return null;
+		Workspace workspace = workspaceService.findWorkspace(workspaceId);
+
+        if(workspace!=null){
+            workspace = workspaceService.removeProjectInWorkspace(workspace, projectId);
+            return ResponseEntity.ok(workspace);
+        }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 	}
  			
 	@GetMapping("/retrieve/Workspaces")

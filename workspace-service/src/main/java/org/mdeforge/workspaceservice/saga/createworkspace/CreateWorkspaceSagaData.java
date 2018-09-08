@@ -8,7 +8,6 @@ public class CreateWorkspaceSagaData {
 	private String workspaceId;
 	private String owner;
 	private List<String> projects;
-	private List<String> oldProjects;
 
 	public CreateWorkspaceSagaData() {}
 
@@ -42,11 +41,4 @@ public class CreateWorkspaceSagaData {
 		this.projects = projects;
 	}
 
-	public List<String> getOldProjects() {
-		return oldProjects;
-	}
-
-	public void setOldProjects(List<String> oldProjects) {
-		this.oldProjects = oldProjects;
-	}
 }

@@ -64,10 +64,30 @@ public class WorkspaceHistoryEventHandlers {
 
 	private void handleWorkspaceUpdatedEvent(DomainEventEnvelope<WorkspaceUpdatedEvent> dee) {
 		log.info("handleWorkspaceUpdatedEvent() - WorkspaceHistoryEventHandlers - WorkspaceService");
+
+        List<Project> projectList = new ArrayList<>();
+
+        dee.getEvent().getWorkspaceInfo().getProjects().forEach(projectId -> {
+            projectList.add(projectService.findProject(projectId));
+        });
+
+        User user = userService.findUser(dee.getEvent().getWorkspaceInfo().getOwner());
+
+        Workspace workspace = workspaceService.findWorkspace(dee.getAggregateId());
+        workspace.setName(dee.getEvent().getWorkspaceInfo().getName());
+        workspace.setDescription(dee.getEvent().getWorkspaceInfo().getDescription());
+        workspace.setOwner(user);
+        workspace.setProjects(projectList);
+        workspace.setState(dee.getEvent().getWorkspaceInfo().getState());
+
+        workspaceService.updateWorkspace(workspace);
 	}
 
 	private void handleWorkspaceDeletedEvent(DomainEventEnvelope<WorkspaceDeletedEvent> dee) {
 		log.info("handleWorkspaceDeletedEvent() - WorkspaceHistoryEventHandlers - WorkspaceService");
+
+		Workspace workspace = workspaceService.findWorkspace(dee.getAggregateId());
+		workspaceService.deleteWorkspace(workspace);
 	}
 
     private void handleWorkspaceCreationRejectedEvent(DomainEventEnvelope<WorkspaceCreationRejectedEvent> dee) {
@@ -88,10 +108,41 @@ public class WorkspaceHistoryEventHandlers {
 
 	private void handleAddedProjectToWorkspaceEvent(DomainEventEnvelope<AddedProjectToWorkspaceEvent> dee) {
 		log.info("handleAddedProjectToWorkspaceEvent() - WorkspaceHistoryEventHandlers - WorkspaceService");
+
+		Workspace workspace = workspaceService.findWorkspace(dee.getAggregateId());
+
+		Project project = projectService.findProject(dee.getEvent().getProjectId());
+
+		if(project != null){
+
+		    if(!workspace.getProjects().contains(project)){
+                workspace.addProject(project);
+                workspaceService.save(workspace);
+            }
+
+        }else {
+            log.info("Project was not found!");
+        }
 	}
 
 	private void handleRemovedProjectInWorkspace(DomainEventEnvelope<RemovedProjectInWorkspace> dee) {
 		log.info("handleRemovedProjectInWorkspace() - WorkspaceHistoryEventHandlers - WorkspaceService");
+
+		Workspace workspace = workspaceService.findWorkspace(dee.getAggregateId());
+
+		Project project = projectService.findProject(dee.getEvent().getProjectId());
+
+		if(project != null){
+            /*TODO fix this - problems when i want to delete a project from the workspace*/
+            if(workspace.getProjects().contains(project)){
+
+                workspace.removeProject(project);
+                workspaceService.save(workspace);
+            }
+
+        }else {
+            log.info("Project was not found!");
+        }
 	}
 
 }

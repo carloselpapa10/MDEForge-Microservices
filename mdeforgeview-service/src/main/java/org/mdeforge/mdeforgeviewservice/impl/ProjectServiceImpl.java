@@ -37,6 +37,7 @@ public class ProjectServiceImpl implements ProjectService{
 	public void updateProject(Project project) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("updateProject(Project project) - ProjectServiceImpl - MdeforgeviewService");
+        projectRepository.save(project);
 	}
 			
 	@Override
@@ -47,9 +48,10 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 			
 	@Override
-	public void deleteProject(String id) throws BusinessException{
+	public void deleteProject(Project project) throws BusinessException{
 		// TODO Auto-generated method stub
-		log.info("deleteProject(String id) - ProjectServiceImpl - MdeforgeviewService");
+		log.info("deleteProject(Project project) - ProjectServiceImpl - MdeforgeviewService");
+		projectRepository.delete(project);
 	}
 			
 	@Override
@@ -81,6 +83,18 @@ public class ProjectServiceImpl implements ProjectService{
 
 		return projectRepository.save(project);
 	}
+
+	@Override
+	public Project removeUserFromProject(Project project, User user) throws BusinessException{
+		// TODO Auto-generated method stub
+		log.info("removeUserFromProject(Project project) - ProjectServiceImpl - MdeforgeviewService");
+
+		List<User> userList = project.getUserlist() == null ? new ArrayList<>() : project.getUserlist();
+		userList.remove(user);
+		project.setUserlist(userList);
+
+		return projectRepository.save(project);
+	}
 			
 	@Override
 	public void addUserInProject(Project project) throws BusinessException{
@@ -93,13 +107,7 @@ public class ProjectServiceImpl implements ProjectService{
 		// TODO Auto-generated method stub
 		log.info("completeAddUserInProject(Project project) - ProjectServiceImpl - MdeforgeviewService");
 	}
-			
-	@Override
-	public void removeUserFromProject(Project project) throws BusinessException{
-		// TODO Auto-generated method stub
-		log.info("removeUserFromProject(Project project) - ProjectServiceImpl - MdeforgeviewService");
-	}
-			
+
 	@Override
 	public List<Project> findAll() throws BusinessException{
 		log.info("findAll() - ProjectServiceImpl - MdeforgeviewService");

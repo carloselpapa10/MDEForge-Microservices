@@ -2,6 +2,8 @@ package org.mdeforge.mdeforgeviewservice.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="Projects")
@@ -12,19 +14,27 @@ public class Project{
     private String description;									
     private boolean open;									
     private String createddate;									
-    private String modifieddate;									
+    private String modifieddate;
+    private String state;
 	//private List<Workspace> workspacelist = new ArrayList<>();
-	private List<Artifact> artifactlist = new ArrayList<>();								
-	private List<User> userlist = new ArrayList<>();								
-    private User owner;									
+
+    @DBRef
+    private List<Artifact> artifactlist = new ArrayList<>();
+
+	@DBRef
+	private List<User> userlist = new ArrayList<>();
+
+	@DBRef
+	private User owner;
 
 	public Project() {}
 
-	public Project(String id, String name, String description, User owner) {
+	public Project(String id, String name, String description, User owner, String state) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.owner = owner;
+		this.state = state;
 	}
 
 	public Project(String id) {
@@ -106,4 +116,12 @@ public class Project{
 	/*public void addWorkspacelist(Workspace workspace){
 	    this.workspacelist.add(workspace);
     }*/
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 }

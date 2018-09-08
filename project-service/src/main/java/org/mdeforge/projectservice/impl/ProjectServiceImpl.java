@@ -13,11 +13,7 @@ import org.slf4j.LoggerFactory;
 import static java.util.Collections.singletonList;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 import io.eventuate.tram.events.aggregates.ResultWithDomainEvents;
-import org.mdeforge.projectservice.saga.addartifacttoproject.AddArtifactToProjectSagaData;
-import org.mdeforge.projectservice.saga.adduserinproject.AddUserInProjectSagaData;
-import io.eventuate.tram.sagas.orchestration.SagaManager;
 
 @Component
 @Transactional
@@ -31,18 +27,13 @@ public class ProjectServiceImpl implements ProjectService{
 	@Autowired
 	private ProjectDomainEventPublisher projectAggregateEventPublisher;
 
-	@Autowired
-	private SagaManager<AddArtifactToProjectSagaData> addArtifactToProjectSagaManager;
-
-	@Autowired
-	private SagaManager<AddUserInProjectSagaData> addUserInProjectSagaManager;
-
 	@Override
 	public Project createProject(Project project) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("createProject(Project project) - ProjectServiceImpl - ProjectService");
 
-		ProjectInfo projectInfo = new ProjectInfo(project.getName(), project.getDescription(), project.getOwner());
+		project.setState(ProjectState.CREATED);
+		ProjectInfo projectInfo = new ProjectInfo(project.getName(), project.getDescription(), project.getOwner(), project.getState().toString());
 
 		List<ProjectDomainEvent> events = singletonList(new ProjectCreatedEvent(projectInfo));
 		ResultWithDomainEvents<Project, ProjectDomainEvent> projectAndEvents = new ResultWithDomainEvents<>(project, events);		
@@ -54,14 +45,26 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 				
 	@Override
-	public void updateProject(Project project) throws BusinessException{
+	public Project updateProject(Project modifiedProject) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("updateProject(Project project) - ProjectServiceImpl - ProjectService");
 
-		List<ProjectDomainEvent> events = singletonList(new ProjectUpdatedEvent());
+		Project project = findProject(modifiedProject.getId());
+
+		if(project==null) {
+		    return null;
+        }
+
+        modifiedProject.setState(ProjectState.UPDATED);
+		project = projectRepository.save(modifiedProject);
+
+        ProjectInfo projectInfo = new ProjectInfo(project.getId(), project.getName(), project.getDescription(), project.getOwner(), project.getState().toString());
+
+		List<ProjectDomainEvent> events = singletonList(new ProjectUpdatedEvent(projectInfo));
 		ResultWithDomainEvents<Project, ProjectDomainEvent> projectAndEvents = new ResultWithDomainEvents<>(project, events);		
 		projectAggregateEventPublisher.publish(project, projectAndEvents.events);
 
+		return project;
 	}
 			
 	@Override
@@ -76,7 +79,7 @@ public class ProjectServiceImpl implements ProjectService{
 		// TODO Auto-generated method stub
 		log.info("deleteProject(Project project) - ProjectServiceImpl - ProjectService");
 		
-		List<ProjectDomainEvent> events = singletonList(new ProjectDeletedEvent());
+		List<ProjectDomainEvent> events = singletonList(new ProjectDeletedEvent(new ProjectInfo(project.getId())));
 		ResultWithDomainEvents<Project, ProjectDomainEvent> projectAndEvents = new ResultWithDomainEvents<>(project, events);
 		
 		projectRepository.delete(project);
@@ -88,10 +91,6 @@ public class ProjectServiceImpl implements ProjectService{
 	public void addArtifactToProject(Project project) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("addArtifactToProject(Project project) - ProjectServiceImpl - ProjectService");
-
-		AddArtifactToProjectSagaData data = new AddArtifactToProjectSagaData();
-		addArtifactToProjectSagaManager.create(data);
-		
 	}
 			
 	@Override
@@ -117,13 +116,9 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 			
 	@Override
-	public Project shareProjectToUser(String projectId, String userId) throws BusinessException{
+	public Project shareProjectToUser(Project project, String userId) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("shareProjectToUser(Project project) - ProjectServiceImpl - ProjectService");
-
-		Project project = findProject(projectId);
-
-		if(project==null) return null; /*project does not exist*/
 
 		List<String> userList = project.getArtifactlist() == null ? new ArrayList<>() : project.getArtifactlist();
 
@@ -134,7 +129,7 @@ public class ProjectServiceImpl implements ProjectService{
 		userList.add(userId);
 		project.setUserlist(userList);
 
-		List<ProjectDomainEvent> events = singletonList(new SharedProjectWithUserEvent(new ProjectInfo(project.getId(), userId)));
+		List<ProjectDomainEvent> events = singletonList(new SharedProjectWithUserEvent(new ProjectInfo(project.getId()), userId));
 		ResultWithDomainEvents<Project, ProjectDomainEvent> projectAndEvents = new ResultWithDomainEvents<>(project, events);
 
 		project = projectRepository.save(project);
@@ -142,15 +137,36 @@ public class ProjectServiceImpl implements ProjectService{
 
 		return project;
 	}
+
+	@Override
+	public Project removeUserFromProject(Project project, String userId) throws BusinessException{
+		// TODO Auto-generated method stub
+		log.info("removeUserFromProject(Project project) - ProjectServiceImpl - ProjectService");
+
+		List<String> userList = project.getArtifactlist() == null ? new ArrayList<>() : project.getArtifactlist();
+
+		if(userList.contains(userId)){
+
+			userList.remove(userId);
+			project.setUserlist(userList);
+
+			List<ProjectDomainEvent> events = singletonList(new RemovedUserFromProjectEvent(new ProjectInfo(project.getId()), userId));
+			ResultWithDomainEvents<Project, ProjectDomainEvent> projectAndEvents = new ResultWithDomainEvents<>(project, events);
+
+			project = projectRepository.save(project);
+			projectAggregateEventPublisher.publish(project, projectAndEvents.events);
+
+			return project;
+
+		}
+		return null;
+	}
 			
 	@Override
 	public void addUserInProject(Project project) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("addUserInProject(Project project) - ProjectServiceImpl - ProjectService");
 
-		AddUserInProjectSagaData data = new AddUserInProjectSagaData();
-		addUserInProjectSagaManager.create(data);
-		
 	}
 			
 	@Override
@@ -163,18 +179,7 @@ public class ProjectServiceImpl implements ProjectService{
 		projectAggregateEventPublisher.publish(project, projectAndEvents.events);
 
 	}
-			
-	@Override
-	public void removeUserFromProject(Project project) throws BusinessException{
-		// TODO Auto-generated method stub
-		log.info("removeUserFromProject(Project project) - ProjectServiceImpl - ProjectService");
 
-		List<ProjectDomainEvent> events = singletonList(new RemovedUserFromProjectEvent());
-		ResultWithDomainEvents<Project, ProjectDomainEvent> projectAndEvents = new ResultWithDomainEvents<>(project, events);		
-		projectAggregateEventPublisher.publish(project, projectAndEvents.events);
-
-	}
-			
 	@Override
 	public List<Project> findAll() throws BusinessException{
 		log.info("findAll() - ProjectServiceImpl - ProjectService");

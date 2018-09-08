@@ -14,6 +14,9 @@ import org.springframework.stereotype.Component;
 import io.eventuate.tram.sagas.orchestration.SagaDefinition;
 import io.eventuate.tram.sagas.simpledsl.SimpleSaga;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class UpdateWorkspaceSaga implements SimpleSaga<UpdateWorkspaceSagaData>{
 	
@@ -27,9 +30,7 @@ public class UpdateWorkspaceSaga implements SimpleSaga<UpdateWorkspaceSagaData>{
 				step()					
 					.invokeParticipant(userService.validateUserCommand, this::makeValidateUserCommand)
 				.step()
-					.invokeParticipant(projectService.editProjectsToWorkspaceCommand, this::makeEditProjectsToWorkspaceCommand)
-					.onReply(ProjectInfo.class, this::handleEditProjectsToWorkspaceCommand)				
-					.withCompensation(projectService.rejectEditProjectsToWorkspaceCommand, this::makeRejectEditProjectsToWorkspaceCommand)			
+                        .invokeParticipant(projectService.validateProjectListCommand, this::makeValidateProjectListCommand)
 				.step()
 					.invokeParticipant(workspaceService.updateWorkspaceCommand, this::makeUpdateWorkspaceCommand)
 				.build();
@@ -41,27 +42,26 @@ public class UpdateWorkspaceSaga implements SimpleSaga<UpdateWorkspaceSagaData>{
 	}
 
 	private ValidateUserCommand makeValidateUserCommand(UpdateWorkspaceSagaData data) {
-		log.info("makeValidateUserCommand() - UpdateWorkspaceSaga - WorkspaceService"); 
-		return new ValidateUserCommand();
+		log.info("makeValidateUserCommand() - UpdateWorkspaceSaga - WorkspaceService");
+
+		return new ValidateUserCommand(new UserInfo(data.getOwner()));
 	}
 
-	private EditProjectsToWorkspaceCommand makeEditProjectsToWorkspaceCommand(UpdateWorkspaceSagaData data) {
-		log.info("makeEditProjectsToWorkspaceCommand() - UpdateWorkspaceSaga - WorkspaceService"); 
-		return new EditProjectsToWorkspaceCommand();
-	}
+	private ValidateProjectListCommand makeValidateProjectListCommand(UpdateWorkspaceSagaData data) {
+		log.info("makeValidateProjectListCommand() - UpdateWorkspaceSaga - WorkspaceService");
 
-	private void handleEditProjectsToWorkspaceCommand(UpdateWorkspaceSagaData data, ProjectInfo projectInfo) {
-		log.info("handleEditProjectsToWorkspaceCommand() - UpdateWorkspaceSaga - WorkspaceService"); 
-	}
+        List<ProjectInfo> projectInfoList = new ArrayList<>();
+        data.getProjects().forEach(projectId -> {
+            projectInfoList.add(new ProjectInfo(projectId));
+        });
 
-	private RejectEditProjectsToWorkspaceCommand makeRejectEditProjectsToWorkspaceCommand(UpdateWorkspaceSagaData data) {
-		log.info("makeRejectEditProjectsToWorkspaceCommand() - UpdateWorkspaceSaga - WorkspaceService"); 
-		return new RejectEditProjectsToWorkspaceCommand();
+		return new ValidateProjectListCommand(projectInfoList);
 	}
 
 	private UpdateWorkspaceCommand makeUpdateWorkspaceCommand(UpdateWorkspaceSagaData data) {
-		log.info("makeUpdateWorkspaceCommand() - UpdateWorkspaceSaga - WorkspaceService"); 
-		return new UpdateWorkspaceCommand();
+		log.info("makeUpdateWorkspaceCommand() - UpdateWorkspaceSaga - WorkspaceService");
+		
+		return new UpdateWorkspaceCommand(new WorkspaceInfo(data.getWorkspaceId()));
 	}
 
 }

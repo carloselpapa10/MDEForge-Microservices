@@ -18,16 +18,17 @@ public class ArtifactHistoryEventHandlers {
 	public DomainEventHandlers domainEventHandlers() {
 		return DomainEventHandlersBuilder
 				.forAggregateType("org.mdeforge.artifactservice.model.Artifact")
-				.onEvent(ArtifactCreatedEvent.class, this::handleArtifactCreatedEvent)
+				/*.onEvent(ArtifactCreatedEvent.class, this::handleArtifactCreatedEvent)
 				.onEvent(ArtifactUpdatedEvent.class, this::handleArtifactUpdatedEvent)
 				.onEvent(ArtifactDeletedEvent.class, this::handleArtifactDeletedEvent)
 				.onEvent(SharedArtifactToUserEvent.class, this::handleSharedArtifactToUserEvent)
 				.onEvent(ChangedArtifactOpenEvent.class, this::handleChangedArtifactOpenEvent)
 				.onEvent(AddedArtifactToProjectListEvent.class, this::handleAddedArtifactToProjectListEvent)
-				.onEvent(RemovedArtifactToProjectListEvent.class, this::handleRemovedArtifactToProjectListEvent)
+				.onEvent(RemovedArtifactToProjectListEvent.class, this::handleRemovedArtifactToProjectListEvent)*/
 				.build();
 	}
 
+	/*
 	private void handleArtifactCreatedEvent(DomainEventEnvelope<ArtifactCreatedEvent> dee) {
 		log.info("handleArtifactCreatedEvent() - ArtifactHistoryEventHandlers - ArtifactService");
 	}
@@ -54,6 +55,6 @@ public class ArtifactHistoryEventHandlers {
 
 	private void handleRemovedArtifactToProjectListEvent(DomainEventEnvelope<RemovedArtifactToProjectListEvent> dee) {
 		log.info("handleRemovedArtifactToProjectListEvent() - ArtifactHistoryEventHandlers - ArtifactService");
-	}
+	}*/
 
 }
