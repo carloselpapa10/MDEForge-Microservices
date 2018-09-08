@@ -2,6 +2,8 @@ server:
   port: 8080
 
 spring:
+  thymeleaf:
+    cache: false
   data:
     mongodb:
-      uri: ${MONGO_URL:mongodb://localhost:27017/userservicedb}
+      uri: ${MONGO_URL:mongodb://localhost:27017/user-testdb}
