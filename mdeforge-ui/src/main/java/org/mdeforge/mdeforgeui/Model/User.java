@@ -1,12 +1,32 @@
 package org.mdeforge.mdeforgeui.Model;
 
+import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
 
     private String id;
+
+    @NotEmpty(message = "This field is required")
     private String email;
+
+    @NotEmpty(message = "This field is required")
     private String password;
+
+    @NotEmpty(message = "This field is required")
     private String firstName;
+
+    @NotEmpty(message = "This field is required")
     private String lastName;
+
+    @NotEmpty(message = "This field is required")
+    private String username;
+
+    private String image;
+    private boolean enabled;
+    private List<Role> roles = new ArrayList<>();
+
 
     public User() {}
 
@@ -61,5 +81,37 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 }

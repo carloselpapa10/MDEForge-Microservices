@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="apigateway-service" />
+        <module name="artifact-service" />
         <module name="eventuate-tram-aggregate-domain-events" />
         <module name="mdeforgeview-service" />
         <module name="project-service" />
@@ -15,5 +15,8 @@
         <module name="workspace-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="apigateway-service" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
