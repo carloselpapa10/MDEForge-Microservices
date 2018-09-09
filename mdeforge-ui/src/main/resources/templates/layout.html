@@ -8,56 +8,48 @@
     <!--<title>MDEForge</title>-->
     <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">MDEForge</title>
 
-    <!-- Bootstrap core CSS -->
-    <link th:href="@{/webjars/bootstrap/css/bootstrap.css}" href="../static/css/bootstrap.css" rel="stylesheet"></link>
-    <style type="text/css">
-        body {
-            padding-top: 5rem;
-        }
-        .starter-template {
-            padding: 3rem 1.5rem;
-            text-align: center;
-        }
-    </style>
+    <!-- Bootstrap core CSS
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.css}" href="../static/css/bootstrap.css" rel="stylesheet"></link>-->
+
+    <link rel="icon" type="image/png" th:href="@{/theme/images/favicon.ico}">
+    <!-- Bootstrap -->
+    <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/bootstrap/css/responsive.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/bootstrap/extend/bootstrap-select/bootstrap-select.css}" rel="stylesheet" />
+    <link th:href="@{/bootstrap/extend/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css}" rel="stylesheet" />
+
+    <!-- Glyphicons Font Icons -->
+    <link th:href="@{/theme/fonts/glyphicons/css/glyphicons.css}" rel="stylesheet" />
+
+    <link rel="stylesheet" th:href="@{/theme/fonts/font-awesome/css/font-awesome.min.css}">
+
+    <!-- Uniform Pretty Checkboxes -->
+    <link th:href="@{/theme/scripts/plugins/forms/pixelmatrix-uniform/css/uniform.default.css}" rel="stylesheet" />
+
+    <!-- Bootstrap Extended -->
+    <link th:href="@{/bootstrap/extend/bootstrap-select/bootstrap-select.css}" rel="stylesheet" />
+
+    <!-- JQueryUI -->
+    <link th:href="@{/theme/scripts/plugins/system/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.min.css}" rel="stylesheet" />
+
+    <!-- MiniColors ColorPicker Plugin -->
+    <link th:href="@{/theme/scripts/plugins/color/jquery-miniColors/jquery.miniColors.css}" rel="stylesheet" />
+
+    <!-- Google Code Prettify Plugin -->
+    <link th:href="@{/theme/scripts/plugins/other/google-code-prettify/prettify.css}" rel="stylesheet" />
+
+    <!-- Bootstrap Image Gallery -->
+    <link th:href="@{/bootstrap/extend/bootstrap-image-gallery/css/bootstrap-image-gallery.min.css}" rel="stylesheet" />
+
+    <!-- Main Theme Stylesheet :: CSS -->
+    <link th:href="@{/theme/css/style-default.css?1373029344}" rel="stylesheet" />
+
+
+    <!-- LESS.js Library -->
+    <script th:src="@{/theme/scripts/plugins/system/less.min.js}"></script>
+
 </head>
 <body>
-
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" th:href="@{/inbox}">Inbox</a>
-
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li th:if="${currentUser} == null">
-                <a class="nav-link" th:href="@{/signup}">Sign Up</a>
-            </li>
-
-            <li class="dropdown" th:if="${currentUser} != null">
-                <a href="#"
-                   class="dropdown-toggle nav-link"
-                   data-toggle="dropdown"
-                   role="button"
-                   aria-haspopup="true"
-                   aria-expanded="false"
-                   th:text="${currentUser.firstName}">
-                    Dropdown <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <form th:action="@{/logout}" th:method="post">
-                            <button class="btn btn-link" type="submit">Log out</button>
-                        </form>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</nav>
 
 <div class="container" layout:fragment="content">
 

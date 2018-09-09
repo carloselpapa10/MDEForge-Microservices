@@ -1,0 +1,21 @@
+<tr id="artifact-{{id}}">
+	<td>
+		<i class="icon-remove removeArtifact text-error" data-id="{{id}}" data-name="{{name}}"></i></td>
+	<td>
+		{{#ecoreMetamdel}} 
+		<a href="{{ctx}}/private/EcoreMetamodel/artifact_project?project_id={{projectId}}&artifact_id={{id}}">
+	 		{{name}} 
+		</a>
+		{{/ecoreMetamdel}}
+		{{#ATLTransformation}}
+		<a href="{{ctx}}/private/ATLTransformation/artifact_project?project_id={{projectId}}&artifact_id={{id}}">
+	 		{{name}} 
+		</a>
+		{{/ATLTransformation}}
+		{{#model}}
+		<a href="{{ctx}}/private/Model/artifact_project?project_id={{projectId}}&artifact_id={{id}}">
+	 		{{name}} 
+		</a>
+		{{/model}}
+	</td>
+</tr>

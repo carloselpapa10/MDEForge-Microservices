@@ -18,7 +18,7 @@ public class SecurityConfig{
         protected void configure(HttpSecurity http) throws Exception{
             http
                     .authorizeRequests()
-                        .antMatchers("/resources/**", "/login", "/signup","/webjars/**").permitAll()
+                        .antMatchers("/theme/**","/bootstrap/**","/resources/**", "/login", "/signup","/webjars/**").permitAll()
                         .antMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                     .and()

@@ -6,36 +6,85 @@
 </head>
 <body>
 <div class="container" layout:fragment="content">
-    <h1>MDEForge</h1>
 
-    <div th:if="${param.error}"
-         class="alert alert-danger"
-         role="alert">
-        Invalid username and password.
-    </div>
-    <div th:if="${param.logout}"
-         class="alert alert-success"
-         role="alert">
-        You have been logged out.
-    </div>
+    <div id="login">
 
-    <h4>Login with:</h4>
-    <p th:each="url : ${urls}">
-        <a th:text="${url.key}" th:href="${url.value}">Client</a>
-    </p>
+        <div class="container login">
 
-    <h4>or</h4>
-    <form method="post" th:action="@{/login}">
-        <div class="form-group">
-            <label for="username" class="sr-only">Username</label>
-            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+            <div class="wrapper">
+
+                <img class="logo-banner" width="100px" th:src="@{/theme/images/logo-small.png}">
+                <h3 class="header-h main-title text-black center">Sign In to MDE Forge</h3>
+
+                <h2 class="header-h main-text center"></h2>
+                <!-- Box -->
+                <div class="widget widget-heading-simple widget-body-simple">
+
+                    <div class="widget-body" style="background: #fff">
+
+                        <div th:if="${param.error}"
+                             class="alert alert-danger"
+                             role="alert">
+                            Invalid username and password.
+                        </div>
+                        <div th:if="${param.logout}"
+                             class="alert alert-success"
+                             role="alert">
+                            You have been logged out.
+                        </div>
+
+                        <p th:each="url : ${urls}">
+                            <a th:text="${url.key}" th:href="${url.value}" class="btn btn-block btn-large btn-default">Client</a>
+                        </p>
+
+                        <!-- Form -->
+                        <form method="post" th:action="@{/login}">
+                            <label>Username or Email</label>
+                            <input type="text" id="username" name="username" class="input-block-level" placeholder="Your Username or Email address"/>
+                            <div class="row-fluid">
+                                <div class="span6"><label>Password</label></div>
+                                <div class="span6">
+                                    <a class="password forgot-password" href="#"><strong>Forgot your password?</strong></a>
+                                </div>
+                            </div>
+                            <input type="password" id="password" name="password" class="input-block-level" placeholder="Your Password" />
+                            <div class="uniformjs"><label class="checkbox"><input type="checkbox" value="remember-me" style="margin: 4px 10px 0 0">Remember Me</label></div>
+
+                            <div class="separator bottom"></div>
+                            <div class="row-fluid">
+                                <div class="span12 center">
+                                    <button class="btn btn-block btn-large btn-primary" type="submit">Sign In</button>
+                                </div>
+                            </div>
+
+                        </form>
+                        <!-- // Form END -->
+
+                    </div>
+                </div>
+                <!-- // Box END -->
+                <hr style="margin: 25px 0">
+                <!-- Box -->
+                <div class="widget widget-heading-simple widget-body-simple">
+
+                    <div class="widget-body" style="background: #fff">
+
+                        <div class="row-fluid">
+                            <div class="span12 center">
+                                <h4>New to <span class="text-black">MDE Forge?</span><a th:href="@{/signup}" class="text-primary">Create an account</a></h4>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- // Box END -->
+
+            </div>
+
         </div>
-        <div class="form-group">
-            <label for="password" class="sr-only">Password</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-        </div>
-        <button class="btn btn-primary" type="submit">Sign in</button>
-    </form>
+
+    </div>
+
 </div>
 </body>
 </html>
