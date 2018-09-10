@@ -33,9 +33,16 @@
                             You have been logged out.
                         </div>
 
-                        <p th:each="url : ${urls}">
-                            <a th:text="${url.key}" th:href="${url.value}" class="btn btn-block btn-large btn-default">Client</a>
-                        </p>
+                        <div style="text-align: center;margin-bottom: 5%;">
+                            <th:block th:each="url : ${urls}">
+                                <th:block th:switch="${url.key}">
+                                    <a th:case="'Google'" th:text="${url.key}" th:href="${url.value}" class="btn btn-large btn-secondary">Client</a>
+                                    <a th:case="'Facebook'" th:text="${url.key}" th:href="${url.value}" class="btn btn-large btn-facebook">Client</a>
+                                    <a th:case="'Github'" th:text="${url.key}" th:href="${url.value}" class="btn btn-large btn-dark">Client</a>
+                                    <a th:case="*" th:text="${url.key}" th:href="${url.value}" class="btn btn-large btn-default">Client</a>
+                                </th:block>
+                            </th:block>
+                        </div>
 
                         <!-- Form -->
                         <form method="post" th:action="@{/login}">

@@ -33,7 +33,7 @@ public class AppController {
 
     @GetMapping("")
     public String main(@CurrentUser User user, Model model){
-        return "index";
+        return "private/index";
     }
 
     @GetMapping("/oauth2")

@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35c938ea-91c4-40e2-8525-e95068ea2dd6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/Model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/Security/RepositoryUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/Security/RepositoryUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/Service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mdeforge-ui/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-ui/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mdeforge-ui/src/main/resources/templates/signup/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-ui/src/main/resources/templates/signup/form.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/../service-model/target/" />
@@ -29,7 +25,7 @@
     <session id="-2083640860">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="1" />
@@ -288,7 +284,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536581850404" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536586771331" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../workspace-service" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -406,12 +402,12 @@
       <workItem from="1536150063269" duration="1163000" />
       <workItem from="1536401157420" duration="576000" />
       <workItem from="1536501005442" duration="70000" />
-      <workItem from="1536566280583" duration="6364000" />
+      <workItem from="1536566280583" duration="6963000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64133000" />
+    <option name="totallyTimeSpent" value="64732000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
