@@ -24,9 +24,13 @@ public class RepositoryUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = this.userService.findUserByEmail(email);
 
-        /*if(user==null){
-            throw new UsernameNotFoundException("Username and password incorrect!!");
-        }*/
+        if(user==null){
+            throw new UsernameNotFoundException("Invalid username and password.");
+        }
+
+        if(user.getId() == null){
+            throw new UsernameNotFoundException("Error trying to connect to the server.");
+        }
         return new CustomUserDetails(user);
     }
 

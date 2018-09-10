@@ -9,7 +9,6 @@ import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
-import java.net.URI;
 
 @Service
 public class UserService {
@@ -25,15 +24,18 @@ public class UserService {
 
     public User signUp(User user){
 
-        /*TODO review this process*/
-        WebClient.RequestHeadersSpec<?> request = WebClient
-                .create(apigateway_service_url)
-                .post()
-                .uri("/user")
+        WebClient.RequestHeadersSpec<?> request = client.post()
+                .uri(apigateway_service_url + "/user")
+                .accept(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromObject(user));
 
-        String userId = request.retrieve().bodyToMono(String.class).block();
+        String userId = request.retrieve()
+                .bodyToMono(String.class)
+                .block();
 
+        if(userId!=null){
+            return new User(userId);
+        }
         return null;
     }
 

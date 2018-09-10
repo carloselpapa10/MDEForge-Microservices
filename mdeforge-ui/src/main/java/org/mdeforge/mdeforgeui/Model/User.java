@@ -30,6 +30,11 @@ public class User {
 
     public User() {}
 
+    public User(String id) {
+        this.id = id;
+    }
+
+
     public User(User user) {
         this(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName());
     }
