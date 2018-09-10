@@ -68,11 +68,6 @@ public class CreateWorkspaceSaga implements SimpleSaga<CreateWorkspaceSagaData>{
 		log.info("handleAddProjectsToWorkspaceCommand() - CreateWorkspaceSaga - WorkspaceService");
 	}
 
-	private RejectAddProjectsToWorkspaceCommand makeRejectAddProjectsToWorkspaceCommand(CreateWorkspaceSagaData data) {
-		log.info("makeRejectAddProjectsToWorkspaceCommand() - CreateWorkspaceSaga - WorkspaceService");
-		return new RejectAddProjectsToWorkspaceCommand();
-	}
-
 	private CompleteCreateWorkspaceCommand makeCompleteCreateWorkspaceCommand(CreateWorkspaceSagaData data) {
 		log.info("makeCompleteCreateWorkspaceCommand() - CreateWorkspaceSaga - WorkspaceService"); 
 		return new CompleteCreateWorkspaceCommand(new WorkspaceInfo(data.getWorkspaceId()));

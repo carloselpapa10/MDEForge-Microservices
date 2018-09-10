@@ -90,13 +90,13 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User findUserByEmail(String email) throws BusinessException {
-        log.info("findUserByEmail(String id) - UserServiceImpl - UserService");
+        log.info("findUserByEmail(String email) - UserServiceImpl - UserService");
         return userRepository.findUserByEmail(email);
     }
 
     @Override
     public User findUserByUsername(String username) throws BusinessException {
-        log.info("findUserByUsername(String id) - UserServiceImpl - UserService");
+        log.info("findUserByUsername(String username) - UserServiceImpl - UserService");
         return userRepository.findUserByUsername(username);
     }
 

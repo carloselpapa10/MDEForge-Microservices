@@ -5,21 +5,61 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35c938ea-91c4-40e2-8525-e95068ea2dd6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../apigateway-service/src/main/java/org/mdeforge/apigatewayservice/Users/UserConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apigateway-service/src/main/java/org/mdeforge/apigatewayservice/Users/UserConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../artifact-service/target/artifact-service.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/../artifact-service/target/artifact-service.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../artifact-service/target/docker/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../artifact-service/target/docker/wait-for-mysql.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../artifact-service/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../artifact-service/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../artifact-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../artifact-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../artifact-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../artifact-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../artifact-service/target/test-classes/image_info.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eventuate-tram-aggregate-domain-events/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../eventuate-tram-aggregate-domain-events/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eventuate-tram-aggregate-domain-events/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../eventuate-tram-aggregate-domain-events/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforge-admin/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-admin/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforge-admin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-admin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforge-admin/target/mdeforge-admin.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-admin/target/mdeforge-admin.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforge-ui/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-ui/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/MdeforgeUiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/MdeforgeUiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/MongoInitiailizer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/Repository/UserRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/Security/RepositoryUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/Security/RepositoryUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mdeforge-ui/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-ui/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/UserHistoryEventHandlers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/UserHistoryEventHandlers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/Service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforge-ui/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-ui/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforge-ui/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-ui/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/target/docker/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/target/docker/wait-for-mysql.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/target/mdeforgeview-service.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/target/mdeforgeview-service.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/target/test-classes/image_info.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/user/api/info/RoleInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/user/api/info/RoleInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/user/api/info/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/user/api/info/UserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/dao/ProjectServiceConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/dao/ProjectServiceConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/docker/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/docker/wait-for-mysql.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/project-service.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/project-service.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/image_info.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../service-model/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../service-model/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../service-model/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/controller/UserServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/controller/UserServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/dao/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/dao/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/model/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/model/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/model/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/webapi/CreateUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/webapi/CreateUserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/docker/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/docker/wait-for-mysql.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/test-classes/image_info.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/user-service.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/target/user-service.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/createworkspace/CreateWorkspaceSaga.java" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/createworkspace/CreateWorkspaceSaga.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/target/docker/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/target/docker/wait-for-mysql.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace-service/target/workspace-service.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace-service/target/workspace-service.jar.original" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/../service-model/target/" />
@@ -56,8 +96,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="3" />
-          <entry key="java" value="247" />
+          <entry key="class" value="4" />
+          <entry key="java" value="251" />
           <entry key="properties" value="4" />
           <entry key="xml" value="4" />
           <entry key="yml" value="12" />
@@ -65,8 +105,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="3" />
-          <entry key="JAVA" value="247" />
+          <entry key="CLASS" value="4" />
+          <entry key="JAVA" value="251" />
           <entry key="Properties" value="4" />
           <entry key="XML" value="4" />
           <entry key="YAML" value="12" />
@@ -75,7 +115,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="9" />
-          <entry key="java" value="9633" />
+          <entry key="java" value="9789" />
           <entry key="properties" value="97" />
           <entry key="xml" value="61" />
           <entry key="yml" value="39" />
@@ -83,7 +123,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="9633" />
+          <entry key="JAVA" value="9789" />
           <entry key="PLAIN_TEXT" value="9" />
           <entry key="Properties" value="97" />
           <entry key="XML" value="61" />
@@ -97,20 +137,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/controller/UserServiceController.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/createworkspace/CreateWorkspaceSaga.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="31" column="76" selection-start-line="31" selection-start-column="76" selection-end-line="31" selection-end-column="76" />
+            <state relative-caret-position="765">
+              <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/impl/UserServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="98" column="52" selection-start-line="98" selection-start-column="52" selection-end-line="98" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/model/UserRepository.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/dao/ProjectServiceConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="9" column="27" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="27" />
+              <caret line="8" column="72" selection-start-line="8" selection-start-column="72" selection-end-line="8" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -139,7 +188,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/info/WorkspaceInfo.java" />
         <option value="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/dao/WorkspaceService.java" />
         <option value="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/impl/WorkspaceServiceImpl.java" />
         <option value="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/commandhandlers/UserServiceCommandHandlers.java" />
@@ -150,7 +198,6 @@
         <option value="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/proxy/ProjectServiceProxy.java" />
         <option value="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/project/api/info/ProjectInfo.java" />
         <option value="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/createworkspace/CreateWorkspaceSagaData.java" />
-        <option value="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/createworkspace/CreateWorkspaceSaga.java" />
         <option value="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/events/WorkspaceRejectedEvent.java" />
         <option value="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/events/WorkspaceCreationRejectedEvent.java" />
         <option value="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/events/WorkspaceCreationCompletedEvent.java" />
@@ -188,8 +235,10 @@
         <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/UserHistoryEventHandlers.java" />
         <option value="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/model/UserRepository.java" />
         <option value="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/dao/UserService.java" />
-        <option value="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/controller/UserServiceController.java" />
+        <option value="$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/createworkspace/CreateWorkspaceSaga.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/dao/ProjectServiceConfiguration.java" />
+        <option value="$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/impl/UserServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -272,34 +321,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="userservice" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="user-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="userservice" type="462c0819:PsiDirectoryNode" />
               <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="user-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="userservice" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="user-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="userservice" type="462c0819:PsiDirectoryNode" />
-              <item name="webapi" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -316,7 +338,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536569414005" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536575926156" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../workspace-service" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -434,12 +456,12 @@
       <workItem from="1536150063269" duration="1163000" />
       <workItem from="1536401157420" duration="576000" />
       <workItem from="1536501005442" duration="70000" />
-      <workItem from="1536566280583" duration="3061000" />
+      <workItem from="1536566280583" duration="5761000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60830000" />
+    <option name="totallyTimeSpent" value="63530000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -454,7 +476,7 @@
     <frame x="-1" y="25" width="1368" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49885058" weight="0.37651515" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49885058" visible="true" weight="0.37651515" />
       <window_info id="Structure" order="1" sideWeight="0.5011494" side_tool="true" weight="0.34166667" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -488,41 +510,6 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49885058" visible="true" weight="0.37651515" />
-      <window_info id="Structure" order="1" sideWeight="0.5011494" side_tool="true" weight="0.34166667" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" sideWeight="0.50161815" side_tool="true" weight="0.34166667" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="Web" order="7" sideWeight="0.50161815" side_tool="true" weight="0.34166667" />
-      <window_info anchor="bottom" id="Run Dashboard" order="0" sideWeight="0.49848485" weight="0.42765275" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.329582" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.27009645" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.39871383" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49924242" weight="0.30707395" />
-      <window_info anchor="bottom" id="Spring" order="8" sideWeight="0.49924242" weight="0.329582" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49924242" weight="0.35209003" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50151515" side_tool="true" weight="0.50321543" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49924242" weight="0.35691318" />
-      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Java Enterprise" order="13" sideWeight="0.49924242" weight="0.329582" />
-      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.49924242" weight="0.38102895" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Bean Validation" order="9" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -579,21 +566,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/dao/WorkspaceService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="76" lean-forward="true" selection-start-line="18" selection-start-column="76" selection-end-line="18" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/project/api/commands/AddProjectsToWorkspaceCommand.java" />
-    <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/createworkspace/CreateWorkspaceSaga.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="63" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../eventuate-tram-aggregate-domain-events/src/main/java/io/eventuate/tram/events/aggregates/ResultWithDomainEvents.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -874,13 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="92" column="33" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/dao/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -895,10 +860,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.3.RELEASE/spring-web-4.3.3.RELEASE.jar!/org/springframework/web/bind/annotation/ResponseBody.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mdeforge/projectservice/dao/ProjectServiceConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="72" selection-start-line="8" selection-start-column="72" selection-end-line="8" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/controller/UserServiceController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="31" column="76" selection-start-line="31" selection-start-column="76" selection-end-line="31" selection-end-column="76" />
+          <caret line="58" column="36" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../workspace-service/src/main/java/org/mdeforge/workspaceservice/saga/createworkspace/CreateWorkspaceSaga.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="98" column="52" selection-start-line="98" selection-start-column="52" selection-end-line="98" selection-end-column="52" />
         </state>
       </provider>
     </entry>

@@ -1,8 +1,8 @@
 package org.mdeforge.mdeforgeui.Service;
 
 import org.mdeforge.mdeforgeui.Model.User;
-import org.mdeforge.mdeforgeui.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.ClientResponse;
@@ -17,7 +17,11 @@ public class UserService {
     @Value("${apigateway.service.url}")
     private String apigateway_service_url;
 
-    private final UserRepository userRepository;
+    private WebClient client;
+
+    public UserService(WebClient client) {
+        this.client = client;
+    }
 
     public User signUp(User user){
 
@@ -33,11 +37,31 @@ public class UserService {
         return null;
     }
 
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public User findUserByEmail(String email){
+
+        Mono<User> mono = client.get()
+                .uri(apigateway_service_url+"/user/email/"+email)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .flatMap(response -> response.bodyToMono(User.class));
+
+        User user = mono.block();
+
+        return user;
     }
 
-    public User findUserByEmail(String email){
-        return userRepository.findUserByEmail(email);
+    public User findUserByUsername(String username){
+
+        Mono<User> mono = client.get()
+                .uri(apigateway_service_url+"/user/username/"+username)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .flatMap(response -> response.bodyToMono(User.class));
+
+        User user = mono.block();
+
+        return user;
+
     }
+
 }

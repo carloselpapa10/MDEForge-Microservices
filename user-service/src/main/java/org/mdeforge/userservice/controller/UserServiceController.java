@@ -44,11 +44,23 @@ public class UserServiceController {
 	}
  			
 	@GetMapping("/findUser/{userId}")
-	public User findUser(@RequestParam String id){
+    public User findUser(@RequestParam String id){
 		log.info("findUser(String id) - UserServiceController - UserService");
 
 		return userService.findUser(id);
 	}
+
+	@GetMapping("/findUserByEmail/{email}")
+    public User findUserByEmail(@RequestParam String email){
+        log.info("findUserByEmail(String email) - UserServiceController - UserService");
+        return userService.findUserByEmail(email);
+    }
+
+    @GetMapping("/findUserByUsername/{username}")
+    public User findUserByUsername(@RequestParam String username){
+        log.info("findUserByEmail(String username) - UserServiceController - UserService");
+        return userService.findUserByUsername(username);
+    }
 
 	@DeleteMapping("/deleteUser/{userId}")
     public String deleteUser(@RequestParam String id){

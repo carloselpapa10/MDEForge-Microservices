@@ -4,6 +4,3 @@ server:
 spring:
   thymeleaf:
     cache: false
-  data:
-    mongodb:
-      uri: ${MONGO_URL:mongodb://localhost:27017/user-testdb}
