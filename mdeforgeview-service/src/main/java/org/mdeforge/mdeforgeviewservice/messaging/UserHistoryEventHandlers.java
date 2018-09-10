@@ -9,7 +9,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import io.eventuate.tram.events.subscriber.DomainEventEnvelope;
 import io.eventuate.tram.events.subscriber.DomainEventHandlers;
-import io.eventuate.tram.events.subscriber.DomainEventHandlersBuilder;	
+import io.eventuate.tram.events.subscriber.DomainEventHandlersBuilder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class UserHistoryEventHandlers {
@@ -31,12 +34,20 @@ public class UserHistoryEventHandlers {
 	private void handleUserCreatedEvent(DomainEventEnvelope<UserCreatedEvent> dee) {
 		log.info("handleUserCreatedEvent() - UserHistoryEventHandlers - UserService");
 
+        List<Role> roleList = new ArrayList<>();
+        dee.getEvent().getUserInfo().getRolesInfo().forEach(roleInfo -> {
+            roleList.add(new Role(roleInfo.getId(), roleInfo.getName()));
+        });
+
 		User user = new User(dee.getAggregateId(),
 								dee.getEvent().getUserInfo().getFirstname(),
 									dee.getEvent().getUserInfo().getLastname(),
 										dee.getEvent().getUserInfo().getEmail(),
 											dee.getEvent().getUserInfo().getUsername(),
-                                                dee.getEvent().getUserInfo().getState());
+                                                dee.getEvent().getUserInfo().getState(),
+                                                    dee.getEvent().getUserInfo().getPassword(),
+                                                        roleList,
+                                                            dee.getEvent().getUserInfo().getImage());
 
 		userService.createUser(user);
 	}
@@ -45,13 +56,22 @@ public class UserHistoryEventHandlers {
 		log.info("handleUserUpdatedEvent() - UserHistoryEventHandlers - UserService");
 
 		User user = userService.findUser(dee.getAggregateId());
-		user.setEmail(dee.getEvent().getUserInfo().getEmail());
-		user.setEnabled(dee.getEvent().getUserInfo().isEnabled());
-		user.setFirstname(dee.getEvent().getUserInfo().getFirstname());
-		user.setLastname(dee.getEvent().getUserInfo().getLastname());
+
+        user.setFirstname(dee.getEvent().getUserInfo().getFirstname());
+        user.setLastname(dee.getEvent().getUserInfo().getLastname());
+        user.setEmail(dee.getEvent().getUserInfo().getEmail());
+        user.setUsername(dee.getEvent().getUserInfo().getUsername());
+        user.setEnabled(dee.getEvent().getUserInfo().isEnabled());
 		user.setImage(dee.getEvent().getUserInfo().getImage());
 		user.setState(dee.getEvent().getUserInfo().getState());
-		user.setUsername(dee.getEvent().getUserInfo().getUsername());
+        user.setPassword(dee.getEvent().getUserInfo().getPassword());
+
+        List<Role> roleList = new ArrayList<>();
+        dee.getEvent().getUserInfo().getRolesInfo().forEach(roleInfo -> {
+            roleList.add(new Role(roleInfo.getId(), roleInfo.getName()));
+        });
+
+        user.setRoles(roleList);
 
 		userService.updateUser(user);
 	}

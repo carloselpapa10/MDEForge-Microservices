@@ -13,10 +13,7 @@ public class UserInfo {
     private String image;									
     private String password;									
     private boolean enabled;									
-	private List<RoleInfo> rolesInfo = new ArrayList<>();							
-	private List<String> ownerartifactlist;							
-	private List<String> sharedartifactlist;							
-    private String workspacelist;
+	private List<RoleInfo> rolesInfo = new ArrayList<>();
     private String state;
 
 	public UserInfo(){}
@@ -25,21 +22,24 @@ public class UserInfo {
 		this.id = id;
 	}
 
-	public UserInfo(String firstname, String lastname, String email, String username, String state) {
+	public UserInfo(String firstname, String lastname, String email, String username, String state, String password, List<RoleInfo> rolesInfo, String image) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
 		this.username = username;
 		this.state = state;
+		this.password = password;
+		this.rolesInfo = rolesInfo;
 	}
 
-    public UserInfo(String id, String firstname, String lastname, String email, String username, String state) {
+    public UserInfo(String id, String firstname, String lastname, String email, String username, String state, String password, List<RoleInfo> rolesInfo, String image) {
 	    this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.username = username;
         this.state = state;
+        this.password = password;
     }
 
 	public String getId() {
@@ -112,30 +112,6 @@ public class UserInfo {
 
 	public void setRolesInfo(List<RoleInfo> rolesInfo) {
 		this.rolesInfo = rolesInfo;
-	}
-
-	public List<String> getOwnerartifactlist() {
-		return ownerartifactlist;
-	}
-
-	public void setOwnerartifactlist(List<String> ownerartifactlist) {
-		this.ownerartifactlist = ownerartifactlist;
-	}
-
-	public List<String> getSharedartifactlist() {
-		return sharedartifactlist;
-	}
-
-	public void setSharedartifactlist(List<String> sharedartifactlist) {
-		this.sharedartifactlist = sharedartifactlist;
-	}
-
-	public String getWorkspacelist() {
-		return workspacelist;
-	}
-
-	public void setWorkspacelist(String workspacelist) {
-		this.workspacelist = workspacelist;
 	}
 
     public String getState() {

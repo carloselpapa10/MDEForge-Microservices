@@ -33,8 +33,16 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		log.info("createUser(User user) - UserServiceImpl - UserService");
 
+        List<Role> roleList = new ArrayList<>();
+        roleList.add(new Role("546f7ba5ce248eba4487eda5", "ROLE_USER"));
+
+        user.setRoles(roleList);
         user.setState(UserState.CREATED);
-		UserInfo userInfo = new UserInfo(user.getFirstname(), user.getLastname(), user.getEmail(), user.getUsername(), user.getState().toString());
+
+        List<RoleInfo> roleInfoList = new ArrayList<>();
+        roleInfoList.add(new RoleInfo("546f7ba5ce248eba4487eda5", "ROLE_USER"));
+
+		UserInfo userInfo = new UserInfo(user.getFirstname(), user.getLastname(), user.getEmail(), user.getUsername(), user.getState().toString(), user.getPassword(), roleInfoList, user.getImage());
 
 		List<UserDomainEvent> events = singletonList(new UserCreatedEvent(userInfo));
 		ResultWithDomainEvents<User, UserDomainEvent> userAndEvents = new ResultWithDomainEvents<>(user, events);		
@@ -59,7 +67,12 @@ public class UserServiceImpl implements UserService{
 		modifiedUser.setState(UserState.UPDATED);
 		user = userRepository.save(modifiedUser);
 
-        UserInfo userInfo = new UserInfo(user.getId(), user.getFirstname(), user.getLastname(), user.getEmail(), user.getUsername(), user.getState().toString());
+        List<RoleInfo> roleInfoList = new ArrayList<>();
+		user.getRoles().forEach(role -> {
+		    roleInfoList.add(new RoleInfo(role.getId(), role.getName()));
+        });
+
+        UserInfo userInfo = new UserInfo(user.getId(), user.getFirstname(), user.getLastname(), user.getEmail(), user.getUsername(), user.getState().toString(), user.getPassword(), roleInfoList, user.getImage());
 
 		List<UserDomainEvent> events = singletonList(new UserUpdatedEvent(userInfo));
 		ResultWithDomainEvents<User, UserDomainEvent> userAndEvents = new ResultWithDomainEvents<>(user, events);		
@@ -74,8 +87,20 @@ public class UserServiceImpl implements UserService{
 		log.info("findUser(String id) - UserServiceImpl - UserService");
 		return userRepository.findOne(id);
 	}
-			
-	@Override
+
+    @Override
+    public User findUserByEmail(String email) throws BusinessException {
+        log.info("findUserByEmail(String id) - UserServiceImpl - UserService");
+        return userRepository.findUserByEmail(email);
+    }
+
+    @Override
+    public User findUserByUsername(String username) throws BusinessException {
+        log.info("findUserByUsername(String id) - UserServiceImpl - UserService");
+        return userRepository.findUserByUsername(username);
+    }
+
+    @Override
 	public void deleteUser(User user) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("deleteUser(User user) - UserServiceImpl - UserService");

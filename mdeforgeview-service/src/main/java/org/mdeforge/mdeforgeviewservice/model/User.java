@@ -16,26 +16,21 @@ public class User{
     private String username;									
     private String image;									
     private String password;									
-    private boolean enabled;
+    private boolean enabled = true;
     @DBRef(lazy = true)
 	private List<Role> roles = new ArrayList<>();
     private String state;
 
-	/*
-	private List<Artifact> ownerartifactlist = new ArrayList<>();								
-	private List<Artifact> sharedartifactlist = new ArrayList<>();								
-    private Workspace workspacelist;									
-    */
-
 	public User() {}
 
-	public User(String id, String firstname, String lastname, String email, String username, String state) {
+	public User(String id, String firstname, String lastname, String email, String username, String state, String password, List<Role> roles, String image) {
 		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
 		this.username = username;
 		this.state = state;
+		this.image = image;
 	}
 
 	public String getId() {

@@ -9,14 +9,18 @@ public class CreateUserRequest {
 	private String lastname;
 	private String email;
 	private String username;
+    private String password;
+    private String image;
 
 	public CreateUserRequest() {}
 
-	public CreateUserRequest(String firstname, String lastname, String email, String username) {
+	public CreateUserRequest(String firstname, String lastname, String email, String username, String password, String image) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
 		this.username = username;
+		this.password = password;
+		this.image = image;
 	}
 
 	public String getFirstname() {
@@ -51,4 +55,19 @@ public class CreateUserRequest {
 		this.username = username;
 	}
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }

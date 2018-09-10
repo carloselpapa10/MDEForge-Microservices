@@ -8,6 +8,9 @@
 <body>
     <div layout:fragment="content">
         <h1>Hi! You should be logged...</h1>
+        <form th:action="@{/logout}" th:method="post">
+            <button class="btn btn-link" type="submit">Log out</button>
+        </form>
         <!--
         <table class="table table-zebra">
             <tr th:each="message : ${messages}">

@@ -23,8 +23,16 @@ public class UserServiceController {
 	public CreateUserResponse createUser(@RequestBody CreateUserRequest request){
 		log.info("createUser(@RequestBody CreateUserRequest createUserRequest) - UserServiceController - UserService");
 
-		User user = userService.createUser(new User(request.getFirstname(), request.getLastname(), request.getEmail(), request.getUsername()));
-		return new CreateUserResponse(user.getId());
+        if(userService.findUserByEmail(request.getEmail()) == null && userService.findUserByUsername(request.getUsername()) == null){
+            User user = userService.createUser(new User(request.getFirstname(),
+                                                            request.getLastname(),
+                                                                request.getEmail(),
+                                                                    request.getUsername(),
+                                                                        request.getPassword(),
+                                                                            request.getImage()));
+            return new CreateUserResponse(user.getId());
+        }
+        return null;
 	}
 			
 	@PutMapping("/updateUser/user")

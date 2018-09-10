@@ -22,7 +22,10 @@ public class RepositoryUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return new CustomUserDetails(this.userRepository.findUserByEmail(email));
+
+        User user = this.userRepository.findUserByEmail(email);
+
+        return new CustomUserDetails(user);
     }
 
     static class CustomUserDetails extends User implements UserDetails {
