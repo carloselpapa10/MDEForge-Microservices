@@ -4,6 +4,7 @@ import org.mdeforge.mdeforgeui.Model.User;
 import org.mdeforge.mdeforgeui.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
@@ -30,11 +31,16 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(){
+
         return "redirect:/app";
     }
 
-    @GetMapping("/loginSuccess")
+    @GetMapping("/completeUserInfomation")
     public String oauth2Login(Model model, OAuth2AuthenticationToken authentication){
+
+        /*1. get email by spring context. 2. search in database 3. redirect if it appears 3.1. save user data if not. 4. send it to complete authentication form otherwise*/
+
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
 
         OAuth2AuthorizedClient authorizedClient = this.authorizedClientService.loadAuthorizedClient(authentication.getAuthorizedClientRegistrationId(),
                                                                                                         authentication.getName());
@@ -56,15 +62,25 @@ public class IndexController {
         model.addAttribute("userAttributes", userAttributes);
 
         Object email = userAttributes.get("email");
+
+        /*
         if(email!=null){
             User user = userService.findUserByEmail(email.toString());
 
             if(user!=null){
-                return "redirect:/app/oauth2";
+                return "redirect:/app";
             }
         }
+        */
 
-        return "signup/formOAuth";
+        User user = userService.findUserByEmail(email != null ? email.toString() : null);
+
+        //userService.signUp(user); /*save user information*/
+
+        user.setImage(userAttributes.get("picture") != null ? userAttributes.get("picture").toString() : null);
+        model.addAttribute("user", user);
+
+        return "private/userInformationForm";
     }
 
     private ExchangeFilterFunction oauth2Credentials(OAuth2AuthorizedClient authorizedClient){

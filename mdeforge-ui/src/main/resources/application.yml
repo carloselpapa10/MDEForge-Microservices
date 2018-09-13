@@ -4,3 +4,11 @@ server:
 spring:
   thymeleaf:
     cache: false
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 991210279768-bieok6rd3f1aqqeh91775k2qqijkl043.apps.googleusercontent.com
+            client-secret: -74dWPNQ-HoqlpEZlKGiiBdP
+            scope: profile, email, address, phone
