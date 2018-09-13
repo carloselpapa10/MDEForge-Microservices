@@ -5,6 +5,7 @@ import org.mdeforge.mdeforgeui.Security.CurrentUser;
 import org.mdeforge.mdeforgeui.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
@@ -33,6 +34,8 @@ public class AppController {
 
     @GetMapping("")
     public String main(@CurrentUser User user, Model model){
+
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
         return "private/index";
     }
 
