@@ -19,20 +19,18 @@ public class User{
     private String username;									
     private String image;									
     private String password;									
-    private boolean enabled;									
-	private List<Role> roles = new ArrayList<>();							
-	private List<String> ownerartifactlist;							
-	private List<String> sharedartifactlist;							
-    private String workspacelist;
+    private boolean enabled = true;
+	private List<Role> roles = new ArrayList<>();
     private UserState state;
 				
 	public User() {}
 
-	public User(String firstname, String lastname, String email, String username) {
+	public User(String firstname, String lastname, String email, String username, String password, String image) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
 		this.username = username;
+		this.password = password;
 	}
 
 	public String getId() {
@@ -107,31 +105,7 @@ public class User{
 		this.roles = roles;
 	}
 
-	public List<String> getOwnerartifactlist() {
-		return ownerartifactlist;
-	}
-
-	public void setOwnerartifactlist(List<String> ownerartifactlist) {
-		this.ownerartifactlist = ownerartifactlist;
-	}
-
-	public List<String> getSharedartifactlist() {
-		return sharedartifactlist;
-	}
-
-	public void setSharedartifactlist(List<String> sharedartifactlist) {
-		this.sharedartifactlist = sharedartifactlist;
-	}
-
-	public String getWorkspacelist() {
-		return workspacelist;
-	}
-
-	public void setWorkspacelist(String workspacelist) {
-		this.workspacelist = workspacelist;
-	}
-
-    public UserState getState() {
+	public UserState getState() {
         return state;
     }
 

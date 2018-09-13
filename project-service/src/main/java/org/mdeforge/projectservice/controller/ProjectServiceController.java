@@ -72,11 +72,17 @@ public class ProjectServiceController {
 	}
  			
 	@PutMapping("/shareProjectToUser/project")
-	public ResponseEntity<Project> shareProjectToUser(@RequestBody ShareProjectToUserRequest request){
+	public ResponseEntity<Project> shareProjectToUser(@RequestParam String projectId, @RequestParam String userId){
 		log.info("shareProjectToUser(@RequestBody Project project) - ProjectServiceController - ProjectService");
 
-		Project project = projectService.shareProjectToUser(request.getProjectId(), request.getUserId());
-		return project != null ? ResponseEntity.ok(project) : ResponseEntity.status(HttpStatus.BAD_REQUEST).body(project);
+		Project project = projectService.findProject(projectId);
+		if(project != null){
+
+			project = projectService.shareProjectToUser(project, userId);
+			return ResponseEntity.ok(project);
+		}
+
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 	}
  			
 	@PutMapping("/addUserInProject/project")

@@ -15,5 +15,8 @@
         <module name="workspace-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="apigateway-service" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

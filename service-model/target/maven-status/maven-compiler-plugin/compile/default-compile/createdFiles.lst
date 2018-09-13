@@ -1,5 +1,4 @@
 org/mdeforge/servicemodel/user/api/commands/ValidateUserListCommand.class
-org/mdeforge/servicemodel/project/api/commands/AddProjectsToWorkspaceCommand.class
 org/mdeforge/servicemodel/workspace/api/events/WorkspaceUpdatedEvent.class
 org/mdeforge/servicemodel/artifact/api/info/RelationInfo.class
 org/mdeforge/servicemodel/artifact/api/commands/ValidateArtifactCommand.class
@@ -15,12 +14,10 @@ org/mdeforge/servicemodel/artifact/api/info/PropertyInfo.class
 org/mdeforge/servicemodel/project/api/events/ProjectCreatedEvent.class
 org/mdeforge/servicemodel/user/api/events/UserDeletedEvent.class
 org/mdeforge/servicemodel/artifact/api/events/ArtifactUpdatedEvent.class
-org/mdeforge/servicemodel/project/api/commands/AddArtifactToProjectCommand.class
 org/mdeforge/servicemodel/common/CommonSwaggerConfiguration.class
 org/mdeforge/servicemodel/artifact/api/info/ArtifactInfo.class
 org/mdeforge/servicemodel/workspace/api/events/WorkspaceDeletedEvent.class
 org/mdeforge/servicemodel/workspace/api/events/RemovedProjectInWorkspace.class
-org/mdeforge/servicemodel/project/api/commands/EditProjectsToWorkspaceCommand.class
 org/mdeforge/servicemodel/workspace/api/commands/UpdateWorkspaceCommand.class
 org/mdeforge/servicemodel/artifact/api/events/SharedArtifactToUserEvent.class
 org/mdeforge/servicemodel/workspace/api/commands/CompleteCreateWorkspaceCommand.class
@@ -32,7 +29,6 @@ org/mdeforge/servicemodel/workspace/api/events/WorkspaceCreationCompletedEvent.c
 org/mdeforge/servicemodel/user/api/info/UserInfo.class
 org/mdeforge/servicemodel/project/api/events/SharedProjectWithUserEvent.class
 org/mdeforge/servicemodel/user/api/events/UserUpdatedEvent.class
-org/mdeforge/servicemodel/workspace/api/commands/AddProjectToWorkspaceCommand.class
 org/mdeforge/servicemodel/user/api/events/UserDomainEvent.class
 org/mdeforge/servicemodel/workspace/api/events/AddedProjectToWorkspaceEvent.class
 org/mdeforge/servicemodel/artifact/api/events/AddedArtifactToProjectListEvent.class
@@ -41,7 +37,6 @@ org/mdeforge/servicemodel/artifact/api/info/MetricInfo.class
 org/mdeforge/servicemodel/workspace/api/commands/RejectCreateWorkspaceCommand.class
 org/mdeforge/servicemodel/project/api/events/AddedUserInProjectEvent.class
 org/mdeforge/servicemodel/project/api/events/RejectedEditProjectsToWorkspaceCommand.class
-org/mdeforge/servicemodel/project/api/commands/RejectEditProjectsToWorkspaceCommand.class
 org/mdeforge/servicemodel/user/api/events/UserCreatedEvent.class
 org/mdeforge/servicemodel/project/api/events/ProjectDeletedEvent.class
 org/mdeforge/servicemodel/project/api/events/RemovedUserFromProjectEvent.class
@@ -54,8 +49,6 @@ org/mdeforge/servicemodel/project/api/events/RemovedArtifactFromProjectEvent.cla
 org/mdeforge/servicemodel/project/api/events/ProjectUpdatedEvent.class
 org/mdeforge/servicemodel/artifact/api/info/CommentInfo.class
 org/mdeforge/servicemodel/user/api/info/RoleInfo.class
-org/mdeforge/servicemodel/project/api/commands/CompleteAddUserInProjectCommand.class
 org/mdeforge/servicemodel/project/api/commands/ValidateProjectCommand.class
 org/mdeforge/servicemodel/workspace/api/events/WorkspaceDomainEvent.class
-org/mdeforge/servicemodel/project/api/commands/RejectAddProjectsToWorkspaceCommand.class
 org/mdeforge/servicemodel/artifact/api/events/ArtifactDomainEvent.class

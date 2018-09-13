@@ -1,0 +1,15 @@
+<tr  class="coDomainConformToRow lastRow coDomainConformToRowManual" data-id="{{idRow}}">
+	<td>
+		<input type="hidden" name="coDomainConformToRelation[{{idRow}}].toArtifact.id" value="{{toArtifactID}}"></input>
+		<input type="text" name="coDomainConformToRelation[{{idRow}}].toArtifact.name" value="{{toArtifactName}}" disabled></input>
+	</td>
+	<td>
+		<input type="text" name="coDomainConformToRelation[{{idRow}}].name" class="check-input" placeholder="Name"/>			  			
+	</td>
+	<td>
+		<input type="text" name="coDomainConformToRelation[{{idRow}}].referenceModelName" class="check-input" placeholder="Reference Model Name"/>
+	</td>
+	<td>
+		<span data-id="{{idRow}}" class="deleteCoDomainConformToButton text-error">Delete</span>
+	</td>
+</tr>

@@ -11,35 +11,6 @@ import org.mdeforge.servicemodel.project.api.info.*;
 @Component
 public class ProjectServiceProxy {
 
-    /*
-	public final CommandEndpoint<RejectAddProjectsToWorkspaceCommand> rejectAddProjectsToWorkspaceCommand = CommandEndpointBuilder
-								.forCommand(RejectAddProjectsToWorkspaceCommand.class)
-								.withChannel(Channels.PROJECTSERVICE)
-								.withReply(Success.class)
-								.build();			
-
-
-	public final CommandEndpoint<RejectEditProjectsToWorkspaceCommand> rejectEditProjectsToWorkspaceCommand = CommandEndpointBuilder
-								.forCommand(RejectEditProjectsToWorkspaceCommand.class)
-								.withChannel(Channels.PROJECTSERVICE)
-								.withReply(Success.class)
-								.build();			
-
-	public final CommandEndpoint<EditProjectsToWorkspaceCommand> editProjectsToWorkspaceCommand = CommandEndpointBuilder
-								.forCommand(EditProjectsToWorkspaceCommand.class)
-								.withChannel(Channels.PROJECTSERVICE)
-								.withReply(ProjectInfo.class)
-								.build();								
-
-
-	public final CommandEndpoint<AddProjectsToWorkspaceCommand> addProjectsToWorkspaceCommand = CommandEndpointBuilder
-								.forCommand(AddProjectsToWorkspaceCommand.class)
-								.withChannel(Channels.PROJECTSERVICE)
-								.withReply(ProjectInfo.class)
-								.build();
-	*/
-
-
     public final CommandEndpoint<ValidateProjectListCommand> validateProjectListCommand = CommandEndpointBuilder
                                 .forCommand(ValidateProjectListCommand.class)
                                 .withChannel(Channels.PROJECTSERVICE)

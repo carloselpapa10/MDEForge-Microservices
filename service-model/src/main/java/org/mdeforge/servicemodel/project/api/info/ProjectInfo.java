@@ -38,12 +38,6 @@ public class ProjectInfo {
         this.state = state;
     }
 
-	public ProjectInfo(String id, String userId) {
-		this.id = id;
-		this.userlist = new ArrayList<>();
-		this.userlist.add(userId);
-	}
-
 	public ProjectInfo(String id, List<String> workspacelist) {
 		this.id = id;
 		this.workspacelist = workspacelist;

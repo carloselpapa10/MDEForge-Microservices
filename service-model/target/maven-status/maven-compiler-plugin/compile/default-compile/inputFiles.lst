@@ -1,4 +1,3 @@
-/home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/project/api/commands/RejectEditProjectsToWorkspaceCommand.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/ArtifactUpdatedEvent.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/SharedArtifactToUserEvent.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/events/WorkspaceDeletedEvent.java
@@ -18,9 +17,7 @@
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/commands/RejectCreateWorkspaceCommand.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/events/WorkspaceDomainEvent.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/events/WorkspaceCreationRejectedEvent.java
-/home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/project/api/commands/EditProjectsToWorkspaceCommand.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/user/api/commands/ValidateUserListCommand.java
-/home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/project/api/commands/AddProjectsToWorkspaceCommand.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/commands/UpdateWorkspaceCommand.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/project/api/events/ProjectDomainEvent.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/info/CommentInfo.java
@@ -40,18 +37,14 @@
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/project/api/events/RejectedAddProjectToWorkspaceEvent.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/info/GridFileMediaInfo.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/info/MetricInfo.java
-/home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/project/api/commands/AddArtifactToProjectCommand.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/project/api/events/RemovedArtifactFromProjectEvent.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/project/api/events/RejectedEditProjectsToWorkspaceCommand.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/project/api/events/ProjectDeletedEvent.java
-/home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/project/api/commands/RejectAddProjectsToWorkspaceCommand.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/info/WorkspaceInfo.java
-/home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/commands/AddProjectToWorkspaceCommand.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/ArtifactDomainEvent.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/events/WorkspaceCreatedEvent.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/events/WorkspaceUpdatedEvent.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/info/RelationInfo.java
-/home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/project/api/commands/CompleteAddUserInProjectCommand.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/workspace/api/events/AddedProjectToWorkspaceEvent.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/ChangedArtifactOpenEvent.java
 /home/carlos/Documents/MDEForge-Microservices/service-model/src/main/java/org/mdeforge/servicemodel/project/api/events/SharedProjectWithUserEvent.java

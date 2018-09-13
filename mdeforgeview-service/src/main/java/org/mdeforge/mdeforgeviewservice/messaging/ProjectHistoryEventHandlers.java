@@ -100,15 +100,29 @@ public class ProjectHistoryEventHandlers {
 		log.info("handleSharedProjectWithUserEvent() - ProjectHistoryEventHandlers - ProjectService");
 
 		Project project = projectService.findProject(dee.getAggregateId());
-		User user = userService.findUser(dee.getEvent().getProjectInfo().getUserlist().get(0));
+		User user = userService.findUser(dee.getEvent().getUserId());
 
 		if(user!= null && project != null){
 			projectService.shareProjectToUser(project, user);
 		}else{
 			/* user or project do not exist - report it by log*/
-			System.out.println("user or project do not exist!!!");
+			log.info("user or project do not exist!!!");
 		}
 
+	}
+
+	private void handleRemovedUserFromProjectEvent(DomainEventEnvelope<RemovedUserFromProjectEvent> dee) {
+		log.info("handleRemovedUserFromProjectEvent() - ProjectHistoryEventHandlers - ProjectService");
+
+		Project project = projectService.findProject(dee.getAggregateId());
+		User user = userService.findUser(dee.getEvent().getUserId());
+
+		if(user!= null && project != null){
+			projectService.removeUserFromProject(project, user);
+		}else{
+			/* user or project do not exist - report it by log*/
+			log.info("user or project do not exist!!!");
+		}
 	}
 
 	private void handleRemovedArtifactFromProjectEvent(DomainEventEnvelope<RemovedArtifactFromProjectEvent> dee) {
@@ -117,10 +131,6 @@ public class ProjectHistoryEventHandlers {
 
 	private void handleAddedUserInProjectEvent(DomainEventEnvelope<AddedUserInProjectEvent> dee) {
 		log.info("handleAddedUserInProjectEvent() - ProjectHistoryEventHandlers - ProjectService");
-	}
-
-	private void handleRemovedUserFromProjectEvent(DomainEventEnvelope<RemovedUserFromProjectEvent> dee) {
-		log.info("handleRemovedUserFromProjectEvent() - ProjectHistoryEventHandlers - ProjectService");
 	}
 
 }

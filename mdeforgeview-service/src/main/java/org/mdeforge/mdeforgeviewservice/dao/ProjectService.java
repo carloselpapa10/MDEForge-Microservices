@@ -16,7 +16,7 @@ public interface ProjectService {
 	public Project shareProjectToUser(Project project, User user) throws BusinessException;
 	public void addUserInProject(Project project) throws BusinessException;			
 	public void completeAddUserInProject(Project project) throws BusinessException;			
-	public void removeUserFromProject(Project project) throws BusinessException;			
+	public Project removeUserFromProject(Project project, User user) throws BusinessException;
 	public List<Project> findAll() throws BusinessException;
 
 	public void save(Project project) throws BusinessException;
