@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{common/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>List Workspaces</title>
+</head>
+<body>
+
+<div layout:fragment="body">
+    <!-- Breadcrumb START -->
+    <ul class="breadcrumb">
+        <li> <!-- <spring:message code="mdeforge.public.back.browse.breadcrumbs.you_are_here"/> --></li>
+        <li><a href="#" class="glyphicons dashboard"><i></i> <!--<spring:message code="mdeforge.public.back.browse.breadcrumbs.public_area"/> --></a></li>
+        <li class="divider"></li>
+        <li>Use</li>
+        <li class="divider"></li>
+        <li>My workspace</li>
+    </ul>
+    <!-- Breadcrumb END -->
+
+    <!-- // Heading END -->
+
+    <div class="innerLR">
+        <div class="box-generic">
+            <div class="row-fluid">
+                <div class="span8">
+                    <h3 class="header-h main-title">My workspaces</h3>
+                    <p>Resembling functionalities of desktop IDEs, like Eclipse, registered users have the possibility to create modeling artifacts and organize them in projects that are, in turn, contained in workspaces. Projects and artifacts can be shared with users of the same system installation.</p>
+                    <!-- ${numberOfMetamodels} -->
+                    <span> Metamodels in the repository: -</span>
+                </div>
+                <div class="span4 buttons text-right" style="margin-top: 20px">
+                    <a th:href="@{/private/workspace/create}" class="btn btn-primary" title="New Workspace"><i class="icon-plus"></i> New Workspace</a>
+                </div>
+            </div>
+        </div>
+        <div class="widget widget-heading-simple">
+            <div class="widget-body">
+
+                <!-- Table -->
+                <table class="dynamicTable tableTools table table-striped table-white">
+                    <!-- Table heading -->
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <!-- 						<th>Description</th> -->
+                        <!-- 						<th>Open</th> -->
+                        <th>Description</th>
+                        <th>Last Update</th>
+                        <th>Created</th>
+
+
+                    </tr>
+                    </thead>
+                    <!-- // Table heading END -->
+
+                    <!-- Table body -->
+                    <tbody>
+
+
+                    </tbody>
+                    <!-- // Table body END -->
+
+                </table>
+                <!-- // Table END -->
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

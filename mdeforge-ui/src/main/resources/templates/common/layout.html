@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" class="fluid top-full sticky-top sidebar sidebar-full sticky-sidebar js no-touch csstransforms3d csstransitions js no-touch csstransforms3d csstransitions">
+<head>
+    <meta charset="UTF-8">
+    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">MDEForge</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+
+    <link rel="icon" type="image/png" th:href="@{/theme/images/favicon.ico}">
+
+    <!-- Bootstrap -->
+    <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/bootstrap/css/responsive.css}" rel="stylesheet" type="text/css" />
+
+    <!-- Glyphicons Font Icons -->
+    <link th:href="@{/theme/fonts/glyphicons/css/glyphicons.css}" rel="stylesheet" />
+
+    <link rel="stylesheet" th:href="@{/theme/fonts/font-awesome/css/font-awesome.min.css}">
+
+    <!-- Uniform Pretty Checkboxes -->
+    <link th:href="@{/theme/scripts/plugins/forms/pixelmatrix-uniform/css/uniform.default.css}" rel="stylesheet" />
+
+    <!-- PrettyPhoto -->
+    <link th:href="@{/theme/scripts/plugins/gallery/prettyphoto/css/prettyPhoto.css}" rel="stylesheet" />
+
+    <!-- Gritter -->
+    <link th:href="@{/theme/scripts/plugins/notifications/Gritter/css/jquery.gritter.css}" rel="stylesheet" />
+
+    <!-- Select2 Plugin -->
+    <link th:href="@{/theme/scripts/selectize/css/selectize.bootstrap3.css}" rel="stylesheet" />
+
+    <link th:href="@{/theme/scripts/rating/css/rating.min.css}" rel="stylesheet" />
+
+    <link th:href="@{/theme/scripts/plugins/other/google-code-prettify/prettify.css}" rel="stylesheet" />
+
+    <link th:href="@{/theme/scripts/highlight/styles/monokai-sublime.css}" rel="stylesheet" />
+    <link th:href="@{/theme/scripts/highlight/styles/github.css}" rel="stylesheet" />
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <!-- Main Theme Stylesheet :: CSS -->
+    <link th:href="@{/theme/css/style-flat.css?1373029331}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+
+    <!--<link th:href="@{/resources/theme/skins/css/android-green.css}" rel="stylesheet" type="text/css" />-->
+
+    <script th:src="@{/theme/scripts/plugins/system/less.min.js}"></script>
+    <style type="text/css">
+        table.dataTableArtifacts thead th, table.dataTableArtifacts thead td {
+            border: none !important;
+            line-height: 8px;
+            vertical-align: middle;
+            text-align: left;
+            background-image: none !important;
+        }
+        table.dataTableArtifacts tbody tr {
+            line-height: 15px;
+        }
+        .contentView{
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid fluid menu-left">
+
+    <!-- Sidebar menu & content wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar Menu-->
+        <div th:include="common/left_menu :: copy"></div>
+        <!-- // Sidebar Menu END -->
+
+        <!-- Content -->
+        <div id="content">
+            <!-- Top navbar-->
+            <div th:include="common/top_menu :: copy"></div>
+            <!-- Body START-->
+            <div layout:fragment="body"></div>
+            <!-- Body END -->
+        </div>
+        <!-- // Content END -->
+
+    </div>
+
+    <div class="clearfix"></div>
+    <!-- // Sidebar menu & content wrapper END -->
+
+    <!-- // Footer START-->
+    <div th:include="common/footer :: copy"></div>
+    <!-- // Footer END -->
+
+</div>
+
+<!-- // Main Container Fluid END -->
+<div class="modal hide fade" id="upload-artifact">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Upload Artifact</h3>
+    </div>
+    <div class="modal-body">
+        <p class="header-h title-modal">Choose which kind of artifact you would like to upload?</p>
+        <h4><a th:href="@{/private/EcoreMetamodel/upload}" class="glyphicons cloud-upload primary"><i></i> Metamodel</a></h4>
+        <h4><a th:href="@{/private/ATLTransformation/upload}" class="glyphicons cloud-upload primary"><i></i> ATL Transformation</a></h4>
+        <h4><a th:href="@{/private/Model/upload}" class="glyphicons cloud-upload primary"><i></i> Model</a></h4>
+    </div>
+    <div class="separator"></div>
+    <div class="modal-footer center">
+        <a href="#" class="btn btn-large" data-dismiss="modal">Cancel</a>
+    </div>
+</div>
+
+
+<!-- Code Beautify -->
+    <script th:src="@{/theme/scripts/plugins/other/js-beautify/beautify.js}"></script>
+    <script th:src="@{/theme/scripts/plugins/other/js-beautify/beautify-html.js}"></script>
+
+    <!-- PrettyPhoto -->
+    <script th:src="@{/theme/scripts/plugins/gallery/prettyphoto/js/jquery.prettyPhoto.js}"></script>
+
+    <!-- Global -->
+    <script>
+        var basePath = '',
+            commonPath = "@{/resources/}";
+    </script>
+
+
+    <!-- Modernizr
+    <script th:src="@{theme/scripts/plugins/system/modernizr.js}"></script>-->
+
+    <!-- Bootstrap -->
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+    <!-- SlimScroll Plugin -->
+    <script th:src="@{/theme/scripts/plugins/other/jquery-slimScroll/jquery.slimscroll.min.js}"></script>
+
+
+    <!-- Holder Plugin -->
+    <script th:src="@{/theme/scripts/plugins/other/holder/holder.js}"></script>
+    <script>
+        Holder.add_theme("dark", {background:"#000", foreground:"#aaa", size:9});
+        Holder.add_theme("white", {background:"#fff", foreground:"#c9c9c9", size:9});
+        <!-- Colors -->
+        var primaryColor = '#4a8bc2',
+            dangerColor = '#b55151',
+            successColor = '#609450',
+            warningColor = '#ab7a4b',
+            inverseColor = '#45484d';
+        var themerPrimaryColor = primaryColor;
+    </script>
+
+    <!-- Uniform Forms Plugin -->
+    <script th:src="@{/theme/scripts/plugins/forms/pixelmatrix-uniform/jquery.uniform.min.js}"></script>
+
+    <script th:src="@{/theme/scripts/plugins/tables/DataTables/media/js/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/theme/scripts/plugins/tables/DataTables/extras/TableTools/media/js/TableTools.min.js}"></script>
+    <script th:src="@{/theme/scripts/plugins/tables/DataTables/extras/ColVis/media/js/ColVis.min.js}"></script>
+    <script th:src="@{/theme/scripts/plugins/tables/DataTables/media/js/DT_bootstrap.js}"></script>
+
+
+    <script th:src="@{/theme/scripts/plugins/other/google-code-prettify/prettify.js}"></script>
+
+    <script th:src="@{/theme/scripts/plugins/notifications/Gritter/js/jquery.gritter.min.js}"></script>
+
+
+    <!-- Common Demo Script -->
+    <script th:src="@{/theme/scripts/demo/common.js}"></script>
+
+    <!-- Tables Demo Script -->
+    <script th:src="@{/theme/scripts/demo/tables.js}"></script>
+
+    <script th:src="@{/bootstrap/extend/bootbox.js}"></script>
+    <script th:src="@{/theme/scripts/Chart.js}"></script>
+
+
+    <!-- Ba-Resize Plugin -->
+    <script th:src="@{/theme/scripts/plugins/other/jquery.ba-resize.js}"></script>
+    <!-- Select2 Plugin -->
+    <script th:src="@{/theme/scripts/selectize/js/standalone/selectize.js}"></script>
+
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-49762168-2', 'mdeforge.org');
+        ga('send', 'pageview');
+    </script>
+
+</body>
+</html>

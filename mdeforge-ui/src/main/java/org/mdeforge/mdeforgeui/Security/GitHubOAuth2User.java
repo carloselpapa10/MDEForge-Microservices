@@ -16,6 +16,7 @@ public class GitHubOAuth2User implements OAuth2User {
     private String name;
     private String login;
     private String email;
+    private boolean oauth=true;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -65,5 +66,13 @@ public class GitHubOAuth2User implements OAuth2User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isOauth() {
+        return oauth;
+    }
+
+    public void setOauth(boolean oauth) {
+        this.oauth = oauth;
     }
 }

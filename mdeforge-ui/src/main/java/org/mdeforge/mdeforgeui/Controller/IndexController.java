@@ -32,7 +32,7 @@ public class IndexController {
     @GetMapping("/")
     public String index(){
 
-        return "redirect:/app";
+        return "redirect:/private/dashboard";
     }
 
     @GetMapping("/completeUserInfomation")
@@ -80,7 +80,7 @@ public class IndexController {
         user.setImage(userAttributes.get("picture") != null ? userAttributes.get("picture").toString() : null);
         model.addAttribute("user", user);
 
-        return "private/userInformationForm";
+        return "private/oauth/completeInfo";
     }
 
     private ExchangeFilterFunction oauth2Credentials(OAuth2AuthorizedClient authorizedClient){

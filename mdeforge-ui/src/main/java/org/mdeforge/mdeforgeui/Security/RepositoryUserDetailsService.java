@@ -36,8 +36,12 @@ public class RepositoryUserDetailsService implements UserDetailsService {
 
     static class CustomUserDetails extends User implements UserDetails {
 
+        private String usernam;
+        private boolean oauth = false;
+
         public CustomUserDetails(User user) {
             super(user);
+            this.usernam = user.getUsername();
         }
 
         @Override
@@ -56,7 +60,7 @@ public class RepositoryUserDetailsService implements UserDetailsService {
 
         @Override
         public String getUsername() {
-            return getEmail();
+            return this.usernam;
         }
 
         @Override
@@ -77,6 +81,14 @@ public class RepositoryUserDetailsService implements UserDetailsService {
         @Override
         public boolean isEnabled() {
             return true;
+        }
+
+        public boolean isOauth() {
+            return oauth;
+        }
+
+        public void setOauth(boolean oauth) {
+            this.oauth = oauth;
         }
     }
 }

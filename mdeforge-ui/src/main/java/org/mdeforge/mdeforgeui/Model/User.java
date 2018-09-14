@@ -36,16 +36,19 @@ public class User {
 
 
     public User(User user) {
-        this(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName());
+        this(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getUsername(), user.getImage(), user.isEnabled(), user.getRoles());
     }
 
-    public User(String id, String email, String password, String firstName,
-                String lastName) {
+    public User(String id, String email, String password, String firstName, String lastName, String username, String image, boolean enabled, List<Role> roles) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.username = username;
+        this.image = image;
+        this.enabled = enabled;
+        this.roles = roles;
     }
 
     public String getId() {

@@ -1,5 +1,6 @@
 package org.mdeforge.mdeforgeui.Security;
 
+import org.mdeforge.mdeforgeui.Model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -18,6 +19,7 @@ public class GoogleOAuth2User implements OAuth2User {
     private String picture;
     private String email;
     private String gender;
+    private boolean oauth=true;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -95,5 +97,13 @@ public class GoogleOAuth2User implements OAuth2User {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public boolean isOauth() {
+        return oauth;
+    }
+
+    public void setOauth(boolean oauth) {
+        this.oauth = oauth;
     }
 }

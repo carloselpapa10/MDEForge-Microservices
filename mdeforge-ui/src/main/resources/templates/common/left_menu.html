@@ -1,0 +1,92 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="copy">
+    <div id="menu" class="hidden-print" >
+
+        <!-- Scrollable menu wrapper with Maximum height -->
+        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 1025px;"><div class="slim-scroll" data-scroll-height="800px" style="overflow: hidden; width: auto; height: 1025px;">
+
+            <!-- Sidebar Profile
+            <span class="profile center">
+                <a href=""><img src="${pageContext.request.contextPath}/resources/theme/images/logo-small.png" style="width: 36px; height: 36px;"></a>
+            </span>
+             // Sidebar Profile END -->
+
+            <!-- Regular Size Menu -->
+            <ul>
+
+
+                <!-- Not blank page -->
+
+                <!-- Quick Sidebar Style -->
+                <!-- // Quick Sidebar Style END -->
+
+                <!-- Full Sidebar Style -->
+                <li id="menu-dashboard"><a th:href="@{/private/dashboard}" class="glyphicons dashboard"><i></i> Dashboard</a></li>
+                <li id="menu-shared" class="dropdown dd-1">
+                    <a href="" data-toggle="dropdown" class="glyphicons share_alt"><i></i>Shared <span class="icon-chevron-right"></span></a>
+                    <ul class="dropdown-menu pull-left">
+                        <li><a class="glyphicons file" th:href="@{/private/shared_projects/}"><i></i>PROJECTS</a></li>
+                        <li><a class="glyphicons file" th:href="@{/private/shared_artifacts/}"><i></i>ARTIFACTS</a></li>
+                    </ul>
+                </li>
+                <li id="menu-artifacts" class="dropdown dd-1">
+                    <a href="" data-toggle="dropdown" class="glyphicons list"><i></i><!--<spring:message code="mdeforge.menu.workspace"/>--> MY ARTIFACS <span class="icon-chevron-right"></span></a>
+                    <ul class="dropdown-menu pull-left">
+                        <!--<c:forEach items="${workspaces_list}" var="workspace">
+                            <li><a href="${pageContext.request.contextPath}/private/workspace?id=${workspace.getId()}" class="glyphicons folder_open"><i></i>${workspace.getName()}</a></li>
+                        </c:forEach>-->
+                        <!-- <li><a href="${pageContext.request.contextPath}/private/my_artifacts/">ALL</a></li>-->
+                        <li><a th:href="@{/private/EcoreMetamodel/artifacts}">METAMODELS</a></li>
+                        <li><a th:href="@{/private/ATLTransformation/artifacts}">ATL TRANSFORMATIONS</a></li>
+                        <li><a th:href="@{/private/Model/artifacts}">MODELS</a></li>
+                    </ul>
+                </li>
+                <!-- <li><a class="glyphicons list" href="${pageContext.request.contextPath}/private/my_artifacts/"><i></i>My Artifacts</a></li>-->
+
+                <!-- <li><a class="glyphicons dashboard" th:href="@{/private/ATLTransformation/transformation_list/}"><i></i>Transformations</a></li> -->
+                <li id="menu-workspaces"class="dropdown dd-1">
+                    <a href="" data-toggle="dropdown" class="glyphicons inbox"><i></i><!--<spring:message code="mdeforge.menu.workspace"/>--> WORKSPACES <span class="icon-chevron-right"></span></a>
+                    <ul class="dropdown-menu pull-left">
+                        <!--<c:forEach items="${workspaces_list}" var="workspace">
+                            <li><a href="${pageContext.request.contextPath}/private/workspace?id=${workspace.getId()}" class="glyphicons folder_open"><i></i>${workspace.getName()}</a></li>
+                        </c:forEach>-->
+                        <li><a th:href="@{/private/workspace/list}" class="glyphicons list"><i></i>LIST</a></li>
+                        <li><a th:href="@{/private/workspace/create}" class="glyphicons circle_plus"><i></i>CREATE NEW</a></li>
+                    </ul>
+                </li>
+                <li id="menu-services" class="dropdown dd-1">
+                    <a href="" data-toggle="dropdown" class="glyphicons magic"><i></i>
+
+                        Services
+                        <!--<spring:message code="mdeforge.menu.services"/> -->
+
+                        <span class="icon-chevron-right"></span></a>
+                    <ul class="dropdown-menu pull-left">
+                        <li><a th:href="@{/private/EcoreMetamodel/metamodel_compare}" class="glyphicons list">COMPARE METAMODEL</a></li>
+                        <li><a th:href="@{/public/EcoreMetamodel/cluster}" class="glyphicons list">Cluster</a></li>
+                    </ul>
+                </li>
+                <!-- // Full Sidebar Style END -->
+
+                <!-- // Not blank page END -->
+
+            </ul>
+            <div class="clearfix"></div>
+            <!-- // Regular Size Menu END -->
+
+
+
+        </div><div class="slimScrollBar ui-draggable" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 1025px; background: rgb(0, 0, 0);"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);"></div></div>
+        <!-- // Scrollable Menu wrapper with Maximum Height END -->
+
+    </div>
+</div>
+</body>
+</html>
