@@ -20,6 +20,9 @@ public class UserConfiguration {
     @Value("${userservice.url}")
     private String userservice_url;
 
+    @Value("${mdeforgeviewservice.url}")
+    private String mdeforgeviewservice_url;
+
     @Bean
     RouteLocator gatewayUserServiceRouters(RouteLocatorBuilder builder){
 

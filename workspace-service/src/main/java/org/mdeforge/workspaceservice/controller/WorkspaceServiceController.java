@@ -19,7 +19,7 @@ public class WorkspaceServiceController {
 	@Autowired
 	private WorkspaceService workspaceService;
 
-	@PostMapping("createWorkspace/workspace")
+	@PostMapping("/createWorkspace/workspace")
 	public CreateWorkspaceResponse createWorkspace(@RequestBody CreateWorkspaceRequest request){
 		log.info("createWorkspace(@RequestBody CreateWorkspaceRequest createWorkspaceRequest) - WorkspaceServiceController - WorkspaceService");
 

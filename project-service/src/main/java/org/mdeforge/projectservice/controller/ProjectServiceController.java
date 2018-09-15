@@ -19,7 +19,7 @@ public class ProjectServiceController {
 	@Autowired
 	private ProjectService projectService;
 
-	@PostMapping("createProject/project")
+	@PostMapping("/createProject/project")
 	public CreateProjectResponse createProject(@RequestBody CreateProjectRequest request){
 		log.info("createProject(@RequestBody CreateProjectRequest createProjectRequest) - ProjectServiceController - ProjectService");
 

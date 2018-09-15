@@ -18,7 +18,7 @@ public class ArtifactServiceController {
 	@Autowired
 	private ArtifactServiceImpl artifactServiceImpl;
 
-	@PostMapping("createArtifact/artifact")
+	@PostMapping("/createArtifact/artifact")
 	public CreateArtifactResponse createArtifact(@RequestBody CreateArtifactRequest createArtifactRequest){
 		log.info("createArtifact(@RequestBody CreateArtifactRequest createArtifactRequest) - ArtifactServiceController - ArtifactService");
 		
