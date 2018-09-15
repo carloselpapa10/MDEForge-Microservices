@@ -27,7 +27,6 @@ public class UserConfiguration {
     RouteLocator gatewayUserServiceRouters(RouteLocatorBuilder builder){
 
         return builder.routes()
-                .route(r->r.path("/start").and().uri("https://start.spring.io/"))
                 .route(r -> r.path("/user").and().method("POST")
                         .filters(f -> f.rewritePath("/user","/createUser/user"))
                         .uri(userservice_url))
