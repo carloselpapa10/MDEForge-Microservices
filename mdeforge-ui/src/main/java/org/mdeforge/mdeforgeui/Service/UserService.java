@@ -1,19 +1,17 @@
 package org.mdeforge.mdeforgeui.Service;
 
 import org.mdeforge.mdeforgeui.Model.User;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import java.util.List;
 
 
 @Service
 public class UserService {
-
-    @Value("${apigateway.service.url}")
-    private String apigateway_service_url;
 
     private WebClient client;
 
@@ -24,7 +22,7 @@ public class UserService {
     public User signUp(User user){
 
         WebClient.RequestHeadersSpec<?> request = client.post()
-                .uri(apigateway_service_url + "/user")
+                .uri("/user")
                 .accept(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromObject(user));
 
@@ -40,30 +38,30 @@ public class UserService {
 
     public User findUserByEmail(String email){
 
-        /*Mono<User> mono = client.get()
-                .uri(apigateway_service_url+"/user/email/"+email)
+        Mono<User> mono = client.get()
+                .uri("/user/email/"+email)
                 .accept(MediaType.APPLICATION_JSON)
                 .exchange()
                 .flatMap(response -> response.bodyToMono(User.class));
 
-        User user = mono.block();*/
+        User user = mono.block();
 
-        /*for testing */
+        /*for testing
         User u = new User();
         u.setId("5b965e5d7b4ab54c6bd18c38");
         u.setEmail("martha@example.com");
         u.setPassword("{bcrypt}$2a$10$kZtoErH4gyoGhmflk8YCbedGH3v/ieSTTT2OJuI5.yFGF8wvrEaLW");
         u.setUsername("martha10");
         u.setFirstName("Martha");
-        u.setLastName("Caro");
+        u.setLastName("Caro");*/
 
-        return u;
+        return user;
     }
 
     public User findUserByUsername(String username){
 
         Mono<User> mono = client.get()
-                .uri(apigateway_service_url+"/user/username/"+username)
+                .uri("/user/username/"+username)
                 .accept(MediaType.APPLICATION_JSON)
                 .exchange()
                 .flatMap(response -> response.bodyToMono(User.class));
@@ -72,6 +70,19 @@ public class UserService {
 
         return user;
 
+    }
+
+    public List<User> findAllUsers(){
+
+        Flux<User> flux = client.get()
+                .uri("/users")
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve()
+                .bodyToFlux(User.class);
+
+        List<User> userList = flux.collectList().block();
+
+        return userList;
     }
 
 }
