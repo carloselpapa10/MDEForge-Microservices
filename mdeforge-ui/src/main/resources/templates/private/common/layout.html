@@ -73,13 +73,13 @@
     <!-- Sidebar menu & content wrapper -->
     <div id="wrapper">
         <!-- Sidebar Menu-->
-        <div th:include="common/left_menu :: copy"></div>
+        <div th:include="private/common/left_menu :: copy"></div>
         <!-- // Sidebar Menu END -->
 
         <!-- Content -->
         <div id="content">
             <!-- Top navbar-->
-            <div th:include="common/top_menu :: copy"></div>
+            <div th:include="private/common/top_menu :: copy"></div>
             <!-- Body START-->
             <div layout:fragment="body"></div>
             <!-- Body END -->
@@ -92,7 +92,7 @@
     <!-- // Sidebar menu & content wrapper END -->
 
     <!-- // Footer START-->
-    <div th:include="common/footer :: copy"></div>
+    <div th:include="private/common/footer :: copy"></div>
     <!-- // Footer END -->
 
 </div>

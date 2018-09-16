@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{common/layout}">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{private/common/layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Dashboard</title>
 </head>
 <body>
 
@@ -28,10 +28,10 @@
             <div class="span12">
                 <div class="well margin-none">
                     <address class="margin-none">
-                        <h2>Lastname Firstname</h2>
-                        <span>Username</span> at
+                        <h2><span th:text="${user.lastName}"></span> <span th:text="${user.firstName}"></span></h2>
+                        <span th:text="${user.username}"></span> at
                         <a href="http://www.di.univaq.it/home.php?users_username=alfonso">site</a><br>
-                        <span title="Work email">e-mail:</span> <a href="mailto:#">Email</a><br>
+                        <span title="Work email">e-mail:</span> <a href="mailto:#"><span th:text="${user.email}"></span></a><br>
                         <span title="Work Phone">phone:</span> (+39) +39 0862 43.3725<br>
 
                     </address>

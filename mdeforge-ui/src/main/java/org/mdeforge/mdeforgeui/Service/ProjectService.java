@@ -8,6 +8,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -45,6 +46,22 @@ public class ProjectService {
 
         List<Project> projectList = flux.collectList().block();
 
+        return projectList;
+    }
+
+    public List<Project> findProjectListByUserEmail(String email){
+
+        List<Project> projectList = new ArrayList<>();
+        Project project = new Project();
+        project.setId("1111");
+        project.setName("Project 1");
+
+        Project project2 = new Project();
+        project2.setId("222");
+        project2.setName("Project 2");
+
+        projectList.add(project);
+        projectList.add(project2);
         return projectList;
     }
 }

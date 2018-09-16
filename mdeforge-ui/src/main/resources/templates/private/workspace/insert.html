@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{common/layout}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{private/common/layout}">
 <head>
     <meta charset="UTF-8">
     <title>Create Workspace</title>
@@ -42,7 +43,10 @@
                         <div class="box-generic">
                             <h5 class="input-name">Select Projects</h5>
                             <select path="projects" multiple="true" style="height: 215px">
-                                <!-- <options items="${projectList}" itemValue="id" itemLabel="name" ></options> -->
+                                <th:block th:each="project : ${projectList}">
+                                    <option th:value="${project.id}"> <span th:text="${project.name}"></span></option>
+                                </th:block>
+
                             </select>
                         </div>
                     </div>

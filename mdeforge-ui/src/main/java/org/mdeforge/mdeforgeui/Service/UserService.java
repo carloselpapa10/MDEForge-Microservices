@@ -38,24 +38,25 @@ public class UserService {
 
     public User findUserByEmail(String email){
 
+        /*
         Mono<User> mono = client.get()
                 .uri("/user/email/"+email)
                 .accept(MediaType.APPLICATION_JSON)
                 .exchange()
                 .flatMap(response -> response.bodyToMono(User.class));
 
-        User user = mono.block();
+        User user = mono.block();*/
 
-        /*for testing
+        /*for testing*/
         User u = new User();
         u.setId("5b965e5d7b4ab54c6bd18c38");
         u.setEmail("martha@example.com");
         u.setPassword("{bcrypt}$2a$10$kZtoErH4gyoGhmflk8YCbedGH3v/ieSTTT2OJuI5.yFGF8wvrEaLW");
         u.setUsername("martha10");
         u.setFirstName("Martha");
-        u.setLastName("Caro");*/
+        u.setLastName("Caro");
 
-        return user;
+        return u;
     }
 
     public User findUserByUsername(String username){
