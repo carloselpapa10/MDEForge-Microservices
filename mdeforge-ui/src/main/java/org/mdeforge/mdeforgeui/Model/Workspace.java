@@ -15,6 +15,10 @@ public class Workspace {
     public Workspace() {
     }
 
+    public Workspace(String id) {
+        this.id = id;
+    }
+
     public String getId() {
         return id;
     }

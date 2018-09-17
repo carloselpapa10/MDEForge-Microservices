@@ -14,9 +14,6 @@ import java.util.List;
 @Service
 public class ProjectService {
 
-    @Value("${apigateway.service.url}")
-    private String apigateway_service_url;
-
     private WebClient client;
 
     public ProjectService(WebClient client) {
@@ -26,7 +23,7 @@ public class ProjectService {
     public Project findProjectById(String id){
 
         Mono<Project> mono = client.get()
-                .uri(apigateway_service_url+"/project/id/"+id)
+                .uri("/project/id/"+id)
                 .accept(MediaType.APPLICATION_JSON)
                 .exchange()
                 .flatMap(response -> response.bodyToMono(Project.class));

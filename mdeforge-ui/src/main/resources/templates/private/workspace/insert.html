@@ -26,7 +26,7 @@
             <h3 class="header-h main-title">Create Workspace</h3>
             <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi elit, laoreet ac turpis ac, vulputate lacinia turpis. Vestibulum eu augue massa. Curabitur a quam sed turpis pharetra finibus. In purus nulla, tristique eu pulvinar ut, lacinia ut ligula. Proin ac neque neque. Sed vitae egestas enim. </p> -->
         </div>
-        <th:form class="form-horizontal margin-none" th:object="${workspace}" id="validateSubmitForm" th:method="post" th:action="@{/private/workspace/create}" autocomplete="off">
+        <form class="form-horizontal margin-none" th:object="${workspace}" th:method="post" th:action="@{/private/workspace/create}" autocomplete="off">
             <div class="widget widget-heading-simple">
                 <div class="row-fluid">
                     <div class="span6">
@@ -53,18 +53,12 @@
                 </div>
                 <div class="box-generic">
                     <div class="form-actions">
-                        <button type="submit"
-                                class="btn btn-primary btn-large">
-                            <i class="icon-save"></i> Save
-                        </button>
-                        <button type="button"
-                                class="btn btn-default btn-large">
-                            Cancel
-                        </button>
+                        <button type="submit" class="btn btn-primary btn-large"> <i class="icon-save"></i> Save </button>
+                        <button type="button" class="btn btn-default btn-large"> Cancel </button>
                     </div>
                 </div>
             </div>
-        </th:form>
+        </form>
     </div>
     <script>
         $("#validateSubmitForm").submit(function(event) {
