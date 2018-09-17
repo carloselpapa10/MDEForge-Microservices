@@ -46,7 +46,7 @@ public class UserHistoryEventHandlers {
 											dee.getEvent().getUserInfo().getUsername(),
                                                 dee.getEvent().getUserInfo().getState(),
                                                     dee.getEvent().getUserInfo().getPassword(),
-                                                        roleList,
+                                                        roleList.size() > 0 ? roleList : null,
                                                             dee.getEvent().getUserInfo().getImage());
 
 		userService.createUser(user);

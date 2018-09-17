@@ -30,6 +30,8 @@ public class User{
 		this.email = email;
 		this.username = username;
 		this.state = state;
+		this.password = password;
+		this.roles = roles;
 		this.image = image;
 	}
 

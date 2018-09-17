@@ -46,8 +46,20 @@ public class UserServiceImpl implements UserService{
 		log.info("findUser(String id) - UserServiceImpl - MdeforgeviewService");
 		return userRepository.findOne(id);
 	}
-			
-	@Override
+
+    @Override
+    public User findUserByEmail(String email) throws BusinessException {
+        log.info("findUserByEmail(String email) - UserServiceImpl - MdeforgeviewService");
+        return userRepository.findUserByEmail(email);
+    }
+
+    @Override
+    public User findUserByUsername(String username) throws BusinessException {
+        log.info("findUserByUsername(String username) - UserServiceImpl - MdeforgeviewService");
+        return userRepository.findUserByUsername(username);
+    }
+
+    @Override
 	public void deleteUser(User user) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("deleteUser(String id) - UserServiceImpl - MdeforgeviewService");

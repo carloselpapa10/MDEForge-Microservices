@@ -15,10 +15,10 @@ public class User {
     private String password;
 
     @NotEmpty(message = "This field is required")
-    private String firstName;
+    private String firstname;
 
     @NotEmpty(message = "This field is required")
-    private String lastName;
+    private String lastname;
 
     @NotEmpty(message = "This field is required")
     private String username;
@@ -36,15 +36,15 @@ public class User {
 
 
     public User(User user) {
-        this(user.getId(), user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getUsername(), user.getImage(), user.isEnabled(), user.getRoles());
+        this(user.getId(), user.getEmail(), user.getPassword(), user.getFirstname(), user.getLastname(), user.getUsername(), user.getImage(), user.isEnabled(), user.getRoles());
     }
 
-    public User(String id, String email, String password, String firstName, String lastName, String username, String image, boolean enabled, List<Role> roles) {
+    public User(String id, String email, String password, String firstname, String lastname, String username, String image, boolean enabled, List<Role> roles) {
         this.id = id;
         this.email = email;
         this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.username = username;
         this.image = image;
         this.enabled = enabled;
@@ -75,20 +75,20 @@ public class User {
         this.password = password;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getUsername() {

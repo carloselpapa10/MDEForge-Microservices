@@ -39,7 +39,7 @@ public class ProjectService {
     public List<Project> findAllProjects(){
 
         Flux<Project> flux = client.get()
-                .uri("/projects")
+                .uri("/view/projects")
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .bodyToFlux(Project.class);
@@ -51,17 +51,14 @@ public class ProjectService {
 
     public List<Project> findProjectListByUserEmail(String email){
 
-        List<Project> projectList = new ArrayList<>();
-        Project project = new Project();
-        project.setId("1111");
-        project.setName("Project 1");
+        Flux<Project> flux = client.get()
+                .uri("/view/projects/owner_email/"+email)
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve()
+                .bodyToFlux(Project.class);
 
-        Project project2 = new Project();
-        project2.setId("222");
-        project2.setName("Project 2");
+        List<Project> projectList = flux.collectList().block();
 
-        projectList.add(project);
-        projectList.add(project2);
         return projectList;
     }
 }

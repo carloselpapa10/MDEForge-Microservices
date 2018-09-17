@@ -16,7 +16,7 @@ public class Util {
 
         if(SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof GitHubOAuth2User){
             GitHubOAuth2User gitHubOAuth2User = (GitHubOAuth2User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            gitHubOAuth2User.getEmail();
+            return gitHubOAuth2User.getEmail();
         }
 
         if(SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof FacebookOAuth2User){

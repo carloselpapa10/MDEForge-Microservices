@@ -63,24 +63,32 @@ public class IndexController {
 
         Object email = userAttributes.get("email");
 
-        /*
         if(email!=null){
             User user = userService.findUserByEmail(email.toString());
 
             if(user!=null){
-                return "redirect:/app";
+
+                model.addAttribute("user", user);
+                return "private/dashboard";
+
+            }else{
+
+                user = new User();
+                /*get more information of the user*/
+                user.setEmail(email.toString());
+                user.setUsername(email.toString());
+                user.setImage(userAttributes.get("picture") != null ? userAttributes.get("picture").toString() : null);
+
+                userService.signUp(user); /*save user information*/
+
+                model.addAttribute("user", user);
+                return "private/oauth/completeInfo";
             }
         }
-        */
 
-        User user = userService.findUserByEmail(email != null ? email.toString() : null);
 
-        //userService.signUp(user); /*save user information*/
-
-        user.setImage(userAttributes.get("picture") != null ? userAttributes.get("picture").toString() : null);
-        model.addAttribute("user", user);
-
-        return "private/oauth/completeInfo";
+        //User user = userService.findUserByEmail(email != null ? email.toString() : null);
+        return "/login"; /*send errors*/
     }
 
     private ExchangeFilterFunction oauth2Credentials(OAuth2AuthorizedClient authorizedClient){

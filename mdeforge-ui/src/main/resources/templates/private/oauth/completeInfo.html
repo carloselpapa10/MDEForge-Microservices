@@ -55,10 +55,10 @@
                                         <p th:each="error : ${#fields.errors('username')}" th:text="${error}">Validation error</p>
                                     </div>
 
-                                    <label for="firstName">Firstname</label>
-                                    <input type="text" id="firstName" th:field="*{firstName}" class="input-block-level" autocomplete="false" tabindex="2" placeholder="Your Firstname" required/>
-                                    <div th:if="${#fields.hasErrors('firstName')}" class="alert alert-danger" role="alert">
-                                        <p th:each="error : ${#fields.errors('firstName')}" th:text="${error}">Validation error</p>
+                                    <label for="firstname">Firstname</label>
+                                    <input type="text" id="firstname" th:field="*{firstname}" class="input-block-level" autocomplete="false" tabindex="2" placeholder="Your Firstname" required/>
+                                    <div th:if="${#fields.hasErrors('firstname')}" class="alert alert-danger" role="alert">
+                                        <p th:each="error : ${#fields.errors('firstname')}" th:text="${error}">Validation error</p>
                                     </div>
 
 
@@ -70,10 +70,10 @@
                                         <p th:each="error : ${#fields.errors('email')}" th:text="${error}">Validation error</p>
                                     </div>
 
-                                    <label for="lastName">Lastname</label>
-                                    <input type="text" id="lastname" th:field="*{lastName}" class="input-block-level" autocomplete="false" tabindex="3" placeholder="Your Lastname" required/>
-                                    <div th:if="${#fields.hasErrors('lastName')}" class="alert alert-danger" role="alert">
-                                        <p th:each="error : ${#fields.errors('lastName')}" th:text="${error}">Validation error</p>
+                                    <label for="lastname">Lastname</label>
+                                    <input type="text" id="lastname" th:field="*{lastname}" class="input-block-level" autocomplete="false" tabindex="3" placeholder="Your Lastname" required/>
+                                    <div th:if="${#fields.hasErrors('lastname')}" class="alert alert-danger" role="alert">
+                                        <p th:each="error : ${#fields.errors('lastname')}" th:text="${error}">Validation error</p>
                                     </div>
 
                                 </div>

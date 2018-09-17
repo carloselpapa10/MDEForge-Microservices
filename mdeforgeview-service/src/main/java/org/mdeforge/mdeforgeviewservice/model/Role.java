@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection="Role")
 public class Role{
 
     private String id;									

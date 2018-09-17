@@ -12,6 +12,9 @@ public class ProjectConfiguration {
     @Value("${projectservice.url}")
     private String projectservice_url;
 
+    @Value("${mdeforgeviewservice.url}")
+    private String mdeforgeviewservice_url;
+
     @Bean
     RouteLocator gatewayProjectServiceRouters(RouteLocatorBuilder builder){
         return builder.routes()
@@ -30,6 +33,12 @@ public class ProjectConfiguration {
                 .route(r->r.path("/projects").and().method("GET")
                         .filters(f->f.rewritePath("/projects","/retrieve/Projects"))
                     .uri(projectservice_url))
+                .route(r->r.path("/view/projects").and().method("GET")
+                        .filters(f->f.rewritePath("/view/projects","/retrieve/Projects"))
+                        .uri(mdeforgeviewservice_url))
+                .route(r -> r.path("/view/projects/owner_email/**").and().method("GET")
+                        .filters(f->f.rewritePath("/view/projects/owner_email/(?<email>.*)", "/findProjectListByUserEmail/%7Bemail%7D?email=${email}"))
+                        .uri(mdeforgeviewservice_url))
                 .build();
     }
 

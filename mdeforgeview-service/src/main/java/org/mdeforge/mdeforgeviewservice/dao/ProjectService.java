@@ -19,5 +19,6 @@ public interface ProjectService {
 	public Project removeUserFromProject(Project project, User user) throws BusinessException;
 	public List<Project> findAll() throws BusinessException;
 
+    public List<Project> findProjectListByUserEmail(String email) throws BusinessException;
 	public void save(Project project) throws BusinessException;
 }	

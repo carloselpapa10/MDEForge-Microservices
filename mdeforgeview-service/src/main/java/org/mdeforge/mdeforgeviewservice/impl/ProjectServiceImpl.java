@@ -26,6 +26,9 @@ public class ProjectServiceImpl implements ProjectService{
 	@Autowired
 	private ProjectRepository projectRepository;
 
+	@Autowired
+    private UserRepository userRepository;
+
 	@Override
 	public Project createProject(Project project) throws BusinessException{
 		// TODO Auto-generated method stub
@@ -113,6 +116,12 @@ public class ProjectServiceImpl implements ProjectService{
 		log.info("findAll() - ProjectServiceImpl - MdeforgeviewService");
 		return projectRepository.findAll();
 	}
+
+    @Override
+    public List<Project> findProjectListByUserEmail(String email) throws BusinessException {
+        log.info("findProjectListByUserEmail(String email) - ProjectServiceImpl - MdeforgeviewService");
+	    return projectRepository.findByOwner(userRepository.findUserByEmail(email));
+    }
 
     @Override
     public void save(Project project) throws BusinessException {

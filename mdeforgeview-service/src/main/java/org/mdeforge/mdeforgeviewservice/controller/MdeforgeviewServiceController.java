@@ -52,6 +52,18 @@ public class MdeforgeviewServiceController {
 		return userService.findAll();
 	}
 
+    @GetMapping("/findUserByEmail/{email}")
+    public User findUserByEmail(@RequestParam String email){
+        log.info("findUserByEmail(String email) - UserServiceController - UserService");
+        return userService.findUserByEmail(email);
+    }
+
+    @GetMapping("/findUserByUsername/{username}")
+    public User findUserByUsername(@RequestParam String username){
+        log.info("findUserByEmail(String username) - UserServiceController - UserService");
+        return userService.findUserByUsername(username);
+    }
+
 	@GetMapping("/findWorkspace/{workspaceId}")
 	public Workspace findWorkspace(@RequestParam String id){
 		log.info("findWorkspace(String id) - MdeforgeviewServiceController - MdeforgeviewService");
@@ -69,6 +81,12 @@ public class MdeforgeviewServiceController {
 	public Project findProject(@RequestParam String id){
 		log.info("findProject(String id) - MdeforgeviewServiceController - MdeforgeviewService");
 		return projectService.findProject(id);
+	}
+
+	@GetMapping("/findProjectListByUserEmail/{email}")
+	public List<Project> findProjectListByUserEmail(@RequestParam String email){
+		log.info("findProjectListByUserEmail(String email) - MdeforgeviewServiceController - MdeforgeviewService");
+		return projectService.findProjectListByUserEmail(email);
 	}
 
 	@GetMapping("/retrieve/Projects")
