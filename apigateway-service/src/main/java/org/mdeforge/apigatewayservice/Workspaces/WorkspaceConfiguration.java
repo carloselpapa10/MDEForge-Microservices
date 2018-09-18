@@ -34,6 +34,9 @@ public class WorkspaceConfiguration {
                         .filters(f -> f.rewritePath("/workspaces","/retrieve/Workspaces"))
                     .uri(workspaceservice_url))
 
+                .route(r -> r.path("/view/workspace/id/*").and().method("GET")
+                        .filters(f -> f.rewritePath("/view/workspace/id/(?<workspaceId>.*)","/findWorkspace/%7BworkspaceId%7D?id=${workspaceId}"))
+                        .uri(mdeforgeviewservice_url))
                 .route(r -> r.path("/view/workspaces").and().method("GET")
                         .filters(f -> f.rewritePath("/view/workspaces", "/retrieve/Workspaces"))
                     .uri(mdeforgeviewservice_url))

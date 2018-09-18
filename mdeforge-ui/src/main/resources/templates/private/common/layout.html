@@ -49,6 +49,11 @@
 
     <!--<link th:href="@{/resources/theme/skins/css/android-green.css}" rel="stylesheet" type="text/css" />-->
 
+    <script th:inline="javascript">
+        //var ctx = /*[[@{/}]]*/ 'default';
+        var ctx = "";
+    </script>
+
     <script th:src="@{/theme/scripts/plugins/system/less.min.js}"></script>
     <style type="text/css">
         table.dataTableArtifacts thead th, table.dataTableArtifacts thead td {
@@ -124,14 +129,16 @@
     <script th:src="@{/theme/scripts/plugins/gallery/prettyphoto/js/jquery.prettyPhoto.js}"></script>
 
     <!-- Global -->
-    <script>
+    <script th:inline="javascript">
+        //var ctx = /*[[@{/}]]*/ 'default';
         var basePath = '',
-            commonPath = "@{/resources/}";
+            commonPath = /*[[@{/}]]*/ 'default';
+            //commonPath = "@{/resources/}";
     </script>
 
 
-    <!-- Modernizr
-    <script th:src="@{theme/scripts/plugins/system/modernizr.js}"></script>-->
+    <!-- Modernizr-->
+    <script th:src="@{/theme/scripts/plugins/system/modernizr.js}"></script>
 
     <!-- Bootstrap -->
     <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>

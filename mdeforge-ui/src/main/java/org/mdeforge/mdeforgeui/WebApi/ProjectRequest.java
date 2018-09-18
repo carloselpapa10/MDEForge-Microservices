@@ -1,23 +1,18 @@
 package org.mdeforge.mdeforgeui.WebApi;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class WorkspaceRequest {
+public class ProjectRequest {
 
     private String name;
     private String description;
     private String owner;
-    private List<String> projects = new ArrayList<>();
 
-    public WorkspaceRequest() {
+    public ProjectRequest() {
     }
 
-    public WorkspaceRequest(String name, String description, String owner, List<String> projects) {
+    public ProjectRequest(String name, String description, String owner) {
         this.name = name;
         this.description = description;
         this.owner = owner;
-        this.projects = projects;
     }
 
     public String getName() {
@@ -42,13 +37,5 @@ public class WorkspaceRequest {
 
     public void setOwner(String owner) {
         this.owner = owner;
-    }
-
-    public List<String> getProjects() {
-        return projects;
-    }
-
-    public void setProjects(List<String> projects) {
-        this.projects = projects;
     }
 }

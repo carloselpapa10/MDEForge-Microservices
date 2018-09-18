@@ -69,7 +69,7 @@ public class IndexController {
             if(user!=null){
 
                 model.addAttribute("user", user);
-                return "private/dashboard";
+                return "redirect:/private/dashboard";
 
             }else{
 

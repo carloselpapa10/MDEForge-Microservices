@@ -1,20 +1,20 @@
 package org.mdeforge.mdeforgeui.Controller;
 
+import org.mdeforge.mdeforgeui.Model.Project;
 import org.mdeforge.mdeforgeui.Model.User;
 import org.mdeforge.mdeforgeui.Model.Workspace;
 import org.mdeforge.mdeforgeui.Service.ProjectService;
 import org.mdeforge.mdeforgeui.Service.UserService;
 import org.mdeforge.mdeforgeui.Service.WorkspaceService;
+import org.mdeforge.mdeforgeui.WebApi.ProjectRequest;
 import org.mdeforge.mdeforgeui.WebApi.WorkspaceRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.result.view.Rendering;
 
 import javax.validation.Valid;
@@ -40,6 +40,16 @@ public class WorkspaceController {
 
     @Autowired
     private UserService userService;
+
+    @GetMapping("/{id}")
+    public String details(Model model, @PathVariable String id, @AuthenticationPrincipal User user){
+
+        model.addAttribute("workspace", workspaceService.findWorkspaceById(id));
+        model.addAttribute("projectList", projectService.findProjectListByUserEmail(user != null ? user.getEmail() : getEmailFromOAuth()));
+
+        return "private/workspace/details";
+    }
+
     @GetMapping("/create")
     public String createWorkspaceView(@ModelAttribute WorkspaceRequest workspaceRequest, @AuthenticationPrincipal User user, Model model){
 
@@ -65,6 +75,25 @@ public class WorkspaceController {
         log.info("createWorkspace - workspaceId: "+workspaceId);
 
         return "redirect:/private/workspace/list";
+    }
+
+    @PostMapping("/{idWorkspace}/addNewProjectToWorkspace")
+    public @ResponseBody HttpEntity<Project> addNewProjectToWorkspace(@PathVariable("idWorkspace") String workspaceId, @ModelAttribute ProjectRequest projectRequest){
+
+        String projectId = projectService.createProject(projectRequest);
+
+        /* addProjectToWorkspace */
+
+        /*
+        try {
+			Project p = workspaceService.addNewProjectInWorkspace(projectName, idWorkspace, user);
+			return  new ResponseEntity<Project>(p, HttpStatus.OK);
+		} catch (BusinessException e) {
+			return  new ResponseEntity<Project>(HttpStatus.UNPROCESSABLE_ENTITY);
+		}
+        * */
+
+        return null;
     }
 
 

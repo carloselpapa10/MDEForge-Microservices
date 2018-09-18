@@ -59,7 +59,7 @@
 
                     <tr class="gradeX" th:each="workspace : ${workspaceList}">
 
-                        <td><a th:href="@{/private/workspace?id=${workspace.id}}"> <span th:text="${workspace.name}"></span> </a></td>
+                        <td><a th:href="@{/private/workspace/{id}(id=${workspace.id})}"> <span th:text="${workspace.name}"></span> </a></td>
                         <td th:text="${workspace.description}"></td>
                         <td></td>
                         <td></td>

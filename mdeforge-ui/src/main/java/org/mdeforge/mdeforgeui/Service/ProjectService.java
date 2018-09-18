@@ -1,9 +1,11 @@
 package org.mdeforge.mdeforgeui.Service;
 
 import org.mdeforge.mdeforgeui.Model.Project;
+import org.mdeforge.mdeforgeui.WebApi.ProjectRequest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -20,10 +22,24 @@ public class ProjectService {
         this.client = client;
     }
 
+    public String createProject(ProjectRequest projectRequest){
+
+        WebClient.RequestHeadersSpec<?> request = client.post()
+                .uri("/project")
+                .accept(MediaType.APPLICATION_JSON)
+                .body(BodyInserters.fromObject(projectRequest));
+
+        String projectId = request.retrieve()
+                .bodyToMono(String.class)
+                .block();
+
+        return projectId;
+    }
+
     public Project findProjectById(String id){
 
         Mono<Project> mono = client.get()
-                .uri("/project/id/"+id)
+                .uri("/view/project/id/"+id)
                 .accept(MediaType.APPLICATION_JSON)
                 .exchange()
                 .flatMap(response -> response.bodyToMono(Project.class));

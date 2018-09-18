@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -32,6 +33,19 @@ public class WorkspaceService {
                 .block();
 
         return workspaceId;
+    }
+
+    public Workspace findWorkspaceById(String id){
+
+        Mono<Workspace> mono = client.get()
+                .uri("/view/workspace/id/"+id)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .flatMap(response -> response.bodyToMono(Workspace.class));
+
+        Workspace workspace = mono.block();
+
+        return workspace;
     }
 
     public List<Workspace> findWorkspaceListByUserEmail(String email){

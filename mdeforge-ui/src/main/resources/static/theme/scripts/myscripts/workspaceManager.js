@@ -1,6 +1,6 @@
 	var modal = $("#alert-modal")
 	var modalTemplate;
-	$.get(ctx + '/resources/theme/scripts/plugins/forms/template/modal.html', function(template) {
+	$.get(ctx + '/theme/scripts/plugins/forms/template/modal.html', function(template) {
 		modalTemplate = template;
 	});
 	
@@ -81,7 +81,7 @@
 			success : function(data) {
 				console.log('jjj' + ctx)
 				var result = $('#ecoreMMTable');
-				$.get(ctx + '/resources/theme/scripts/plugins/forms/template/artifactRowInWorkspace.html',
+				$.get(ctx + '/theme/scripts/plugins/forms/template/artifactRowInWorkspace.html',
 						function(template) {
 							var rendered = Mustache.render(template, ecoreMetamodel);
 							result.append(rendered);
@@ -131,7 +131,7 @@
 			url : ctx + "/private/project/" + idProject + "/add/" + ATLTransormation.id,
 			success : function(data) {
 				var result = $('#atlTable');
-				$.get(ctx + '/resources/theme/scripts/plugins/forms/template/artifactRowInWorkspace.html',
+				$.get(ctx + '/theme/scripts/plugins/forms/template/artifactRowInWorkspace.html',
 						function(template) {
 							var rendered = Mustache.render(template, ATLTransormation);
 							result.append(rendered);
@@ -183,7 +183,7 @@
 			url : ctx + "/private/project/" + idProject + "/add/" + model.id,
 			success : function(data) {
 				var result = $('#modelTable');
-				$.get(ctx + '/resources/theme/scripts/plugins/forms/template/artifactRowInWorkspace.html',
+				$.get(ctx + '/theme/scripts/plugins/forms/template/artifactRowInWorkspace.html',
 						function(template) {
 							var rendered = Mustache.render(template, model);
 							result.append(rendered);
@@ -279,7 +279,7 @@
 			url : ctx + "/private/project/" + idProject + "/addUser/" + idUser,
 			success : function(data) {
 				var result = $('#users');
-				$.get(ctx + '/resources/theme/scripts/plugins/forms/template/userBox.html',
+				$.get(ctx + '/theme/scripts/plugins/forms/template/userBox.html',
 						function(template) {
 							var rendered = Mustache.render(template, data);
 							result.append(rendered);
@@ -345,7 +345,7 @@
 			success : function(data) {
 				data.ctx = ctx;
 				var result = $('#projectList');
-				$.get(ctx + '/resources/theme/scripts/plugins/forms/template/projectInArtifact.html',
+				$.get(ctx + '/theme/scripts/plugins/forms/template/projectInArtifact.html',
 						function(template) {
 							var rendered = Mustache.render(template, data);
 							result.append(rendered);
@@ -769,7 +769,7 @@
 				url : ctx + "/private/project/" + id,
 				success : function(data) {
 					$('#projectId').attr('data-id',data.id);
-					console.log('kk ' + $('#projectId').attr('data-id'));
+
 					var workspace = $("#workspaceDetailsDiv");
 					var workspaceJsfiddle = $("#workspaceDetailsJsfiddleDiv");
 					workspace.show();
@@ -782,25 +782,25 @@
 					//buttons
 					$('.button-toggle').removeClass("rotate-item");
 					//GLOBAL VARIABLE
-					shared_users = data.users.length-1;
-					if (data.users.length > 1)
+					shared_users = data.userlist.length-1;
+					if (data.userlist.length > 1)
 
 						$('#sharedNumber').html('<span  class="text-black strong">'+ shared_users +'</span> people shares this project');
 					else{
 						$('#sharedNumber').html('No one shares this project.');
 					}
 
-					if (data.artifacts.length > 1)
-						$('#artifactsNumber').text(data.artifacts.length + " artifacts");
+					if (data.artifactlist.length > 1)
+						$('#artifactsNumber').text(data.artifactlist.length + " artifacts");
 					else
-						$('#artifactsNumber').text(data.artifacts.length + " artifact");
+						$('#artifactsNumber').text(data.artifactlist.length + " artifact");
 					$('#userDiv').show();
 					var guard = data.owner.id == $('#loggedUserId').val();
 					if (guard)
 						$('#showUserList').show();
 					else
 						$('#showUserList').hide();
-					$.each(data.users, function(i, user) {
+					$.each(data.userlist, function(i, user) {
 						if(data.owner.id != user.id) {
 							var  stringHead = '<li data-id="' + user.id + '" class="sharedUser UserLi"><span class="glyphicons activity-icon user"><i></i></span><span class="title">' +
 					           		user.username + ' <br><strong>' + user.firstname + ' ' + user.lastname + '</strong></span>';
@@ -817,13 +817,13 @@
 					var resultEcore = $('#ecoreMMTable');
 					var resultAtl = $('#atlTable');
 					var resultModels = $('#modelTable');
-					$.each(data.artifacts, function(i, artifact) {
+					$.each(data.artifactlist, function(i, artifact) {
 						if(artifact._class == "org.mdeforge.business.model.EcoreMetamodel") {
 							artifact.ecoreMetamdel = true;
 							var idProject = $('#projectId').attr('data-id');
 							artifact.ctx = ctx;
 							artifact.projectId = idProject;
-							$.get(ctx + '/resources/theme/scripts/plugins/forms/template/artifactRowInWorkspace.html',
+							$.get(ctx + '/theme/scripts/plugins/forms/template/artifactRowInWorkspace.html',
 									function(template) {
 										var rendered = Mustache.render(template, artifact);
 										resultEcore.append(rendered);
@@ -834,7 +834,7 @@
 							var idProject = $('#projectId').attr('data-id');
 							artifact.projectId = idProject;
 							artifact.ctx = ctx;
-							$.get(ctx + '/resources/theme/scripts/plugins/forms/template/artifactRowInWorkspace.html',
+							$.get(ctx + '/theme/scripts/plugins/forms/template/artifactRowInWorkspace.html',
 									function(template) {
 										var rendered = Mustache.render(template, artifact);
 										resultAtl.append(rendered);
@@ -844,7 +844,7 @@
 							artifact.model = true;
 							var idProject = $('#projectId').attr('data-id');
 							artifact.projectId = idProject;
-							$.get(ctx + '/resources/theme/scripts/plugins/forms/template/artifactRowInWorkspace.html',
+							$.get(ctx + '/theme/scripts/plugins/forms/template/artifactRowInWorkspace.html',
 									function(template) {
 										var rendered = Mustache.render(template, artifact);
 										resultModels.append(rendered);
@@ -913,7 +913,7 @@
 		//var nameProject = $(this).data('name');
 		var idWorkspace = $("#workspaceId").data('id');
 		$.ajax({
-			url : ctx + "/private/workspace/" + idWorkspace + "/addNew/",
+			url : ctx + "/private/workspace/" + idWorkspace + "/addNewProjectToWorkspace/",
 			type: "POST",
 			data: {
 				open: open,
@@ -922,7 +922,7 @@
 			},
 			success : function(data) {
 				var result = $('#projectList');
-				$.get(ctx + '/resources/theme/scripts/plugins/forms/template/projectInArtifact.html', function(template) {
+				$.get(ctx + '/theme/scripts/plugins/forms/template/projectInArtifact.html', function(template) {
 					var rendered = Mustache.render(template, data);
 					result.append(rendered);
 				});
