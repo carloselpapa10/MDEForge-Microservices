@@ -26,23 +26,21 @@
             <h3 class="header-h main-title">Create Workspace</h3>
             <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi elit, laoreet ac turpis ac, vulputate lacinia turpis. Vestibulum eu augue massa. Curabitur a quam sed turpis pharetra finibus. In purus nulla, tristique eu pulvinar ut, lacinia ut ligula. Proin ac neque neque. Sed vitae egestas enim. </p> -->
         </div>
-        <form class="form-horizontal margin-none" th:object="${workspace}" th:method="post" th:action="@{/private/workspace/create}" autocomplete="off">
+        <form class="form-horizontal margin-none" th:object="${workspaceRequest}" th:method="post" th:action="@{/private/workspace/create}" autocomplete="off">
             <div class="widget widget-heading-simple">
                 <div class="row-fluid">
                     <div class="span6">
                         <div class="box-generic">
                             <h5 class="input-name">Name</h5>
-                            <input path="name" id="name" name="name" type="text" placeholder="" />
-                            <p id="nameValidator"  class="text-error" style="display: none;">Mandatory field</p>
+                            <input id="name" name="name" type="text" placeholder="" />
                             <h5 class="input-name">Description</h5>
-                            <textarea path="description" id="description" name="description" type="text"></textarea>
-                            <p id="descriptionValidator" style="display: none;">Mandatory field</p>
+                            <textarea id="description" name="description" type="text"></textarea>
                         </div>
                     </div>
                     <div class="span6">
                         <div class="box-generic">
                             <h5 class="input-name">Select Projects</h5>
-                            <select path="projects" multiple="true" style="height: 215px">
+                            <select id="projects" name="projects" multiple="true" style="height: 215px">
                                 <th:block th:each="project : ${projectList}">
                                     <option th:value="${project.id}"> <span th:text="${project.name}"></span></option>
                                 </th:block>
@@ -60,21 +58,6 @@
             </div>
         </form>
     </div>
-    <script>
-        $("#validateSubmitForm").submit(function(event) {
-            if ($("#name").val() == "" || $("#name").val == null) {
-                $("#nameValidator").show();
-                event.preventDefault();
-            }
-            if ($("#description").val() == "" || $("#description").val == null) {
-                $("#descriptionValidator").show();
-                event.preventDefault();
-            }
-            else {
-                return;
-            }
-        });
-    </script>
 
 </div>
 </body>

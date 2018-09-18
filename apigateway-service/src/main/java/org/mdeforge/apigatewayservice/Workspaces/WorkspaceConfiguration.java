@@ -12,6 +12,9 @@ public class WorkspaceConfiguration {
     @Value("${workspaceservice.url}")
     private String workspaceservice_url;
 
+    @Value("${mdeforgeviewservice.url}")
+    private String mdeforgeviewservice_url;
+
     @Bean
     RouteLocator gatewayWorkspaceServiceRouters(RouteLocatorBuilder builder){
         return builder.routes()
@@ -30,6 +33,13 @@ public class WorkspaceConfiguration {
                 .route(r -> r.path("/workspaces").and().method("GET")
                         .filters(f -> f.rewritePath("/workspaces","/retrieve/Workspaces"))
                     .uri(workspaceservice_url))
+
+                .route(r -> r.path("/view/workspaces").and().method("GET")
+                        .filters(f -> f.rewritePath("/view/workspaces", "/retrieve/Workspaces"))
+                    .uri(mdeforgeviewservice_url))
+                .route(r -> r.path("/view/workspaces/owner_email/**").and().method("GET")
+                        .filters(f->f.rewritePath("/view/workspaces/owner_email/(?<email>.*)", "/findWorkspaceListByUserEmail/%7Bemail%7D?email=${email}"))
+                        .uri(mdeforgeviewservice_url))
                 .build();
     }
 }

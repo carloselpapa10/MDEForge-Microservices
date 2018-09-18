@@ -21,12 +21,16 @@ import javax.validation.Valid;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.mdeforge.mdeforgeui.Common.Util.getEmailFromOAuth;
 
 @Controller
 @RequestMapping("/private/workspace")
 public class WorkspaceController {
+
+    private static final Logger log = LoggerFactory.getLogger(WorkspaceController.class);
 
     @Autowired
     private ProjectService projectService;
@@ -37,34 +41,30 @@ public class WorkspaceController {
     @Autowired
     private UserService userService;
     @GetMapping("/create")
-    public String createWorkspaceView(@ModelAttribute Workspace workspace, @AuthenticationPrincipal User user, Model model){
+    public String createWorkspaceView(@ModelAttribute WorkspaceRequest workspaceRequest, @AuthenticationPrincipal User user, Model model){
 
         model.addAttribute("projectList", projectService.findProjectListByUserEmail(user != null ? user.getEmail() : getEmailFromOAuth()));
         return "private/workspace/insert";
     }
 
     @GetMapping("/list")
-    Rendering listWorkspaceView(@AuthenticationPrincipal User user, Model model){
+    public String listWorkspaceView(@AuthenticationPrincipal User user, Model model){
 
         model.addAttribute("workspaceList", workspaceService.findWorkspaceListByUserEmail(user != null ? user.getEmail() : getEmailFromOAuth()));
-        return Rendering.view("private/workspace/list")
-                .build();
+        return "private/workspace/list";
     }
 
     @PostMapping("/create")
-    public String createWorkspace(@Valid Workspace workspace, @AuthenticationPrincipal User user, BindingResult result, Model model){
+    public String createWorkspace(@Valid WorkspaceRequest workspaceRequest, @AuthenticationPrincipal User user, BindingResult result, Model model){
 
-        if(result.hasErrors()){ return createWorkspaceView(workspace, user, model);}
+        if(result.hasErrors()){ return createWorkspaceView(workspaceRequest, user, model);}
 
-        List<String> projectList = new ArrayList<>();
-        workspace.getProjects().forEach(project -> {
-            projectList.add(project.getId());
-        });
+        workspaceRequest.setOwner(user != null ? user.getId() : userService.findUserByEmail(getEmailFromOAuth()).getId());
 
-        WorkspaceRequest workspaceRequest = new WorkspaceRequest(workspace.getName(), workspace.getDescription(), user != null ? user.getId() : userService.findUserByEmail(getEmailFromOAuth()).getId() , projectList);
+        String workspaceId= workspaceService.createWorkspace(workspaceRequest);
+        log.info("createWorkspace - workspaceId: "+workspaceId);
 
-        workspaceService.createWorkspace(workspaceRequest);
-        return createWorkspaceView(workspace, user, model);
+        return "redirect:/private/workspace/list";
     }
 
 

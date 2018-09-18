@@ -26,6 +26,9 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 	@Autowired
 	private WorkspaceRepository workspaceRepository;
 
+	@Autowired
+    private UserRepository userRepository;
+
 	@Override
 	public Workspace createWorkspace(Workspace workspace) throws BusinessException{
 		// TODO Auto-generated method stub
@@ -83,6 +86,12 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 		log.info("findAll() - WorkspaceServiceImpl - MdeforgeviewService");
 		return workspaceRepository.findAll();
 	}
+
+    @Override
+    public List<Workspace> findWorkspaceListByUserEmail(String email) throws BusinessException {
+        log.info("findWorkspaceListByUserEmail(String email) - WorkspaceServiceImpl - MdeforgeviewService");
+	    return workspaceRepository.findByOwner(userRepository.findUserByEmail(email));
+    }
 
     @Override
     public void save(Workspace workspace) throws BusinessException {

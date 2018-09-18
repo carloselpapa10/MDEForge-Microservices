@@ -70,7 +70,13 @@ public class MdeforgeviewServiceController {
 		return workspaceService.findWorkspace(id);
 	}
 
-	@GetMapping("/retrieve/Workspaces")
+    @GetMapping("/findWorkspaceListByUserEmail/{email}")
+    public List<Workspace> findWorkspaceListByUserEmail(@RequestParam String email){
+        log.info("findWorkspaceListByUserEmail(String email) - MdeforgeviewServiceController - MdeforgeviewService");
+        return workspaceService.findWorkspaceListByUserEmail(email);
+    }
+
+    @GetMapping("/retrieve/Workspaces")
 	public List<Workspace> findAllWorkspaces(){
 		/*Auto-Generated*/
 		log.info("findAllWorkspaces() - MdeforgeviewServiceController - MdeforgeviewService");

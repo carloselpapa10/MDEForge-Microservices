@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Flux;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class WorkspaceService {
         this.client = client;
     }
 
-    public Workspace createWorkspace(WorkspaceRequest workspaceRequest){
+    public String createWorkspace(WorkspaceRequest workspaceRequest){
 
         WebClient.RequestHeadersSpec<?> request = client.post()
                 .uri("/workspace")
@@ -30,12 +31,19 @@ public class WorkspaceService {
                 .bodyToMono(String.class)
                 .block();
 
-        return workspaceId != null ? new Workspace(workspaceId) : null;
+        return workspaceId;
     }
 
     public List<Workspace> findWorkspaceListByUserEmail(String email){
 
-        return null;
+        Flux<Workspace> flux = client.get()
+                .uri("/view/workspaces/owner_email/"+email)
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve()
+                .bodyToFlux(Workspace.class);
+
+        List<Workspace> workspaceList = flux.collectList().block();
+        return workspaceList;
     }
 
 
