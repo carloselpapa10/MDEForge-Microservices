@@ -795,7 +795,8 @@
 					else
 						$('#artifactsNumber').text(data.artifactlist.length + " artifact");
 					$('#userDiv').show();
-					var guard = data.owner.id == $('#loggedUserId').val();
+
+					var guard = data.owner.email == loggedUserEmail;
 					if (guard)
 						$('#showUserList').show();
 					else
@@ -857,8 +858,8 @@
 						$('#visibility').html('<span class="btn btn-danger"><i class="icon-lock"></i> Private</span>')
 					}
 					var removeButton = $('#removeProject').data("id", data.id).data("name", data.name)
-					var userId = $("#loggedUserId").val();
-					if(userId == data.owner.id){
+
+                    if(loggedUserEmail == data.owner.email){
 						removeButton.next().html('<span id="deleteProjectButton" class="btn btn-danger" data-id="'+ data.id +'" data-name="'+ data.name +'" style="margin-top: 20px"><i class="icon-remove"></i> Delete Project</span>')
 					}
 					
@@ -955,10 +956,10 @@
 				success : function(data) {
 					var select = $('#userSelect');
 					button.addClass("rotate-item").removeClass("disabled-button");
-					var userid = $("#loggedUserId").val();
-					$('#userSelect').empty();	
+
+					$('#userSelect').empty();
 					$.each(data, function(i, model){
-						if(userid != model.id)
+						if(loggedUserEmail != model.email)
 							select.append('<option value='+model.id+' >'+model.username+'</option>');
 					});
 					$('#userList').show();

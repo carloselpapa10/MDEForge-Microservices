@@ -29,15 +29,16 @@ public class Project{
 
 	public Project() {}
 
-	public Project(String id, String name, String description, User owner, String state) {
-		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.owner = owner;
-		this.state = state;
-	}
+    public Project(String id, String name, String description, boolean open, String state, User owner) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.open = open;
+        this.state = state;
+        this.owner = owner;
+    }
 
-	public Project(String id) {
+    public Project(String id) {
 		this.id = id;
 	}
 

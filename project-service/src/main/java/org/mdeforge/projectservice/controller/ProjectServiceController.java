@@ -23,7 +23,7 @@ public class ProjectServiceController {
 	public CreateProjectResponse createProject(@RequestBody CreateProjectRequest request){
 		log.info("createProject(@RequestBody CreateProjectRequest createProjectRequest) - ProjectServiceController - ProjectService");
 
-		Project project = projectService.createProject(new Project(request.getName(), request.getDescription(), request.getOwner()));
+		Project project = projectService.createProject(new Project(request.getName(), request.getDescription(), request.isOpen() , request.getOwner()));
 		return new CreateProjectResponse(project.getId());
 	}
 			
@@ -36,7 +36,7 @@ public class ProjectServiceController {
 	}
  			
 	@GetMapping("/findProject/{projectId}")
-	public Project findProject(@RequestParam String id){
+	public Project findProject(@PathVariable("projectId") String id){
 		log.info("findProject(String id) - ProjectServiceController - ProjectService");
 
 		return projectService.findProject(id);

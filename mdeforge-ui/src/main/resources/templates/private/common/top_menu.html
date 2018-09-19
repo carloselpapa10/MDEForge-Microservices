@@ -52,12 +52,12 @@
             <li class="account dropdown dd-1">
                 <a data-toggle="dropdown" href="#" class="logout">
 
-                    <th:block th:if="${#request.userPrincipal.principal?.oauth}">
-                        <span class="hidden-tablet hidden-phone" th:text="${#request.userPrincipal.principal.name}"></span>
+                    <th:block th:if="${currentUser.id != null}">
+                        <span class="hidden-tablet hidden-phone" th:text="${currentUser.username}"></span>
                     </th:block>
 
-                    <th:block th:unless="${#request.userPrincipal.principal?.oauth}">
-                        <span class="hidden-tablet hidden-phone" th:text="${#request.userPrincipal.principal.username}"></span>
+                    <th:block th:unless="${currentUser.id != null}">
+                        <span class="hidden-tablet hidden-phone" th:text="${currentUser.email}"></span>
                     </th:block>
 
                 </a>
@@ -65,31 +65,28 @@
                     <li class="profile">
 				    <span>
 
-                        <th:block th:if="${#request.userPrincipal.principal?.oauth}">
+                    <th:block th:if="${currentUser.id != null}">
 
+                        <th:block th:if="${currentUser.image != null}">
                             <img id="imagePreview" th:src="@{/private/}"alt="Profile Photo"/>
-                            <div class="details">
-
-                                <!--<a href="#"><span th:text="${#request.userPrincipal.principal.firstname}"></span> <span th:text="${#request.userPrincipal.principal.lastname}"></span></a>-->
-                                <br>
-                                <a href="#"><span th:text="${#request.userPrincipal.principal.email}"></span></a>
-                            </div>
-
+                        </th:block>
+                        <th:block th:unless="${currentUser.image != null}">
+                            <img id="imagePreview" th:src="@{/theme/images/blankuser.jpg}"alt="Profile Photo"/>
                         </th:block>
 
-                        <th:block th:unless="${#request.userPrincipal.principal?.oauth}">
+                    </th:block>
 
-                            <img id="imagePreview" th:src="@{/private/}"alt="Profile Photo"/>
-                            <div class="details">
+                    <th:block th:unless="${currentUser.id != null}">
+                        <img id="imagePreview" th:src="${currentUser.image}"alt="Profile Photo"/>
+                    </th:block>
 
-                                <a href="#"><span th:text="${#request.userPrincipal.principal.firstname}"></span> <span th:text="${#request.userPrincipal.principal.lastname}"></span></a>
-                                <br>
-                                <a href="#"><span th:text="${#request.userPrincipal.principal.email}"></span></a>
+                    <div class="details">
+                        <a href="#"><span th:text="${currentUser.firstname}"></span> <span th:text="${currentUser.lastname}"></span></a>
+                        <br>
+                        <a href="#"><span th:text="${currentUser.email}"></span></a>
+                    </div>
 
-                            </div>
-                        </th:block>
-
-                        <!--<input type="hidden" th:value="${#request.userPrincipal.principal.id}" id="loggedUserId">-->
+                        <!--<input type="hidden" th:value="${currentUser.id}" id="loggedUserId">-->
 
 					    <!--<c:url var="im" value="/private/getPhoto?id=${logged_user.image}" />-->
 

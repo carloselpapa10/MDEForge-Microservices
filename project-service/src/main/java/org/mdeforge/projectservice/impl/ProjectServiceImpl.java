@@ -33,7 +33,7 @@ public class ProjectServiceImpl implements ProjectService{
 		log.info("createProject(Project project) - ProjectServiceImpl - ProjectService");
 
 		project.setState(ProjectState.CREATED);
-		ProjectInfo projectInfo = new ProjectInfo(project.getName(), project.getDescription(), project.getOwner(), project.getState().toString());
+		ProjectInfo projectInfo = new ProjectInfo(project.getName(), project.getDescription(), project.isOpen(), project.getOwner() , project.getState().toString());
 
 		List<ProjectDomainEvent> events = singletonList(new ProjectCreatedEvent(projectInfo));
 		ResultWithDomainEvents<Project, ProjectDomainEvent> projectAndEvents = new ResultWithDomainEvents<>(project, events);		
@@ -58,7 +58,7 @@ public class ProjectServiceImpl implements ProjectService{
         modifiedProject.setState(ProjectState.UPDATED);
 		project = projectRepository.save(modifiedProject);
 
-        ProjectInfo projectInfo = new ProjectInfo(project.getId(), project.getName(), project.getDescription(), project.getOwner(), project.getState().toString());
+        ProjectInfo projectInfo = new ProjectInfo(project.getId(), project.getName(), project.getDescription(), project.isOpen(), project.getOwner(), project.getState().toString());
 
 		List<ProjectDomainEvent> events = singletonList(new ProjectUpdatedEvent(projectInfo));
 		ResultWithDomainEvents<Project, ProjectDomainEvent> projectAndEvents = new ResultWithDomainEvents<>(project, events);		

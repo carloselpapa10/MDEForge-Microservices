@@ -37,7 +37,6 @@ public class RepositoryUserDetailsService implements UserDetailsService {
     static class CustomUserDetails extends User implements UserDetails {
 
         private String usernam;
-        private boolean oauth = false;
 
         public CustomUserDetails(User user) {
             super(user);
@@ -81,14 +80,6 @@ public class RepositoryUserDetailsService implements UserDetailsService {
         @Override
         public boolean isEnabled() {
             return true;
-        }
-
-        public boolean isOauth() {
-            return oauth;
-        }
-
-        public void setOauth(boolean oauth) {
-            this.oauth = oauth;
         }
     }
 }

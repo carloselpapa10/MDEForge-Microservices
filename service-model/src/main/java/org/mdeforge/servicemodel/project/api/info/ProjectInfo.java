@@ -23,17 +23,19 @@ public class ProjectInfo {
 		this.id = id;
 	}
 
-	public ProjectInfo(String name, String description, String owner, String state) {
-		this.name = name;
-		this.description = description;
-		this.owner = owner;
-		this.state = state;
-	}
-
-    public ProjectInfo(String id, String name, String description, String owner, String state) {
-        this.id = id;
-	    this.name = name;
+    public ProjectInfo(String name, String description, boolean open, String owner, String state) {
+        this.name = name;
         this.description = description;
+        this.open = open;
+        this.owner = owner;
+        this.state = state;
+    }
+
+    public ProjectInfo(String id, String name, String description, boolean open, String owner, String state) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.open = open;
         this.owner = owner;
         this.state = state;
     }

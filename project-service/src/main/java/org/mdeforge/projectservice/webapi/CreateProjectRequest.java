@@ -8,16 +8,18 @@ public class CreateProjectRequest {
 	private String name;
 	private String description;
 	private String owner;
+    private boolean open;
 
-	public CreateProjectRequest() {}
+    public CreateProjectRequest() {}
 
-	public CreateProjectRequest(String name, String description, String owner) {
-		this.name = name;
-		this.description = description;
-		this.owner = owner;
-	}
+    public CreateProjectRequest(String name, String description, String owner, boolean open) {
+        this.name = name;
+        this.description = description;
+        this.owner = owner;
+        this.open = open;
+    }
 
-	public String getName() {
+    public String getName() {
 		return name;
 	}
 
@@ -40,4 +42,12 @@ public class CreateProjectRequest {
 	public void setOwner(String owner) {
 		this.owner = owner;
 	}
+
+    public boolean isOpen() {
+        return open;
+    }
+
+    public void setOpen(boolean open) {
+        this.open = open;
+    }
 }

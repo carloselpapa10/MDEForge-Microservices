@@ -21,7 +21,7 @@
 
     <div class="box-generic">
         <div class="row-fluid">
-            <div class="span8" id="workspaceId" data-id="${workspace.getId()}">
+            <div class="span8" id="workspaceId" th:attr="data-id=${workspace.getId()}">
                 <h3 class="header-h main-title" th:text="${workspace.getName()}"></h3>
                 <p><span th:text="${workspace.getDescription()}"></span></p>
                 <span> Projects in Workspace: </span>
@@ -58,10 +58,11 @@
             </div>
             <div class="span6">
                 <span class="btn btn-block btn-primary" id="showProjectAdd">Create New Project <i class="icon-angle-down"></i></span>
+
                 <div id="createProject" class="innerT form-horizontal" style="display: none">
                     <h5 class="input-name center" style="margin: 0 0 10px;">Create New Project</h5>
-                    <input type="text" placeholder="Project Name"
-                           id="createProjectName" style="width: 65%; float: left;">
+
+                    <input type="text" placeholder="Project Name" id="createProjectName" style="width: 65%; float: left;">
                     <select id="createProjectOpen" name="open" style="width: 30%; float: right;">
                         <option value="true">Public</option>
                         <option value="false">Private</option>
@@ -300,9 +301,9 @@
 
     <div class="modal hide fade" id="alert-modal"></div>
 
-    <script th:src="@{/theme/scripts/plugins/spinner/spin.min.js}"></script>
+    <script th:inline="javascript" th:src="@{/theme/scripts/plugins/spinner/spin.min.js}"></script>
     <script th:src="@{/theme/scripts/plugins/forms/template/mustache.js}"></script>
-    <script th:src="@{/theme/scripts/myscripts/workspaceManager.js}"></script>
+    <script th:inline="javascript" th:src="@{/theme/scripts/myscripts/workspaceManager.js}"></script>
 
 </div>
 </body>

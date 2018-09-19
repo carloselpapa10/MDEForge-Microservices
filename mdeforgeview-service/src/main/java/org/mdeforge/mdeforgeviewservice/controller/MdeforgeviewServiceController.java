@@ -27,7 +27,7 @@ public class MdeforgeviewServiceController {
 	private ProjectService projectService;
 				
 	@GetMapping("/findArtifact/{artifactId}")
-	public Artifact findArtifact(@RequestParam String id){
+	public Artifact findArtifact(@PathVariable("artifactId") String id){
 		log.info("findArtifact(String id) - MdeforgeviewServiceController - MdeforgeviewService");
 		return artifactService.findArtifact(id);
 	}
@@ -40,7 +40,7 @@ public class MdeforgeviewServiceController {
 	}
 
 	@GetMapping("/findUser/{userId}")
-	public User findUser(@RequestParam String id){
+	public User findUser(@PathVariable("userId") String id){
 		log.info("findUser(String id) - MdeforgeviewServiceController - MdeforgeviewService");
 		return userService.findUser(id);
 	}
@@ -52,26 +52,26 @@ public class MdeforgeviewServiceController {
 		return userService.findAll();
 	}
 
-    @GetMapping("/findUserByEmail/{email}")
-    public User findUserByEmail(@RequestParam String email){
+    @GetMapping("/findUserByEmail/{email:.+}")
+    public User findUserByEmail(@PathVariable("email") String email){
         log.info("findUserByEmail(String email) - UserServiceController - UserService");
         return userService.findUserByEmail(email);
     }
 
-    @GetMapping("/findUserByUsername/{username}")
-    public User findUserByUsername(@RequestParam String username){
+    @GetMapping("/findUserByUsername/{username:.+}")
+    public User findUserByUsername(@PathVariable("username") String username){
         log.info("findUserByEmail(String username) - UserServiceController - UserService");
         return userService.findUserByUsername(username);
     }
 
 	@GetMapping("/findWorkspace/{workspaceId}")
-	public Workspace findWorkspace(@RequestParam String id){
+	public Workspace findWorkspace(@PathVariable("workspaceId") String id){
 		log.info("findWorkspace(String id) - MdeforgeviewServiceController - MdeforgeviewService");
 		return workspaceService.findWorkspace(id);
 	}
 
-    @GetMapping("/findWorkspaceListByUserEmail/{email}")
-    public List<Workspace> findWorkspaceListByUserEmail(@RequestParam String email){
+    @GetMapping("/findWorkspaceListByUserEmail/{email:.+}")
+    public List<Workspace> findWorkspaceListByUserEmail(@PathVariable("email") String email){
         log.info("findWorkspaceListByUserEmail(String email) - MdeforgeviewServiceController - MdeforgeviewService");
         return workspaceService.findWorkspaceListByUserEmail(email);
     }
@@ -84,13 +84,13 @@ public class MdeforgeviewServiceController {
 	}
 
 	@GetMapping("/findProject/{projectId}")
-	public Project findProject(@RequestParam String id){
+	public Project findProject(@PathVariable("projectId") String id){
 		log.info("findProject(String id) - MdeforgeviewServiceController - MdeforgeviewService");
 		return projectService.findProject(id);
 	}
 
-	@GetMapping("/findProjectListByUserEmail/{email}")
-	public List<Project> findProjectListByUserEmail(@RequestParam String email){
+	@GetMapping("/findProjectListByUserEmail/{email:.+}")
+	public List<Project> findProjectListByUserEmail(@PathVariable("email") String email){
 		log.info("findProjectListByUserEmail(String email) - MdeforgeviewServiceController - MdeforgeviewService");
 		return projectService.findProjectListByUserEmail(email);
 	}

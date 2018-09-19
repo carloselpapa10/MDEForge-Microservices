@@ -14,7 +14,6 @@ public class FacebookOAuth2User implements OAuth2User {
     private Map<String, Object> attributes;
     private String id;
     private String name;
-    private boolean oauth=true;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -46,13 +45,5 @@ public class FacebookOAuth2User implements OAuth2User {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public boolean isOauth() {
-        return oauth;
-    }
-
-    public void setOauth(boolean oauth) {
-        this.oauth = oauth;
     }
 }

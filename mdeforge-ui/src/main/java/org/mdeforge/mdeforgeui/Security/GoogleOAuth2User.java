@@ -19,7 +19,6 @@ public class GoogleOAuth2User implements OAuth2User {
     private String picture;
     private String email;
     private String gender;
-    private boolean oauth=true;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -97,13 +96,5 @@ public class GoogleOAuth2User implements OAuth2User {
 
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    public boolean isOauth() {
-        return oauth;
-    }
-
-    public void setOauth(boolean oauth) {
-        this.oauth = oauth;
     }
 }

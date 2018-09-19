@@ -30,13 +30,14 @@ public class Project{
 		this.id = id;
 	}
 
-	public Project(String name, String description, String owner) {
-		this.name = name;
-		this.description = description;
-		this.owner = owner;
-	}
+    public Project(String name, String description, boolean open, String owner) {
+        this.name = name;
+        this.description = description;
+        this.open = open;
+        this.owner = owner;
+    }
 
-	public Project(String id, String owner) {
+    public Project(String id, String owner) {
 		this.id = id;
 		this.owner = owner;
 	}

@@ -37,7 +37,7 @@ public class WorkspaceServiceController {
 	}
  			
 	@GetMapping("/findWorkspace/{workspaceId}")
-	public Workspace findWorkspace(@RequestParam String id){
+	public Workspace findWorkspace(@PathVariable("workspaceId") String id){
 		log.info("findWorkspace(String id) - WorkspaceServiceController - WorkspaceService");
 
 		return workspaceService.findWorkspace(id);
@@ -57,16 +57,16 @@ public class WorkspaceServiceController {
 	} 
 			
 	@PutMapping("/addProjectToWorkspace/workspace")
-	public ResponseEntity<Workspace> addProjectToWorkspace(@RequestParam String workspaceId, @RequestParam String projectId){
+	public Workspace addProjectToWorkspace(@RequestParam String workspaceId, @RequestParam String projectId){
 		log.info("addProjectToWorkspace(@RequestParam String workspaceId, @RequestParam String projectId) - WorkspaceServiceController - WorkspaceService");
 
 		Workspace workspace = workspaceService.findWorkspace(workspaceId);
 
 		if(workspace!=null){
             workspace = workspaceService.addProjectToWorkspace(workspace, projectId);
-            return ResponseEntity.ok(workspace);
+            return workspace;
         }
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+		return null;
 	}
  			
 	@PutMapping("/removeProjectInWorkspace/workspace")

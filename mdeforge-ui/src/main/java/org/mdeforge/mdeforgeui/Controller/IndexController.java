@@ -40,7 +40,6 @@ public class IndexController {
 
         /*1. get email by spring context. 2. search in database 3. redirect if it appears 3.1. save user data if not. 4. send it to complete authentication form otherwise*/
 
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
 
         OAuth2AuthorizedClient authorizedClient = this.authorizedClientService.loadAuthorizedClient(authentication.getAuthorizedClientRegistrationId(),
                                                                                                         authentication.getName());

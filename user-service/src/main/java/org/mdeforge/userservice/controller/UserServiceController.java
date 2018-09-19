@@ -44,26 +44,26 @@ public class UserServiceController {
 	}
  			
 	@GetMapping("/findUser/{userId}")
-    public User findUser(@RequestParam String id){
+    public User findUser(@PathVariable("userId") String id){
 		log.info("findUser(String id) - UserServiceController - UserService");
 
 		return userService.findUser(id);
 	}
 
-	@GetMapping("/findUserByEmail/{email}")
-    public User findUserByEmail(@RequestParam String email){
+	@GetMapping("/findUserByEmail/{email:.+}")
+    public User findUserByEmail(@PathVariable("email") String email){
         log.info("findUserByEmail(String email) - UserServiceController - UserService");
         return userService.findUserByEmail(email);
     }
 
-    @GetMapping("/findUserByUsername/{username}")
-    public User findUserByUsername(@RequestParam String username){
+    @GetMapping("/findUserByUsername/{username.+}")
+    public User findUserByUsername(@PathVariable("username") String username){
         log.info("findUserByEmail(String username) - UserServiceController - UserService");
         return userService.findUserByUsername(username);
     }
 
 	@DeleteMapping("/deleteUser/{userId}")
-    public String deleteUser(@RequestParam String id){
+    public String deleteUser(@PathVariable("userId") String id){
         log.info("deleteUser(String id) - UserServiceController - UserService");
 
         User user = userService.findUser(id);

@@ -55,8 +55,9 @@ public class ProjectHistoryEventHandlers {
 		Project project = new Project(dee.getAggregateId(),
 										dee.getEvent().getProjectInfo().getName(),
 											dee.getEvent().getProjectInfo().getDescription(),
-												userService.findUser(dee.getEvent().getProjectInfo().getOwner()),
-                                                    dee.getEvent().getProjectInfo().getState());
+                                                dee.getEvent().getProjectInfo().isOpen(),
+                                                    dee.getEvent().getProjectInfo().getState(),
+                                                        userService.findUser(dee.getEvent().getProjectInfo().getOwner()));
 
 		projectService.createProject(project);
 	}
@@ -68,6 +69,7 @@ public class ProjectHistoryEventHandlers {
 		project.setDescription(dee.getEvent().getProjectInfo().getDescription());
 		project.setName(dee.getEvent().getProjectInfo().getName());
 		project.setOwner(userService.findUser(dee.getEvent().getProjectInfo().getOwner()));
+		project.setOpen(dee.getEvent().getProjectInfo().isOpen());
 		project.setState(dee.getEvent().getProjectInfo().getState());
 
 		projectService.updateProject(project);

@@ -35,6 +35,11 @@ public class WorkspaceService {
         return workspaceId;
     }
 
+    public void addProjectToWorkspace(String workspaceId, String projectId){
+
+
+    }
+
     public Workspace findWorkspaceById(String id){
 
         Mono<Workspace> mono = client.get()
