@@ -1,5 +1,5 @@
 Jenkins Blueocean
-docker run -u root -v /var/run/docker.sock:/var/run/docker.sock -p 8080:8080 -p 2375:2375 --name jenkins_blueocean jenkinsci/blueocean:latest
+docker run -u root -v /var/run/docker.sock:/var/run/docker.sock -p 8090:8080 -p 2375:2375 --name jenkins_blueocean jenkinsci/blueocean:latest
 
 mvn clean package -s settings.xml docker:build
 

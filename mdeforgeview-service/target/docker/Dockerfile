@@ -1,7 +1,7 @@
 FROM java:8
 MAINTAINER c.avendano10@gmail.com
 VOLUME /tmp
-ADD workspace-service.jar app.jar
+ADD mdeforgeview-service.jar app.jar
 ADD wait-for-mysql.sh wait.sh
 RUN bash -c 'chmod +x /wait.sh'
 RUN bash -c 'touch /app.jar'
