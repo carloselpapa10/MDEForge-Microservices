@@ -1,6 +1,7 @@
 package org.mdeforge.mdeforgeui.Service;
 
 import org.mdeforge.mdeforgeui.Model.Project;
+import org.mdeforge.mdeforgeui.WebApi.CreateProjectResponse;
 import org.mdeforge.mdeforgeui.WebApi.ProjectRequest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
@@ -29,11 +30,11 @@ public class ProjectService {
                 .accept(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromObject(projectRequest));
 
-        String projectId = request.retrieve()
-                .bodyToMono(String.class)
+        CreateProjectResponse response = request.retrieve()
+                .bodyToMono(CreateProjectResponse.class)
                 .block();
 
-        return projectId;
+        return response != null ? response.getIdProject() : null;
     }
 
     public Project findProjectById(String id){
@@ -73,5 +74,16 @@ public class ProjectService {
         List<Project> projectList = flux.collectList().block();
 
         return projectList;
+    }
+
+    public String deleteProject(String projectId){
+
+        Mono<String> mono = client.delete()
+                .uri("/project/delete/"+projectId)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .flatMap(response -> response.bodyToMono(String.class));
+
+        return mono.block();
     }
 }

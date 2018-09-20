@@ -145,7 +145,6 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 
             List<WorkspaceDomainEvent> events = singletonList(new RemovedProjectInWorkspace(new WorkspaceInfo(workspace.getId()), projectId));
             ResultWithDomainEvents<Workspace, WorkspaceDomainEvent> workspaceAndEvents = new ResultWithDomainEvents<>(workspace, events);
-            workspaceAggregateEventPublisher.publish(workspace, workspaceAndEvents.events);
 
             workspace = workspaceRepository.save(workspace);
             workspaceAggregateEventPublisher.publish(workspace, workspaceAndEvents.events);
@@ -160,7 +159,31 @@ public class WorkspaceServiceImpl implements WorkspaceService{
 		return workspaceRepository.findAll();
 	}
 
-	@Override
+    @Override
+    public void removeProjectInAllWorkspaces(String projectId) throws BusinessException {
+        log.info("removeProjectInAllWorkspaces(String projectId) - WorkspaceServiceImpl - WorkspaceService");
+
+        List<Workspace> workspaceList = workspaceRepository.findAll();
+
+        List<WorkspaceDomainEvent> events;
+        ResultWithDomainEvents<Workspace, WorkspaceDomainEvent> workspaceAndEvents;
+
+        for(int index=0; index < workspaceList.size(); index++){
+
+            if(workspaceList.get(index).getProjects().contains(projectId)){
+                workspaceList.get(index).removeProject(projectId);
+
+                events = singletonList(new RemovedProjectInWorkspace(new WorkspaceInfo(workspaceList.get(index).getId()), projectId));
+                workspaceAndEvents = new ResultWithDomainEvents<>(workspaceList.get(index), events);
+
+                workspaceRepository.save(workspaceList.get(index));
+                workspaceAggregateEventPublisher.publish(workspaceList.get(index), workspaceAndEvents.events);
+            }
+        }
+
+    }
+
+    @Override
 	public void saveWorkspace(Workspace workspace) throws BusinessException {
 		log.info("saveWorkspace() - WorkspaceServiceImpl - WorkspaceService");
 		workspaceRepository.save(workspace);

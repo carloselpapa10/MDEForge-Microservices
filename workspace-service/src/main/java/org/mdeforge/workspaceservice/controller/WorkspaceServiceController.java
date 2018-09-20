@@ -44,7 +44,7 @@ public class WorkspaceServiceController {
 	} 			
 
 	@DeleteMapping("/deleteWorkspace/{workspaceId}")
-	public String deleteWorkspace(@RequestParam String id){
+	public String deleteWorkspace(@PathVariable("workspaceId") String id){
 		log.info("deleteWorkspace(String id) - WorkspaceServiceController - WorkspaceService");
 
 		Workspace workspace = workspaceService.findWorkspace(id);
@@ -56,32 +56,41 @@ public class WorkspaceServiceController {
         return "Workspace ID does not exist!";
 	} 
 			
-	@PutMapping("/addProjectToWorkspace/workspace")
-	public Workspace addProjectToWorkspace(@RequestParam String workspaceId, @RequestParam String projectId){
+	@GetMapping("/addProjectToWorkspace/workspace")
+	public String addProjectToWorkspace(@RequestParam String workspaceId, @RequestParam String projectId){
 		log.info("addProjectToWorkspace(@RequestParam String workspaceId, @RequestParam String projectId) - WorkspaceServiceController - WorkspaceService");
 
 		Workspace workspace = workspaceService.findWorkspace(workspaceId);
 
 		if(workspace!=null){
             workspace = workspaceService.addProjectToWorkspace(workspace, projectId);
-            return workspace;
+            return workspace.getId();
         }
 		return null;
 	}
  			
-	@PutMapping("/removeProjectInWorkspace/workspace")
-	public ResponseEntity<Workspace> removeProjectInWorkspace(@RequestParam String workspaceId, @RequestParam String projectId){
+	@GetMapping("/removeProjectInWorkspace/workspace")
+	public String removeProjectInWorkspace(@RequestParam String workspaceId, @RequestParam String projectId){
 		log.info("removeProjectInWorkspace(@RequestParam String workspaceId, @RequestParam String projectId) - WorkspaceServiceController - WorkspaceService");
 
 		Workspace workspace = workspaceService.findWorkspace(workspaceId);
 
         if(workspace!=null){
             workspace = workspaceService.removeProjectInWorkspace(workspace, projectId);
-            return ResponseEntity.ok(workspace);
+            return workspace.getId();
         }
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        return null;
 	}
- 			
+
+    @GetMapping("/removeProjectInAllWorkspaces/{projectId}")
+    public String removeProjectInAllWorkspaces(@PathVariable("projectId") String projectId){
+        log.info("removeProjectInAllWorkspaces(@PathVariable String projectId) - WorkspaceServiceController - WorkspaceService");
+
+        workspaceService.removeProjectInAllWorkspaces(projectId);
+
+        return "Ok";
+    }
+
 	@GetMapping("/retrieve/Workspaces")
 	public List<Workspace> findAllWorkspaces(){
 		/*Auto-Generated*/

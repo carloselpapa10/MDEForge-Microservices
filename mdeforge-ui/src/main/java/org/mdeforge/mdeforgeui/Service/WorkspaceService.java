@@ -1,6 +1,8 @@
 package org.mdeforge.mdeforgeui.Service;
 
 import org.mdeforge.mdeforgeui.Model.Workspace;
+import org.mdeforge.mdeforgeui.WebApi.CreateProjectResponse;
+import org.mdeforge.mdeforgeui.WebApi.CreateWorkspaceResponse;
 import org.mdeforge.mdeforgeui.WebApi.WorkspaceRequest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
@@ -28,17 +30,51 @@ public class WorkspaceService {
                 .accept(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromObject(workspaceRequest));
 
-        String workspaceId = request.retrieve()
-                .bodyToMono(String.class)
+        CreateWorkspaceResponse response = request.retrieve()
+                .bodyToMono(CreateWorkspaceResponse.class)
                 .block();
 
-        return workspaceId;
+        return response != null ? response.getWorkspaceId() : null;
     }
 
-    public void addProjectToWorkspace(String workspaceId, String projectId){
+    public String addProjectToWorkspace(String workspaceId, String projectId){
 
+        Mono<String> mono = client.get()
+                .uri("/workspace/addProjectToWorkspace?workspaceId="+workspaceId+"&projectId="+projectId)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .flatMap(response -> response.bodyToMono(String.class));
 
+        String id = mono.block();
+
+        return id;
     }
+
+    public String removeProjectToWorkspace(String workspaceId, String projectId){
+
+        Mono<String> mono = client.get()
+                .uri("/workspace/removeProjectInWorkspace?workspaceId="+workspaceId+"&projectId="+projectId)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .flatMap(response -> response.bodyToMono(String.class));
+
+        String id = mono.block();
+
+        return id;
+    }
+
+    public String removeProjectInAllWorkspaces(String projectId){
+
+        Mono<String> mono = client.get()
+                .uri("/workspace/removeProjectInAllWorkspaces/"+projectId)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .flatMap(response -> response.bodyToMono(String.class));
+
+        return mono.block();
+    }
+
+
 
     public Workspace findWorkspaceById(String id){
 
@@ -63,6 +99,17 @@ public class WorkspaceService {
 
         List<Workspace> workspaceList = flux.collectList().block();
         return workspaceList;
+    }
+
+    public String deleteWorkspace(String workspaceId){
+
+        Mono<String> mono = client.delete()
+                .uri("/workspace/delete/"+workspaceId)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .flatMap(response -> response.bodyToMono(String.class));
+
+        return mono.block();
     }
 
 

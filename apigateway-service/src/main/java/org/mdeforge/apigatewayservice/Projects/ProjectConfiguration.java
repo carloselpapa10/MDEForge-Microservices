@@ -28,7 +28,7 @@ public class ProjectConfiguration {
                         .filters(f->f.rewritePath("/project/id/(?<projectId>.*)","/findProject/${projectId}"))
                     .uri(projectservice_url))
                 .route(r -> r.path("/project/delete/*").and().method("DELETE")
-                        .filters(f -> f.rewritePath("/project/id/(?<projectId>.*)","/deleteProject/${projectId}"))
+                        .filters(f -> f.rewritePath("/project/delete/(?<projectId>.*)","/deleteProject/${projectId}"))
                     .uri(projectservice_url))
                 .route(r->r.path("/projects").and().method("GET")
                         .filters(f->f.rewritePath("/projects","/retrieve/Projects"))

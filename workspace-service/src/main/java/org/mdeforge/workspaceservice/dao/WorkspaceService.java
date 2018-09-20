@@ -15,5 +15,6 @@ public interface WorkspaceService {
 	public Workspace removeProjectInWorkspace(Workspace workspace, String projectId) throws BusinessException;
 	public List<Workspace> findAll() throws BusinessException;
 
+	public void removeProjectInAllWorkspaces(String projectId) throws BusinessException;
 	public void saveWorkspace(Workspace workspace) throws BusinessException;
 }		   

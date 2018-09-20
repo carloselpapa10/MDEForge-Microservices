@@ -5,14 +5,6 @@ import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.reactive.function.server.RouterFunction;
-import org.springframework.web.reactive.function.server.ServerResponse;
-
-import org.springframework.web.reactive.function.server.RouterFunctions;
-
-import static org.springframework.http.MediaType.APPLICATION_JSON;
-import static org.springframework.web.reactive.function.server.RequestPredicates.*;
 
 @Configuration
 public class WorkspaceConfiguration {
@@ -32,6 +24,15 @@ public class WorkspaceConfiguration {
                 .route(r -> r.path("/workspace/update").and().method("PUT")
                         .filters(f -> f.rewritePath("/workspace/update","/updateWorkspace/workspace"))
                     .uri(workspaceservice_url))
+                .route(r -> r.path("/workspace/addProjectToWorkspace").and().method("GET")
+                        .filters(f -> f.rewritePath("/workspace/addProjectToWorkspace","/addProjectToWorkspace/workspace"))
+                        .uri(workspaceservice_url))
+                .route(r -> r.path("/workspace/removeProjectInWorkspace").and().method("GET")
+                        .filters(f -> f.rewritePath("/workspace/removeProjectInWorkspace","/removeProjectInWorkspace/workspace"))
+                        .uri(workspaceservice_url))
+                .route(r -> r.path("/workspace/removeProjectInAllWorkspaces/*").and().method("GET")
+                        .filters(f -> f.rewritePath("/workspace/removeProjectInAllWorkspaces/(?<projectId>.*)","/removeProjectInAllWorkspaces/${projectId}"))
+                        .uri(workspaceservice_url))
 
                 .route(r -> r.path("/workspace/id/*").and().method("GET")
                         .filters(f -> f.rewritePath("/workspace/id/(?<workspaceId>.*)","/findWorkspace/${workspaceId}"))
@@ -55,28 +56,4 @@ public class WorkspaceConfiguration {
                 .build();
     }
 
-    @Bean
-    public RouterFunction<ServerResponse> workspaceHandlerRouting(WorkspaceHandler workspaceHandler){
-
-        return RouterFunctions
-                    .route(PUT("/workspace/addProjectToWorkspace").and(accept(APPLICATION_JSON)), workspaceHandler::addProjectToWorkspace);
-
-    }
-
-    @Bean
-    public WorkspaceHandler workspaceHandler(){
-        return new WorkspaceHandler(webClient());
-    }
-
-    @Bean
-    public WebClient webClient(){
-        return WebClient.create();
-    }
 }
-
-/*
-*  .route(r -> r.path("/workspace/addProjectToWorkspace/").and().method("PUT")
-        .filters(f -> f.rewritePath("/workspace/addProjectToWorkspace/(?<workspaceId>.*)/(?<projectId>.*)","/addProjectToWorkspace/workspace?workspaceId=${workspaceId}&projectId=${projectId}"))
-        .uri(workspaceservice_url))
-
-        * */

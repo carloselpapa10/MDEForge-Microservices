@@ -437,11 +437,8 @@
 		var nameProject = $(this).data('name');
 		var idWorkspace = $("#workspaceId").data('id');
 		$.ajax({
-			url : ctx + "private/project/delete",
-			type: "DELETE",
-			data: {
-				project_id: idProject 
-			},
+			url : "/private/project/delete/"+idProject,
+			type: "GET",
 			success : function(data) {
 				var item = $('#item_' + idProject);
 				item.remove();
@@ -937,7 +934,7 @@
 				});
 				pname.val("");
 				desc_obj.val("");
-				open_obj.val("");
+				open_obj.val('true');
 			},
 			error : function error(data) {
 				console.log('error');

@@ -2,6 +2,7 @@ package org.mdeforge.mdeforgeui.Controller;
 
 import org.mdeforge.mdeforgeui.Model.Project;
 import org.mdeforge.mdeforgeui.Model.User;
+import org.mdeforge.mdeforgeui.Model.Workspace;
 import org.mdeforge.mdeforgeui.Service.ProjectService;
 import org.mdeforge.mdeforgeui.Service.UserService;
 import org.mdeforge.mdeforgeui.Service.WorkspaceService;
@@ -43,8 +44,22 @@ public class WorkspaceController {
     @GetMapping("/{workspaceId}")
     public String details(Model model, @PathVariable("workspaceId") String workspaceId, @ModelAttribute("currentUser") User user){
 
-        model.addAttribute("workspace", workspaceService.findWorkspaceById(workspaceId));
-        model.addAttribute("projectList", projectService.findProjectListByUserEmail(user.getEmail()));
+        Workspace workspace = workspaceService.findWorkspaceById(workspaceId);
+        List<Project> projectList = projectService.findProjectListByUserEmail(user.getEmail());
+
+        workspace.getProjects().forEach(project ->{
+
+            for(int index=0; index < projectList.size(); index++){
+                if(projectList.get(index).getId().equals(project.getId())){
+                    projectList.remove(projectList.get(index));
+                    break;
+                }
+            }
+
+        });
+
+        model.addAttribute("workspace", workspace);
+        model.addAttribute("projectList", projectList);
 
         return "private/workspace/details";
     }
@@ -77,38 +92,81 @@ public class WorkspaceController {
     }
 
     @PostMapping("/{idWorkspace}/addNewProjectToWorkspace")
-    public @ResponseBody HttpEntity<Project> addNewProjectToWorkspace(@PathVariable("idWorkspace") String workspaceId, @ModelAttribute ProjectRequest projectRequest, @ModelAttribute("currentUser") User user){
-
-
+    public @ResponseBody HttpEntity<Project> addNewProjectInWorkspace(@PathVariable("idWorkspace") String workspaceId, @ModelAttribute ProjectRequest projectRequest, @ModelAttribute("currentUser") User user){
         log.info("addNewProjectToWorkspace");
-
-
-
-        /* addProjectToWorkspace */
 
         try{
             projectRequest.setOwner(user.getId() != null ? user.getId() : userService.findUserByEmail(user.getEmail()).getId());
 
             String projectId = projectService.createProject(projectRequest);
 
-            if(projectId == null){ throw new Exception("Server problems");}
+            if(projectId == null){ throw new Exception("ProjectService - Server problems");}
+            Project project = projectService.findProjectById(projectId);
 
-            workspaceService.addProjectToWorkspace(workspaceId, projectId);
+            if(workspaceService.addProjectToWorkspace(workspaceId, projectId) != null){
+                return  new ResponseEntity<Project>(project, HttpStatus.OK);
+            }else{
+                throw new Exception("WorkspaceService - Server problems");
+            }
 
         } catch (Exception e){
             return  new ResponseEntity<Project>(HttpStatus.UNPROCESSABLE_ENTITY);
         }
 
-        /*
-        try {
-			Project p = workspaceService.addNewProjectInWorkspace(projectName, idWorkspace, user);
-			return  new ResponseEntity<Project>(p, HttpStatus.OK);
-		} catch (BusinessException e) {
-			return  new ResponseEntity<Project>(HttpStatus.UNPROCESSABLE_ENTITY);
-		}
-        * */
+    }
 
-        return null;
+    @GetMapping("/{idWorkspace}/add/{idProject}")
+    public @ResponseBody HttpEntity<Project> addProjectInWorkspace2(@PathVariable("idWorkspace") String workspaceId, @PathVariable("idProject") String projectId){
+        try{
+
+            Project project = projectService.findProjectById(projectId);
+            if(project == null){ throw new Exception("ProjectService - Server problems");}
+
+            Workspace workspace = workspaceService.findWorkspaceById(workspaceId);
+            if(workspace == null){ throw new Exception("WorkspaceService - Server problems");}
+
+            if(workspaceService.addProjectToWorkspace(workspaceId, projectId) != null){
+                return  new ResponseEntity<Project>(project, HttpStatus.OK);
+            }else{
+                throw new Exception("WorkspaceService - Server problems");
+            }
+
+        } catch (Exception e) {
+            return  new ResponseEntity<Project>(HttpStatus.UNPROCESSABLE_ENTITY);
+        }
+    }
+
+    @GetMapping("/{idWorkspace}/remove/{idProject}")
+    public @ResponseBody HttpEntity<String> removeProjectFromWorkspace(@PathVariable("idWorkspace") String workspaceId, @PathVariable("idProject") String projectId) {
+
+        try{
+
+            Project project = projectService.findProjectById(projectId);
+            if(project == null){ throw new Exception("ProjectService - Server problems");}
+
+            Workspace workspace = workspaceService.findWorkspaceById(workspaceId);
+            if(workspace == null){ throw new Exception("WorkspaceService - Server problems");}
+
+            if(workspaceService.removeProjectToWorkspace(workspaceId, projectId) != null){
+                return  new ResponseEntity<String>("ok", HttpStatus.OK);
+            }else{
+                throw new Exception("WorkspaceService - Server problems");
+            }
+
+        } catch (Exception e) {
+            return  new ResponseEntity<String>("ko", HttpStatus.UNPROCESSABLE_ENTITY);
+        }
+    }
+
+    @GetMapping("/delete")
+    public String deleteWorkspace(@RequestParam("id") String workspaceId, Model model){
+
+        Workspace workspace = workspaceService.findWorkspaceById(workspaceId);
+        if(workspace==null) return null;
+
+        log.info(workspaceService.deleteWorkspace(workspaceId));
+
+        return "redirect:/private/workspace/list";
     }
 
 

@@ -43,7 +43,7 @@ public class ProjectServiceController {
 	} 			
 
 	@DeleteMapping("/deleteProject/{projectId}")
-	public String deleteProject(@RequestParam String id){
+	public String deleteProject(@PathVariable("projectId") String id){
 		log.info("deleteProject(String id) - ProjectServiceController - ProjectService");
 
 		Project project = projectService.findProject(id);

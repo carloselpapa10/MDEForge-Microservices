@@ -1,6 +1,5 @@
 package org.mdeforge.mdeforgeviewservice.messaging;
 
-import io.eventuate.tram.events.common.DomainEvent;
 import org.mdeforge.mdeforgeviewservice.dao.ProjectService;
 import org.mdeforge.mdeforgeviewservice.dao.UserService;
 import org.mdeforge.mdeforgeviewservice.dao.WorkspaceService;
@@ -115,10 +114,14 @@ public class WorkspaceHistoryEventHandlers {
 
 		if(project != null){
 
-		    if(!workspace.getProjects().contains(project)){
-                workspace.addProject(project);
-                workspaceService.save(workspace);
+            for(int index = 0; index < workspace.getProjects().size(); index++){
+                if(workspace.getProjects().get(index).getId().equals(project.getId())){
+                    return;
+                }
             }
+
+            workspace.addProject(project);
+            workspaceService.save(workspace);
 
         }else {
             log.info("Project was not found!");
@@ -133,11 +136,15 @@ public class WorkspaceHistoryEventHandlers {
 		Project project = projectService.findProject(dee.getEvent().getProjectId());
 
 		if(project != null){
-            /*TODO fix this - problems when i want to delete a project from the workspace*/
-            if(workspace.getProjects().contains(project)){
 
-                workspace.removeProject(project);
-                workspaceService.save(workspace);
+            int index;
+
+            for(index = 0; index < workspace.getProjects().size(); index++){
+                if(workspace.getProjects().get(index).getId().equals(project.getId())){
+                    workspace.removeProject(workspace.getProjects().get(index));
+                    workspaceService.save(workspace);
+                    break;
+                }
             }
 
         }else {
