@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mdeforge-zookeeper-service
+  labels:
+    name: mdeforge-zookeeper-service
+spec:
+  ports:
+  - port: 2181
+    targetPort: 2181
+  clusterIP: None
+  selector:
+    role: mdeforge-zookeeper
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: mdeforge-zookeeper
+spec:
+  serviceName: "zookeeper"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        role: mdeforge-zookeeper
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: zookeeper
+          image: eventuateio/eventuateio-local-zookeeper:0.14.0
+          ports:
+              - containerPort: 2181
+          volumeMounts:
+            - name: mdeforge-zookeeper-persistent-storage
+              mountPath: /usr/local/zookeeper-data
+  volumeClaimTemplates:
+  - metadata:
+      name: mdeforge-zookeeper-persistent-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
+---

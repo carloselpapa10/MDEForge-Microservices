@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mdeforge-kafka-service
+  labels:
+    name: mdeforge-kafka-service
+spec:
+  ports:
+  - port: 9092
+    targetPort: 9092
+  selector:
+    role: mdeforge-kafka
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: mdeforge-kafka
+spec:
+  serviceName: "kafka"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        role: mdeforge-kafka
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: kafka
+          image: eventuateio/eventuateio-local-kafka:0.14.0
+          env:
+            - name: KAFKA_HEAP_OPTS
+              value: -Xmx320m -Xms320m
+            - name: ZOOKEEPER_SERVERS
+              value: mdeforge-zookeeper-service:2181
+          ports:
+              - containerPort: 9092
+          volumeMounts:
+            - name: mdeforge-kafka-persistent-storage
+              mountPath: /usr/local/kafka-data
+            - name: mdeforge-kafka-config-volume
+              mountPath: /usr/local/kafka-config
+      volumes:
+      - name: mdeforge-kafka-config-volume
+        configMap:
+          name: mdeforge-kafka-config
+  volumeClaimTemplates:
+  - metadata:
+      name: mdeforge-kafka-persistent-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
+---

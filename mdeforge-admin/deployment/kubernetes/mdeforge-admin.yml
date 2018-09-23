@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mdeforge-admin-service
+  labels:
+    application: mdeforge
+    app: mdeforge
+spec:
+  ports:
+  - name: httpport
+    port: 8080
+    targetPort: 8080
+  selector:
+    svc: mdeforge-admin-service
+  type: NodePort
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mdeforge-admin
+  labels:
+    application: mdeforge
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        svc: mdeforge-admin
+        application: mdeforge
+    spec:
+      containers:
+      - name: mdeforge-admin
+        image: carloselpapa10/mdeforge-admin:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          name: httpport
+---
