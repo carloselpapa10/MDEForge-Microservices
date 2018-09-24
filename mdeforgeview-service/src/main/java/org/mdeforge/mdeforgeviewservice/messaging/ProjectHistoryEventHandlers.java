@@ -113,26 +113,54 @@ public class ProjectHistoryEventHandlers {
 
 	}
 
-	private void handleRemovedUserFromProjectEvent(DomainEventEnvelope<RemovedUserFromProjectEvent> dee) {
-		log.info("handleRemovedUserFromProjectEvent() - ProjectHistoryEventHandlers - ProjectService");
-
-		Project project = projectService.findProject(dee.getAggregateId());
-		User user = userService.findUser(dee.getEvent().getUserId());
-
-		if(user!= null && project != null){
-			projectService.removeUserFromProject(project, user);
-		}else{
-			/* user or project do not exist - report it by log*/
-			log.info("user or project do not exist!!!");
-		}
-	}
-
 	private void handleRemovedArtifactFromProjectEvent(DomainEventEnvelope<RemovedArtifactFromProjectEvent> dee) {
 		log.info("handleRemovedArtifactFromProjectEvent() - ProjectHistoryEventHandlers - ProjectService");
+
 	}
 
 	private void handleAddedUserInProjectEvent(DomainEventEnvelope<AddedUserInProjectEvent> dee) {
 		log.info("handleAddedUserInProjectEvent() - ProjectHistoryEventHandlers - ProjectService");
+
+		Project project = projectService.findProject(dee.getAggregateId());
+
+		User user = userService.findUser(dee.getEvent().getUserId());
+
+		if(user != null){
+
+		    for(int index = 0; index < project.getUserlist().size(); index++){
+		        if(project.getUserlist().get(index).getId().equals(user.getId())){
+		            return;
+                }
+            }
+
+            project.addUser(user);
+		    projectService.save(project);
+
+        }else {
+            log.info("User was not found!");
+        }
+
 	}
+
+    private void handleRemovedUserFromProjectEvent(DomainEventEnvelope<RemovedUserFromProjectEvent> dee) {
+        log.info("handleRemovedUserFromProjectEvent() - ProjectHistoryEventHandlers - ProjectService");
+
+        Project project = projectService.findProject(dee.getAggregateId());
+
+        User user = userService.findUser(dee.getEvent().getUserId());
+
+        if(user != null){
+
+            for (int index=0; index < project.getUserlist().size(); index++){
+                if(project.getUserlist().get(index).getId().equals(user.getId())){
+                    project.removeUser(project.getUserlist().get(index));
+                    projectService.save(project);
+                    break;
+                }
+            }
+        }else {
+            log.info("User was not found!");
+        }
+    }
 
 }

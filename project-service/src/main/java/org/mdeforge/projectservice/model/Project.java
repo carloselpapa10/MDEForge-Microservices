@@ -133,4 +133,12 @@ public class Project{
     public void setState(ProjectState state) {
         this.state = state;
     }
+
+    public void addUser(String userId){
+	    this.userlist.add(userId);
+    }
+
+    public void removeUser(String userId){
+	    this.userlist.remove(userId);
+    }
 }

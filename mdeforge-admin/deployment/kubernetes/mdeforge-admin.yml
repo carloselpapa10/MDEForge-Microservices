@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mdeforge-admin-service
+  name: mdeforge-admin
   labels:
     application: mdeforge
     app: mdeforge
@@ -11,7 +11,7 @@ spec:
     port: 8080
     targetPort: 8080
   selector:
-    svc: mdeforge-admin-service
+    svc: mdeforge-admin
   type: NodePort
 ---
 apiVersion: extensions/v1beta1

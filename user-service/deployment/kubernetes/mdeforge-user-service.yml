@@ -61,7 +61,7 @@ spec:
           - name: MONGODB
             value: mdeforge-mongodb-service:27017/userservicedb
           - name: SPRING_BOOT_ADMIN_URL
-            value: http://localhost:8090
+            value: mdeforge-admin:8080
           - name: SPRING_BOOT_ADMIN_USERNAME
             valueFrom:
               secretKeyRef:
@@ -73,5 +73,5 @@ spec:
                 name: mdeforge-secrets
                 key: spring_boot_admin_password
           - name: SPRING_BOOT_ADMIN_CLIENT_NAME
-            value: user-service
+            value: user-service      
 ---

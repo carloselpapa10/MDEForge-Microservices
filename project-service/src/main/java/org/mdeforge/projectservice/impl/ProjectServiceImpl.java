@@ -138,35 +138,43 @@ public class ProjectServiceImpl implements ProjectService{
 		return project;
 	}
 
+    @Override
+    public Project addUserInProject(Project project, String userId) throws BusinessException{
+        // TODO Auto-generated method stub
+        log.info("addUserInProject(Project project) - ProjectServiceImpl - ProjectService");
+
+        if(!project.getUserlist().contains(userId)){
+
+            project.addUser(userId);
+
+            List<ProjectDomainEvent> events = singletonList(new AddedUserInProjectEvent(new ProjectInfo(project.getId()), userId));
+            ResultWithDomainEvents<Project, ProjectDomainEvent> projectAndEvents = new ResultWithDomainEvents<>(project, events);
+
+            project = projectRepository.save(project);
+            projectAggregateEventPublisher.publish(project, projectAndEvents.events);
+        }
+
+        return project;
+    }
+
 	@Override
 	public Project removeUserFromProject(Project project, String userId) throws BusinessException{
 		// TODO Auto-generated method stub
 		log.info("removeUserFromProject(Project project) - ProjectServiceImpl - ProjectService");
 
-		List<String> userList = project.getArtifactlist() == null ? new ArrayList<>() : project.getArtifactlist();
+		if(project.getUserlist().contains(userId)){
 
-		if(userList.contains(userId)){
+		    project.removeUser(userId);
 
-			userList.remove(userId);
-			project.setUserlist(userList);
+            List<ProjectDomainEvent> events = singletonList(new RemovedUserFromProjectEvent(new ProjectInfo(project.getId()), userId));
+            ResultWithDomainEvents<Project, ProjectDomainEvent> projectAndEvents = new ResultWithDomainEvents<>(project, events);
 
-			List<ProjectDomainEvent> events = singletonList(new RemovedUserFromProjectEvent(new ProjectInfo(project.getId()), userId));
-			ResultWithDomainEvents<Project, ProjectDomainEvent> projectAndEvents = new ResultWithDomainEvents<>(project, events);
+            project = projectRepository.save(project);
+            projectAggregateEventPublisher.publish(project, projectAndEvents.events);
 
-			project = projectRepository.save(project);
-			projectAggregateEventPublisher.publish(project, projectAndEvents.events);
+        }
 
-			return project;
-
-		}
-		return null;
-	}
-			
-	@Override
-	public void addUserInProject(Project project) throws BusinessException{
-		// TODO Auto-generated method stub
-		log.info("addUserInProject(Project project) - ProjectServiceImpl - ProjectService");
-
+        return project;
 	}
 			
 	@Override

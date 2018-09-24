@@ -305,13 +305,25 @@
 	});
 	
 	$(document).on('click','.removeSharedUser', function(event){
-		debugger;
+		//debugger;
 		var idProject = $('#projectId').attr('data-id');
 		var idUser = $(this).data('id');
 		$.ajax({
 			url : ctx + "/private/project/" + idProject + "/removeUser/" + idUser,
 			success : function(data) {
 				$('.sharedUser[data-id="'+ idUser +'"]').remove();
+                $('.userLi[data-id="'+ idUser+'"]').remove();
+                $('.UserLi[data-id="'+ idUser+'"]').remove();
+
+                shared_users -= 1;
+                /*
+
+                if (shared_users > 0) {
+                    $('#sharedNumber').html('<span  class="text-black strong">' + shared_users + '</span> people shares this project');
+                }
+                else{
+                        $('#sharedNumber').html('No one shares this project.');
+                }*/
 				
 			},
 			error : function error(data) {
@@ -779,8 +791,8 @@
 					//buttons
 					$('.button-toggle').removeClass("rotate-item");
 					//GLOBAL VARIABLE
-					shared_users = data.userlist.length-1;
-					if (data.userlist.length > 1)
+					shared_users = data.userlist.length;
+					if (data.userlist.length > 0)
 
 						$('#sharedNumber').html('<span  class="text-black strong">'+ shared_users +'</span> people shares this project');
 					else{

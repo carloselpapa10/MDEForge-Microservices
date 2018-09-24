@@ -36,6 +36,19 @@ public class UserService {
         return null;
     }
 
+    public User findUserById(String id){
+
+        Mono<User> mono = client.get()
+                .uri("/view/user/id/"+id)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .flatMap(response -> response.bodyToMono(User.class));
+
+        User user = mono.block();
+
+        return user;
+    }
+
     public User findUserByEmail(String email){
 
         Mono<User> mono = client.get()

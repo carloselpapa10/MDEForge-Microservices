@@ -1,5 +1,5 @@
-org/mdeforge/projectservice/model/ProjectRepository.class
 org/mdeforge/projectservice/webapi/CreateProjectRequest.class
+org/mdeforge/projectservice/model/ProjectRepository.class
 org/mdeforge/projectservice/dao/ProjectServiceConfiguration.class
 org/mdeforge/projectservice/model/Project.class
 org/mdeforge/projectservice/model/ProjectState.class
@@ -9,10 +9,10 @@ org/mdeforge/projectservice/controller/ProjectServiceController.class
 org/mdeforge/projectservice/messaging/UserHistoryEventHandlers.class
 org/mdeforge/projectservice/webapi/ShareProjectToUserRequest.class
 org/mdeforge/projectservice/messaging/ArtifactHistoryEventHandlers.class
-org/mdeforge/projectservice/impl/ProjectServiceImpl.class
 org/mdeforge/projectservice/model/ProjectDomainEventPublisher.class
-org/mdeforge/projectservice/commandhandlers/ProjectServiceCommandHandlers.class
+org/mdeforge/projectservice/impl/ProjectServiceImpl.class
 org/mdeforge/projectservice/dao/ProjectService.class
+org/mdeforge/projectservice/commandhandlers/ProjectServiceCommandHandlers.class
 org/mdeforge/projectservice/commandhandlers/ProjectServiceCommandHandlersConfiguration.class
 org/mdeforge/projectservice/messaging/EventHandlersConfiguration.class
 org/mdeforge/projectservice/webapi/CreateProjectResponse.class

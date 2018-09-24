@@ -75,30 +75,37 @@ public class ProjectServiceController {
 	public ResponseEntity<Project> shareProjectToUser(@RequestParam String projectId, @RequestParam String userId){
 		log.info("shareProjectToUser(@RequestBody Project project) - ProjectServiceController - ProjectService");
 
-		Project project = projectService.findProject(projectId);
-		if(project != null){
-
-			project = projectService.shareProjectToUser(project, userId);
-			return ResponseEntity.ok(project);
-		}
+		/*TODO*/
 
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 	}
  			
-	@PutMapping("/addUserInProject/project")
-	public ResponseEntity<Project> addUserInProject(@RequestBody Project project){
-		log.info("addUserInProject(@RequestBody Project project) - ProjectServiceController - ProjectService");
+	@GetMapping("/addUserInProject/project")
+	public String addUserInProject(@RequestParam String projectId, @RequestParam String userId){
+		log.info("addUserInProject(@RequestParam String projectId, @RequestParam String userId) - ProjectServiceController - ProjectService");
 
-		/*TODO*/
+        Project project = projectService.findProject(projectId);
+
+        if(project != null){
+            project = projectService.addUserInProject(project, userId);
+            return project.getId();
+        }
+
 		return null;
 	}
  			
-	@PutMapping("/removeUserFromProject/project")
-	public ResponseEntity<Project> removeUserFromProject(@RequestBody Project project){
-		log.info("removeUserFromProject(@RequestBody Project project) - ProjectServiceController - ProjectService");
+	@GetMapping("/removeUserFromProject/project")
+	public String removeUserFromProject(@RequestParam String projectId, @RequestParam String userId){
+		log.info("removeUserFromProject(@RequestParam String projectId, @RequestParam String userId) - ProjectServiceController - ProjectService");
 
-		/*TODO*/
-		return null;
+        Project project = projectService.findProject(projectId);
+
+        if(project != null){
+            project = projectService.removeUserFromProject(project, userId);
+            return project.getId();
+        }
+
+        return null;
 	}
  			
 	@GetMapping("/retrieve/Projects")

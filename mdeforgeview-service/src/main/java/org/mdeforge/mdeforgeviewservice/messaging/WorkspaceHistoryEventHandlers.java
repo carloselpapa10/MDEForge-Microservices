@@ -137,9 +137,7 @@ public class WorkspaceHistoryEventHandlers {
 
 		if(project != null){
 
-            int index;
-
-            for(index = 0; index < workspace.getProjects().size(); index++){
+            for(int index = 0; index < workspace.getProjects().size(); index++){
                 if(workspace.getProjects().get(index).getId().equals(project.getId())){
                     workspace.removeProject(workspace.getProjects().get(index));
                     workspaceService.save(workspace);

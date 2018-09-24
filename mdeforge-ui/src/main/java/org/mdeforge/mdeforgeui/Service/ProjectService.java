@@ -86,4 +86,33 @@ public class ProjectService {
 
         return mono.block();
     }
+
+    public String addUserInProject(String projectId, String userId){
+
+        Mono<String> mono = client.get()
+                .uri("/project/addUserInProject?projectId="+projectId+"&userId="+userId)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .flatMap(response -> response.bodyToMono(String.class));
+
+        String id = mono.block();
+
+        return id;
+    }
+
+    public String removeUserFromProject(String projectId, String userId){
+
+        Mono<String> mono = client.get()
+                .uri("/project/removeUserFromProject?projectId="+projectId+"&userId="+userId)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .flatMap(response -> response.bodyToMono(String.class));
+
+        String id = mono.block();
+
+        return id;
+    }
+
+
+
 }

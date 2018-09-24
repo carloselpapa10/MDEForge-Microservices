@@ -125,4 +125,14 @@ public class Project{
     public void setState(String state) {
         this.state = state;
     }
+
+    public void addUser(User user){
+        this.userlist.add(user);
+    }
+
+    public void removeUser(User user){
+        this.userlist.remove(user);
+    }
+
+
 }

@@ -12,7 +12,6 @@ public class RemovedArtifactFromProjectEvent implements ProjectDomainEvent{
 		super();
 		this.projectInfo = projectInfo;
 	}
-
 	
 	public ProjectInfo getProjectInfo() {
 		return projectInfo;

@@ -38,7 +38,7 @@ spec:
             - name: mdeforge-kafka-persistent-storage
               mountPath: /usr/local/kafka-data
             - name: mdeforge-kafka-config-volume
-              mountPath: /usr/local/kafka-config
+              mountPath: /usr/local/kafka-config2
       volumes:
       - name: mdeforge-kafka-config-volume
         configMap:

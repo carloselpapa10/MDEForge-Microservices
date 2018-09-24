@@ -5,6 +5,7 @@ import org.mdeforge.servicemodel.project.api.info.*;
 public class AddedUserInProjectEvent implements ProjectDomainEvent{
 	
 	private ProjectInfo projectInfo;
+	private String userId;
 
 	public AddedUserInProjectEvent() {}
 
@@ -13,8 +14,12 @@ public class AddedUserInProjectEvent implements ProjectDomainEvent{
 		this.projectInfo = projectInfo;
 	}
 
-	
-	public ProjectInfo getProjectInfo() {
+    public AddedUserInProjectEvent(ProjectInfo projectInfo, String userId) {
+        this.projectInfo = projectInfo;
+        this.userId = userId;
+    }
+
+    public ProjectInfo getProjectInfo() {
 		return projectInfo;
 	}
 
@@ -22,4 +27,11 @@ public class AddedUserInProjectEvent implements ProjectDomainEvent{
 		this.projectInfo = projectInfo;
 	}
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 }

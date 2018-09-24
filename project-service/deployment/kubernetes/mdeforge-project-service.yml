@@ -61,7 +61,7 @@ spec:
           - name: MONGODB
             value: mdeforge-mongodb-service:27017/projectservicedb
           - name: SPRING_BOOT_ADMIN_URL
-            value: http://mdeforge-admin-service:8080
+            value: mdeforge-admin:8080
           - name: SPRING_BOOT_ADMIN_USERNAME
             valueFrom:
               secretKeyRef:
@@ -74,4 +74,16 @@ spec:
                 key: spring_boot_admin_password
           - name: SPRING_BOOT_ADMIN_CLIENT_NAME
             value: project-service
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 40
+          periodSeconds: 20
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 40
+          periodSeconds: 20
 ---
