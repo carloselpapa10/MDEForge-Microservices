@@ -61,6 +61,12 @@ public class ProjectController {
             Project project = projectService.findProjectById(projectId);
             if(project == null){return null;}
 
+            for(int index = 0; index < project.getUserlist().size(); index++){
+                if(project.getUserlist().get(index).getId().equals(userId)){
+                    return  new ResponseEntity<User>(HttpStatus.BAD_REQUEST);
+                }
+            }
+
            if(projectService.addUserInProject(project.getId(), user.getId()) != null){
                return new ResponseEntity<User>(user, HttpStatus.OK);
            }else{

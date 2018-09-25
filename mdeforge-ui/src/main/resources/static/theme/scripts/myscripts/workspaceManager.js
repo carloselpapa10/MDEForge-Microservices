@@ -316,14 +316,13 @@
                 $('.UserLi[data-id="'+ idUser+'"]').remove();
 
                 shared_users -= 1;
-                /*
 
                 if (shared_users > 0) {
                     $('#sharedNumber').html('<span  class="text-black strong">' + shared_users + '</span> people shares this project');
                 }
                 else{
                         $('#sharedNumber').html('No one shares this project.');
-                }*/
+                }
 				
 			},
 			error : function error(data) {
