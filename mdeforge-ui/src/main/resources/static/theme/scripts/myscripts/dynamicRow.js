@@ -45,7 +45,7 @@ $(function() {
 		var toRender = new Object();
 		idRow = idRow + 1;
 		toRender.idRow = idRow;
-		$.get(ctx + '/resources/theme/scripts/plugins/forms/template/rowProperty.html',
+		$.get(ctx + '/theme/scripts/plugins/forms/template/rowProperty.html',
 				function(template) {
 					var rendered = Mustache.render(template, toRender);
 					result.append(rendered);
@@ -59,7 +59,7 @@ $(function() {
 			idRow = -1;
 		var result = $('#propertiesTable2');
 		toRender.idRow = idRow + 1;
-		$.get(ctx + '/resources/theme/scripts/plugins/forms/template/rowProperty.html',
+		$.get(ctx + '/theme/scripts/plugins/forms/template/rowProperty.html',
 				function(template) {
 			var rendered = Mustache.render(template, idRow);
 			result.append(rendered);
@@ -109,7 +109,7 @@ $(function() {
 		toRender.idRow = idRow + 1;
 		toRender.toArtifactID = idMetamodel;
 		toRender.toArtifactName = nameMetamodel;
-		$.get(ctx + '/resources/theme/scripts/plugins/forms/template/rowDomainConformToRelation.html',
+		$.get(ctx + '/theme/scripts/plugins/forms/template/rowDomainConformToRelation.html',
 				function(template) {
 					var rendered = Mustache.render(template, toRender);
 					result.append(rendered);
@@ -169,7 +169,7 @@ $(function() {
 		toRender.idRow = idRow + 1;
 		toRender.toArtifactID = idMetamodel;
 		toRender.toArtifactName = nameMetamodel;
-		$.get(ctx + '/resources/theme/scripts/plugins/forms/template/rowCoDomainConformToRelation.html',
+		$.get(ctx + '/theme/scripts/plugins/forms/template/rowCoDomainConformToRelation.html',
 				function(template) {
 					var rendered = Mustache.render(template, toRender);
 					result.append(rendered);

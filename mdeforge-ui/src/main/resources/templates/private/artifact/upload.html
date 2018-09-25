@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{private/common/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload</title>
+
+    <link th:href="@{/bootstrap/extend/jasny-fileupload/css/fileupload.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/extend/bootstrap-wysihtml5/css/bootstrap-wysihtml5-0.0.2.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/extend/bootstrap-select/bootstrap-select.css}" rel="stylesheet" />
+    <link th:href="@{/bootstrap/extend/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css}" rel="stylesheet" />
+
+
+    <script th:src="@{/theme/scripts/plugins/forms/template/mustache.js}"></script>
+    <script th:src="@{/theme/scripts/plugins/spinner/spin.min.js}"></script>
+    <script th:src="@{/theme/scripts/myscripts/dynamicRow.js}"></script>
+    <script th:src="@{/bootstrap/extend/jasny-fileupload/js/bootstrap-fileupload.js}"></script>
+
+</head>
+<body>
+
+<div layout:fragment="body">
+
+    <!-- Breadcrumb START -->
+    <ul class="breadcrumb">
+        <li>You are here</li>
+        <li><a href="#" class="glyphicons dashboard"><i></i> Private Area</a></li>
+        <li class="divider"></li>
+        <li> Use</li>
+        <li class="divider"></li>
+        <li th:text="${artifact.getClass().getSimpleName() }+' Upload'"></li>
+    </ul>
+    <!-- Breadcrumb END -->
+
+    <h3 class="header-h main-title" th:text="${artifact.getClass().getSimpleName()}+' Upload'" style="margin: 10px;"></h3>
+
+    <div class="innerLR">
+
+        <form cssClass="form-horizontal" th:object="${artifact}" th:id="artifact"
+              th:action="@{'/private/'+${artifact.getClass().getSimpleName()}+'/upload'}" role="form" th:method="post" enctype="multipart/form-data">
+
+            <div class="widget widget-heading-simple">
+
+                <div class="widget-body">
+
+                    <!-- Row -->
+                    <div class="row-fluid">
+
+                        <!-- Column -->
+                        <div class="span6">
+                            <!-- Group -->
+                            <h5 class="input-name" th:text="${artifact.getClass().getSimpleName()}+' Name'"></h5>
+                            <input type="text" name="name" id="name" required/>
+                            <h5 class="input-name" th:text="${artifact.getClass().getSimpleName()}+' Description'"></h5>
+                            <textarea name="description" id="description"></textarea>
+                            <!-- // Group END -->
+                            <h5 class="input-name">Visibility</h5>
+                            <select name="open" id="open">
+                                <option value="true">Public</option>
+                                <option value="false">Private</option>
+                            </select>
+                            <!-- // Column END -->
+                        </div>
+                        <div class="span6">
+                            <div class="box__input">
+                                <h5 class="input-name center" th:text="'Upload '+${artifact.getClass().getSimpleName()}+' File'"> </h5>
+                                <label for="file"><div><img width="150px" class="img-center" th:src="@{/theme/images/newfile.png}"></div></label>
+                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                    <div class="input-append center" style="width: 100%">
+							  		<span class="btn btn-default btn-file">
+								    	<span class="fileupload-new" th:text="'Select '+${artifact.getClass().getSimpleName()}+' File'"></span>
+								    	<span class="fileupload-exists">Change</span>
+								    	<input type="file" id="file" name="file" class="margin-none" size="40" required/>
+							    	</span>
+                                        <div class="uneditable-input center"><i class="icon-file fileupload-exists"></i>
+                                            <span class="fileupload-preview"></span>
+                                        </div>
+
+                                        <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- // Row END -->
+                        </div>
+                        <!-- // Column END -->
+
+                        <!-- // Row END-->
+
+                        <hr class="separator">
+                        <div class="row-fluid">
+                            <!-- Row -->
+                            <div class="span12">
+                                <h5 class="input-name">Properties</h5>
+                                <table id="propertiesT">
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+
+                                        <th>Value</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="propertiesTable">
+                                    </tbody>
+                                </table>
+                                <button type="button" id="addPropertyButton" class="btn btn-primary">Add New Property</button>
+                            </div>
+                        </div>
+                        <div class="separator"></div>
+                        <hr class="separator">
+                        <div class="row-fluid">
+                            <div class="span6">
+                                <h5 class="input-name">Add To Project</h5>
+
+                                <select path="projects" multiple="true">
+                                    <th:block th:each="project : ${projectList}">
+                                        <option th:value="${project.getId()}"> <span th:text="${project.getName()}"></span></option>
+                                    </th:block>
+                                </select>
+                            </div>
+
+                            <div class="span6">
+                                <h5 class="input-name">Share With</h5>
+
+                                <select path="shared" multiple="true">
+                                    <th:block th:each="user : ${userList}">
+                                        <option th:value="${user.getId()}"> <span th:text="${user.username}"></span></option>
+                                    </th:block>
+                                </select>
+                            </div>
+                        </div>
+
+                        <th:block th:switch="${artifact.getClass().getSimpleName()}">
+
+                            <div th:case="'Model'">
+                                <div class="row-fluid">
+                                    <div class="span6">
+                                        <h5 class="input-name">Select Metamodel</h5>
+                                        <input id="conformMetamodelSelect" type="hidden"  name="conformToRelation" value="">
+                                        <input autocomplete="off" id="modelRelMetamodel" type="text" class="my-select" data-type="EcoreMetamodel" placeholder="Search EcoreMetamodels">
+                                    </div>
+                                </div>
+                                <div class="separator"></div>
+                                <hr class="separator">
+
+                                <script th:src="@{/theme/scripts/plugins/forms/template/mustache.js}"></script>
+                            </div>
+
+                            <div th:case="'ATLTransformation'">
+
+                                <div class="separator"></div>
+                                <hr class="separator">
+                                <div class="separator"></div>
+                                <div class="row-fluid">
+                                    <div class="span6">
+                                        <button type="button" id="transformationModelInfo"
+                                                class="btn btn-icon btn-large btn-primary glyphicons file">
+                                            <i></i>Parse ATL
+                                        </button>
+                                    </div>
+                                    <div class="span6 text-right">
+                                        <button type="button" id="expandTables"
+                                                class="btn btn-icon">
+                                            <i class="icon-resize-horizontal"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="separator bottom"></div>
+                                <p>When uploading transformations, it is necessary to specify the source and target
+                                    metamodels. It is possible to parse the transformation being uploaded to automatically
+                                    search for candidate metamodels. If they are not
+                                    available in the repository, users have to upload them before finalizing the addition of
+                                    the new transformation.</p>
+                                <!-- Form actions -->
+                                <div class="row-fluid" id="transformationRelations">
+                                    <div class="span6 expand-row">
+                                        <h5 class="input-name">From Metamodels</h5>
+
+                                        <div id="defineDomainRelationTo">
+                                            <div class="separator bottom"></div>
+                                            <input autocomplete="off" id="domainMetamodelSelect" class="my-select" type="text" data-type="EcoreMetamodel" placeholder="Search EcoreMetamodels">
+                                            <button type="button" id="addDomainConformToMetamodel" class="btn btn-primary">
+                                                Select Metamodel
+                                            </button>
+                                            <div class="separator"></div>
+                                        </div>
+
+                                        <table id="tableDefineDomainRelationTo" class="showOnFillTablesMeta">
+                                            <thead>
+                                            <tr>
+                                                <th class="span5">Metamodel</th>
+                                                <th>Name</th>
+                                                <th>Reference Model Name</th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="domainConformToTable">
+                                            </tbody>
+                                        </table>
+                                        <div class="separator"></div>
+                                        <hr>
+                                    </div>
+                                    <div class="span6 expand-row">
+                                        <h5 class="input-name">To Metamodels</h5>
+
+                                        <div  id="defineCoDomainRelationTo">
+                                            <div class="separator bottom"></div>
+                                            <input autocomplete="off" id="coDomainMetamodelSelect" class="my-select" type="text" data-type="EcoreMetamodel" placeholder="Search EcoreMetamodels">
+                                            <button type="button" id="addCoDomainConformToMetamodel"
+                                                    class="btn btn-primary">
+                                                Select Metamodel
+                                            </button>
+                                            <div class="separator"></div>
+                                        </div>
+
+                                        <table id="tableDefineCoDomainRelationTo" class="showOnFillTablesMeta">
+                                            <thead>
+                                            <tr>
+                                                <th class="span5">Metamodel</th>
+                                                <th>Name</th>
+                                                <th>Reference Model Name</th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="coDomainConformToTable">
+                                            </tbody>
+                                        </table>
+                                        <div class="separator"></div>
+                                    </div>
+                                </div>
+                                <hr class="separator">
+
+                                <script th:src="@{/theme/scripts/myscripts/transformationModelInfo.js}"></script>
+                            </div>
+
+                        </th:block>
+
+                        <div class="separator"></div>
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-large btn-primary glyphicons cloud-upload"><i></i> Upload</button>
+                                    <a th:href="@{/}" class="btn btn-default btn-large">Cancel </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- // Form actions END -->
+
+                    </div>
+                </div>
+
+        </form>
+    </div>
+
+</div>
+
+</body>
+
+</html>
