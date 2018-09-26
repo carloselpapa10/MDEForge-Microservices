@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="Metrics")
@@ -14,37 +15,41 @@ public class Metric{
 	private String id; 
     private String name;									
     private String code;									
-    private String artifact;									
+
+    @DBRef
+    private Artifact artifact;
 				
 	public Metric() {}
-				
-	public void setId(String id) {
-		this.id = id;
-	}	
 
-	public String getId() {
-		return id;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}	
+    public String getId() {
+        return id;
+    }
 
-	public String getName() {
-		return name;
-	}
-	public void setCode(String code) {
-		this.code = code;
-	}	
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getCode() {
-		return code;
-	}
-	public void setArtifact(String artifact) {
-		this.artifact = artifact;
-	}	
+    public String getName() {
+        return name;
+    }
 
-	public String getArtifact() {
-		return artifact;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public Artifact getArtifact() {
+        return artifact;
+    }
+
+    public void setArtifact(Artifact artifact) {
+        this.artifact = artifact;
+    }
 }

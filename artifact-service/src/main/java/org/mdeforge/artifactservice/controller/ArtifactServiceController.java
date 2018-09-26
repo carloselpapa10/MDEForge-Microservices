@@ -1,5 +1,6 @@
 package org.mdeforge.artifactservice.controller;
 
+import org.mdeforge.artifactservice.dao.EcoreMetamodelService;
 import org.mdeforge.artifactservice.impl.*;
 import org.mdeforge.artifactservice.model.*;
 import org.mdeforge.artifactservice.webapi.*;
@@ -16,7 +17,16 @@ public class ArtifactServiceController {
 	private static final Logger log = LoggerFactory.getLogger(ArtifactServiceController.class);
 
 	@Autowired
-	private ArtifactServiceImpl artifactServiceImpl;
+    private EcoreMetamodelService ecoreMetamodelService;
+
+	@PostMapping("/createArtifact/ecoreMetamodel")
+    public String createEcoreMetamodelArtifact(@RequestBody EcoreMetamodel request){
+
+	    EcoreMetamodel ecoreMetamodel = ecoreMetamodelService.create(request);
+
+	    return ecoreMetamodel.getId() != null ? ecoreMetamodel.getId() : null;
+    }
+
 
 	@PostMapping("/createArtifact/artifact")
 	public CreateArtifactResponse createArtifact(@RequestBody CreateArtifactRequest createArtifactRequest){
@@ -70,7 +80,8 @@ public class ArtifactServiceController {
 	public List<Artifact> findAllArtifacts(){
 		/*Auto-Generated*/
 		log.info("findAll() - ArtifactServiceController - ArtifactService");
-		return artifactServiceImpl.findAll();
+		return null;
+		//return artifactServiceImpl.findAll();
 	}
 
 }

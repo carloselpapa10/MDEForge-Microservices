@@ -1,8 +1,8 @@
 package org.mdeforge.artifactservice.impl;
 
+import org.mdeforge.artifactservice.repository.ArtifactRepository;
 import org.mdeforge.servicemodel.common.BusinessException;
 import org.mdeforge.servicemodel.artifact.api.events.*;
-import org.mdeforge.servicemodel.artifact.api.info.*;
 import org.mdeforge.artifactservice.dao.ArtifactService;
 import org.mdeforge.artifactservice.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import static java.util.Collections.singletonList;
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.NoSuchElementException;
+
 import io.eventuate.tram.events.aggregates.ResultWithDomainEvents;
 
 @Component
