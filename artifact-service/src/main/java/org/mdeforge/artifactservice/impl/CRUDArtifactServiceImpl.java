@@ -43,7 +43,7 @@ public abstract class CRUDArtifactServiceImpl<T extends Artifact> implements CRU
 
         if(artifact.getId() != null){throw new BusinessException();}
 
-        /*file handler
+        /*file handler*/
         if(artifact.getFile() != null){
 
             try{
@@ -53,8 +53,10 @@ public abstract class CRUDArtifactServiceImpl<T extends Artifact> implements CRU
 
             }
 
+        }else{
+            /*TODO don't do anything*/
         }
-        file handler*/
+        /*file handler*/
 
         artifact.setGenerated(false);
         artifact.setCreated(new Date());

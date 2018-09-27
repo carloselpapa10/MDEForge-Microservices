@@ -63,13 +63,13 @@
                         <div class="span6">
                             <div class="box__input">
                                 <h5 class="input-name center" th:text="'Upload '+${artifact.getClass().getSimpleName()}+' File'"> </h5>
-                                <label for="file"><div><img width="150px" class="img-center" th:src="@{/theme/images/newfile.png}"></div></label>
+                                <label for="artifactfile"><div><img width="150px" class="img-center" th:src="@{/theme/images/newfile.png}"></div></label>
                                 <div class="fileupload fileupload-new" data-provides="fileupload">
                                     <div class="input-append center" style="width: 100%">
 							  		<span class="btn btn-default btn-file">
 								    	<span class="fileupload-new" th:text="'Select '+${artifact.getClass().getSimpleName()}+' File'"></span>
 								    	<span class="fileupload-exists">Change</span>
-								    	<input type="file" id="file" name="file" class="margin-none" size="40" required/>
+								    	<input type="file" id="artifactfile" name="artifactfile" class="margin-none" size="40" required/>
 							    	</span>
                                         <div class="uneditable-input center"><i class="icon-file fileupload-exists"></i>
                                             <span class="fileupload-preview"></span>

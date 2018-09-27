@@ -5,6 +5,7 @@ import org.mdeforge.artifactservice.impl.*;
 import org.mdeforge.artifactservice.model.*;
 import org.mdeforge.artifactservice.webapi.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -19,7 +20,8 @@ public class ArtifactServiceController {
 	@Autowired
     private EcoreMetamodelService ecoreMetamodelService;
 
-	@PostMapping("/createArtifact/ecoreMetamodel")
+	//@PostMapping("/createArtifact/ecoreMetamodel")
+    @RequestMapping(value = "/createArtifact/ecoreMetamodel", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public String createEcoreMetamodelArtifact(@RequestBody EcoreMetamodel request){
 
 	    EcoreMetamodel ecoreMetamodel = ecoreMetamodelService.create(request);
