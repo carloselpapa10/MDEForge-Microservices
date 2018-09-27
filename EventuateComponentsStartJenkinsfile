@@ -1,0 +1,35 @@
+pipeline {
+	agent none    
+stages {
+	stage('Start Mysql') {
+		agent any
+		steps {
+			sh 'docker start mysql'
+		}
+	}
+	stage('Start Mongodb') {
+		agent any
+		steps {
+			sh 'docker start mongodb'
+		}
+	}
+	stage('Start Zookeeper') {
+		agent any
+		steps {
+			sh 'docker start zookeeper'
+		}
+	}
+	stage('Start Kafka') {
+		agent any
+		steps {
+			sh 'docker start kafka'
+		}
+	}
+	stage('Start CDCService') {
+		agent any
+		steps {
+			sh 'docker start cdcservice'
+		}
+	}
+  }
+}
