@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/private/EcoreMetamodel")
@@ -28,17 +31,24 @@ public class EcoreController extends ArtifactController<EcoreMetamodel>{
     @PostMapping("/upload")
     public String uploadNewArtifact(Model model, EcoreMetamodel artifact, @RequestParam("artifactfile") MultipartFile file){
 
-        //artifact.setFile(file);
-        try {
-            MultiValueMap<String, Object> parameters = new LinkedMultiValueMap<String, Object>();
-            //parameters.add("file", new FileSystemResource(file.get));
+        try{
+            File fileToSend = new File(file.getOriginalFilename());
+            file.transferTo(fileToSend);
+            artifactService.createEcoreMetamodelArtifact(artifact, fileToSend);
 
-
-        }catch (Exception e){
-
+        }catch (IOException e){
+            return null;
         }
-        artifactService.createEcoreMetamodelArtifact(artifact);
 
         return "redirect:/";
+    }
+
+    private File convert(MultipartFile file) throws IOException {
+        File convFile = new File(file.getOriginalFilename());
+        convFile.createNewFile();
+        FileOutputStream fos = new FileOutputStream(convFile);
+        fos.write(file.getBytes());
+        fos.close();
+        return convFile;
     }
 }

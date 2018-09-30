@@ -46,12 +46,12 @@ public abstract class CRUDArtifactServiceImpl<T extends Artifact> implements CRU
         /*file handler*/
         if(artifact.getFile() != null){
 
-            try{
+            /*try{
                 artifact.getFile().transferTo(new File(files_path));
                 artifact.setFileUrl(artifact.getFile().getName());
             }catch (IOException e){
 
-            }
+            }*/
 
         }else{
             /*TODO don't do anything*/

@@ -13,8 +13,8 @@ org/mdeforge/workspaceservice/model/Workspace.class
 org/mdeforge/workspaceservice/webapi/CreateWorkspaceResponse.class
 org/mdeforge/workspaceservice/impl/WorkspaceServiceImpl.class
 org/mdeforge/workspaceservice/proj.class
-org/mdeforge/workspaceservice/WorkspaceServiceApplication.class
 org/mdeforge/workspaceservice/saga/updateworkspace/UpdateWorkspaceSagaData.class
+org/mdeforge/workspaceservice/WorkspaceServiceApplication.class
 org/mdeforge/workspaceservice/messaging/ProjectHistoryEventHandlers.class
 org/mdeforge/workspaceservice/dao/WorkspaceServiceConfiguration.class
 org/mdeforge/workspaceservice/proxy/WorkspaceServiceProxy.class

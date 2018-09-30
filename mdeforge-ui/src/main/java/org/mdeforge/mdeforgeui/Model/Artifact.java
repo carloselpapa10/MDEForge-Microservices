@@ -1,8 +1,6 @@
 package org.mdeforge.mdeforgeui.Model;
 
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.validation.constraints.NotEmpty;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,7 +12,6 @@ public class Artifact {
     private Date modified;
     private boolean open;
     private String fileUrl;
-    private MultipartFile file;
     private String name;
     private String description;
     private List<String> tags;
@@ -75,14 +72,6 @@ public class Artifact {
 
     public void setFileUrl(String fileUrl) {
         this.fileUrl = fileUrl;
-    }
-
-    public MultipartFile getFile() {
-        return file;
-    }
-
-    public void setFile(MultipartFile file) {
-        this.file = file;
     }
 
     public String getName() {

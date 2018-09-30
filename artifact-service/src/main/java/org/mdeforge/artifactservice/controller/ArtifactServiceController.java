@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 public class ArtifactServiceController {
@@ -20,9 +21,8 @@ public class ArtifactServiceController {
 	@Autowired
     private EcoreMetamodelService ecoreMetamodelService;
 
-	//@PostMapping("/createArtifact/ecoreMetamodel")
-    @RequestMapping(value = "/createArtifact/ecoreMetamodel", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public String createEcoreMetamodelArtifact(@RequestBody EcoreMetamodel request){
+	@PostMapping("/createArtifact/ecoreMetamodel")
+    public String createEcoreMetamodelArtifact(@RequestPart("artifact") EcoreMetamodel request, @RequestParam("file") MultipartFile file){
 
 	    EcoreMetamodel ecoreMetamodel = ecoreMetamodelService.create(request);
 

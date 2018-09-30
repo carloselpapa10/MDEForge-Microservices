@@ -1,5 +1,6 @@
 package org.mdeforge.artifactservice.model;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -8,7 +9,6 @@ import javax.persistence.GenerationType;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.web.multipart.MultipartFile;
 
 @Document(collection="Artifacts")
 public class Artifact{
@@ -20,7 +20,8 @@ public class Artifact{
     private String description;									
     private boolean open;
     private String fileUrl;
-    private MultipartFile file;
+    @DBRef(lazy = true)
+    private File file;
     private boolean generated;									
     private Date created;
     private Date modified;
@@ -80,11 +81,11 @@ public class Artifact{
         this.fileUrl = fileUrl;
     }
 
-    public MultipartFile getFile() {
+    public File getFile() {
         return file;
     }
 
-    public void setFile(MultipartFile file) {
+    public void setFile(File file) {
         this.file = file;
     }
 
