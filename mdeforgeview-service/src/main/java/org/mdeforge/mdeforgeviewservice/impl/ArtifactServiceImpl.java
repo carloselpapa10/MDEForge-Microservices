@@ -19,67 +19,25 @@ import io.eventuate.tram.events.aggregates.ResultWithDomainEvents;
 
 @Component
 @Transactional
-public class ArtifactServiceImpl implements ArtifactService{
+public class ArtifactServiceImpl<T extends Artifact> implements ArtifactService<T>{
 
 	private static final Logger log = LoggerFactory.getLogger(ArtifactServiceImpl.class);
 
 	@Autowired
 	private ArtifactRepository artifactRepository;
 
-	@Override
-	public Artifact createArtifact(Artifact artifact) throws BusinessException{
-		// TODO Auto-generated method stub
-		log.info("createArtifact(Artifact artifact) - ArtifactServiceImpl - MdeforgeviewService");
-		return artifact;
-	}
-				
-	@Override
-	public void updateArtifact(Artifact artifact) throws BusinessException{
-		// TODO Auto-generated method stub
-		log.info("updateArtifact(Artifact artifact) - ArtifactServiceImpl - MdeforgeviewService");
-	}
-			
-	@Override
-	public Artifact findArtifact(String id) throws BusinessException{
-		// TODO Auto-generated method stub
-		log.info("findArtifact(String id) - ArtifactServiceImpl - MdeforgeviewService");
-		return null;
-	}
-			
-	@Override
-	public void deleteArtifact(String id) throws BusinessException{
-		// TODO Auto-generated method stub
-		log.info("deleteArtifact(String id) - ArtifactServiceImpl - MdeforgeviewService");
-	}
-			
-	@Override
-	public void shareArtifactToUser(Artifact artifact) throws BusinessException{
-		// TODO Auto-generated method stub
-		log.info("shareArtifactToUser(Artifact artifact) - ArtifactServiceImpl - MdeforgeviewService");
-	}
-			
-	@Override
-	public void changeArtifactOpen(Artifact artifact) throws BusinessException{
-		// TODO Auto-generated method stub
-		log.info("changeArtifactOpen(Artifact artifact) - ArtifactServiceImpl - MdeforgeviewService");
-	}
-			
-	@Override
-	public void addArtifactToProjectList(Artifact artifact) throws BusinessException{
-		// TODO Auto-generated method stub
-		log.info("addArtifactToProjectList(Artifact artifact) - ArtifactServiceImpl - MdeforgeviewService");
-	}
-			
-	@Override
-	public void removeArtifactToProjectList(Artifact artifact) throws BusinessException{
-		// TODO Auto-generated method stub
-		log.info("removeArtifactToProjectList(Artifact artifact) - ArtifactServiceImpl - MdeforgeviewService");
-	}
-			
-	@Override
-	public List<Artifact> findAll() throws BusinessException{
-		log.info("findAll() - ArtifactServiceImpl - MdeforgeviewService");
-		return artifactRepository.findAll();
-	}
+    @Override
+    public T create(T artifact) throws BusinessException {
+        return artifactRepository.save(artifact);
+    }
 
+    @Override
+    public boolean existRelation(String idTo, String idFrom) throws BusinessException {
+        return false;
+    }
+
+    @Override
+    public void createIndex(Artifact artifact) throws BusinessException {
+
+    }
 }

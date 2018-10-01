@@ -11,7 +11,6 @@ public class ValidateArtifactCommand implements Command{
 	private MetricInfo metricInfo;
 	private RelationInfo relationInfo;
 	private PropertyInfo propertyInfo;
-	private GridFileMediaInfo gridFileMediaInfo;
 	
 	public ValidateArtifactCommand() {}
 
@@ -39,12 +38,6 @@ public class ValidateArtifactCommand implements Command{
 		super();
 		this.propertyInfo = propertyInfo;
 	}
-
-	public ValidateArtifactCommand(GridFileMediaInfo gridFileMediaInfo) {
-		super();
-		this.gridFileMediaInfo = gridFileMediaInfo;
-	}
-
 	public ArtifactInfo getArtifactInfo() {
 		return artifactInfo;
 	}
@@ -85,12 +78,5 @@ public class ValidateArtifactCommand implements Command{
 		this.propertyInfo = propertyInfo;
 	}
 
-	public GridFileMediaInfo getGridFileMediaInfo() {
-		return gridFileMediaInfo;
-	}
-	
-	public void setGridFileMediaInfo(GridFileMediaInfo gridFileMediaInfo) {
-		this.gridFileMediaInfo = gridFileMediaInfo;
-	}
 
 }

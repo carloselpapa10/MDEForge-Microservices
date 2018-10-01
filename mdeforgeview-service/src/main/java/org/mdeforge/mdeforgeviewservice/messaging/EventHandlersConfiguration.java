@@ -28,4 +28,9 @@ public class EventHandlersConfiguration {
 		return new DomainEventDispatcher("artifactHistoryDomainEventDispatcher", artifactHistoryEventHandlers.domainEventHandlers(), messageConsumer);
 	}			
 
+	@Bean
+	public DomainEventDispatcher ecoreMetamodelHistoryDomainEventDispatcher(EcoreMetamodelHistoryEventHandlers ecoreMetamodelHistoryEventHandlers, MessageConsumer messageConsumer) {
+		return new DomainEventDispatcher("ecoreMetamodelHistoryDomainEventDispatcher", ecoreMetamodelHistoryEventHandlers.domainEventHandlers(), messageConsumer);
+	}
+
 }			

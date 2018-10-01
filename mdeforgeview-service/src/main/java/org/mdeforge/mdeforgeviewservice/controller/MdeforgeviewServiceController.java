@@ -25,7 +25,8 @@ public class MdeforgeviewServiceController {
 				
 	@Autowired
 	private ProjectService projectService;
-				
+
+	/*
 	@GetMapping("/findArtifact/{artifactId}")
 	public Artifact findArtifact(@PathVariable("artifactId") String id){
 		log.info("findArtifact(String id) - MdeforgeviewServiceController - MdeforgeviewService");
@@ -34,10 +35,10 @@ public class MdeforgeviewServiceController {
 
 	@GetMapping("/retrieve/Artifacts")
 	public List<Artifact> findAllArtifacts(){
-		/*Auto-Generated*/
+
 		log.info("findAllArtifacts() - MdeforgeviewServiceController - MdeforgeviewService");
 		return artifactService.findAll();
-	}
+	}*/
 
 	@GetMapping("/findUser/{userId}")
 	public User findUser(@PathVariable("userId") String id){
@@ -47,7 +48,7 @@ public class MdeforgeviewServiceController {
 
 	@GetMapping("/retrieve/Users")
 	public List<User> findAllUsers(){
-		/*Auto-Generated*/
+
 		log.info("findAllUsers() - MdeforgeviewServiceController - MdeforgeviewService");
 		return userService.findAll();
 	}
@@ -78,7 +79,7 @@ public class MdeforgeviewServiceController {
 
     @GetMapping("/retrieve/Workspaces")
 	public List<Workspace> findAllWorkspaces(){
-		/*Auto-Generated*/
+
 		log.info("findAllWorkspaces() - MdeforgeviewServiceController - MdeforgeviewService");
 		return workspaceService.findAll();
 	}
@@ -97,9 +98,8 @@ public class MdeforgeviewServiceController {
 
 	@GetMapping("/retrieve/Projects")
 	public List<Project> findAllProjects(){
-		/*Auto-Generated*/
+
 		log.info("findAllProjects() - MdeforgeviewServiceController - MdeforgeviewService");
 		return projectService.findAll();
 	}
-
 }

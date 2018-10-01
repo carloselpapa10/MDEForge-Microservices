@@ -9,12 +9,14 @@ import org.mdeforge.artifactservice.repository.RelationRepository;
 import org.mdeforge.servicemodel.common.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 public abstract class CRUDArtifactServiceImpl<T extends Artifact> implements CRUDArtifactService<T> {
 
@@ -35,7 +37,7 @@ public abstract class CRUDArtifactServiceImpl<T extends Artifact> implements CRU
     }
 
     @Override
-    public T create(T artifact) throws BusinessException {
+    public T create(T artifact, MultipartFile file) throws BusinessException {
 
         if(artifactRepository.findByName(artifact.getName()) != null){
             throw new DuplicateNameException("Duplicate", "Duplicate artifact name");
@@ -43,16 +45,13 @@ public abstract class CRUDArtifactServiceImpl<T extends Artifact> implements CRU
 
         if(artifact.getId() != null){throw new BusinessException();}
 
-        /*file handler*/
-
-            /*try{
-                artifact.getFile().transferTo(new File(files_path));
-                artifact.setFileUrl(artifact.getFile().getName());
-            }catch (IOException e){
-
-            }*/
-
-        /*file handler*/
+        UUID uuid = UUID.randomUUID();
+        try{
+            file.transferTo(new File(files_path+uuid.toString()+"_"+file.getOriginalFilename()));
+            artifact.setFileUrl(uuid.toString()+"_"+file.getOriginalFilename());
+        }catch (IOException e){
+            System.out.println(e);
+        }
 
         artifact.setGenerated(false);
         artifact.setCreated(new Date());

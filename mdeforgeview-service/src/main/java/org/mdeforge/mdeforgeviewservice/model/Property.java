@@ -1,16 +1,16 @@
-package org.mdeforge.servicemodel.artifact.api.info;
+package org.mdeforge.mdeforgeviewservice.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-public class PropertyInfo {
+@Document(collection="Properties")
+public class Property {
 
-    private String name;									
-    private String value;									
+    private String name;
+    private String value;
 
-	public PropertyInfo(){}
+    public Property() {}
 
-    public PropertyInfo(String name, String value) {
+    public Property(String name, String value) {
         this.name = name;
         this.value = value;
     }
