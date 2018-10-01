@@ -122,7 +122,7 @@
                             <div class="span6">
                                 <h5 class="input-name">Share With</h5>
 
-                                <select path="shared" multiple="true">
+                                <select path="shared" multiple="true" name="shared" id="shared">
                                     <th:block th:each="user : ${userList}">
                                         <option th:value="${user.getId()}"> <span th:text="${user.username}"></span></option>
                                     </th:block>

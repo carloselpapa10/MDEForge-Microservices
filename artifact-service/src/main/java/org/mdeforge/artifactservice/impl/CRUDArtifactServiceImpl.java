@@ -44,7 +44,6 @@ public abstract class CRUDArtifactServiceImpl<T extends Artifact> implements CRU
         if(artifact.getId() != null){throw new BusinessException();}
 
         /*file handler*/
-        if(artifact.getFile() != null){
 
             /*try{
                 artifact.getFile().transferTo(new File(files_path));
@@ -53,9 +52,6 @@ public abstract class CRUDArtifactServiceImpl<T extends Artifact> implements CRU
 
             }*/
 
-        }else{
-            /*TODO don't do anything*/
-        }
         /*file handler*/
 
         artifact.setGenerated(false);

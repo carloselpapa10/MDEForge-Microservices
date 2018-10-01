@@ -1,6 +1,7 @@
 package org.mdeforge.mdeforgeui.Service;
 
 import org.mdeforge.mdeforgeui.Model.EcoreMetamodel;
+import org.mdeforge.mdeforgeui.WebApi.EcoreMetamodelRequest;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -20,11 +21,11 @@ public class ArtifactService {
         this.client = client;
     }
 
-    public String createEcoreMetamodelArtifact(EcoreMetamodel artifact, File file){
+    public String createEcoreMetamodelArtifact(EcoreMetamodelRequest ecoreMetamodelRequest, File file){
 
         WebClient.RequestHeadersSpec<?> request = client.post()
                 .uri("/artifact/ecoremetamodel")
-                .body(fromMultipartData("file", new FileSystemResource(file)).with("artifact", artifact));
+                .body(fromMultipartData("file", new FileSystemResource(file)).with("artifact", ecoreMetamodelRequest));
 
         String response = request.retrieve()
                 .bodyToMono(String.class)

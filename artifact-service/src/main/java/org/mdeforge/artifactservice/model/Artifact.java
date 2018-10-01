@@ -20,9 +20,8 @@ public class Artifact{
     private String description;									
     private boolean open;
     private String fileUrl;
-    @DBRef(lazy = true)
-    private File file;
-    private boolean generated;									
+    private String fileName;
+    private boolean generated;
     private Date created;
     private Date modified;
     private String authors;									
@@ -81,12 +80,12 @@ public class Artifact{
         this.fileUrl = fileUrl;
     }
 
-    public File getFile() {
-        return file;
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setFile(File file) {
-        this.file = file;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     public void setOpen(boolean open) {

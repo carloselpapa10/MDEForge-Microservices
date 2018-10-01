@@ -24,9 +24,10 @@ public class ArtifactServiceController {
 	@PostMapping("/createArtifact/ecoreMetamodel")
     public String createEcoreMetamodelArtifact(@RequestPart("artifact") EcoreMetamodel request, @RequestParam("file") MultipartFile file){
 
-	    EcoreMetamodel ecoreMetamodel = ecoreMetamodelService.create(request);
+	    //EcoreMetamodel ecoreMetamodel = ecoreMetamodelService.create(request);
 
-	    return ecoreMetamodel.getId() != null ? ecoreMetamodel.getId() : null;
+	    //return ecoreMetamodel.getId() != null ? ecoreMetamodel.getId() : null;
+        return "1";
     }
 
 

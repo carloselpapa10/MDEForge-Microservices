@@ -12,6 +12,7 @@ public class Artifact {
     private Date modified;
     private boolean open;
     private String fileUrl;
+    private String fileName;
     private String name;
     private String description;
     private List<String> tags;
@@ -72,6 +73,14 @@ public class Artifact {
 
     public void setFileUrl(String fileUrl) {
         this.fileUrl = fileUrl;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     public String getName() {
