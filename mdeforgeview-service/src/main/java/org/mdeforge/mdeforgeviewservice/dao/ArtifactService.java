@@ -9,7 +9,7 @@ public interface ArtifactService <T extends Artifact>{
     T create(T artifact) throws BusinessException;
     boolean existRelation(String idTo, String idFrom) throws BusinessException;
     void createIndex(T artifact) throws BusinessException;
-
+    List<T> findMyArtifacts(User user) throws BusinessException;
     /*
     public Artifact createArtifact(Artifact artifact) throws BusinessException;
 	public void updateArtifact(Artifact artifact) throws BusinessException;			

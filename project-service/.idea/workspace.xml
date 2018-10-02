@@ -2,29 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4f4e496-2858-4124-b569-7213069a8891" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/controller/ArtifactServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/controller/ArtifactServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/dao/CRUDArtifactService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/dao/CRUDArtifactService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/impl/CRUDArtifactServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/impl/CRUDArtifactServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/impl/EcoreMetamodelServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/impl/EcoreMetamodelServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/model/GridFileMedia.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apigateway-service/src/main/java/org/mdeforge/apigatewayservice/Artifacts/ArtifactConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apigateway-service/src/main/java/org/mdeforge/apigatewayservice/Artifacts/ArtifactConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/Controller/EcoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/Controller/EcoreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/Controller/ModelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/Controller/ModelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/Service/ArtifactService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-ui/src/main/java/org/mdeforge/mdeforgeui/Service/ArtifactService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforge-ui/src/main/resources/static/theme/scripts/myscripts/model.js" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-ui/src/main/resources/static/theme/scripts/myscripts/model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforge-ui/src/main/resources/templates/private/artifact/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforge-ui/src/main/resources/templates/private/artifact/upload.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/controller/MdeforgeviewServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/controller/MdeforgeviewServiceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/ArtifactService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/ArtifactService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/EcoreMetamodelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/EcoreMetamodelService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/impl/ArtifactServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/impl/ArtifactServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/EventHandlersConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/EventHandlersConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/Artifact.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/Artifact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/target/test-classes/image_info.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/EcoreMetamodelHistoryEventHandlers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/EcoreMetamodelHistoryEventHandlers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/commands/ValidateArtifactCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/commands/ValidateArtifactCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/AddedArtifactToProjectListEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/AddedArtifactToProjectListEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/ArtifactCreatedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/ArtifactCreatedEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/ArtifactDeletedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/ArtifactDeletedEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/ArtifactUpdatedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/ArtifactUpdatedEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/ChangedArtifactOpenEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/ChangedArtifactOpenEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/RemovedArtifactToProjectListEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/RemovedArtifactToProjectListEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/SharedArtifactToUserEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/SharedArtifactToUserEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/info/ArtifactInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/info/ArtifactInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/info/GridFileMediaInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/info/PropertyInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/info/PropertyInfo.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/../eventuate-tram-aggregate-domain-events/target/" />
     <ignored path="$PROJECT_DIR$/../mdeforgeview-service/target/" />
@@ -43,20 +32,21 @@
     <session id="-900300701">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.0" value="4" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.4" value="3" />
           <entry key="project.open.time.5" value="2" />
+          <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="13" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="5" />
-          <entry key="java" value="258" />
+          <entry key="class" value="10" />
+          <entry key="java" value="278" />
           <entry key="properties" value="1" />
           <entry key="xml" value="2" />
           <entry key="yml" value="1" />
@@ -64,8 +54,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="5" />
-          <entry key="JAVA" value="258" />
+          <entry key="CLASS" value="10" />
+          <entry key="JAVA" value="278" />
           <entry key="Properties" value="1" />
           <entry key="XML" value="2" />
           <entry key="YAML" value="1" />
@@ -73,14 +63,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="6167" />
+          <entry key="java" value="6518" />
           <entry key="properties" value="20" />
           <entry key="yml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6167" />
+          <entry key="JAVA" value="6518" />
           <entry key="Properties" value="20" />
           <entry key="YAML" value="2" />
         </counts>
@@ -118,56 +108,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/controller/ArtifactServiceController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/EcoreMetamodelHistoryEventHandlers.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="66" selection-start-line="66" selection-end-line="66" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/impl/CRUDArtifactServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/EcoreMetamodelService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/controller/MdeforgeviewServiceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-330">
-              <caret line="31" column="47" lean-forward="true" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+            <state relative-caret-position="165">
+              <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -204,7 +149,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/model/Relation.java" />
         <option value="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/model/Metamodel.java" />
         <option value="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/model/EcoreMetamodel.java" />
         <option value="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/model/Transformation.java" />
@@ -249,11 +193,12 @@
         <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/EcoreMetamodel.java" />
         <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/Property.java" />
         <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/CRUDArtifactService.java" />
-        <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/ArtifactService.java" />
         <option value="$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/impl/CRUDArtifactServiceImpl.java" />
-        <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/impl/ArtifactServiceImpl.java" />
-        <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/EcoreMetamodelHistoryEventHandlers.java" />
+        <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/ArtifactService.java" />
         <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/EcoreMetamodelService.java" />
+        <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/impl/EcoreMetamodelServiceImpl.java" />
+        <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/EcoreMetamodelHistoryEventHandlers.java" />
+        <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/impl/ArtifactServiceImpl.java" />
         <option value="$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/controller/MdeforgeviewServiceController.java" />
       </list>
     </option>
@@ -263,6 +208,12 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
@@ -278,91 +229,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="artifact-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="artifact-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="artifact-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="artifact-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="artifact-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="artifactservice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="artifact-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="artifactservice" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="artifact-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="artifactservice" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="artifact-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="artifactservice" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="artifact-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="artifactservice" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="artifact-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="artifactservice" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
-              <item name="artifact-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
             <path>
               <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
               <item name="mdeforgeview-service" type="462c0819:PsiDirectoryNode" />
@@ -392,6 +264,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mdeforgeviewservice" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mdeforgeview-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mdeforgeviewservice" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
@@ -429,13 +310,19 @@
               <item name="mdeforgeviewservice" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="project-service" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mdeforgeview-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mdeforgeviewservice" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -447,7 +334,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538402038507" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538495372209" />
   </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
@@ -465,7 +352,7 @@
         </RuleState>
       </list>
     </option>
-    <option name="contentProportion" value="0.27937043" />
+    <option name="contentProportion" value="0.22540753" />
   </component>
   <component name="RunManager" selected="Spring Boot.ArtifactServiceApplication">
     <configuration name="ArtifactServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
@@ -542,8 +429,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.MdeforgeviewServiceApplication" />
         <item itemvalue="Spring Boot.ArtifactServiceApplication" />
+        <item itemvalue="Spring Boot.MdeforgeviewServiceApplication" />
         <item itemvalue="Spring Boot.UserServiceApplication" />
         <item itemvalue="Spring Boot.WorkspaceServiceApplication" />
         <item itemvalue="Spring Boot.ProjectServiceApplication" />
@@ -575,11 +462,12 @@
       <workItem from="1538381239113" duration="5013000" />
       <workItem from="1538395112034" duration="952000" />
       <workItem from="1538396138681" duration="6145000" />
+      <workItem from="1538467592136" duration="9316000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97039000" />
+    <option name="totallyTimeSpent" value="106355000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -599,9 +487,9 @@
       <window_info id="Capture Tool" order="3" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info id="Designer" order="5" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.34587714" />
+      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.34975097" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Run Dashboard" order="0" visible="true" weight="0.86054057" />
+      <window_info active="true" anchor="bottom" id="Run Dashboard" order="0" visible="true" weight="0.2227027" />
       <window_info anchor="bottom" id="Messages" order="1" weight="0.32864866" />
       <window_info anchor="bottom" id="Terminal" order="2" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
@@ -617,7 +505,7 @@
       <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="14" weight="0.32972974" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
-      <window_info anchor="right" id="Maven Projects" order="1" />
+      <window_info anchor="right" id="Maven Projects" order="1" weight="0.32982844" />
       <window_info anchor="right" id="Database" order="2" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="right" id="Theme Preview" order="4" />
@@ -653,13 +541,43 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
-        <watch expression="file.getOriginalFilename()" language="JAVA" />
+        <watch expression="this.persistentClass = (Class&lt;T&gt;) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];" language="JAVA" />
         <watch expression="artifact.getFile()" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>this.persistentClass = (Class&lt;T&gt;) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(Class&lt;T&gt;) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0]</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0]</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>((ParameterizedType) getClass().getGenericSuperclass())</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>getClass().getGenericSuperclass()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>file.getOriginalFilename()</expression-string>
         <language-id>JAVA</language-id>
@@ -680,36 +598,6 @@
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>workspace.getProjects().contains(project)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>workspace.removeProject(new Project())</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>workspace.removeProject(new Project(&quot;aaaaa&quot;))</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>userRepository.findUserByEmail(&quot;carlos@example.com&quot;)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>userRepository.findAll()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>dee.getEvent().getUserInfo().getRolesInfo()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
     <expressions id="setValue">
       <expression>
@@ -720,51 +608,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/model/GridFileMedia.java" />
-    <entry file="file://$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/events/EcoreMetamodelDomainEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/model/EcoreMetamodelDomainEventPublisher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/model/ArtifactDomainEventPublisher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="88" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="88" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../user-service/src/main/java/org/mdeforge/userservice/model/UserDomainEventPublisher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/info/MetamodelInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="47" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../service-model/src/main/java/org/mdeforge/servicemodel/artifact/api/info/EcoreMetamodelInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -776,16 +619,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding>
-            <element signature="e#556#557#0" expanded="true" />
-            <element signature="e#583#584#0" expanded="true" />
-            <element signature="e#623#624#0" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#715#716#0" expanded="true" />
-            <element signature="e#757#758#0" expanded="true" />
-            <element signature="e#791#792#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -793,104 +626,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#1286#1287#0" expanded="true" />
-            <element signature="e#1311#1312#0" expanded="true" />
-            <element signature="e#1347#1348#0" expanded="true" />
-            <element signature="e#1375#1376#0" expanded="true" />
-            <element signature="e#1406#1407#0" expanded="true" />
-            <element signature="e#1433#1434#0" expanded="true" />
-            <element signature="e#1473#1474#0" expanded="true" />
-            <element signature="e#1505#1506#0" expanded="true" />
-            <element signature="e#1543#1544#0" expanded="true" />
-            <element signature="e#1577#1578#0" expanded="true" />
-            <element signature="e#1631#1632#0" expanded="true" />
-            <element signature="e#1677#1678#0" expanded="true" />
-            <element signature="e#1708#1709#0" expanded="true" />
-            <element signature="e#1735#1736#0" expanded="true" />
-            <element signature="e#1776#1777#0" expanded="true" />
-            <element signature="e#1808#1809#0" expanded="true" />
-            <element signature="e#1842#1843#0" expanded="true" />
-            <element signature="e#1872#1873#0" expanded="true" />
-            <element signature="e#1918#1919#0" expanded="true" />
-            <element signature="e#1956#1957#0" expanded="true" />
-            <element signature="e#1991#1992#0" expanded="true" />
-            <element signature="e#2022#2023#0" expanded="true" />
-            <element signature="e#2070#2071#0" expanded="true" />
-            <element signature="e#2110#2111#0" expanded="true" />
-            <element signature="e#2146#2147#0" expanded="true" />
-            <element signature="e#2178#2179#0" expanded="true" />
-            <element signature="e#2229#2230#0" expanded="true" />
-            <element signature="e#2271#2272#0" expanded="true" />
-            <element signature="e#2304#2305#0" expanded="true" />
-            <element signature="e#2334#2335#0" expanded="true" />
-            <element signature="e#2378#2379#0" expanded="true" />
-            <element signature="e#2416#2417#0" expanded="true" />
-            <element signature="e#2449#2450#0" expanded="true" />
-            <element signature="e#2480#2481#0" expanded="true" />
-            <element signature="e#2526#2527#0" expanded="true" />
-            <element signature="e#2566#2567#0" expanded="true" />
-            <element signature="e#2607#2608#0" expanded="true" />
-            <element signature="e#2637#2638#0" expanded="true" />
-            <element signature="e#2683#2684#0" expanded="true" />
-            <element signature="e#2721#2722#0" expanded="true" />
-            <element signature="e#2755#2756#0" expanded="true" />
-            <element signature="e#2785#2786#0" expanded="true" />
-            <element signature="e#2831#2832#0" expanded="true" />
-            <element signature="e#2869#2870#0" expanded="true" />
-            <element signature="e#2908#2909#0" expanded="true" />
-            <element signature="e#2943#2944#0" expanded="true" />
-            <element signature="e#2999#3000#0" expanded="true" />
-            <element signature="e#3047#3048#0" expanded="true" />
-            <element signature="e#3093#3094#0" expanded="true" />
-            <element signature="e#3135#3136#0" expanded="true" />
-            <element signature="e#3205#3206#0" expanded="true" />
-            <element signature="e#3267#3268#0" expanded="true" />
-            <element signature="e#3315#3316#0" expanded="true" />
-            <element signature="e#3359#3360#0" expanded="true" />
-            <element signature="e#3545#3546#0" expanded="true" />
-            <element signature="e#3587#3588#0" expanded="true" />
-            <element signature="e#3657#3658#0" expanded="true" />
-            <element signature="e#3719#3720#0" expanded="true" />
-            <element signature="e#3765#3766#0" expanded="true" />
-            <element signature="e#3807#3808#0" expanded="true" />
-            <element signature="e#3877#3878#0" expanded="true" />
-            <element signature="e#3939#3940#0" expanded="true" />
-            <element signature="e#3989#3990#0" expanded="true" />
-            <element signature="e#4035#4036#0" expanded="true" />
-            <element signature="e#4220#4221#0" expanded="true" />
-            <element signature="e#4247#4248#0" expanded="true" />
-            <element signature="e#4293#4294#0" expanded="true" />
-            <element signature="e#4325#4326#0" expanded="true" />
-            <element signature="e#4358#4359#0" expanded="true" />
-            <element signature="e#4387#4388#0" expanded="true" />
-            <element signature="e#4431#4432#0" expanded="true" />
-            <element signature="e#4467#4468#0" expanded="true" />
-            <element signature="e#4511#4512#0" expanded="true" />
-            <element signature="e#4545#4546#0" expanded="true" />
-            <element signature="e#4605#4606#0" expanded="true" />
-            <element signature="e#4651#4652#0" expanded="true" />
-            <element signature="e#4698#4699#0" expanded="true" />
-            <element signature="e#4735#4736#0" expanded="true" />
-            <element signature="e#4801#4802#0" expanded="true" />
-            <element signature="e#4853#4854#0" expanded="true" />
-            <element signature="e#4903#4904#0" expanded="true" />
-            <element signature="e#4938#4939#0" expanded="true" />
-            <element signature="e#5005#5006#0" expanded="true" />
-            <element signature="e#5053#5054#0" expanded="true" />
-            <element signature="e#5101#5102#0" expanded="true" />
-            <element signature="e#5135#5136#0" expanded="true" />
-            <element signature="e#5199#5200#0" expanded="true" />
-            <element signature="e#5245#5246#0" expanded="true" />
-            <element signature="e#5297#5298#0" expanded="true" />
-            <element signature="e#5333#5334#0" expanded="true" />
-            <element signature="e#5403#5404#0" expanded="true" />
-            <element signature="e#5453#5454#0" expanded="true" />
-            <element signature="e#5506#5507#0" expanded="true" />
-            <element signature="e#5543#5544#0" expanded="true" />
-            <element signature="e#5615#5616#0" expanded="true" />
-            <element signature="e#5667#5668#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -954,9 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
-          <folding>
-            <element signature="e#547#548#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -967,9 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="47" column="67" selection-start-line="47" selection-start-column="58" selection-end-line="47" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1042,16 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="31" column="5" selection-start-line="12" selection-start-column="4" selection-end-line="31" selection-end-column="5" />
-          <folding>
-            <element signature="e#473#474#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-            <element signature="e#632#633#0" expanded="true" />
-            <element signature="e#674#675#0" expanded="true" />
-            <element signature="e#708#709#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1080,23 +799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="31" column="39" lean-forward="true" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2135#2136#0" expanded="true" />
-            <element signature="e#2166#2167#0" expanded="true" />
-            <element signature="e#2214#2215#0" expanded="true" />
-            <element signature="e#2254#2255#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/Metamodel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1114,13 +816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/EcoreMetamodel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/Property.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1128,13 +823,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/CRUDArtifactService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/CRUDArtifactService.java" />
     <entry file="file://$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/dao/EcoreMetamodelService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1156,33 +845,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/ArtifactService.java">
+    <entry file="file://$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/controller/ArtifactServiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/repository/ArtifactRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/MdeforgeviewServiceApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/impl/EcoreMetamodelServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/impl/ArtifactServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="30" column="49" lean-forward="true" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/Artifact.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
+        <state relative-caret-position="601">
           <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
           <folding>
             <element signature="e#1302#1303#0" expanded="true" />
@@ -1280,26 +966,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/EcoreMetamodelService.java">
+    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/EcoreMetamodel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+        <state relative-caret-position="30">
+          <caret line="2" column="38" lean-forward="true" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/model/Metamodel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/controller/MdeforgeviewServiceController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-330">
-          <caret line="31" column="47" lean-forward="true" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/impl/CRUDArtifactServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
+        <state relative-caret-position="615">
           <caret line="41" selection-start-line="41" selection-end-line="41" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1307,20 +993,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/controller/ArtifactServiceController.java">
+    <entry file="file://$PROJECT_DIR$/../artifact-service/src/main/java/org/mdeforge/artifactservice/impl/EcoreMetamodelServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="360">
+          <caret line="24" column="70" lean-forward="true" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="86" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/messaging/EcoreMetamodelHistoryEventHandlers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
+        <state relative-caret-position="715">
+          <caret line="66" column="53" selection-start-line="66" selection-start-column="53" selection-end-line="66" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/EcoreMetamodelService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.3.RELEASE/spring-beans-4.3.3.RELEASE.jar!/org/springframework/beans/BeanUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="67" column="39" lean-forward="true" selection-start-line="67" selection-start-column="39" selection-end-line="67" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.3.RELEASE/spring-beans-4.3.3.RELEASE.jar!/org/springframework/beans/factory/support/SimpleInstantiationStrategy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.3.RELEASE/spring-beans-4.3.3.RELEASE.jar!/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="338" selection-start-line="338" selection-end-line="338" />
+          <folding>
+            <element signature="e#15475#15713#0" expanded="true" />
+            <element signature="e#15712#15713#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/dao/ArtifactService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/impl/ArtifactServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-176">
+          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1429#1459#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/impl/EcoreMetamodelServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#728#729#0" expanded="true" />
+            <element signature="e#756#757#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../mdeforgeview-service/src/main/java/org/mdeforge/mdeforgeviewservice/controller/MdeforgeviewServiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
         </state>
       </provider>
     </entry>

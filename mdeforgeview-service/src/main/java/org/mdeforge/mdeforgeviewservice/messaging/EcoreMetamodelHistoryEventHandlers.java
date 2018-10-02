@@ -5,6 +5,7 @@ import io.eventuate.tram.events.subscriber.DomainEventEnvelope;
 import io.eventuate.tram.events.subscriber.DomainEventHandlers;
 import io.eventuate.tram.events.subscriber.DomainEventHandlersBuilder;
 import org.mdeforge.mdeforgeviewservice.dao.ArtifactService;
+import org.mdeforge.mdeforgeviewservice.dao.EcoreMetamodelService;
 import org.mdeforge.mdeforgeviewservice.dao.UserService;
 import org.mdeforge.mdeforgeviewservice.model.EcoreMetamodel;
 import org.mdeforge.mdeforgeviewservice.model.Property;
@@ -27,7 +28,7 @@ public class EcoreMetamodelHistoryEventHandlers {
     private UserService userService;
 
     @Autowired
-    private ArtifactService artifactService;
+    private EcoreMetamodelService ecoreMetamodelService;
 
     public DomainEventHandlers domainEventHandlers() {
         return DomainEventHandlersBuilder
@@ -63,8 +64,8 @@ public class EcoreMetamodelHistoryEventHandlers {
         });
 
         ecoreMetamodel.setSharedUserList(userList);
-
-        artifactService.create(ecoreMetamodel);
+        ecoreMetamodelService.create(ecoreMetamodel);
+        //artifactService.create(ecoreMetamodel);
     }
 
 }

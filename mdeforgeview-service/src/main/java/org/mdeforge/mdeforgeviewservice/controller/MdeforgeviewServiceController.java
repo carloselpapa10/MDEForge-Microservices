@@ -14,8 +14,11 @@ public class MdeforgeviewServiceController {
 
 	private static final Logger log = LoggerFactory.getLogger(MdeforgeviewServiceController.class);
 
+	//@Autowired
+	//private ArtifactService artifactService;
+
 	@Autowired
-	private ArtifactService artifactService;
+    private EcoreMetamodelService ecoreMetamodelService;
 				
 	@Autowired
 	private UserService userService;
@@ -39,6 +42,13 @@ public class MdeforgeviewServiceController {
 		log.info("findAllArtifacts() - MdeforgeviewServiceController - MdeforgeviewService");
 		return artifactService.findAll();
 	}*/
+
+	@GetMapping("/retrieve/ecoreMetamodels/{userId}")
+    public List<EcoreMetamodel> findAllEcoreMetamodelsByUserId(@PathVariable("userId") String id){
+        log.info("findAllEcoreMetamodelsByUserId() - MdeforgeviewServiceController - MdeforgeviewService");
+
+        return ecoreMetamodelService.findAll(userService.findUser(id));
+    }
 
 	@GetMapping("/findUser/{userId}")
 	public User findUser(@PathVariable("userId") String id){

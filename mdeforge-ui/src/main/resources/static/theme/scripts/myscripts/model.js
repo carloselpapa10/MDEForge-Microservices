@@ -67,14 +67,8 @@ function getMetamodels(typeArtifact, project, input){
         '<span class="by loagind-select text-primary">Loading...</span>' +
         '</div>');
     $.ajax({
-        type: "POST",
-        url: ctx + '/public/searchArtifact',
-        data: {
-            search_string: query,
-            id_project: project,
-            type: typeArtifact,
-            limit: 50
-        },
+        type: "GET",
+        url: ctx + '/private/EcoreMetamodel/searchArtifacts',
         dataType:'json',
         success: function(data) {
             console.log(data)

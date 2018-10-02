@@ -14,10 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
@@ -37,7 +34,11 @@ public class EcoreController extends ArtifactController<EcoreMetamodel>{
     @Autowired
     private UserService userService;
 
-
+    @GetMapping("/searchArtifacts")
+    @ResponseBody
+    public List<EcoreMetamodel> searchEcoreMetamodels(@ModelAttribute("currentUser") User user){
+        return artifactService.searchEcoreMetamodel(user.getId() != null ? user.getId() : userService.findUserByEmail(user.getEmail()).getId());
+    }
 
     @PostMapping("/upload")
     public String uploadNewArtifact(Model model, EcoreMetamodel artifact, @RequestParam("artifactfile") MultipartFile file, @ModelAttribute("currentUser") User user){

@@ -21,6 +21,11 @@ public class ArtifactConfiguration {
                 .route(r -> r.path("/artifact/ecoremetamodel").and().method("POST")
                         .filters(f-> f.rewritePath("/artifact/ecoremetamodel","/createArtifact/ecoreMetamodel"))
                         .uri(artifactservice_url))
+
+                .route(r -> r.path("/view/ecoreMetamodels/user_id/*").and().method("GET")
+                        .filters(f-> f.rewritePath("/view/ecoreMetamodels/user_id/(?<userId>.*)","/retrieve/ecoreMetamodels/${userId}"))
+                        .uri(mdeforgeviewservice_url))
+
                 .build();
 
     }
