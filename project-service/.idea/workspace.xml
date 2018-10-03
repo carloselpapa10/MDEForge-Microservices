@@ -84,7 +84,7 @@
     <session id="-900300701">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.0" value="4" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.4" value="3" />
@@ -349,7 +349,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538578071573" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538578251346" />
   </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
@@ -478,12 +478,12 @@
       <workItem from="1538395112034" duration="952000" />
       <workItem from="1538396138681" duration="6145000" />
       <workItem from="1538467592136" duration="9316000" />
-      <workItem from="1538554622847" duration="11054000" />
+      <workItem from="1538554622847" duration="11585000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117409000" />
+    <option name="totallyTimeSpent" value="117940000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
