@@ -17,8 +17,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class CRUDArtifactServiceImpl<T extends Artifact> implements CRUDArtifactService<T> {
+
+    private static final Logger log = LoggerFactory.getLogger(CRUDArtifactServiceImpl.class);
 
     @Autowired
     protected ArtifactRepository artifactRepository;
@@ -39,6 +43,8 @@ public abstract class CRUDArtifactServiceImpl<T extends Artifact> implements CRU
     @Override
     public T create(T artifact, MultipartFile file) throws BusinessException {
 
+        log.info("create(T artifact, MultipartFile file) - CRUDArtifactServiceImpl - ArtifactService");
+
         if(artifactRepository.findByName(artifact.getName()) != null){
             throw new DuplicateNameException("Duplicate", "Duplicate artifact name");
         }
@@ -47,10 +53,12 @@ public abstract class CRUDArtifactServiceImpl<T extends Artifact> implements CRU
 
         UUID uuid = UUID.randomUUID();
         try{
-            file.transferTo(new File(files_path+uuid.toString()+"_"+file.getOriginalFilename()));
+            log.info(files_path);
+            file.transferTo(new File(files_path+"/"+uuid.toString()+"_"+file.getOriginalFilename()));
             artifact.setFileUrl(uuid.toString()+"_"+file.getOriginalFilename());
         }catch (IOException e){
-            System.out.println(e);
+            log.error(e.getMessage());
+            throw new BusinessException(e.getMessage()+" "+e.getCause());
         }
 
         artifact.setGenerated(false);

@@ -27,7 +27,7 @@ eventuatelocal:
     dbUserName: root
     dbPassword: rootpassword 
 
-    
+files.path: /home/carlos/Documents/MDEForge-Microservices/files
 ---  
 spring:
   profiles: container
@@ -58,3 +58,5 @@ eventuatelocal:
   cdc:
     dbUserName: root
     dbPassword: rootpassword
+
+files.path: ${FILES_PATH}

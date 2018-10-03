@@ -14,7 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import static java.util.Collections.singletonList;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import io.eventuate.tram.events.aggregates.ResultWithDomainEvents;
@@ -24,11 +25,15 @@ import java.util.List;
 @Service
 public class EcoreMetamodelServiceImpl extends CRUDArtifactServiceImpl<EcoreMetamodel> implements EcoreMetamodelService {
 
+    private static final Logger log = LoggerFactory.getLogger(EcoreMetamodelServiceImpl.class);
+
     @Autowired
     private EcoreMetamodelDomainEventPublisher ecoreMetamodelDomainEventPublisher;
 
     @Override
     public EcoreMetamodel create(EcoreMetamodel artifact, MultipartFile file) throws BusinessException {
+        log.info("create(EcoreMetamodel artifact, MultipartFile file) - EcoreMetamodelServiceImpl - ArtifactService");
+
         EcoreMetamodel ecoreMetamodel = super.create(artifact, file);
 
         //result.setValid(isValid(result));

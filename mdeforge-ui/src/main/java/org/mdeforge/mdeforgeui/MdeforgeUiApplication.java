@@ -12,9 +12,13 @@ import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
 import org.springframework.web.reactive.function.client.ExchangeFilterFunctions;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @SpringBootApplication
 public class MdeforgeUiApplication {
+
+    private static final Logger logger = LoggerFactory.getLogger(MdeforgeUiApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(MdeforgeUiApplication.class, args);
@@ -41,10 +45,11 @@ public class MdeforgeUiApplication {
                 .baseUrl(apigateway_service_url)
                 .filter(ExchangeFilterFunctions
                         .basicAuthentication(apigateway_service_user, apigateway_service_pass))
+                .filter(logRequest())
                 .build();
     }
 
-    /* looging requets
+    /* looging requets*/
     private ExchangeFilterFunction logRequest() {
         return (clientRequest, next) -> {
             logger.info("Request: {} {}", clientRequest.method(), clientRequest.url());
@@ -53,5 +58,5 @@ public class MdeforgeUiApplication {
             return next.exchange(clientRequest);
         };
     }
-    */
+
 }

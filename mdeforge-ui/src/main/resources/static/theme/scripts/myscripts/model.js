@@ -63,7 +63,7 @@ function getMetamodels(typeArtifact, project, input){
     //input is the html element
     var select = input.data("content");
     var query = input.val();
-    select.html('<div class="my-select-item-info">' +
+    select.html('<div class="my-select-item-info" id="selectedArtifact">' +
         '<span class="by loagind-select text-primary">Loading...</span>' +
         '</div>');
     $.ajax({

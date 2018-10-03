@@ -15,7 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 public class ModelController extends ArtifactController<Model>{
 
     @PostMapping("/upload")
-    public String uploadNewArtifact(org.springframework.ui.Model model, Model artifact, @ModelAttribute ("artifact") ModelForm modelIn, @RequestParam("artifactfile") MultipartFile file, @ModelAttribute("currentUser") User user){
+    public String uploadNewArtifact(org.springframework.ui.Model model, @ModelAttribute ("artifact") ModelForm modelIn, @RequestParam("artifactfile") MultipartFile file, @ModelAttribute("currentUser") User user){
+
+        /*TODO complete create model workflow*/
 
         return "redirect:/";
     }

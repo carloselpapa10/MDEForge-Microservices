@@ -16,6 +16,8 @@
 	  <module>project-service</module>
 	  <module>artifact-service</module>
 	  <module>mdeforgeview-service</module>
+	  <module>apigateway-service</module>
+	  <module>mdeforge-ui</module>
   </modules>
 	
 <build>

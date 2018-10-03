@@ -7,3 +7,35 @@ spring:
   clould:
     config:
       enabled: false
+
+projectservice.url: http://localhost:5002
+artifactservice.url: http://localhost:8091
+workspaceservice.url: http://localhost:5001
+userservice.url: http://localhost:5000
+mdeforgeviewservice.url: http://localhost:8084
+
+apigateway.user: user
+apigateway.pass: password
+apigateway.roles: ROLE_USER
+
+---
+spring:
+  profiles: container
+  clould:
+    config:
+      enabled: false
+
+projectservice.url: ${PROJECT-SERVICEURL}
+artifactservice.url: ${ARTIFAT-SERVICEURL}
+workspaceservice.url: ${WORKSPACE-SERVICEURL}
+userservice.url: ${USER-SERVICEURL}
+mdeforgeviewservice.url: ${MDEFORGEVIEW-SERVICEURL}
+
+apigateway.user: ${APIGATEWAY-USER}
+apigateway.pass: ${APIGATEWAY-PASS}
+apigateway.roles: ${APIGATEWAY-ROLES}
+
+server:
+  port: 8080
+
+

@@ -12,3 +12,43 @@ spring:
             client-id: 991210279768-bieok6rd3f1aqqeh91775k2qqijkl043.apps.googleusercontent.com
             client-secret: -74dWPNQ-HoqlpEZlKGiiBdP
             scope: profile, email, address, phone
+          facebook:
+            client-id: 259194048051195
+            client-secret: 554023768301bac520420f35736ce0e6
+          github:
+            client_id: 9613aab4c8ce31009671
+            client-secret: cfb1a642b4959f0d42bd9e6a31c2289c4e4abed6
+
+apigateway.service.url: http://localhost:8085
+apigateway.user: user
+apigateway.pass: password
+apigateway.roles: ROLE_USER
+
+---
+spring:
+  profiles: container
+  thymeleaf:
+    cache: false
+    security:
+      oauth2:
+        client:
+          registration:
+            google:
+              client-id: ${GOOGLE-CLIENT-ID}
+              client-secret: ${GOOGLE-CLIENT-SECRET}
+              scope: profile, email, address, phone
+            facebook:
+              client-id: ${FACEBOOK-CLIENT-ID}
+              client-secret: ${FACEBOOK-CLIENT-SECRET}
+            github:
+              client_id: ${GITHUB-CLIENT-ID}
+              client-secret: ${GITHUB-CLIENT-SECRET}
+
+apigateway.service.url: ${APIGATEWAY-SERVICEURL}
+apigateway.user: ${APIGATEWAY-USER}
+apigateway.pass: ${APIGATEWAY-PASS}
+apigateway.roles: ${APIGATEWAY-ROLES}
+
+server:
+  port: 8080
+

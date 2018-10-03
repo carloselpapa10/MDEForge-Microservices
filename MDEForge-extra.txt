@@ -8,11 +8,14 @@ mvn -f workspace-service/pom.xml -s settings.xml docker:build
 mvn -f project-service/pom.xml -s settings.xml docker:build
 mvn -f artifact-service/pom.xml -s settings.xml docker:build
 mvn -f mdeforgeview-service/pom.xml -s settings.xml docker:build
+mvn -f apigateway-service/pom.xml -s settings.xml docker:build
+mvn -f mdeforge-ui/pom.xml -s settings.xml docker:build
 
 docker-compose build
 docker-compose up
 
 docker network create mdeforge-net
+docker volume create artifact-data
 
 docker run -d \
     --name mongodb \
@@ -150,6 +153,7 @@ docker run -d \
 	--link kafka \
 	--link zookeeper \
         --link cdcservice \
+        -v /home/carlos/Documents/MDEForge-Microservices/files:/var/lib/artifactVol \
         -e SPRING_DATASOURCE_URL=jdbc:mysql://mysql/eventuate \
 	-e SPRING_DATASOURCE_USERNAME=mysqluser \
 	-e SPRING_DATASOURCE_PASSWORD=mysqlpw \
@@ -162,6 +166,7 @@ docker run -d \
         -e SPRING_BOOT_ADMIN_USERNAME=admin \
         -e SPRING_BOOT_ADMIN_PASSWORD=admin \
 	-e SPRING_BOOT_ADMIN_CLIENT_NAME=artifact-service \
+	-e FILES_PATH=/var/lib/artifactVol \
 	mdeforge/artifact-service
 
 docker run -d \
@@ -185,4 +190,34 @@ docker run -d \
         -e SPRING_BOOT_ADMIN_PASSWORD=admin \
 	-e SPRING_BOOT_ADMIN_CLIENT_NAME=mdeforgeview-service \
 	mdeforge/mdeforgeview-service
+
+docker run -d \
+	--name apigateway-service \
+        --network=mdeforge-net \
+	-p 5005:8080 \
+        -e PROJECT-SERVICEURL=http://project-service:8080 \
+	-e ARTIFAT-SERVICEURL=http://artifact-service:8080 \
+	-e WORKSPACE-SERVICEURL=http://workspace-service:8080 \
+	-e USER-SERVICEURL=http://user-service:8080 \
+        -e MDEFORGEVIEW-SERVICEURL=http://mdeforgeview-service:8080 \
+	-e APIGATEWAY-USER=user \
+	-e APIGATEWAY-PASS=password \
+	-e APIGATEWAY-ROLES=ROLE_USER \
+	mdeforge/apigateway-service
+
+docker run -d \
+	--name mdeforge-ui \
+        --network=mdeforge-net \
+	-p 5006:8080 \
+        -e APIGATEWAY-SERVICEURL=http://apigateway-service:8080 \
+	-e APIGATEWAY-USER=user \
+	-e APIGATEWAY-PASS=password \
+	-e APIGATEWAY-ROLES=ROLE_USER \
+	-e GOOGLE-CLIENT-ID=991210279768-bieok6rd3f1aqqeh91775k2qqijkl043.apps.googleusercontent.com \
+	-e GOOGLE-CLIENT-SECRET=-74dWPNQ-HoqlpEZlKGiiBdP \
+	-e GITHUB-CLIENT-ID=9613aab4c8ce31009671 \
+	-e GITHUB-CLIENT-SECRET=cfb1a642b4959f0d42bd9e6a31c2289c4e4abed6 \
+	-e FACEBOOK-CLIENT-ID=259194048051195 \
+	-e FACEBOOK-CLIENT-SECRET=554023768301bac520420f35736ce0e6 \
+	mdeforge/mdeforge-ui
 
